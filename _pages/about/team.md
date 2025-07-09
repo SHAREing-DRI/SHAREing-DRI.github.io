@@ -52,6 +52,13 @@ feature_row:
     title: "Georgios Fourtakas"
     excerpt: "Georgios Fourtakas, Associate Professor, School of Engineering, The University of Manchester"
     url: "https://research.manchester.ac.uk/en/persons/georgios.fourtakas"
+  - image_path: /assets/profilepics/Bell.jpg
+    alt: "Eamonn Bell"
+    title: "Eamonn Bell"
+    excerpt: "Eamonn Bell, Assistant Professor, Department of Computer Science, Durham University"
+    url: "https://www.eamonnbell.com"
+    btn_class: "btn--primary"
+    btn_label: "Visit"
 ---
 
 {% include feature_row %}
