@@ -59,7 +59,7 @@ feature_row:
     url: "https://www.eamonnbell.com"
     btn_class: "btn--primary"
     btn_label: "Visit"
-    - image_path: /assets/profilepics/Gokmen.jpg
+  - image_path: /assets/profilepics/Gokmen.jpg
     alt: "Gokmen Kilic"
     title: "Gokmen Kilic"
     excerpt: "Gokmen Kilic, Research Software Engineer, DiRAC High-Performance Computing Facilty, The Institute for Computational Cosmology (ICC), Durham University"
