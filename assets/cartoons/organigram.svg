@@ -9,7 +9,7 @@
    id="svg1"
    inkscape:version="1.4.2 (unknown)"
    sodipodi:docname="organigram.svg"
-   inkscape:export-filename="organigram00.png"
+   inkscape:export-filename="organigram03.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -94,6 +94,44 @@
          d="M 5.77,0 -2.88,5 V -5 Z"
          id="path135-1" />
     </marker>
+    <marker
+       style="overflow:visible"
+       id="Triangle-6-6"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-1-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Triangle-6-2"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-1-5" />
+    </marker>
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -104,58 +142,76 @@
        id="rect1"
        width="56.642406"
        height="22.731493"
-       x="26.830616"
-       y="122.22836" />
+       x="11.484776"
+       y="122.75753" />
     <text
        xml:space="preserve"
-       style="font-size:7.40833px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583;fill:#f9f9f9"
-       x="30.169441"
-       y="136.38896"
+       style="font-size:7.40833px;line-height:1.25;font-family:sans-serif;fill:#f9f9f9;stroke-width:0.264583"
+       x="14.823596"
+       y="136.91812"
        id="text1"><tspan
          sodipodi:role="line"
          id="tspan1"
-         style="stroke-width:0.264583;fill:#f9f9f9"
-         x="30.169441"
-         y="136.38896">Working Group</tspan></text>
+         style="fill:#f9f9f9;stroke-width:0.264583"
+         x="14.823596"
+         y="136.91812">Working Group</tspan></text>
     <rect
        style="fill:#800080;stroke-width:0.149514;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
        id="rect1-2"
        width="56.642406"
        height="22.731493"
-       x="120.12083"
-       y="141.81667" />
+       x="104.77505"
+       y="142.34583" />
     <text
        xml:space="preserve"
        style="font-size:7.40833px;line-height:1.25;font-family:sans-serif;fill:#f9f9f9;stroke-width:0.264583"
-       x="123.45966"
-       y="155.97726"
+       x="108.11382"
+       y="156.50642"
        id="text1-8"><tspan
          sodipodi:role="line"
          id="tspan1-9"
          style="fill:#f9f9f9;stroke-width:0.264583"
-         x="123.45966"
-         y="155.97726">RTP community</tspan></text>
+         x="108.11382"
+         y="156.50642">RTP community</tspan></text>
     <rect
        style="fill:#800080;stroke-width:0.149514;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
        id="rect1-3"
        width="56.642406"
        height="22.731493"
-       x="61.912502"
-       y="53.181252" />
+       x="46.566654"
+       y="53.710419" />
     <text
        xml:space="preserve"
-       style="font-size:7.40833px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583;fill:#f9f9f9"
-       x="70.013832"
-       y="67.34185"
+       style="font-size:7.40833px;line-height:1.25;font-family:sans-serif;fill:#f9f9f9;stroke-width:0.264583"
+       x="54.667984"
+       y="67.871017"
        id="text1-5"><tspan
          sodipodi:role="line"
          id="tspan1-6"
-         style="stroke-width:0.264583;fill:#f9f9f9"
-         x="70.013832"
-         y="67.34185">Consortium</tspan></text>
+         style="fill:#f9f9f9;stroke-width:0.264583"
+         x="54.667984"
+         y="67.871017">Consortium</tspan></text>
+    <rect
+       style="fill:#800080;stroke-width:0.149514;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       id="rect1-3-1"
+       width="56.642406"
+       height="22.731493"
+       x="91.632324"
+       y="212.51784" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.40833px;line-height:1.25;font-family:sans-serif;fill:#f9f9f9;stroke-width:0.264583"
+       x="96.029541"
+       y="226.67844"
+       id="text1-5-06"><tspan
+         sodipodi:role="line"
+         id="tspan1-6-3"
+         style="fill:#f9f9f9;stroke-width:0.264583"
+         x="96.029541"
+         y="226.67844">Advisory Board</tspan></text>
     <g
        id="g7"
-       transform="translate(-2.9811794,39.500627)">
+       transform="translate(-18.327018,40.029794)">
       <rect
          style="fill:#999999;stroke-width:0.149514;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
          id="rect1-3-7"
@@ -181,61 +237,93 @@
            id="tspan8">projects</tspan></text>
     </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:1.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Triangle);stroke-dasharray:none"
-       d="M 55.151818,122.22836 82.727728,75.912744"
+       style="fill:none;stroke:#000000;stroke-width:1.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="M 39.805975,122.75753 67.381885,76.441911"
        id="path1" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle-6)"
-       d="m 148.44203,141.81667 0.4436,-23.94014"
+       d="m 133.0961,142.34584 0.4436,-23.94014"
        id="path1-3"
        sodipodi:nodetypes="cc" />
     <path
+       style="fill:none;stroke:#000000;stroke-width:1.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle-6-2)"
+       d="m 133.09625,165.07732 c -0.27382,49.97929 -93.224319,21.85564 -93.290271,-19.58829"
+       id="path1-3-44"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle-6-6)"
+       d="m 154.74522,102.79986 c 57.14833,-0.0754 50.10795,128.05784 -6.47049,121.08372"
+       id="path1-3-4"
+       sodipodi:nodetypes="cc" />
+    <path
        style="fill:none;stroke:#000000;stroke-width:1.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle-0)"
-       d="m 118.55491,75.912743 8.90349,14.387883"
+       d="m 103.20898,76.44191 8.90349,14.387883"
        id="path1-1"
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
        style="font-size:7.40833px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
-       x="22.716496"
-       y="96.262253"
+       x="7.3706627"
+       y="96.79142"
        id="text2"><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="22.716496"
-         y="96.262253"
+         x="7.3706627"
+         y="96.79142"
          id="tspan6">propose </tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="22.716496"
-         y="105.52267"
+         x="7.3706627"
+         y="106.05183"
          id="tspan7">miniprojects</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:7.40833px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
-       x="124.64508"
-       y="80.715492"
+       x="109.29924"
+       y="81.244659"
        id="text2-0"><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="124.64508"
-         y="80.715492"
+         x="109.29924"
+         y="81.244659"
          id="tspan7-3">approve</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:7.40833px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
-       x="150.94736"
-       y="129.92796"
+       x="135.60173"
+       y="130.45712"
        id="text2-0-8"><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="150.94736"
-         y="129.92796"
+         x="135.60173"
+         y="130.45712"
          id="tspan7-3-4">bid for /</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="150.94736"
-         y="139.18837"
+         x="135.60173"
+         y="139.71753"
          id="tspan9">apply for</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.40833px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="156.51831"
+       y="230.51865"
+       id="text2-0-8-9"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="156.51831"
+         y="230.51865"
+         id="tspan9-7">commission</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.40833px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="50.199001"
+       y="197.95587"
+       id="text2-0-8-9-6"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="50.199001"
+         y="197.95587"
+         id="tspan9-7-8">deliver &amp; report</tspan></text>
   </g>
 </svg>
