@@ -15,12 +15,25 @@ Eventually, the workgroups write and collect proposals for miniprojects worth a 
 
 
 
-![Working groups propose miniprojects](assets/cartoons/organigram00.png "Working groups propose miniprojects")
+![Working groups propose miniprojects](/assets/cartoons/organigram00.png)
 
 
 # Calls for miniprojects
 
-Once the consortium has approved the miniprojects, SHAREing advertises for RTPs to 
+Once the consortium has approved the miniprojects, SHAREing advertises these projects.
+RTPs or groups of RTPs can bid to realise the miniprojects that SHAREing wants to commission in this phase.
+Bids typically comprise and estimate of the arising cost, an envisaged time frame and all the realisation details how the team plans to meet the project's deliverables. 
+
+
+![Working groups propose miniprojects](/assets/cartoons/organigram01.png)
+
+
+We expect regular calls for projects (3-4 per annum) and in each call there are many different projects on the table describing what the consortium wants to see delivered.
+Obviously, there's usually quite some scope how this will be achieved.
+Some projects deliver actual reports or training material, others comprise the organisation of events or questoinnaires, or general services to the community.
+
+
+# Calls for miniprojects
 
 
 
