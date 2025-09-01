@@ -53,12 +53,18 @@ feature_row:
     btn_label: "Find out more"
 ---
 
+# News
+
 - August 2025: SHAREing's first round of call for projects has been launched. This is a consortium-internal call only. For details on SHAREing's internal organisation, please consult the [about/organigram](description of SHAREing's internal organisation).
 - July 2025: The first workpackage scoping meetings have kicked off. Details can be found in the sections on [assessment](performance assessment).
 
 
+# Rubrics
+
 {% include feature_row %}
 
+
+# Acknowledgements
 
 This project has received funding through the UKRI Digital Research Infrastructure Programme under grant UKRI1801 (SHAREing).
 
