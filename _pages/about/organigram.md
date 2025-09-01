@@ -6,7 +6,7 @@ title: "SHAREing's organisation"
 
 ## Working groups: how we identify what SHAREing should provide
 
-SHAREing is organised into various working groups, each responsible for a few work packages. 
+SHAREing is organised into various [working groups](https://shareing-dri.github.io/about/workinggroups), each responsible for a few work packages. 
 The groups meet sporadically and organise most of their work asynchronously via email and Slack conversations.
 Their core job is to run scoping exercises: the groups brainstorm which types of activities SHAREing should fund in the future to accomplish its vision. 
 Eventually, the working groups write and collect proposals for miniprojects that they want to see implemented to push the work package's agenda further—essentially, to fill SHAREing with content.
@@ -58,7 +58,7 @@ They also are supposed to report back to the working groups, such that their ins
 
 At the moment (summer 2025), working groups are, by default, open to SHAREing consortium members only. 
 However, we plan to open up the groups to a wider audience and engage with the whole UK community in the long run. 
-Please contact the working group leads if you would like to participate at this early stage already. 
+Please contact the [working group leads](https://shareing-dri.github.io/about/workinggroups) if you would like to participate at this early stage already. 
 We are looking forward to having members from the whole UK community—we just don't want to launch an official call for participation yet. In the long term, working group membership is your opportunity to shape SHAREing's direction of travel.
 
 
