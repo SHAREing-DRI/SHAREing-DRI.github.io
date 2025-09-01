@@ -55,8 +55,8 @@ feature_row:
 
 # News
 
-- August 2025: SHAREing's first round of call for projects has been launched. This is a consortium-internal call only. For details on SHAREing's internal organisation, please consult the [about/organigram](description of SHAREing's internal organisation).
-- July 2025: The first workpackage scoping meetings have kicked off. Details can be found in the sections on [assessment](performance assessment).
+- August 2025: SHAREing's first round of call for projects has been launched. This is a consortium-internal call only. For details on SHAREing's internal organisation, please consult the [description of SHAREing's internal organisation](https://shareing-dri.github.io/about/organigram).
+- July 2025: The first workpackage scoping meetings have kicked off. Details can be found in the sections on [performance assessment](https://shareing-dri.github.io/assessment/).
 
 
 # Rubrics

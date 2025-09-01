@@ -20,6 +20,8 @@ Eventually, the workgroups write and collect proposals for miniprojects worth a 
 
 # Calls for miniprojects
 
+Once the consortium has approved the miniprojects, SHAREing advertises for RTPs to 
+
 
 
 # How to get involved
