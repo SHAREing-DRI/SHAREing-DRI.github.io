@@ -26,8 +26,8 @@ feature_row:
     btn_label: "Meet the team"
   - image_path: /assets/images/logo.png
     alt: "Organigram"
-    title: "SHAREing's Funds"
-    excerpt: "Get an overview of how SHAREing is internally organised, how we make decisions, and how you can dip into SHAREing's funds."
+    title: "SHAREing's Funds, Organigram & How to get involved"
+    excerpt: "Get an overview of how SHAREing is internally organised, how we make decisions, how you can dip into SHAREing's funds, and how you can make a contribution of SHAREing's direction of travel."
     url: "/about/organigram"
     btn_class: "btn--primary"
     btn_label: "Read more"
