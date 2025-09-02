@@ -1,19 +1,6 @@
 main:
   - title: "About"
     url: /about/
-    sublinks:
-    - title: "Vision"
-      url: /about/vision
-    - title: "Institutions"
-      url: /about/institutions
-    - title: "Team"
-      url: /about/team
-    - title: "Funds, Organisation & Get Involved"
-      url: /about/organigram 
-    - title: "Advisory Board"
-      url: /about/advisoryboard 
-    - title: "Working Groups"
-      url: /about/workinggroups 
   - title: "Performance Assessment"
     url: /assessment/
   - title: "Training"
