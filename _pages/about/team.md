@@ -66,6 +66,26 @@ feature_row:
     url: "https://www.durham.ac.uk/staff/gokmen-kilic/"
     btn_class: "btn--primary"
     btn_label: "Visit"
+    - image_path: /assets/profilepics/generic.jpg
+    alt: "Davide Costanzo"
+    title: "Davide Costanzo"
+    excerpt: "Davide Costanzo, Head of Particle Physics and Particle Astrophysics Research Cluster, University of Sheffield"
+- image_path: /assets/profilepics/generic.jpg
+    alt: "Martyn Guest"
+    title: "Martyn Guest"
+    excerpt: "Martyn Guest, Director of Advanced Research Computing, Cardiff University"
+- image_path: /assets/profilepics/generic.jpg
+    alt: "Jon Hays"
+    title: "Jon Hays"
+    excerpt: "Jon Hays, Head of Particle Physics Research Centre, Queen Mary University of London"
+- image_path: /assets/profilepics/generic.jpg
+    alt: "Jon Lockley"
+    title: "Jon Lockley"
+    excerpt: "Jon Lockley, Director of Advanced Research Computing, Cardiff University"
+- image_path: /assets/profilepics/generic.jpg
+    alt: "Alan Real"
+    title: "Alan Real"
+    excerpt: "Alan Real, Director of Advanced Research Computing, Durham University"
 ---
 
 {% include feature_row %}
