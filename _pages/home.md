@@ -63,6 +63,12 @@ feature_row:
 
 {% include feature_row %}
 
+# Social Media
+Follow us on social media and keep up to date with upcoming events:
+
+[LinkedIn](https://events.teams.microsoft.com/event/499b0cf2-b2b8-43c8-bf8c-4b59c52f6725@7250d88b-4b68-4529-be44-d59a2d8a6f94](https://www.linkedin.com/posts/shareing_shareing-research-innovation-activity-7376607786169782272-m_Z6?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEIAhygBhLUh0RWtezg3T5iGVD5GZhqTakQ){: .btn .btn--info .btn--large}
+
+[Bluesky](https://events.teams.microsoft.com/event/499b0cf2-b2b8-43c8-bf8c-4b59c52f6725@7250d88b-4b68-4529-be44-d59a2d8a6f94](https://www.linkedin.com/posts/shareing_shareing-research-innovation-activity-7376607786169782272-m_Z6?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEIAhygBhLUh0RWtezg3T5iGVD5GZhqTakQ)](https://bsky.app/profile/shareing.bsky.social){: .btn .btn--info .btn--large}
 
 # Acknowledgements
 
