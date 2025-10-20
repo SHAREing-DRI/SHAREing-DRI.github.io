@@ -27,8 +27,6 @@ Durham DH1 3LE
 
 ![Cardiff University](/assets/logos/Cardiff-Logo.png)
 
-Yet to be written. 
-
 [Visit Cardiff](https://link-url-here.org)
 
 
@@ -90,6 +88,14 @@ The School of Engineering at the University of Manchester is a centre of excelle
 [Visit Manchester](https://www.se.manchester.ac.uk/about/schools-and-departments/school-of-engineering/)
 
 <!-- {% include feature_row %} -->
+
+### Sheffield  University
+
+![Sheffield University](/assets/logos/sheffield.jpg)
+
+[Visit Sheffield](https://sheffield.ac.uk/?home)
+
+
 
 
 
