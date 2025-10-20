@@ -54,7 +54,7 @@ Involved divisions in Durham are the Institute for Data Science (lead) and the D
 
 ### Queen Mary University of London
 
-![Queen Mary University of London](/assets/logos/QMUL.png)
+![Queen Mary University of London](/assets/logos/QMUL-no-background.png)
 
 Queen Mary University of London (QMUL) is an
 established university in London's vibrant East End committed to
