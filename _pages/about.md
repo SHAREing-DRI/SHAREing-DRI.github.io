@@ -16,11 +16,11 @@ feature_row:
     excerpt: "All the partner institutions involved in SHAREing through their co-leads (CoL)."
     url: "/about/institutions"
     btn_class: "btn--primary"
-    btn_label: "Visit the consortium partners"
+    btn_label: "Consortium partners"
   - image_path: /assets/images/logo.png
     alt: "Team"
     title: "SHAREing's Core Team"
-    excerpt: "Shareing's core team consists of research technology professionals - research software engineers, platform experts, research infrastructure managers and academics - from different institutions from all over the UK."
+    excerpt: "SHAREing's core team consists of research technology professionals from different institutions from all over the UK."
     url: "/about/team"
     btn_class: "btn--primary"
     btn_label: "Meet the team"
