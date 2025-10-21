@@ -65,8 +65,7 @@ and are critical to this endeavour.
 In the future, they will lead on research software development, system design, deployment
 and workflow/user environment management to map academic ambitions onto development and deployment.
 They will champion the translation into computing solutions.
-This is
-becoming increasingly challenging as systems become multifaceted, tailored, 
+This is becoming increasingly challenging as systems become multifaceted, tailored, 
 and heterogeneous, and as the rate of change is itself accelerating.
 
 
