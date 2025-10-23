@@ -5,10 +5,10 @@ classes: wide
 
 feature_row:
   - image_path: /assets/logos/cake-piece.png
-    alt: "20251107"
+    alt: "2025-11-07"
     title: "Performance Assessment Webinar"
-    excerpt: "Virtual webinar on various performance assessment methodologies"
-    url: "https://cake-dri.github.io/events/20251107"
+    excerpt: "Performance Assessment Webinar"
+    url: "events/20251107"
     btn_class: "btn--primary"
     btn_label: "Find out more"
 
