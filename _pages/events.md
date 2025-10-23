@@ -4,9 +4,9 @@ title: "DRI events"
 classes: wide
 
 feature_row:
-  - image_path: /assets/logos/cake-piece.png
-    alt: "2025-11-07"
-    title: "Performance Assessment Webinar"
+  - image_path: /assets/months/october.png
+    alt: "Performance Assessment Webinar"
+    title: "2025-11-07"
     excerpt: "Performance Assessment Webinar"
     url: "events/20251107"
     btn_class: "btn--primary"
