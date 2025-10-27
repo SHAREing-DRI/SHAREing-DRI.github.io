@@ -110,16 +110,11 @@ defaults:
       layout: single
       author_profile: false
       
-# _events
-  - scope:
-      path: ""
-      type: events
-    values:
-      layout: event
-      author_profile: false
 
 
 
+
+future: true
 
 # Collections
 collections_dir: collections

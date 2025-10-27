@@ -4,9 +4,8 @@ permalink: /
 hidden: true
 header:
   overlay_color: "#5e616c"
-  overlay_image: /assets/images/home-banner.png
-excerpt: >
-  Faster delivery of faster science workflows using faster hardware building blocks
+  overlay_image: /assets/images/home-banner-logo.png
+
 
 feature_row:
   - image_path: /assets/images/logo.png
