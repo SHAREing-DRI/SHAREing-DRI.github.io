@@ -2,25 +2,54 @@
 permalink: /events/
 title: "DRI events"
 classes: wide
+
+   
+feature_row:
+  - image_path: /assets/months/october.png
+    alt: "Developing the field of software performance engineering"
+    title: "2025-10-29"
+    excerpt: "Online talk: Developing the field of software performance engineering"
+    url: "https://scicomp.webspace.durham.ac.uk/events/seminar_series"
+    btn_class: "btn--primary"
+    btn_label: "Dial in"
+  - image_path: /assets/months/november.png
+    alt: "Performance Assessment Webinar"
+    title: "2025-11-07"
+    excerpt: "Performance Assessment Webinar"
+    url: "events/20251107"
+    btn_class: "btn--primary"
+    btn_label: "Find out more"
+  - image_path: /assets/months/november.png
+    alt: "Correctness and debugging workshop"
+    title: "2025-11-05 (multiple dates)"
+    excerpt: "Correctness and debugging workshop"
+    url: "events/20251107"
+    btn_class: "https://www.durham.ac.uk/research/institutes-and-centres/data-science/events-/upcoming-events"
+    btn_label: "Register"
+  - image_path: /assets/months/november.png
+    alt: "Supercomputing"
+    title: "2025-11-17"
+    excerpt: "SHAREing @ SC'25"
+    url: "https://www.cake.ac.uk/"
+    btn_class: "https://www.durham.ac.uk/research/institutes-and-centres/data-science/events-/upcoming-events"
+    btn_label: "Read more"
+  - image_path: /assets/months/december.png
+    alt: "CIUK"
+    title: "2025-11-17"
+    excerpt: "SHAREing at CIUK"
+    url: "/events/20251203"
+    btn_class: "https://www.durham.ac.uk/research/institutes-and-centres/data-science/events-/upcoming-events"
+    btn_label: "Read more"
+  - image_path: /assets/months/june.png
+    alt: "Durham HPC Days"
+    title: "2026-06-15"
+    excerpt: "Durham HPC Days"
+    url: "https://www.cake.ac.uk/"
+    btn_class: "https://www.durham.ac.uk/research/institutes-and-centres/data-science/events-/upcoming-events"
+    btn_label: "Read more"
+
+
 ---
 
-Here we link to both SHAREing events and DRI events that SHAREing is attending
+{% include feature_row %}
 
-# Performance Assessment Webinar
-
-SHAREing is organising an afternoon webinar to present and discuss performance assessments. A core component of SHAREing's vision is to establish a performance assessment service, however, to achieve this aim we must understand what a performance assessment can be.
-
-This webinar brings together members of SHAREing and external collaborators to present the findings of performance assessments they have been involved in. Through this webinar, we hope to gain a better understanding of what a performance assessment should include and how this builds into a service.
-
-## Information
-
-**Date & Location:** 7th November 2025, 1pm-4pm GMT (Online)
-
-[Register for webinar](https://events.teams.microsoft.com/event/499b0cf2-b2b8-43c8-bf8c-4b59c52f6725@7250d88b-4b68-4529-be44-d59a2d8a6f94){: .btn .btn--info .btn--large}
-
-## Agenda
-
-* 1pm-3pm: Scheduled talks
-* 3pm-4pm: Q&A with speakers
-
-More details of speakers will be given closer to the time
