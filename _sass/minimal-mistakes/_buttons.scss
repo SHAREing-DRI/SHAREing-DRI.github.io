@@ -99,13 +99,3 @@
     font-size: $type-size-7;
   }
 }
-
-.btn--event {
-  background-color: #002A41;
-  color: #fff;
-  border: none;
-
-  &:hover {
-    background-color: mix(#000, #ffff, 20%);
-  }
-}

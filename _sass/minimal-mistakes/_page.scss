@@ -229,15 +229,9 @@ body {
 }
 
 .page__hero-image {
-
   width: 100%;
-  height: 400px; /* ajusta según el espacio que quieras ocupar */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-
-
+  height: auto;
+  -ms-interpolation-mode: bicubic;
 }
 
 .page__hero-caption {
