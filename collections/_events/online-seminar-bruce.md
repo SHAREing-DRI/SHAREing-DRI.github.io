@@ -10,8 +10,11 @@ summary: Online seminar brought to you by the Scientific Computing Research grou
 ---
 
 **Developing the field of software performance engineering**
-**Wednesday, 29th of October 2025 (16:00 – 17:00hrs, UK Time)**
+
+*Wednesday, 29th of October 2025 (16:00 – 17:00hrs, UK Time)*
+
 **Abstract**
+
 With the recent demise of Moore’s Law, software developers can no longer depend on chip makers for “free” performance. Now, they have to work for it, leading to a renaissance of software performance engineering (SPE) – making programs run fast or otherwise consume few resources such as time, storage, or energy. We consider “developing the field of SPE.” By framing SPE as a field, we aim for both internal innovation and external impact. Our particular external concern is how the broader field of computer science will fare without an SPE community that provides a common infrastructure, a shared understanding of SPE principles, and a lingua franca. We look at developing the field of SPE with this target in mind. In other words, we face a choice: SPE can be tedious, expensive, haphazard, and controlled by “high priests”; or it can be fun, cheap, principled, and democratically available to the average programmer. We review guiding principles of developing a field (in general), and we discuss key factors for developing the field of SPE (in particular). Our discussion is rooted in the example of Fastcode, an NSF-funded open-source ecosystem for making SPE easy and fun. Fastcode emerged in 2021 from the OpenCilk project at MIT to become a “big tent” for SPE. Fastcode holds space for “all of SPE” with its four pillars: (1) research: supporting the development of SPE as a principled scientific field, (2) education: making it easier for instructors to teach SPE, (3) technology: improving the tools that people use for SPE, and (4) skill-building: providing places for hands-on practicing of SPE skills.
 
 [Join the webinar](https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmit.zoom.us%2Fmeeting%2Fregister%2FGtazQzZYT0i9wtxitoa7wQ&data=05%7C02%7Ceva.fernandez-amez%40durham.ac.uk%7C9b7dc58523524dd25b5008de1618c2c4%7C7250d88b4b684529be44d59a2d8a6f94%7C0%7C0%7C638972492758726563%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=e7Vc%2FaGuir65dNp4FirmqOVxfY0dcOeUy%2FU6mhIhcqs%3D&reserved=0){: .btn .btn--event .btn--large}
