@@ -28,7 +28,7 @@ This webinar brings together members of SHAREing and external collaborators to p
 |---------------|-----------------------------------------------------------|----------------------------------------------------------------------|
 | 13:00–13:15   | **Welcome**                                              |                                                                   |
 | 13:15–13:35   | **Thomas Flynn** (Durham University)                     | *Towards a methodology driven performance assessment*                |
-| 13:35–13:55   | **Marta Garcia-Gasulla** (Barcelona Supercomputing Centre) | *TBD*                                                                |
+| 13:35–13:55   | **Marta Garcia-Gasulla** (Barcelona Supercomputing Centre) | *POP turns ten: what have we learned?*                                                                |
 | 13:55–14:05   | **Break**                                                |                                                                     |
 | 14:05–14:25   | **Martyn Guest** (Cardiff University)                    | *Assessing Performance: Guidelines, Strategies and Lessons Learned*  |
 | 14:25–14:45   | **Simon Burbidge** (DiRAC)                               | *HPC - foot hard down on the accelerator or change gear?*                                                                |
