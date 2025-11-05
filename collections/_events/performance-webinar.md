@@ -31,7 +31,7 @@ This webinar brings together members of SHAREing and external collaborators to p
 | 13:35–13:55   | **Marta Garcia-Gasulla** (Barcelona Supercomputing Centre) | *TBD*                                                                |
 | 13:55–14:05   | **Break**                                                |                                                                     |
 | 14:05–14:25   | **Martyn Guest** (Cardiff University)                    | *Assessing Performance: Guidelines, Strategies and Lessons Learned*  |
-| 14:25–14:45   | **Simon Burbidge** (DiRAC)                               | *TBD*                                                                |
+| 14:25–14:45   | **Simon Burbidge** (DiRAC)                               | *HPC - foot hard down on the accelerator or change gear?*                                                                |
 | 14:45–15:45   | **Q&A and Discussion**                                   |                                                                |
 | 15:45–16:00   | **Wrap up**                                              |                                                                   |
 
