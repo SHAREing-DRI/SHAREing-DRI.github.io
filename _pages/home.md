@@ -36,14 +36,14 @@ feature_row:
     url: "/events/"
     btn_class: "btn--primary"
     btn_label: "View schedule"
-  - image_path: /assets/images/home-resources.png
+  - image_path: /assets/images/home-assessment.png
     alt: "resources"
     title: "SHAREing resources"
     excerpt: "SHAREing's outcomes are available freely to the UK community."
     url: "/resources/"
     btn_class: "btn--primary"
     btn_label: "Access these"
-  - image_path: /assets/images/home-network.png
+  - image_path: /assets/images/home-training.png
     alt: "network"
     title: "Network"
     excerpt: "SHAREing is part of a wider ensemble of Digital Research Infrastructure (DRI) projects and itself embedded into a network of partners."
@@ -54,47 +54,28 @@ feature_row:
 
 # News
 
-## November 2025
-- **Performance Assessment Seminar:**  
-  We’re pleased to share the recording of our recent [Performance Assessment Webinar](/events/performance-webinar/).  
-  If you missed it live, you can watch the full session below:
-
-<p align="center">
-  <iframe
-    src="https://durhamuniversity-my.sharepoint.com/personal/mzhc13_durham_ac_uk/_layouts/15/embed.aspx?UniqueId=7da9a1bf-4b1e-45c2-b3e2-4e14d608878d&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
-    width="1280"
-    height="720"
-    frameborder="0"
-    scrolling="no"
-    allowfullscreen
-    title="Performance Assessment Seminar-20251107_160406UTC-Meeting Recording.mp4">
-  </iframe>
-</p>
-
----
-
 ## October 2025
-- **HPC-AI Conference Presentation:**  
-  At the HPC AI Conference, Tobias Weinzierl introduced SHAREing in a dedicated talk highlighting its mission to strengthen the UK’s DRI landscape. The presentation covered SHAREing’s goals, structure, and upcoming activities, emphasising its role in connecting the UK’s Digital Research Infrastructure community and advancing performance assessment and training initiatives.
+- **HPC–AI Conference Presentation:**  
+  At the HPC–AI Conference, Tobias Weinzierl introduced SHAREing in a dedicated talk highlighting its mission to strengthen the UK’s DRI landscape.  
+  The presentation covered SHAREing’s goals, structure, and upcoming activities, emphasising its role in connecting the UK’s Digital Research Infrastructure community and advancing performance assessment and training initiatives.
 
-<p align="center">
-  <iframe
-    src="https://durhamuniversity-my.sharepoint.com/personal/mzhc13_durham_ac_uk/_layouts/15/embed.aspx?UniqueId=4cd5ac4d-8847-4fdf-b466-b56aacbe7583&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
-    width="1280"
-    height="720"
-    frameborder="0"
-    scrolling="no"
-    allowfullscreen
-    title="2 - Tobias Weinzierl Durham University.mov">
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
+  <iframe 
+    src="https://durham.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5a91c0b6-acc9-4a3c-9c00-b39200b39edd&autoplay=false&offerviewer=false&showtitle=false&showbrand=false&captions=false&interactivity=none"
+    style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;"
+    allowfullscreen 
+    allow="autoplay"
+    aria-label="Panopto Embedded Video Player"
+    aria-description="HPC-AI-Conference-SHAREing">
   </iframe>
-</p>
+</div>
 
-- SHAREing's **second round of call for projects** has been launched. This is a consortium-internal call only. For details on SHAREing's internal organisation, please consult the [description of SHAREing's internal organisation](https://shareing-dri.github.io/about/organigram).
-
----
+- **Second round of call for projects:**  
+SHAREing's second round of call for projects has been launched. This is a consortium-internal call only. For details on SHAREing's internal organisation, please consult the [description of SHAREing's internal organisation](https://shareing-dri.github.io/about/organigram).
 
 ## August 2025
-- SHAREing's **first round of call for projects** has been launched. This is a consortium-internal call only. For details on SHAREing's internal organisation, please consult the [description of SHAREing's internal organisation](https://shareing-dri.github.io/about/organigram).
+- **First round of call for projects:**  
+SHAREing's first round of call for projects has been launched. This is a consortium-internal call only. For details on SHAREing's internal organisation, please consult the [description of SHAREing's internal organisation](https://shareing-dri.github.io/about/organigram).
 
 
 ## July 2025
