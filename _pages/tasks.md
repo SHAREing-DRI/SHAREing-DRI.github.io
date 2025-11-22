@@ -1,5 +1,5 @@
 ---
-layout: events-collection
+layout: tasks-collection
 permalink: /tasks/
 collection: tasks
 entries_layout: grid
