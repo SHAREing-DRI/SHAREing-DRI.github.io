@@ -1,5 +1,5 @@
 ---
-permalink: /resources/preformance-assessment-guidebook
+permalink: /performance-assessment/guidebook
 title: "Performance Assessment Guidebook"
 ---
 

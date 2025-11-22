@@ -7,7 +7,7 @@ feature_row:
     alt: "Vision"
     title: "Performance Assessment Guidebook"
     excerpt: "A guidebook how to start performance assessment that has been compiled by SHAREing members following-up on an HAI-End workshop."
-    url: "/resources/preformance-assessment-guidebook"
+    url: "/performance-assessment/guidebook"
     btn_class: "btn--primary"
     btn_label: "Find out more"
 ---
