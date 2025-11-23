@@ -32,6 +32,7 @@ computations, available to all SCW institutions.
 - Document existing work on ‘software performance characterisation’ from Supercomputing Wales.
 = Publish summmary on SHAREing webpage. 
 
+This project has now finished. The outcomes can be found [in a report on the SHAREing webpage](/_pages/performance-assessment/2025-sc-wales).
 
 ## Literature
 1. A. Gray et al: Mapping application performance to HPC architecture, CPC 183 (2012) pp. 520–529
