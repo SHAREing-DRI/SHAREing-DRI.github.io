@@ -2,7 +2,9 @@
 title: "CASTEP"
 layout: tasks
 date: 2025-01-03
-image: assets/images/logo.png
+date: 2025-10-01
+ # set date to completed if done
+image: https://www.castep.org/user/themes/mytheme/images/logo/CASTEP_Logo_2.png
 ---
 
 <!-- I need some pictures and links -->
