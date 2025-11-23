@@ -2,8 +2,8 @@
 title: "Durham HPC Lab"
 layout: tasks
 image: assets/images/logo.png
-date: 0
- # set date to 0 if complete. Otherwise 2025-10-01
+#date: 2000-01-01
+ # set date to 0 if complete. Otherwise remove
 summary: Integrate the links to the Durham HPC Lab into SHAREing webpage.
 ---
 
