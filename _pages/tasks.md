@@ -4,7 +4,7 @@ permalink: /tasks/
 collection: tasks
 entries_layout: grid
 sort_by: date
-sort_order: normal
+sort_order: reverse
 classes: wide
 ---
 
