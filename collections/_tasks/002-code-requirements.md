@@ -12,7 +12,7 @@ summary: Define what codes have to bring along to make them eligible for a code 
 
 This task has been identified by the working groups as part of the agenda behind [WP 1.1](/about/workinggroups).
 
-<!-- I need some pictures and links -->
+The task number is 002.
 
 
 ## Description

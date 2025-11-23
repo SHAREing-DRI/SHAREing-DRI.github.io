@@ -1,9 +1,10 @@
 ---
-title: "CASTEP"
+title: "Community GPU codes: Castep"
 layout: tasks
 date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 image: https://www.castep.org/user/themes/mytheme/images/logo/CASTEP_Logo_2.png
+summary: Study behaviour and efficiency of community code's GPU port 
 ---
 
 
@@ -11,7 +12,8 @@ image: https://www.castep.org/user/themes/mytheme/images/logo/CASTEP_Logo_2.png
 
 This task has been identified by the working groups as part of the agenda behind [WP 1.1](/about/workinggroups).
 
-<!-- I need some pictures and links -->
+The task number is 006.
+
 
 ## Description
 

@@ -11,7 +11,8 @@ summary: Define the minimal valuable information that a system specification has
 
 This task has been identified by the working groups as part of the agenda behind [WP 1.3](/about/workinggroups).
 
-<!-- I need some pictures and links -->
+The task number is 001.
+
 
 ## Description
 
