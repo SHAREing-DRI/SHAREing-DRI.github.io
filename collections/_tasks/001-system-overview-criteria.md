@@ -6,6 +6,10 @@ date: 2025-01-01
 summary: Define the minimal valuable information that a system specification has to provide.
 ---
 
+## Fit to programme
+
+This task has been identified by the working group predominantly focusing on WP 1.1.
+
 <!-- I need some pictures and links -->
 
 ## Description
