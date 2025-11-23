@@ -14,6 +14,12 @@
     {% assign entries = entries | reverse %}
   {% endif %}
 
+  <ul>
+  {%- for entry in entries -%}
+  <li> entry.title </li>
+  {%- endfor -%}
+  </ul>
+
   {%- for entry in entries -%}
     {% capture date %}{{entry.date | date: '%s' | plus: 0 }}{% endcapture %}
     {% if include.archive %}
