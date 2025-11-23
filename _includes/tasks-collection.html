@@ -22,7 +22,6 @@
 
   {%- for entry in entries -%}
     {% capture date %}{{entry.date | date: '%s' | plus: 0 }}{% endcapture %}
-    {% if include.archive %}
 <!--      {% if date < now %} -->
         {% include tasks-entry.html %}
 <!--      {% endif %} -->
