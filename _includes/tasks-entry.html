@@ -53,8 +53,10 @@
           </div>                
         </div>    
         {% endif %}
-        {% if date != 0 %}
+        {% if date %}
       	<span class="events-block__closed">Open Task</span>            
+        {% else %}
+      	<span class="events-block__closed">Task Completed</span>            
         {% endif %}
       </div>  
     </div> 
