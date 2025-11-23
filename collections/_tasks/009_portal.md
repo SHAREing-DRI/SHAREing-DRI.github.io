@@ -1,5 +1,5 @@
 ---
-title: "CASTEP"
+title: "Hardware Portal"
 layout: tasks
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 image: assets/images/logo.png
