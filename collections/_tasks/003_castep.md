@@ -6,6 +6,11 @@ date: 2025-10-01
 image: https://www.castep.org/user/themes/mytheme/images/logo/CASTEP_Logo_2.png
 ---
 
+
+## Fit to programme
+
+This task has been identified by the working groups as part of the agenda behind [WP 1.1](/about/workinggroups).
+
 <!-- I need some pictures and links -->
 
 ## Description
