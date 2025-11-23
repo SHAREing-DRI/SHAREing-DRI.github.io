@@ -1,7 +1,6 @@
 ---
 title: "Community GPU codes: Life Sciences and Genomics"
 layout: tasks
-date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 image: https://pubs.acs.org/cms/10.1021/acs.jcim.3c01648/asset/images/medium/ci3c01648_0007.gif
 summary: Study behaviour and efficiency of community code's GPU port 
