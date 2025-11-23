@@ -53,8 +53,8 @@
           </div>                
         </div>    
         {% endif %}
-        {% if date < now %}
-      	<span class="events-block__closed">Past Event</span>            
+        {% if date != 0 %}
+      	<span class="events-block__closed">Open Task</span>            
         {% endif %}
       </div>  
     </div> 
