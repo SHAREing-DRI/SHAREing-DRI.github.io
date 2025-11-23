@@ -3,7 +3,7 @@ title: "Specification of Assessment Code Requirements"
 layout: tasks
 image: assets/images/logo.png
 date: 2025-10-01
- # set date to completed if done
+ # set date to 0
 summary: Define what codes have to bring along to make them eligible for a code assessment.
 ---
 
