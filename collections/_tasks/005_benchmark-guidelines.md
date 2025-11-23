@@ -25,5 +25,5 @@ The objective of this task is to kickstart the curation of a performance assessm
 - Start a guidebook.
 - Publish first versions on SHAREing webpage.
 
-This project has now finished. The outcomes can be found on the SHAREing webpage as separate rubric](/performance-assessment/guidebook), which is a living document.
+This project has now finished. The outcomes can be found on the [SHAREing webpage](/performance-assessment/guidebook), which is a living document.
 

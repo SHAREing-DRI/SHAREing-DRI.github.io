@@ -3,12 +3,14 @@ title: "Supercomputing Wales"
 layout: tasks
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 image: https://www.supercomputing.wales/wp-content/uploads/2023/01/lgo_supercomputingWales-1.png
+summary: Summary of code assessments delivered through Supercomputing Wales
 ---
 
 ## Fit to programme
 
 This task has been identified by the working groups as part of the agenda behind [WP 1.1](/about/workinggroups).
 
+The task number is 008.
 
 <!-- I need some pictures and links -->
 
