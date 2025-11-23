@@ -4,63 +4,82 @@ title: "SHAREing's organisation"
 ---
 
 
+## SHAREing in a nutshell:
+
+- Working groups identify tasks that they would like to see realised
+- The consortium approves these tasks and publishes them
+- RTPs pitch their projects (typically 1-3 months at 100% FTE); in each project, they have to flag which and how they meet the task objectives
+- SHAREing commissions the projects
+
+
 ## Working groups: how we identify what SHAREing should provide
 
 SHAREing is organised into various [working groups](https://shareing-dri.github.io/about/workinggroups), each responsible for a few work packages. 
-The groups meet sporadically and organise most of their work asynchronously via email and Slack conversations.
-Their core job is to run scoping exercises: the groups brainstorm which types of activities SHAREing should fund in the future to accomplish its vision. 
-Eventually, the working groups write and collect proposals for miniprojects that they want to see implemented to push the work package's agenda further—essentially, to fill SHAREing with content.
+The groups' core job is to run scoping exercises: the groups brainstorm which types of activities SHAREing should fund in the future to accomplish its vision. 
+Eventually, the working groups write task descriptions that describe what want to see implemented to push the work package's agenda further.
 
 ![Working groups propose miniprojects](/assets/cartoons/organigram00.png)
+
+Work groups are open to the public, i.e. people can join the virtual meetings and make proposals what SHAREing should deliver.
+The virtual meetings of all working groups are published on SHAREing's webpage.
+Participating in working group meetings give RTPs and acadmics not only the opportunity to decide upon SHAREing's direction of travel,
+they can also propose tasks that they consider to be important and for which they would like to bid later on.
+
+
+## Approval
+
+The working groups' task descriptions are handed over to the SHAREing consortium meetings (not open to public).
+It is the job of the consortium to decide if tasks align with the SHAREing vision.
+Once the consortium approves a task, the task is made public.
 
 
 ## Calls for miniprojects
 
-Once the consortium has approved the miniprojects, SHAREing advertises these projects. 
-RTPs or groups of RTPs can bid to realise the miniprojects that SHAREing wants to commission in this phase. 
-Bids typically comprise an estimate of the arising costs, an envisaged timeframe, and all the realisation details of how the team plans to meet the project's deliverables.
+RTPs or groups of RTPs can submit miniproject proposals to SHAREing. 
+These miniprojects typically span 1-3 months and are funded up to 100% FTE - although many bids propose run for three months but only at a reduced workload, so it fits to other commitments of the group making the proposal.
+Bids typically comprise an 
+
+- estimate of the arising costs, 
+- envisaged timeframe, 
+- they describe why and how the work is realistic,
+- they clearly write down what will be delivered.
 
 ![Working groups propose miniprojects](/assets/cartoons/organigram01.png)
 
-We expect regular calls for projects (3-4 per annum), and in each call there are many different projects on the table describing what the consortium wants to see delivered. 
-Obviously, there's usually quite some scope for how this will be achieved. 
 Some projects deliver actual reports or training material, others comprise the organisation of events or questionnaires, case studies, or general services to the community.
+The most important thing is each bid has to point out how it addresses at least one of the tasks that the working groups have identified.
+Sole blue sky proposals without a clear relation to what SHAREing considers to be important have limited chance to be funded:
+
+
+## Miniproject selection
+
+The bids for miniprojects are collected by SHAREing's admin office and reviewed on a rolling base.
+To a certain degree, we do FCFS.
+The reviewers (typically coming from the SHAREing consortium, taking conflicts of interest into account) assess the project bids along three criteria:
+
+1. Value for money
+2. Feasibility
+3. Fit to SHAREing's published tasks
+
+Eventually SHAREing commissions projects, i.e. tells the proposing team the go ahead.
+
+
+## Miniproject wrap-up
+
+Once commissioned, the RTP teams complete their work and hence make a contribution towards SHAREing's overall vision. 
+Once a miniproject submits their deliverables (often going hand in hand with an update of SHAREing's webpage),
+our office triggers the cash flow.
+Eventually, we ask the working group to assess if the addressed task from the task list now is covered and if we should remove it from our list.
+This way, insights and work can be taken into account as we scope new tasks.
 
 
 
-# Miniproject selection
-
-
-The bids for miniprojects are collected by SHAREing's admin office. 
-It is then the job of the Advisory Board to rank the bids for projects. 
-The board selects them taking into account how to get the best value for money, cover all the flavours of RTPs, how realistic it is that a team will succeed, and, obviously, how much budget we have available per call. 
-Eventually the board commissions projects from all the suggestions and bids submitted. 
-If we fail to find people who are interested in a project or if SHAREing wasn't able to fund a project due to budget constraints, we refer them back to the working groups.
+## External review 
 
 
 ![Working groups propose miniprojects](/assets/cartoons/organigram02.png)
 
-While we still wait for UKRI to confirm who sits on our Advisory Board, the consortium steps in and commissions the projects.
+Our Advisory board is informed about the set of idenified tasks as well as commissioned miniprojects.
+The advisory board makes recommendations to the SHAREing consortium which are then passed on to the working groups, such that Advisory Board ideas are taken into account for future task descriptions. 
 
-
-## Success
-
-
-Once commissioned, the RTP teams complete their work and hence make a contribution towards SHAREing's overall vision. 
-They also are supposed to report back to the working groups, such that their insights and work can be taken into account as we scope new projects.
-
-![Working groups propose miniprojects](/assets/cartoons/organigram03.png)
-
-
-## How to get involved
-
-
-
-At the moment (summer 2025), working groups are, by default, open to SHAREing consortium members only. 
-However, we plan to open up the groups to a wider audience and engage with the whole UK community in the long run. 
-Please contact the [working group leads](https://shareing-dri.github.io/about/workinggroups) if you would like to participate at this early stage already. 
-We are looking forward to having members from the whole UK community—we just don't want to launch an official call for participation yet. In the long term, working group membership is your opportunity to shape SHAREing's direction of travel.
-
-
-In the first year of the project, the budget for miniprojects is ringfenced, meaning only RTPs from the consortium members are eligible to bid for the projects. If you are not a member of the SHAREing consortium, the way to participate in the realisation of work packages is to team up with a consortium member. In the long term, we plan to open up all calls to the whole UKRI community.
 

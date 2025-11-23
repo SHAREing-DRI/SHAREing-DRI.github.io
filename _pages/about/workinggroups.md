@@ -1,6 +1,6 @@
 ---
 permalink: /about/workinggroups
-title: "SHAREing's Working Groups"
+title: "Working Groups and Workpackages"
 ---
 
 

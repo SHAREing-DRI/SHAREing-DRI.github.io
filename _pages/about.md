@@ -40,7 +40,7 @@ feature_row:
     btn_label: "Read more"
   - image_path: /assets/images/logo.png
     alt: "Working groups"
-    title: "Working groups"
+    title: "Working groups and workpackages"
     excerpt: "SHAREing's working groups scope what kind of projects SHAREing should commission, what needs the community has, and what we should push to make the project a success."
     url: "/about/workinggroups"
     btn_class: "btn--primary"
