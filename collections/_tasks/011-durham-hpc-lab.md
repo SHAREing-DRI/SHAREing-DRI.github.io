@@ -5,6 +5,7 @@ image: https://durham.readthedocs.io/en/latest/_images/dine.webp
 date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 summary: Integrate the links to the Durham HPC Hardware Lab into SHAREing webpage.
+wp: 1.3
 ---
 
 ## Fit to programme

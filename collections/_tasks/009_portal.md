@@ -4,6 +4,7 @@ layout: tasks
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 image: assets/images/logo.png
 summary: Design and delivery of a portal where HPC testbeds can be catalogued.
+wp: 1.3
 ---
 
 ## Fit to programme

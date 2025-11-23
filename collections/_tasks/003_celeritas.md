@@ -4,6 +4,7 @@ layout: tasks
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 image: https://celeritas-project.github.io/celeritas/_includes/full-logo.png
 summary: Study Celeritas an notably focus on its single-precision potential and GPU suitability
+wp: 1.1
 ---
 
 ## Fit to programme
