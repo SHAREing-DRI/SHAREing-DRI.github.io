@@ -4,6 +4,7 @@ layout: tasks
 image: https://www.sc.stfc.ac.uk/wp-content/uploads/2025/05/Plain-Header-Computing-Unites-1.png
 summary: Ensure that the professional skills dimension is well-represented at the CIUK conference.
 wp: 3.3 and 3.4
+date: 2025-11-01
 ---
 
 ## Fit to programme
