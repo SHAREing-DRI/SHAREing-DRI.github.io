@@ -16,7 +16,7 @@
 
   <ul>
   {%- for entry in entries -%}
-  <li> entry.title </li>
+  <li> {{ entry.title }} </li>
   {%- endfor -%}
   </ul>
 
@@ -24,6 +24,7 @@
     {% capture date %}{{entry.date | date: '%s' | plus: 0 }}{% endcapture %}
     {% if include.archive %}
       {% if date < now %}
+      Was here
         {% include tasks-entry.html %}
       {% endif %}
     {% else %}
