@@ -9,7 +9,7 @@ summary: Define the minimal valuable information that a system specification has
 
 ## Fit to programme
 
-This task has been identified by the working group predominantly focusing on WP 1.1.
+This task has been identified by the working groups as part of the agenda behind [WP 1.3](/about/workinggroups).
 
 <!-- I need some pictures and links -->
 
@@ -17,6 +17,7 @@ This task has been identified by the working group predominantly focusing on WP 
 
 Many universities in the UK host HPC testbeds and test nodes within their organisation.
 Notably ExCALIBUR has enabled the UK community to acquire quite a healthy set of such testbeds.
+A description can be found at <a href="https://excalibur.ac.uk/wp-content/uploads/2023/12/ExCALIBUR-HES-brochure.pdf">the old ExCALIBUR site</a>.
 Unfortunately, there are no guidelines of what a good system description should look like. 
 
 We think that descriptions at least should enlist the type of hardware and how to get access, 
