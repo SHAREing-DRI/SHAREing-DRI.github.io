@@ -1,9 +1,8 @@
 ---
 title: "CASTEP"
 layout: tasks
-date: 2025-01-03
 date: 2025-10-01
- # set date to 0 if done
+ # set date when task has been approved by consortium. Remove once completed. Will then go into history
 image: https://www.castep.org/user/themes/mytheme/images/logo/CASTEP_Logo_2.png
 ---
 

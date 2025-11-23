@@ -3,7 +3,7 @@ title: "Durham HPC Lab"
 layout: tasks
 image: assets/images/logo.png
 #date: 2000-01-01
- # set date to 0 if complete. Otherwise remove
+ # set date when task has been approved by consortium. Remove once completed. Will then go into history
 summary: Integrate the links to the Durham HPC Lab into SHAREing webpage.
 ---
 
