@@ -74,6 +74,9 @@
       <a href="{{ entry.url | relative_url }}" style="font-weight:normal;text-decoration:none;"><img class="events-image" src="{{ entry_image }}" alt=""></a>
     {% endif %}
     <p class="events-block__description">
+    Workpackage: {{ entry.wp }}
+    </p>
+    <p class="events-block__description">
       <a href="{{ entry.url | relative_url }}" style="font-weight:normal;text-decoration:none;">
     {% if entry.summary %}
       {{ entry.summary }}
