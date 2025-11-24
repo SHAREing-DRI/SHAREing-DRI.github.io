@@ -15,21 +15,25 @@ The task number is 016.
 
 ## Description
 
-Multiple DRI and ExCALIBUR projects have made a contribution to the professional skills training landscape. 
-However, it is not clear to which degree these skills are relevant to an accelerate computing hub.
+Before developing new training resources under WP3.3 and WP3.4, it is important to 
+understand the current provision of professional skills training across research 
+institutions and partner organisations. This review will establish a baseline, identify 
+existing gaps, and ensure that SHAREing complements rather than duplicates other 
+initiatives.
+The Task will conduct a survey of professional skills training currently available to RTPS, 
+covering both formal programmes (e.g. accredited project management courses, 
+institutional training pathways) and informal opportunities (e.g. workshops, summer 
+schools, mentoring schemes). The scope will include training offered within 
+universities, research councils, and partner organisations such as DiRAC and CoSeC, 
+as well as examples from industry where relevant.
+The findings will provide a structured view of the professional skills training landscape, 
+highlighting areas of strength, under-served competencies, and opportunities for 
+alignment with SHAREing’s objectives. This baseline will also inform the design of new 
+training content and formats in later Tasks.
 
-- Map existing provision: Survey current professional skills training available to RTPs across universities, research councils,
-partner organisations, and relevant industry programmes.
-- Identify strengths and gaps: Analyse the landscape to highlight
-strong areas, underserved competencies, and overlaps in
-existing training.
-- Guide future development: Provide recommendations to
-ensure SHAREing training avoids duplication and focuses on
-unmet needs to complement existing resources.
-
-The task might be combined with the organisation of events.
-Alternatively, people tackling this task might want to request funds to participate in relevant events.
 
 ## Outcomes
 
-- Publish findings on the SHAREing webpage.
+- A structured survey of existing professional skills training relevant to RTPs across institutions and organisations in the UK.
+- A summary of strengths, gaps, and overlaps in current provision.
+- Recommendations for how SHAREing training should avoid duplication and address unmet needs.

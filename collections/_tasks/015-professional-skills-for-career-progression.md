@@ -16,17 +16,25 @@ The task number is 015.
 
 ## Description
 
-The consortium has the impression that the term professional skills for RTPs is not cearly defined.
-The ambition behind this task is to tackle this fundamental challenge and hence to identify the clear potential audiences of SHAREing.
-
-- Develop a clear, tailored definition of “professional skils” relevant to Research Technical Professionals, showing how they connect to technical roles and career progression.
-- Collect and present case studies of RTPs who have advanced their careers or improved institutional/industry engagement through professional skills training;
-- Provide actionable recommendations: Compare with industry practices and suggest how SHAREing can embed professional skills into future training resources to ensure uptake and relevance.
-
-The task might be combined with the organisation of events.
-Alternatively, people tackling this task might want to request funds to participate in relevant events.
+Professional skills are often undervalued or misunderstood by Research Technical 
+Professionals (RTPs), who may see them as unrelated to their technical expertise or 
+beyond their role. However, these skills—such as procurement, supplier engagement, 
+project management, and cross-team coordination—are not only relevant but essential 
+for career progression and for enabling RTPs to contribute meaningfully to institutional 
+and industry partnerships.
+This mini-project will establish a clear, working definition of “professional skills” tailored 
+specifically to RTPs, grounded in the realities of technical research roles. It will explore 
+how these skills are developed through technical work and how they empower RTPs to 
+engage effectively with suppliers, funders, and collaborators.
+To build engagement and demonstrate impact, the project will collect and present case 
+studies and success stories from RTPs who have benefitted from professional skills 
+training. It will also compare practices with industry, where structured approaches to 
+project management and supplier engagement are standard, to highlight transferable 
+models.
 
 
 ## Outcomes
 
-- Publish findings on the SHAREing webpage.
+- A published definition of professional skills for RTPs.
+- A set of at least three case studies from RTPs demonstrating how professional  skills training has supported career progression and institutional engagement.
+- Recommendations for how SHAREing can embed and communicate professional skills within future training resources to maximise relevance and uptake

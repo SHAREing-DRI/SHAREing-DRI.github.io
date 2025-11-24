@@ -16,21 +16,26 @@ The task number is 018.
 
 ## Description
 
-- Raise awareness at CIUK 2025: Deliver an interactive session engaging RTPs in dialogue about professional skills,
-collaboration, and career progression.
-- Validate and refine definitions: Share early consortium insights
-on professional skills and gather direct community feedback to
-shape the emerging framework.
-- Inform future strategy: Produce a report with participant
-insights and recommendations on how SHAREing can leverage
-events like CIUK to embed and promote professional skills
-development.
+This task centres on the design and delivery of a dedicated session at CIUK 
+2025, aimed at engaging Research Technical Professionals (RTPs) in a meaningful 
+conversation about professional skills. CIUK provides a unique opportunity to reach a 
+wide audience of technical staff working at the intersection of research and 
+infrastructure, making it an ideal platform to raise awareness and foster dialogue 
+around the skills that underpin effective collaboration, leadership, and career 
+progression.
+The session will be crafted to go beyond traditional presentations, incorporating 
+interactive elements that invite RTPs to reflect on their own experiences and contribute 
+to shaping a shared understanding of professional skills. The event will also serve as a 
+space to share early insights from the consortium’s work on defining professional skills, 
+helping to validate and refine this emerging framework through direct input from the 
+community.
+The feedback and engagement generated will inform future training design and 
+communications, ensuring that professional development offerings are aligned with the 
+real needs and aspirations of RTPs.
 
-
-The task might be combined with the organisation of events.
-Alternatively, people tackling this task might want to request funds to participate in relevant events.
 
 ## Outcomes
 
-- Publish findings on the SHAREing webpage.
-- Organise event at CIUK.
+- A  well-attended and interactive session at CIUK 2025 that engages RTPs in  meaningful dialogue about professional skills.
+- A summary report capturing participant feedback, insights, and recommendations for future training and engagement strategies.
+- Recommendations for how SHAREing can use events like CIUK to embed and  promote professional skills development across the consortium.
