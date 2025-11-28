@@ -3,7 +3,8 @@ title: "Discussion with AI community on barrier to adopting large shared resourc
 layout: tasks
 image: assets/images/logo.png
 summary: Case study and in-depth analysis how the larger AI community can be included in SHAREing's agenda.
-wp: 2.3
+workpackage: "wp2.3"
+status: progress
 ---
 
 ## Fit to programme

@@ -1,5 +1,5 @@
 ---
-title: "System overview criteria"
+title: "Propose your own task based on WP1.2"
 layout: tasks
 
 image: assets/images/logo.png
@@ -7,8 +7,8 @@ date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 summary: Define the minimal valuable information that a system specification has to provide.
 wp: 1.3
-workpackage: "wp1.3"
-status: open
+workpackage: "wp1.2"
+status: propose
 lead: "Gokmen Kilic"
 summary: "Central access point to UK testbeds"
 ---

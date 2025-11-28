@@ -5,6 +5,8 @@ layout: tasks
 image: https://celeritas-project.github.io/celeritas/_includes/full-logo.png
 summary: Study Celeritas an notably focus on its single-precision potential and GPU suitability
 wp: 1.1
+workpackage: "wp1.1"
+status: progress
 ---
 
 ## Fit to programme

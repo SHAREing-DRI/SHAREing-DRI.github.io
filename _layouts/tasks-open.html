@@ -44,60 +44,90 @@ layout: default
 .status-propose    { background:#e0e7ff; color:#3730a3; }
 
 
+/* ============================
+   APPLY BUTTON (BOTTOM)
+   ============================ */
+
 .apply-container {
   margin-top: 70px;
   padding-top: 40px;
   border-top: 1px solid #e5e7eb;
-  text-align: left;   /* izquierda como quieres */
+  text-align: center;
 }
 
 .apply-btn-main {
   display: inline-block;
-  background: #0E2841;
-  color: white !important;
-  padding: 0.7rem 1.4rem;
-  border-radius: 6px;
-  text-decoration: none;
+  background: linear-gradient(135deg, #4c7bd9, #3559b3);
+  color: #ffffff;
+  padding: 18px 48px;
+  border-radius: 999px;
+  font-size: 1.1rem;
   font-weight: 600;
-  font-size: 1rem;
-  transition: background 0.25s ease, color 0.25s ease;
-  box-shadow: none !important;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(76,123,217,.25);
+  transition: all .18s ease;
 }
 
 .apply-btn-main:hover {
-  background: #CDA3CD !important;
-  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(76,123,217,.35);
 }
 
 
-
 /* ============================
-   APPLY BUTTON (SIDEBAR)
+   APPLY BUTTON (SIDEBAR – BIG)
    ============================ */
 
 .apply-sidebar {
   margin-top: 30px;
-  padding-top: 20px;
+  padding: 20px;
   border-top: 1px solid #e5e7eb;
 }
 
 .apply-btn-side {
   display: block;
-  background: #0E2841;
-  color: white !important;
-  padding: 0.7rem 1.4rem;
-  border-radius: 6px;
-  text-decoration: none;
+  background: linear-gradient(135deg, #4c7bd9, #2f4ea5);
+  color: #ffffff;
+  padding: 18px 20px;
+  border-radius: 14px;
+  font-size: 1.15rem;
   font-weight: 600;
-  font-size: 1rem;
   text-align: center;
-  transition: background 0.25s ease, color 0.25s ease;
-  box-shadow: none !important;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(76,123,217,.35);
+  transition: transform .15s ease, box-shadow .15s ease;
 }
 
 .apply-btn-side:hover {
-  background: #CDA3CD !important;
-  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(76,123,217,.45);
+}
+
+
+/* ============================
+   SIDEBAR VISUAL POLISH
+   ============================ */
+
+.task-sidebar-open {
+  position: sticky;
+  top: 100px;
+}
+
+/* ============================
+   MOBILE
+   ============================ */
+
+@media (max-width: 700px) {
+
+  .apply-btn-side {
+    font-size: 1.05rem;
+    padding: 16px;
+  }
+
+  .page__title {
+    font-size: 1.9rem;
+  }
+
 }
 
 </style>
