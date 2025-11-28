@@ -182,7 +182,7 @@ a.btn--secondary:active {
     <div>
       <h3>Work package 2 — Technical Training</h3>
       <p>
-       	This group reviews the status quo of professional skills training for RTPs in the UK. We identify shortcomings of existing training, missing ingredients, and best practices in the delivery of training. The group identifies and commissions user questionnaires, the creation of new training material and training events.
+       	This group reviews the status quo of technical skills training for RTPs in the UK. We identify shortcomings of existing training, missing ingredients, and best practices in the delivery of training. The group identifies and commissions user questionnaires, the creation of new training material and training events.
 
       </p>
       <div class="wp-actions">
