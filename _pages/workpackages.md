@@ -164,7 +164,7 @@ a.btn--secondary:active {
     <div>
       <h3>Work package 1 — Performance Assessment</h3>
       <p>
-        Definición y aplicación de métricas de referencia, creación de flujos de evaluación de rendimiento y generación de informes accionables para las instituciones participantes.
+       This work package defines and improves SHAREing’s performance assessment framework by selecting relevant codes and systems, analysing assessment results to identify wider sector trends, and shaping a comprehensive methodology that can be applied across UK compute centres. It evaluates existing assessment practices, commissions studies to address methodological gaps, collaborates with training work packages on needed skills, and reviews the status of UK testbeds to establish best practices, consolidate essential information, and recommend future testbed developments that will best support progress in the community.
       </p>
       
      <div class="wp-actions">
