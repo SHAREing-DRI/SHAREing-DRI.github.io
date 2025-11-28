@@ -54,6 +54,9 @@ feature_row:
 
 # News
 
+## November 2025
+- In early November SHAREing organised an online seminar dedicated to performance assessments with talks given by representatives from Durham University, Barcelona Supercomputing Centre, Cardiff University and DiRAC. Please see [here](/events/202511-performance-webinar/) for our summary blog of the seminar's talks and discussions.
+
 ## October 2025
 - **HPC–AI Conference Presentation:**  
   At the HPC–AI Conference, Tobias Weinzierl introduced SHAREing in a dedicated talk highlighting its mission to strengthen the UK’s DRI landscape.  
