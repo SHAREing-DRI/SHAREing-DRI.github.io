@@ -128,7 +128,10 @@ collections:
   tasks:
     output: true
     permalink: /:collection/:path/
-
+  workpackages:
+    output: true
+    permalink: /:collection/:path
+    
 #category_archive:
 #  type: liquid
 #  path: /categories/
