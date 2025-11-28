@@ -1,8 +1,6 @@
 main:
   - title: "About"
     url: /about/
-  - title: "Workpackages"
-    url: /workpackages/
   - title: "Performance Assessment"
     url: /assessment/
   - title: "Training & Upskilling"
