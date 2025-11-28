@@ -1,5 +1,5 @@
 ---
-title: "System overview criteria"
+title: "Propose your own task based on WP1.3"
 layout: tasks
 
 image: assets/images/logo.png
@@ -8,7 +8,7 @@ date: 2025-10-01
 summary: Define the minimal valuable information that a system specification has to provide.
 wp: 1.3
 workpackage: "wp1.3"
-status: open
+status: propose
 lead: "Gokmen Kilic"
 summary: "Central access point to UK testbeds"
 ---

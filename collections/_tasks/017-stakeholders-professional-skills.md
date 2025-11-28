@@ -3,8 +3,8 @@ title: "Stakeholder Mapping for Professional Skills Development"
 layout: tasks
 image: assets/images/logo.png
 summary: Define what codes have to bring along to make them eligible for a code assessment.
-wp: 3.3 and 3.4
-date: 2025-11-01
+workpackage: "wp3.3"
+status: open
 ---
 
 ## Fit to programme

@@ -3,7 +3,8 @@ title: "Benchmark guidelines (kickstart)"
 layout: tasks
 image: assets/images/logo.png
 summary: Start a performance assessment overview/guidelines
-wp: 1.2
+workpackage: "wp1.2"
+status: progress
 ---
 
 

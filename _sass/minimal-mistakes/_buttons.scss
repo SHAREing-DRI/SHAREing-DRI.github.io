@@ -76,14 +76,13 @@
   }
 
   /* disabled */
-  &--disabled {
-    pointer-events: none;
-    cursor: not-allowed;
-    filter: alpha(opacity=65);
-    box-shadow: none;
-    opacity: 0.65;
-  }
-
+&--disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 1;  
+  filter: none;
+}
   /* extra large button */
   &--x-large {
     font-size: $type-size-4;

@@ -3,7 +3,8 @@ title: "Definition of Professional Skills for Career Progression"
 layout: tasks
 image: assets/images/logo.png
 summary: Define what codes have to bring along to make them eligible for a code assessment.
-wp: 3.3 and 3.4
+workpackage: "wp3.3"
+status: open
 date: 2025-11-01
 ---
 

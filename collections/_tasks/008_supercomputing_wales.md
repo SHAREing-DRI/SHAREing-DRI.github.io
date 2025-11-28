@@ -4,7 +4,8 @@ layout: tasks
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 image: https://www.supercomputing.wales/wp-content/uploads/2023/01/lgo_supercomputingWales-1.png
 summary: Summary of code assessments delivered through Supercomputing Wales
-wp: 1.1
+workpackage: "wp1.1"
+status: progress
 ---
 
 ## Fit to programme

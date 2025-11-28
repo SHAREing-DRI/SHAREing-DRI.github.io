@@ -5,7 +5,9 @@ date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 image: https://www.castep.org/user/themes/mytheme/images/logo/CASTEP_Logo_2.png
 summary: Study behaviour and efficiency of community code's GPU port 
-wp: 1.1
+workpackage: "wp1.1"
+status: open
+
 ---
 
 

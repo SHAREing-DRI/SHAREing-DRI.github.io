@@ -3,7 +3,8 @@ title: "Produce and deplay a questionnaire of community training needs"
 layout: tasks
 image: assets/images/logo.png
 summary: Produce and deplay a questionnaire of community training needs which informs the future steps of SHAREing.
-wp: 2.3
+workpackage: "wp2.3"
+status: progress
 ---
 
 ## Fit to programme
