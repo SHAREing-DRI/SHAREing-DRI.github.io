@@ -13,7 +13,7 @@ location: Online
 summary: This webinar brings together members of SHAREing and external collaborators to present the findings of performance assessments they have been involved in.
 ---
 
-## Review and recap of Performance Assessment Webinar
+## Review and recap
 
 On 07/11/25, SHAREing hosted an online seminar dedicated to performance
 assessments. The aim of this event was to bring together members of the
