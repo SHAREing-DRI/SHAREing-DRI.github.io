@@ -169,7 +169,7 @@ a.btn--secondary:active {
       
      <div class="wp-actions">
      <a class="btn--primary" href="/workpackages/workpackage-1">Visit subgroups and tasks</a>
-        <a class="btn--secondary" href="/workpackages/workpackage-2#schedule">Completed tasks</a>
+        
       
       
     </div>
@@ -187,7 +187,7 @@ a.btn--secondary:active {
       </p>
       <div class="wp-actions">
         <a class="btn--primary" href="/workpackages/workpackage-2">Visit subgroups and tasks</a>
-        <a class="btn--secondary" href="/workpackages/workpackage-2#schedule">Completed tasks</a>
+        
     
     </div>
   </div>
@@ -203,7 +203,7 @@ a.btn--secondary:active {
       </p>
       <div class="wp-actions">
         <a class="btn--primary" href="/workpackages/workpackage-3">Visit subgroups and tasks</a>
-        <a class="btn--secondary" href="/workpackages/workpackage-3#schedule">Completed tasks</a>
+       
             
     </div>
   </div>
@@ -214,5 +214,4 @@ a.btn--secondary:active {
   ⚠️ <strong>Eligibility Notice:</strong> This call for tasks is currently open only to dRTP members who are formally affiliated with one of the SHAREing consortium universities:
   Durham, Manchester, Queen Mary University of London, Swansea, Cardiff, CoSeC, or Sheffield. Individuals who are not
   members of a dRTP at one of these institutions are not eligible to submit or propose tasks for this call.
-</p>
 
