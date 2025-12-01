@@ -1,16 +1,16 @@
 main:
   - title: "About"
-    url: /about/
+    url: /about-overview/
+  - title: "Work Packages"
+    url: /workpackages/
+  - title: "Events"
+    url: /events/
   - title: "Performance Assessment"
     url: /assessment/
   - title: "Training & Upskilling"
     url: /training/
   - title: "Resources & Ecosystem"
     url: /resources/
-  - title: "Tasks"
-    url: /tasks/
-  - title: "Events"
-    url: /events/
   - title: "Network"
     url: /network/
     

@@ -159,7 +159,7 @@ a.btn--secondary:active {
 </div>
 
 
-<!-- === Workpackage 1 === -->
+<!-- Workpackage 1 -->
 <section class="wp-card">
     <div>
       <h3>Work package 1 — Performance Assessment</h3>
@@ -176,7 +176,7 @@ a.btn--secondary:active {
   </div>
 </section>
 
-<!-- === Workpackage 2 === -->
+<!-- Workpackage 2  -->
 <section class="wp-card">
   
     <div>
@@ -193,7 +193,7 @@ a.btn--secondary:active {
   </div>
 </section>
 
-<!-- === Workpackage 3 === -->
+<!-- Workpackage 3 -->
 <section class="wp-card">
   
     <div>

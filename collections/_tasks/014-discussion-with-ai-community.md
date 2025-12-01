@@ -1,5 +1,5 @@
 ---
-title: "Discussion with AI community on barrier to adopting large shared resources"
+title: "Discussion with AI community on barrier to adopting large shared resources - Task 014"
 layout: tasks
 image: assets/images/logo.png
 summary: Case study and in-depth analysis how the larger AI community can be included in SHAREing's agenda.

@@ -5,7 +5,7 @@ classes: wide
 layout: splash
 ---
 <style>
-/* === WORKPACKAGE BASE STYLES === */
+/* WORKPACKAGE BASE STYLES*/
 .wp-section {
   background: #f7f9fc;
   border-left: 4px solid #005a9c;
@@ -55,7 +55,7 @@ layout: splash
   color: #333;
 }
 
-/* === TASK CARDS === */
+/* TASK CARDS  */
 .task-card {
   background: #ffffff;
   border: 1px solid #e4e4e4;
@@ -88,7 +88,7 @@ layout: splash
 }
 
 
-/* === ACCORDION === */
+/* ACCORDION */
 .accordion-btn {
   width: 100%;
   background: #f4f6f9;
@@ -117,7 +117,7 @@ layout: splash
 }
 
 
-/* === TAB COLOURS BY TYPE === */
+/* TAB COLOURS BY TYPE */
 
 .open-tab {
   background-color: #D7DEE9;
