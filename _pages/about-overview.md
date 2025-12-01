@@ -12,7 +12,7 @@ classes: wide
   margin-right: calc(50% - 50vw);
 
   height: 50vh;
-  background-image: url('/assets/images/sc-booth.JPEG');
+  background-image: url('/assets/images/sc-booth.jpg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -21,7 +21,7 @@ classes: wide
   display: flex;
   align-items: center;
   justify-content: center;
-  background-position: 50% 130%; 
+  background-position: 50% 180%; 
 }
 
 
@@ -140,8 +140,8 @@ classes: wide
 
   <div class="about-card">
     <img src="/assets/images/logo.png" alt="Consortium Partners">
-    <h3>Consortium Partners</h3>
-    <p>Institutions collaborating through SHAREing.</p>
+    <h3>Institutions</h3>
+    <p>All the partner institutions involved in SHAREing through their co-leads (CoL).</p>
     <a href="/about/institutions" class="about-button">View</a>
   </div>
 
