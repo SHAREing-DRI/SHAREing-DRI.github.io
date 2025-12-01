@@ -14,6 +14,7 @@ permalink: /webinars/webinar-wp-3/
   display: flex;
   gap: 1rem;
   margin-bottom: 1.5rem;
+  justify-content: center; 
 }
 
 .tab-btn {
@@ -71,10 +72,33 @@ background: #0E2841;
   overflow: visible;
 }
 
+.workpackages-header {
+  text-align: center;
+  margin: 3rem auto 2rem auto;
+  max-width: 900px;
+}
+
+.workpackages-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #0E2841;
+}
+
+.workpackages-header p {
+  color: #555;
+  font-size: 1.15rem;
+  margin: 0 auto;
+}
+
 
 
 </style>
 
+<div class="workpackages-header">
+  <h1>Work Package 3: Professional skills training - Webinars</h1>
+  <p></p>
+</div>
 {% assign wp_category = "Webinar-WP-3" %}
 
 {% assign upcoming = site.events 
