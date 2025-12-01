@@ -1,16 +1,13 @@
 ---
-title: "Definition of Professional Skills for Career Progression"
+title: "Definition of Professional Skills for Career Progression - Task 015"
 layout: tasks
 image: assets/images/logo.png
-summary: Define what codes have to bring along to make them eligible for a code assessment.
 workpackage: "wp3.3"
 status: open
 date: 2025-11-01
 ---
-
 ## Fit to programme
-
-This task has been identified by the working groups as part of the agenda behind [WP 3.3](/about/workinggroups) and [WP 3.4](/about/workinggroups).
+This task has been identified by the working groups as part of the agenda behind [WP 3.3](/workpackages/workpackage-3).
 
 The task number is 015.
 
