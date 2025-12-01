@@ -169,10 +169,11 @@ a.btn--secondary:active {
       
      <div class="wp-actions">
      <a class="btn--primary" href="/workpackages/workpackage-1">Visit subgroups and tasks</a>
-        
-      
-      
+     <a class="btn--primary" href="/webinars/webinar-wp-1">Webinars</a>
+    
     </div>
+    
+    
   </div>
 </section>
 
@@ -186,7 +187,8 @@ a.btn--secondary:active {
 
       </p>
       <div class="wp-actions">
-        <a class="btn--primary" href="/workpackages/workpackage-2">Visit subgroups and tasks</a>
+      <a class="btn--primary" href="/workpackages/workpackage-2">Visit subgroups and tasks</a>
+      <a class="btn--primary" href="/webinars/webinar-wp-2">Webinars</a>
         
     
     </div>
@@ -202,7 +204,8 @@ a.btn--secondary:active {
        This group reviews the status quo of professional skills training for RTPs in the UK. We identify shortcomings of existing training, missing ingredients, and best practices in the delivery of training. The group identifies and commissions user questionnaires, the creation of new training material and training events.
       </p>
       <div class="wp-actions">
-        <a class="btn--primary" href="/workpackages/workpackage-3">Visit subgroups and tasks</a>
+       <a class="btn--primary" href="/workpackages/workpackage-3">Visit subgroups and tasks</a>
+      <a class="btn--primary" href="/webinars/webinar-wp-3">Webinars</a>
        
             
     </div>

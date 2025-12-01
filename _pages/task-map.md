@@ -8,122 +8,148 @@ classes: wide page__center no-title
 
 <style>
 
+/* ===== MAIN LAYOUT ===== */
+
 .wp-columns {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 35px;
+  gap: 18px;              /* smaller gap */
   width: 100%;
-  max-width: 1600px;
+  max-width: 1400px;      /* reduced from 1600 */
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 8px;
+  transform-origin: top center;
 }
 
-@media (min-width: 1800px) {
+@media (max-width: 1600px) {
   .wp-columns {
-    max-width: 95vw;
-    padding-left: 2vw;
-    padding-right: 2vw;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.wp-column {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 22px 22px 30px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+/* Keep 1-column for tablet/mobile only */
+@media (max-width: 1100px) {
+  .wp-columns {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* Column titles */
+/* Small displays → 1 column */
+@media (max-width: 1100px) {
+  .wp-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ===== COLUMN BOX ===== */
+
+.wp-column {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px 14px 20px;   /* reduced padding */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+
+/* ===== TITLES ===== */
+
 .wp-column-title {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
   text-align: center;
   padding-bottom: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   color: #003d66;
+    font-size: 1.15rem;
+  margin-bottom: 18px;
 }
 
 .wp-main-number {
-  font-size: 2rem;
+  font-size: 1.55rem;
   font-weight: 700;
   color: #003d66;
+ 
 }
 
 .wp-main-subtitle {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #555;
   margin-top: 5px;
 }
 
-/* Subgroup block */
+
+/* ===== SUBGROUP BLOCK ===== */
+
 .wp-subblock {
-  border-radius: 10px;
-  padding: 15px;
-  margin: 20px 0;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 14px 0;
   background: #FDF6FF;
-  border: 5px solid #F0DEF5;
+  border: 3px solid #F0DEF5; /* slightly thinner */
 }
 
-/* Header section */
 .wp-subblock-header {
   display: flex;
-  align-items: left;
-  gap: 15px;
-  margin-bottom: 15px;
-  justify-content: flex-start;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 12px;
 }
 
 .wp-lead-photo {
-  width: 85px;
-  height: 85px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   background-color: #f0f0f0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .wp-subblock-text {
   display: flex;
   flex-direction: column;
+  
 }
 
 .wp-subtitle {
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #003d66;
 }
 
 .wp-lead {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #555;
   font-style: italic;
   margin-top: 3px;
 }
 
-/* Kanban */
+
+/* ===== KANBAN ===== */
+
 .kanban {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-top: 10px;
+  gap: 8px;
+  margin-top: 8px;
 }
 
 .column {
   background: #ffffff;
-  padding: 12px;
-  border-radius: 10px;
+  padding: 8px;
+  border-radius: 8px;
   border: 1px solid #eee;
 }
 
 .column h3 {
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   color: white;
-  padding: 6px;
+  padding: 5px;
   border-radius: 6px;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .open-col h3 { background:#B906B9; }
@@ -132,22 +158,24 @@ classes: wide page__center no-title
 
 .task {
   background:#ffffff;
-  border-radius: 8px;
-  padding: 10px;
-  font-size: 0.85rem;
-  margin-bottom: 8px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  border-radius: 6px;
+  padding: 7px;
+  font-size: 0.7rem;
+  margin-bottom: 6px;
   border: 2px solid #EAEAEA;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
   font-weight: 700;
 }
 
 .task a {
   text-decoration: none;
   color: #003d66;
+  font-size: 0.6rem;
+  line-height: 0.2;  
 }
 
 .propose-task {
-  margin-top: 12px;
+  margin-top: 10px;
   text-align: center;
   padding: 10px 0;
   color: #ffffff;
@@ -155,33 +183,29 @@ classes: wide page__center no-title
 
 .propose-task-link {
   display: block;
-  padding: 6px 6px;
-  font-size: 0.85rem;
+  padding: 5px;
+  font-size: 0.75rem;
   font-weight: 600;
-  border-radius: 6px;
+  border-radius: 5px;
   background: #003d66;
-  color: #fff;
+  color: #ffffff !important;
   text-decoration: none;
   transition: all 0.2s ease;
-  color: #ffffff !important;
-  text-shadow: none !important;
-  box-shadow: none !important;
 }
 
 .propose-task-link:hover {
   background: #CDA3CD !important;
   border-color: #CDA3CD !important;
-  color: #ffffff !important;
 }
 
 
-/* Task hover shadows by category */
+/* ===== TASK HOVER EFFECTS ===== */
+
 .open-col .task:hover {
   box-shadow: 0 0 10px rgba(185, 6, 185, 0.45);
   border-color: #B906B9;
   background: rgba(185, 6, 185, 0.08);
   transform: translateY(-2px);
-  transition: all 0.2s ease;
 }
 
 .progress-col .task:hover {
@@ -189,7 +213,6 @@ classes: wide page__center no-title
   border-color: #940594;
   background: rgba(148, 5, 148, 0.08);
   transform: translateY(-2px);
-  transition: all 0.2s ease;
 }
 
 .completed-col .task:hover {
@@ -197,15 +220,7 @@ classes: wide page__center no-title
   border-color: #490349;
   background: rgba(73, 3, 73, 0.08);
   transform: translateY(-2px);
-  transition: all 0.2s ease;
 }
-
-@media (max-width: 1100px) {
-  .wp-columns {
-    grid-template-columns: 1fr;
-  }
-}
-
 
 </style>
 
