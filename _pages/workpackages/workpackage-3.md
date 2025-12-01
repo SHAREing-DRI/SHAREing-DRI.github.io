@@ -231,17 +231,99 @@ layout: splash
 
 </style>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ACCORDION TOGGLE */
+  document.querySelectorAll('.accordion-btn').forEach(btn => {
+
+    const panelId = btn.getAttribute("data-target");
+    const panel = document.getElementById(panelId);
+    const arrow = btn.querySelector(".arrow");
+
+    if (!panel) return;
+
+    btn.addEventListener("click", () => {
+
+      const isOpen = panel.classList.contains("open");
+
+      if (isOpen) {
+        panel.style.display = "none";
+        panel.classList.remove("open");
+        btn.classList.remove("active");
+        if (arrow) arrow.textContent = "►";
+      } else {
+        panel.style.display = "block";
+        panel.classList.add("open");
+        btn.classList.add("active");
+        if (arrow) arrow.textContent = "▼";
+      }
+
+    });
+
+  });
+
+
+  /* AUTO OPEN DEFAULT */
+  document.querySelectorAll('.accordion-btn[data-open="true"]').forEach(btn => {
+    const panel = document.getElementById(btn.getAttribute("data-target"));
+    const arrow = btn.querySelector(".arrow");
+
+    if (!panel) return;
+
+    panel.style.display = "block";
+    panel.classList.add("open");
+    btn.classList.add("active");
+    if (arrow) arrow.textContent = "▼";
+  });
+
+
+  /* ✅ CLOSE ALL PER WORKPACKAGE */
+  document.querySelectorAll('.close-all').forEach(btn => {
+
+    btn.addEventListener('click', (e) => {
+
+      e.preventDefault();  // prevent page jump
+
+      const wp = btn.getAttribute('data-wp');
+
+      document.querySelectorAll(`[data-target^="${wp}"]`).forEach(tab => {
+
+        const panel = document.getElementById(tab.getAttribute("data-target"));
+        const arrow = tab.querySelector(".arrow");
+
+        if (!panel) return;
+
+        panel.style.display = "none";
+        panel.classList.remove("open");
+        tab.classList.remove("active");
+        if (arrow) arrow.textContent = "►";
+
+      });
+
+    });
+
+  });
+
+});
+</script>
+
 <div class="workpackages-header">
-  <h1>Work package 3: Professional skills training</h1>
+  <h1>Work package 3: Professional skils training</h1>
   <p></p>
 </div>
 
-This group reviews the status quo of professional skills training for RTPs in the UK. We identify shortcomings of existing training, missing ingredients, and best practices in the delivery of training. The group identifies and commissions user questionnaires, the creation of new training material and training events.
+This group reviews the status quo of technical skills training for RTPs in the UK. We identify shortcomings of existing training, missing ingredients, and best practices in the delivery of training. The group identifies and commissions user questionnaires, the creation of new training material and training events.
 
+<p>
   ⚠️ <strong>Eligibility Notice:</strong> This call for tasks is currently open only to dRTP members who are formally affiliated with one of the SHAREing consortium universities:
   Durham, Manchester, Queen Mary University of London, Swansea, Cardiff, CoSeC, or Sheffield. Individuals who are not
   members of a dRTP at one of these institutions are not eligible to submit or propose tasks for this call.
+</p>
 
+<!-- ============================== -->
+<!-- ====== WORKPACKAGE LOOP ====== -->
+<!-- ============================== -->
 
 {% assign wp_list = "wp3.3,wp3.4" | split: "," %}
 {% assign team_leads = site.data.workpackages-3-team-lead %}
