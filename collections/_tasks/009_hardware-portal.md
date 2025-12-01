@@ -1,5 +1,5 @@
 ---
-title: "Hardware Portal"
+title: "Hardware Portal - Task 009"
 layout: tasks
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 image: assets/images/logo.png

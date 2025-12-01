@@ -1,5 +1,5 @@
 ---
-title: "Identify platforms for training that will outlast the project"
+title: "Identify platforms for training that will outlast the project - Task 012"
 layout: tasks
 date: 2025-11-01
 image: assets/images/logo.png

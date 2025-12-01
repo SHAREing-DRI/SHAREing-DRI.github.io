@@ -1,5 +1,5 @@
 ---
-title: "Durham HPC Lab"
+title: "Durham HPC Lab - Task 011"
 layout: tasks
 image: https://durham.readthedocs.io/en/latest/_images/dine.webp
 date: 2025-10-01
