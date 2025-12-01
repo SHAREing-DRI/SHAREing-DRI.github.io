@@ -2,7 +2,7 @@
 title: "Performance Assessment Seminar"
 icon_alt: Award icon
 categories:
-  - International
+  - Webinar-WP-1
 group: events
 date: 2025-11-07
 layout: event
