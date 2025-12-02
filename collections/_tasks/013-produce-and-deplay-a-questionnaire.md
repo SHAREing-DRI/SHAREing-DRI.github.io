@@ -4,7 +4,7 @@ layout: tasks
 image: assets/images/logo.png
 summary: Produce and deplay a questionnaire of community training needs which informs the future steps of SHAREing.
 workpackage: "wp2.3"
-status: progress
+status: open
 ---
 
 ## Fit to programme

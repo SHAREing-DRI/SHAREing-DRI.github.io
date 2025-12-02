@@ -4,7 +4,7 @@ layout: tasks
 date: 2025-10-01
 image: assets/images/logo.png
 summary: 
-workpackage: "wp1.2"
+workpackage: ""
 status: complete
 
 ---
