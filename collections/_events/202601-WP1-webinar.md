@@ -1,5 +1,5 @@
 ---
-title: "Work Package 1 - Webinar"
+title: "Work Package 1 - Performance Assessment"
 icon_alt: Award icon
 categories:
   - Webinar-WP-1
