@@ -3,7 +3,7 @@ title: "Engaging RTPs at CIUK: Elevating Awareness of Professional Skills - Task
 layout: tasks
 image: https://www.sc.stfc.ac.uk/wp-content/uploads/2025/05/Plain-Header-Computing-Unites-1.png
 summary: Ensure that the professional skills dimension is well-represented at the CIUK conference.
-workpackage: "wp3.4"
+workpackage: ""
 status: open
 ---
 

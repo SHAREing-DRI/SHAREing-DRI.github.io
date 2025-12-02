@@ -6,8 +6,8 @@ image: assets/images/logo.png
 date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 summary: Define the minimal valuable information that a system specification has to provide.
-wp: 1.3
-workpackage: "wp1.3"
+wp: 1.1
+workpackage: "wp1.1"
 status: open
 lead: "Gokmen Kilic"
 summary: "Central access point to UK testbeds"

@@ -4,7 +4,7 @@ layout: tasks
 image: assets/images/logo.png
 summary: Case study and in-depth analysis how the larger AI community can be included in SHAREing's agenda.
 workpackage: "wp2.3"
-status: progress
+status: open
 ---
 
 ## Fit to programme

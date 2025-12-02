@@ -1,4 +1,4 @@
 ---
-title: "Technical Training"
+title: "Professional Skills Training"
 layout: tasks
 ---
