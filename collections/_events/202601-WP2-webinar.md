@@ -15,7 +15,7 @@ summary: This webinar brings together members of SHAREing and external collabora
 
 ## Event information
 
-SHAREing is organising an afternoon webinar to present and discuss technical training.
+SHAREing is organising an afternoon webinar to present and discuss Technical Skills training.
 
 
 [Register for webinar](https://events.teams.microsoft.com/event/77a69f00-9f0e-4151-992f-0f35cedba6d9@7250d88b-4b68-4529-be44-d59a2d8a6f94){: .btn .btn--event .btn--large}
