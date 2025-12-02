@@ -4,12 +4,12 @@ title: "SHAREing resources"
 
 feature_row:
   - image_path: /assets/images/resources-machines.png
-    alt: "Testbeds"
-    title: "Testbeds and machine portals"
-    excerpt: "Collection of testbeds and portals to assess new codes and machinery."
-    url: "/resources/testbeds"
+    alt: "UK HPC Testbeds"
+    title: "UK HPC Testbeds and machine portal"
+    excerpt: "Collection of testbeds and systems to assess new codes and machinery."
+    url: "/hpc-testbeds"
     btn_class: "btn--primary"
-    btn_label: "Testbeds"
+    btn_label: "UK HPC Testbeds"
 ---
 
 {% include feature_row %}

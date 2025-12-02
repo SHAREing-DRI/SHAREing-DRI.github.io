@@ -26,7 +26,8 @@ In the ideal case, the meta information on the portal can be extended, such that
 
 ## Outcomes
 
-- Portal to register and search new hardware (testbeds). 
+- [Portal to register and search new hardware (testbeds)][portal].
 
 This task is WiP. 
 
+[portal]: /hpc-testbeds/
