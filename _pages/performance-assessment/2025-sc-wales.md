@@ -17,5 +17,10 @@ underpinning them and lessons learned from them.
 
 ## Outcomes
 
-This project is currently running and there are no updates yet.
+- [Report outlining the approach to software performance characterisation and optimisation at Supercomputing Wales][report]
+  - Attachment: [Swansea benchmark report template LaTeX][template-latex]
+  - Attachment: [Swansea benchmark report template Word][template-word]
 
+[report]: </assets/pdfs/ff008-supercomputing-wales.pdf>
+[template-latex]: </assets/pdfs/ff008-benchmark-report-template-latex.zip>
+[template-word]: </assets/pdfs/ff008-benchmark-report-template.docx>
