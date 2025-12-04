@@ -2,13 +2,16 @@ wp1.1:
   title: "WP1.1 – Performance Assessment"
   lead: "Martyn Guest - Cardiff University"
   lead_photo: "/assets/profilepics/generic.jpg"
+  summary: "This working group identifies codes and systems that are accepted for SHAREing’s performance assessment exercises. The group ensures that SHAREing covers a wide variety of use cases and code and system characteristics. It also studies the delivered assessments to identify overarching trends and issues of the sector."
 
 wp1.2:
   title: "WP1.2 – Assessment Methodology"
   lead: "Thomas Flynn - Durham University"
   lead_photo: "/assets/profilepics/generic.jpg"
+  summary: "This group studies and gathers performance assessment methodologies. The collected expertise helps SHAREing’s assessments, but the group also works towards a unique SHAREing approach which can be rolled out at multiple compute centres in the UK. For this, it has to assess shortcomings of existing methodologies, i.e. commission user studies, and work closely together with the training work packages whenever missing assessment skills are identified."
 
 wp1.3:
   title: "WP1.3 – Testbeds"
   lead: "Gokmen Kilic - Durham University"
   lead_photo: "/assets/profilepics/Gokmen.jpg"
+  summary: "This group discusses the status quo of testbeds in the UK. We identify which information is to be collected and has to be consolidated, best practices in describing and assessing the testbeds, and the group also can make recommendations which testbeds they would like to see within the community to allow for faster progress in the field."
