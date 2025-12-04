@@ -125,6 +125,13 @@ classes: wide page__center no-title
   margin-top: 3px;
 }
 
+.wp-content {
+  font-size: 0.4rem;
+  color: #555;
+  font-style: italic;
+  margin-top: 3px;
+}
+
 
 /* ===== KANBAN ===== */
 
@@ -260,7 +267,7 @@ classes: wide page__center no-title
       </a>
     </div>
 
-    {% assign wp_file = "workpackages-" | append: wp_number | append: "-team-lead" %}
+    {% assign wp_file = "workpackages-" | append: wp_number | append: "-team-lead"| append: wp_number%}
 
     {% for wp in wp_list %}
 
@@ -278,6 +285,8 @@ classes: wide page__center no-title
           <div class="wp-subblock-text">
             <div class="wp-subtitle">{{ meta.title }}</div>
             <div class="wp-lead"><strong>Lead:</strong> {{ meta.lead }}</div>
+       
+            
           </div>
         </div>
 

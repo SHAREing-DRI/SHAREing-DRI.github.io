@@ -49,6 +49,12 @@ layout: splash
   margin-top: 0.2rem;
 }
 
+.wp-content {
+  font-size: 1rem !important;
+  color: #555;
+  margin-top: 0.01rem;
+}
+
 .wp-purpose {
   font-size: 1rem;
   margin-bottom: 1rem;
@@ -321,9 +327,7 @@ This group reviews the status quo of technical skills training for RTPs in the U
   members of a dRTP at one of these institutions are not eligible to submit or propose tasks for this call.
 </p>
 
-<!-- ============================== -->
-<!-- ====== WORKPACKAGE LOOP ====== -->
-<!-- ============================== -->
+
 
 {% assign wp_list = "wp3.3,wp3.4" | split: "," %}
 {% assign team_leads = site.data.workpackages-3-team-lead %}
@@ -343,9 +347,12 @@ This group reviews the status quo of technical skills training for RTPs in the U
   <div>
     <p class="wp-title">{{ lead.title | default: "Untitled workpackage" | remove: wp }}
     </p>
-    <p class="wp-lead">
+    <div class="wp-lead">
       Lead: {{ lead.lead | default: "TBA" }}
-    </p>
+    </div>
+    <div class="wp-content">
+      {{ lead.summary | default: "TBA" }}
+    </div>
   </div>
 </div>
 

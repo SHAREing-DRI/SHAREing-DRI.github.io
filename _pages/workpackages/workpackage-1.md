@@ -49,6 +49,11 @@ layout: splash
   margin-top: 0.2rem;
 }
 
+.wp-content {
+  font-size: 1rem !important;
+  color: #555;
+}
+
 .wp-purpose {
   font-size: 1rem;
   margin-bottom: 1rem;
@@ -340,9 +345,12 @@ This work package defines and improves SHAREing’s performance assessment frame
   <div>
     <p class="wp-title">{{ lead.title | default: "Untitled workpackage" | remove: wp }}
     </p>
-    <p class="wp-lead">
+    <div class="wp-lead">
       Lead: {{ lead.lead | default: "TBA" }}
-    </p>
+    </div>
+    <div class="wp-content">
+      {{ lead.summary | default: "TBA" }}
+    </div>
   </div>
 </div>
 
