@@ -4,10 +4,16 @@ layout: tasks
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 image: /assets/logos/SupercomputingWales.svg
 summary: Summary of code assessments delivered through Supercomputing Wales
-workpackage: "wp1.1"
-date: "30-11-2025"
+workpackage: ""
 status: completed
 ---
+
+
+
+
+
+## Description
+
 Using records retained from the time period, and having conversations with staff 
 at the Supercomputing Wales partner institutions, we will document the approaches used for
 software performance characterisation and improvement at the Supercomputing Wales
@@ -25,15 +31,14 @@ underpinning them and lessons learned from them.
 [template-word]: </assets/pdfs/ff008-benchmark-report-template.docx>
 
 
+
 ## Fit to programme
 
 This task has been identified by the working groups as part of the agenda behind [WP 1.1](/about/workinggroups).
 
 The task number is 008.
 
-<!-- I need some pictures and links -->
-
-## Description
+## Description 
 
 Supercomputing Wales (SCW) has a long-standing record of software performance
 characterisation featuring staff at both Hub Sites – Cardiff and Swansea. Staff at Cardiff have built
@@ -48,6 +53,12 @@ suite and has in fact provided a template for developing other benchmarks. Swans
 pioneered the use of AccelerateAI, a GPU compute cluster designed to enable high-speed AI/ML
 computations, available to all SCW institutions.
 
+## Outcomes
+
+- Document existing work on ‘software performance characterisation’ from Supercomputing Wales.
+- Publish summmary on SHAREing webpage. 
+
+This project has now finished. The outcomes can be found [in a report on the SHAREing webpage](/performance-assessment/2025-sc-wales).
 
 ## Literature
 1. A. Gray et al: Mapping application performance to HPC architecture, CPC 183 (2012) pp. 520–529
