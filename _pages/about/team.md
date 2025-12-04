@@ -14,7 +14,7 @@ feature_row:
     alt: "Ed Bennett"
     title: "Ed Bennett"
     excerpt: "Ed Bennett, Senior Research Software Engineer, Swansea Academy of Advanced Computing, Swansea University"
-  - image_path: /assets/profilepics/generic.jpg
+  - image_path: /assets/profilepics/thomas.jpg
     alt: "Thomas Flynn"
     title: "Thomas Flynn"
     excerpt: "Thomas Flynn, Research Software Engineer, Advanced Research Computing, Durham University"
