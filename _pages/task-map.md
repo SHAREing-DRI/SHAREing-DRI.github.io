@@ -267,7 +267,7 @@ classes: wide page__center no-title
       </a>
     </div>
 
-    {% assign wp_file = "workpackages-" | append: wp_number | append: "-team-lead"| append: wp_number%}
+    {% assign wp_file = "workpackages-" | append: wp_number | append: "-team-lead" %}
 
     {% for wp in wp_list %}
 
@@ -285,8 +285,6 @@ classes: wide page__center no-title
           <div class="wp-subblock-text">
             <div class="wp-subtitle">{{ meta.title }}</div>
             <div class="wp-lead"><strong>Lead:</strong> {{ meta.lead }}</div>
-       
-            
           </div>
         </div>
 
