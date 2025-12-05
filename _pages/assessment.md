@@ -140,4 +140,10 @@ classes: wide
     <a href="/performance-assessment/notebook" class="about-button">Learn more</a>
   </div>
 
+  <div class="about-card">
+    <img src="/assets/images/logo.png" alt="Guidebook">
+    <h3>Benchmark guidelines</h3>
+    <p>A draft guidebook for designing and writing benchmarks</p>
+    <a href="/tasks/005_benchmark-guidelines" class="about-button">View</a>
+  </div>
 </section>
