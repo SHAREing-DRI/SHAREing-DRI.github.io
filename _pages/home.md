@@ -59,8 +59,8 @@ feature_row:
 
 ## October 2025
 - **HPC–AI Conference Presentation:**  
-  At the HPC–AI Conference, Tobias Weinzierl introduced SHAREing in a dedicated talk highlighting its mission to strengthen the UK’s DRI landscape.  
-  The presentation covered SHAREing’s goals, structure, and upcoming activities, emphasising its role in connecting the UK’s Digital Research Infrastructure community and advancing performance assessment and training initiatives.
+  At the HPC–AI Conference, Tobias Weinzierl introduced SHAREing in a dedicated talk highlighting its mission to strengthen the UK’s Digital Research Infrastructure (DRI) landscape.  
+  The presentation covered SHAREing’s goals, structure, and upcoming activities, emphasising its role in connecting the UK’s DRI community and advancing performance assessment and training initiatives.
 
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
   <iframe 
