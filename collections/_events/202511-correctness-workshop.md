@@ -12,7 +12,7 @@ summary: This workshop series gives a hands-on introduction to modern tools for 
 
 Within modern, complex software landscapes, developers typically spend a significant proportion of their time on debugging. Studies estimate that more time is required to find bugs than to write actual code. Finding bugs and delivering correct(er) code becomes more difficult with modern HPC systems which offer unprecedented concurrency: The systems become heterogeneous, i.e. process code differently, bugs become non-deterministic. Different programming models are often used in combination, complicating questions of correctness and debugging further.
 
-### Writing correct code in London 2025
+### Report: Writing correct code in London 2025
 
 In fall 2025, the HAI-End project partnered with the CCMI CDT at UCL and Imperial to deliver a five-session workshop series on code correctness and debugging for PhD students and early-career RSEs. 
 Our goal was simple but ambitious: bring systematic debugging and correctness practices to early-career researchers before bad habits take root.
@@ -91,7 +91,7 @@ There are social and community reasons for this, but they also found it easier t
 #### Next steps
 
 
-![Knowledge graph in an ideal world as designed by students](202511-correctness-graph.png)
+![Knowledge graph in an ideal world as designed by students](/assets/eventphotos/202511_CorrectnessGraph.png)
 
 Where do we go next? The lessons learned above lack interpretation and a discussion of logical consequences. This is something we will work toward over the upcoming months as we brainstorm future training offerings. To facilitate such brainstorming, we finally asked students to draw an optimal learning graph comprising elements of our workshop as well as sessions they felt were missing or were not integrated into the present course format. Overall, it was a success, although accompanied by many "buts." Perhaps the people who learned most from the events were we as instructors. The times are changing, and we have to adapt our training formats.
 
