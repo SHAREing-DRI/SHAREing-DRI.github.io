@@ -19,9 +19,9 @@ Our goal was simple but ambitious: bring systematic debugging and correctness pr
 We ran four sessions via Zoom covering 
 
 - debugging with GDB
-- <a href="https://www.linaroforge.com/linaro-ddt/">Linaro DDT</a>
+- [Linaro DDT](https://www.linaroforge.com/linaro-ddt)
 - LLVM sanitizers, and 
-- threading/MPI validation with <a href="https://www.i12.rwth-aachen.de/go/id/nrbe">MUST</a>
+- threading/MPI validation with [MUST](https://www.i12.rwth-aachen.de/go/id/nrbe).
 
 followed by an in-person wrap-up at UCL on performance regression testing with ReFrame.
 All PhDs attended a warm-up session on unit testing.
@@ -118,4 +118,4 @@ This workshop series gives a hand-on introduction to modern tools for debugging 
 
 **Acknowledgements**
 
-In collaboration with the [UCL Advanced Research Computing Centre](https://www.ucl.ac.uk/advanced-research-computing/), the [EPSRC CCMI CDT](https://ccmi-cdt.org/), {VI-HPS}(https://www.vi-hps.org/) and the [Institute for Data Science (Durham University)](https://www.durham.ac.uk/research/institutes-and-centres/data-science/). The organisers appreciate support through the UKRI Digital Research Infrastructure Programme [grant number UKRI/ST/B000293/1 (HAI-End)].
+In collaboration with the [UCL Advanced Research Computing Centre](https://www.ucl.ac.uk/advanced-research-computing/), the [EPSRC CCMI CDT](https://ccmi-cdt.org/), [VI-HPS](https://www.vi-hps.org/) and the [Institute for Data Science (Durham University)](https://www.durham.ac.uk/research/institutes-and-centres/data-science/). The organisers appreciate support through the UKRI Digital Research Infrastructure Programme [grant number UKRI/ST/B000293/1 (HAI-End)].
