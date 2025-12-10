@@ -54,6 +54,10 @@ feature_row:
 
 # News
 
+## December 2026
+
+- A report on our recent Correctness and Debugging workshop series is now available on the [event's site](events/202511-correctness-workshop/).
+
 ## November 2025
 - In early November SHAREing organised an online seminar dedicated to performance assessments with talks given by representatives from Durham University, Barcelona Supercomputing Centre, Cardiff University and DiRAC. Please see [here](/events/202511-performance-webinar/) for our summary blog of the seminar's talks and discussions.
 
