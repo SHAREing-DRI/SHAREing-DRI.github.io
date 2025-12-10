@@ -14,17 +14,17 @@ Within modern, complex software landscapes, developers typically spend a signifi
 
 ### Report: Writing correct code in London 2025
 
-In fall 2025, the HAI-End project partnered with the CCMI CDT at UCL and Imperial to deliver a five-session workshop series on code correctness and debugging for PhD students and early-career RSEs. 
+In fall 2025, the HAI-End project partnered with the <a href="https://ccmi-cdt.org/">CCMI CDT</a> at UCL and Imperial to deliver a five-session workshop series on code correctness and debugging for PhD students and early-career RSEs. 
 Our goal was simple but ambitious: bring systematic debugging and correctness practices to early-career researchers before bad habits take root.
 We ran four sessions via Zoom covering 
 
 - debugging with GDB
-- Linaro DDT
+- <a href="https://www.linaroforge.com/linaro-ddt/">Linaro DDT</a>
 - LLVM sanitizers, and 
-- threading/MPI validation with MUST
+- threading/MPI validation with <a href="https://www.i12.rwth-aachen.de/go/id/nrbe">MUST</a>
 
 followed by an in-person wrap-up at UCL on performance regression testing with ReFrame.
-All PhD attended a warm-up session on unit testing.
+All PhDs attended a warm-up session on unit testing.
 
 
 
