@@ -6,7 +6,7 @@ date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 summary: Define what codes have to bring along to make them eligible for a code assessment.
 workpackage: "wp1.1"
-status: open
+status: progress
 ---
 
 
