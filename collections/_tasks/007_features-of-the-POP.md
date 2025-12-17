@@ -12,7 +12,7 @@ status: complete
 
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda behind [WP 1.2](/workpackages/workpackage-1).
+This task has been identified by the working groups as part of the agenda behind [WP 1.2](/workpackages/workpackage-1/).
 The task number is 007.
 
 ## Description

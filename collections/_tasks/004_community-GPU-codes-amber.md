@@ -11,7 +11,7 @@ status: progress
 
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda behind [WP 1.1](/about/workinggroups).
+This task has been identified by the working groups as part of the agenda behind [WP 1.1](/workpackages/workpackage-1/).
 
 The task number is 004.
 
