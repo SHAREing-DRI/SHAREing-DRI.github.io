@@ -25,7 +25,6 @@ The aim of this Task is an introductory guide to the basics of how to start form
 The content to be incorporated into this material likely already exists, but in forms not easily accessible—for example, it will have significant overlap with some first-year computer science courses. It is acceptable (and desirable) to adapt existing material into a suitable form for this Task; de novo material is not a requirement.
 
 
-
 ## Outcomes
 
 - A package of training material that teaches the fundamentals of the theory of performance analysis and optimisation via structured exercises and examples, and provides a glossary of common/standard terminology for discussions of performance
