@@ -32,11 +32,11 @@ layout: splash
 .workpackages-header {
   text-align: center;
   margin: 1.5rem 0 2rem 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .wp-title {
-  font-size: 1.8rem !important;
+  font-size: 1.4rem !important;
   font-weight: 800 !important;
   color: #002A41 !important;
   margin: 0 !important;
@@ -44,19 +44,19 @@ layout: splash
 }
 
 .wp-lead {
-  font-size: 1.5rem !important;
+  font-size: 1rem !important;
   color: #555;
   margin-top: 0.2rem;
 }
 
 .wp-content {
-  font-size: 1rem !important;
+  font-size: 0.75rem !important;
   color: #555;
-  margin-top: 0.01rem;
+  margin-bottom: 0.01rem; !important;
 }
 
 .wp-purpose {
-  font-size: 1rem;
+  font-size: 0.75rem;
   margin-bottom: 1rem;
   color: #333;
 }
@@ -66,8 +66,8 @@ layout: splash
   background: #ffffff;
   border: 1px solid #e4e4e4;
   border-radius: 8px;
-  padding: 1rem 1.5rem;
-  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -79,7 +79,7 @@ layout: splash
 }
 
 .apply-btn {
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 0.5rem;
   background: #005a9c;
   color: white;
   text-decoration: none;
@@ -101,12 +101,15 @@ layout: splash
   border: #002A41;
   padding: 14px;
   font-weight: bold;
+  font-size: 0.75rem;
   text-align: left;
   cursor: pointer;
   border-top: 1px solid #d9dee6;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .accordion-btn.active {
@@ -188,6 +191,14 @@ layout: splash
 .completed-task    { border-left: 5px solid #490349; }
 
 
+.task-card div {
+  font-size: 0.75rem; 
+}
+
+.task-card .apply-btn {
+  font-size: 0.75rem;
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 520px) {
   .task-card {
@@ -235,7 +246,20 @@ layout: splash
 }
 
 
+.eligibility-box {
+ 
+  font-size: 0.875rem !important;      
+  color: #333 !important;               
+  line-height: 1.4 !important;
+  margin: 1rem 0 !important;         
+  display: block !important;            
+}
+.eligibility-box strong {
+  font-weight: 600 !important;
+}
+
 </style>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -284,7 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  /* ✅ CLOSE ALL PER WORKPACKAGE */
+ 
   document.querySelectorAll('.close-all').forEach(btn => {
 
     btn.addEventListener('click', (e) => {
@@ -314,18 +338,39 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<div class="workpackages-header">
-  <h1>Work package 3: Professional skils training</h1>
+<div class="workpackages-header" style= "font-size: 1.2rem">
+  <h1>Work package 3: Professional Skils Training</h1>
   <p></p>
 </div>
-
-This group reviews the status quo of technical skills training for RTPs in the UK. We identify shortcomings of existing training, missing ingredients, and best practices in the delivery of training. The group identifies and commissions user questionnaires, the creation of new training material and training events.
-
-<p>
-  ⚠️ <strong>Eligibility Notice:</strong> This call for tasks is currently open only to dRTP members who are formally affiliated with one of the SHAREing consortium universities:
-  Durham, Manchester, Queen Mary University of London, Swansea, Cardiff, CoSeC, or Sheffield. Individuals who are not
-  members of a dRTP at one of these institutions are not eligible to submit or propose tasks for this call.
+<p style="font-size:1rem; margin:0.5rem 0.5rem;">
+This group reviews the status quo of professional skills training for RTPs in the UK. We identify shortcomings of existing training, missing ingredients, and best practices in the delivery of training. The group identifies and commissions user questionnaires, the creation of new training material and training events.
 </p>
+
+<div class="wp-content" style="display:flex; flex-direction:column; gap:0.5rem;">
+
+  <!-- Open Tasks Card -->
+  <div style="background:#f7f9fc; border-left:12px solid #B906B9; padding:1rem 1.25rem; border-radius:8px;">
+    <h3 style="margin-top:0; color:#002A41; font-size:22px;">Open Tasks</h3>
+    <p style="margin-bottom:0rem; line-height:1.6; font-size:16px;">
+      These are tasks already defined by the SHAREing Working Groups (WPs).
+      They are published and ready for applications. Applicants interested <strong> can apply to take them on </strong>. Open Tasks are like mini-projects with clear goals and scope — your role is to help deliver them according to the WP plan.
+    </p>
+  </div>
+
+  <!-- Propose a Task Card -->
+  <div style="background:#f7f9fc; border-left:12px solid #B906B9; padding:1rem 1.25rem; border-radius:8px; ">
+    <h3 style="margin-top:0; color:#002A41; font-size:22px;">Propose a Task</h3>
+    <p style="margin-bottom:0rem; line-height:1.6; font-size:16px;">
+     Have an idea that could benefit SHAREing? Use this option to submit a task proposal. Focus on <strong>what</strong>. you want to do and <strong>why</strong>. it matters for SHAREing and the WPs.
+     <br>
+      Your proposal will be reviewed by the relevant WP. If approved, it will become an Open Task listed on the website, open for anyone to apply. As the person who suggested the task, <strong>you will have priority to lead it</strong>, but others can also apply if interested. At this stage, there’s no need to include costings or detailed plans — just provide a clear description and show how the task aligns with SHAREing’s goals. The detailed “how” and all necessary paperwork will be part of the formal bid later.
+    </p>
+  </div>
+
+</div>
+<div class="eligibility-box">
+  ⚠️ <strong>Eligibility:</strong> At this time, only dRTP members who are formally affiliated with one of the SHAREing consortium universities and institutions: Durham, Manchester, Queen Mary University of London, Swansea, Cardiff, CoSeC, or Sheffield can submit or propose tasks.
+</div>
 
 
 
@@ -367,7 +412,7 @@ This group reviews the status quo of technical skills training for RTPs in the U
   <div id="{{ wp }}-open" class="accordion-panel">
 
   {% if open.size == 0 %}
-    <div class="task-card">No open tasks.</div>
+     <div class="task-card" style="font-size: 0.75rem">No open tasks.</div>
   {% endif %}
 
   {% for task in open %}
@@ -388,13 +433,13 @@ This group reviews the status quo of technical skills training for RTPs in the U
   <div id="{{ wp }}-propose" class="accordion-panel">
 
   {% if propose.size == 0 %}
-    <div class="task-card">No proposals.</div>
+     <div class="task-card" style="font-size: 0.75rem">No proposals.</div>
   {% endif %}
 
   {% for task in propose %}
     <div class="task-card propose-task">
       <div>{{ task.title }}</div>
-      <a class="apply-btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUN0ZMWlk5N1lYSVVORldSTllSSTFWWFYzNS4u" target="_blank" rel="noopener noreferrer">Apply</a>
+      <a class="apply-btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUQUs0QUFRQkhDNU83T1JMUkFFSlJHWjNXMy4u" target="_blank" rel="noopener noreferrer">Apply</a>
     </div>
   {% endfor %}
 
@@ -409,7 +454,7 @@ This group reviews the status quo of technical skills training for RTPs in the U
   <div id="{{ wp }}-progress" class="accordion-panel">
 
   {% if progress.size == 0 %}
-    <div class="task-card">No tasks in progress.</div>
+     <div class="task-card" style="font-size: 0.75rem">No tasks in progress.</div>
   {% endif %}
 
   {% for task in progress %}
@@ -429,7 +474,7 @@ This group reviews the status quo of technical skills training for RTPs in the U
   <div id="{{ wp }}-completed" class="accordion-panel">
 
   {% if completed.size == 0 %}
-    <div class="task-card">No completed tasks.</div>
+    <div class="task-card" style="font-size: 0.75rem">o completed tasks.</div>
   {% endif %}
 
   {% for task in completed %}
