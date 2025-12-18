@@ -228,8 +228,50 @@ classes: wide page__center no-title
   background: rgba(73, 3, 73, 0.08);
   transform: translateY(-2px);
 }
+.eligibility-box {
+ 
+  font-size: 0.7rem !important;      
+  color: #333 !important;               
+  line-height: 1.4 !important;
+  margin: 1rem 0 !important;         
+  display: block !important;            
+}
+.eligibility-box strong {
+  font-weight: 600 !important;
+}
 
 </style>
+
+
+<div style="max-width:1400px; margin:0 auto; padding:0 15px; display:flex; flex-direction:column; gap:0.5rem; margin-top:0.01rem">
+
+  <!-- Open Tasks Card -->
+  <div style="background:#f7f9fc; border-left:8px solid #B906B9; padding:0.5rem 0.75rem; border-radius:6px; margin-top:1rem;">
+    <h3 style="margin:0; color:#002A41; font-size:16px;">Open Tasks</h3>
+    <p style="margin:0; line-height:1.4; font-size:12px;">
+      These are tasks already defined by the SHAREing Working Groups (WPs). They are published and ready for applications. Anyone interested <strong>can apply to take them on</strong>. Open Tasks are like mini-projects with clear goals and scope — your role is to help deliver them according to the WP plan.
+    </p>
+  </div>
+
+  <!-- Propose a Task Card -->
+  <div style="background:#f7f9fc; border-left:8px solid #005a9c; padding:0.5rem 0.75rem; border-radius:6px;">
+    <h3 style="margin:0; color:#002A41; font-size:16px;">Propose a Task</h3>
+    <p style="margin:0; line-height:1.4; font-size:12px;">
+      Have an idea that could benefit SHAREing? Use this option to submit a task proposal. Focus on <strong>what</strong> you want to do and <strong>why</strong> it matters for SHAREing and the WPs.
+      <br>
+      Your proposal will be reviewed by the relevant WP. If approved, it will become an Open Task listed on the website, open for anyone to apply. As the person who suggested the task, <strong>you will have priority to lead it</strong>, but others can also apply if interested. At this stage, there’s no need to include costings or detailed plans — just provide a clear description and show how the task aligns with SHAREing’s goals. The detailed “how” and paperwork will be part of the formal bid later.
+    </p>
+  </div>
+
+  <!-- Eligibility Box -->
+  <div class="eligibility-box" style="max-width:100%">
+    ⚠️ <strong>Eligibility:</strong> At this time, only dRTP members who are formally affiliated with one of the SHAREing consortium universities and institutions: Durham, Manchester, Queen Mary University of London, Swansea, Cardiff, CoSeC, or Sheffield can submit or propose tasks.
+  </div>
+
+</div>
+
+
+
 
 <div class="wp-columns">
 
@@ -319,7 +361,7 @@ classes: wide page__center no-title
           
 
     <div class="propose-task" style="grid-column: 1 / 4; width: 100%;">
-  <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUN0ZMWlk5N1lYSVVORldSTllSSTFWWFYzNS4u"
+  <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUQUs0QUFRQkhDNU83T1JMUkFFSlJHWjNXMy4u"
      class="propose-task-link"
      target="_blank"
      rel="noopener">
