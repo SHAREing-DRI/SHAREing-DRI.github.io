@@ -88,7 +88,7 @@ classes: wide
 }
 
 .about-card img {
-  height: 70px;
+  height: 180px;
   margin-bottom: 1rem;
 }
 
