@@ -54,7 +54,7 @@ feature_row:
 
 # News
 
-## December 2026
+## December 2025
 
 - A report on our recent Correctness and Debugging workshop series is now available on the [event's site](events/202511-correctness-workshop/).
 

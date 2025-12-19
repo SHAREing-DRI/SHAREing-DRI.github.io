@@ -142,7 +142,7 @@ classes: wide
     <img src="/assets/images/logo.png" alt="Consortium Partners">
     <h3>Institutions</h3>
     <p>All the partner institutions involved in SHAREing through their co-leads (CoL).</p>
-    <a href="/about/institutions" class="about-button">View</a>
+    <a href="/about/consortium-institutions" class="about-button">View</a>
   </div>
 
   <div class="about-card">
@@ -156,7 +156,7 @@ classes: wide
     <img src="/assets/images/logo.png" alt="Organisation">
     <h3>Organisation & Funding</h3>
     <p>How SHAREing is structured and how to get involved.</p>
-    <a href="/about/organigram" class="about-button">Learn more</a>
+    <a href="/about/organisation" class="about-button">Learn more</a>
   </div>
 
 </section>
