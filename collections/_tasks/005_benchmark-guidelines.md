@@ -8,6 +8,40 @@ date: "05-12-2025"
 status: completed
 ---
 
+<style>
+
+.full-width-btn-container {
+  max-width: 1100px;
+  margin: 0 auto 1.5rem auto;
+}
+
+.full-width-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem 1.4rem;
+  border-radius: 8px;
+  background: #CDA3CD;
+  color: white !important;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.full-width-btn:hover {
+  background: #0E2841; !important;
+  color: #ffffff !important;
+}
+
+</style>
+
+<div class="full-width-btn-container">
+  <a class="full-width-btn" href="/assets/pdfs/shareing-benchmark-guide.pdf">
+    🔎 Explore SHAREing's benchmark guidelines
+  </a>
+</div>
+
 Through of combination of: discussions with researchers, the [SHAREing
 performance assessment seminar](/events/202511-performance-webinar/) and a
 review of benchmarking literature, this task has collated a proposed set of
