@@ -10,7 +10,7 @@ layout: splash
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 
-  height: 50vh;
+  height: 40vh;
   background-image: url('/assets/images/sc-booth.jpg');
   background-attachment: fixed;
   background-position: center;
@@ -25,13 +25,18 @@ layout: splash
 
 
 .parallax-overlay {
-  background: rgba(104, 36, 109, 0.75);
+  background: linear-gradient(
+    to top,
+    rgba(104, 36, 109, 0.85),
+    rgba(104, 36, 109, 0.45)
+  );
   color: white;
-width: 100vw;
+  width: 100vw;
+  height: 40vh;
   text-align: center;
   border-radius: 12px;
-    height: 50vh;
 }
+
 
 .parallax-overlay h1 {
   font-size: 2.8rem;
@@ -191,8 +196,7 @@ width: 100vw;
   <h2>Working Groups and Subgroups</h2>
   <p class="lead">
      Each Work Package brings together a set of focused subgroups that address specific
-  thematic areas. These subgroups identify community needs, <strong> define and prioritise
-  tasks </strong> , and coordinate activities that contribute directly to the overall aims
+  thematic areas. These subgroups identify community needs, <strong> define and prioritise tasks </strong> , and coordinate activities that contribute directly to the overall aims
   of SHAREing.
   </p>
 

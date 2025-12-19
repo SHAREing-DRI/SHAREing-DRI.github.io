@@ -39,7 +39,7 @@ feature_row:
     url: "https://www.qmul.ac.uk/maths/profiles/lucinib.html"
     btn_class: "btn--primary"
     btn_label: "Visit"
-  - image_path: /assets/profilepics/Fernandez.jpg
+  - image_path: /assets/profilepics/EvaFernandez.jpeg
     alt: "Eva Fernandez Amez"
     title: "Eva Fernandez Amez"
     excerpt: "Eva Fernandez Amez, Community Manager for Digital Research Infrastructure, Durham University"
