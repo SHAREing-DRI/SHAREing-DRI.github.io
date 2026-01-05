@@ -135,7 +135,7 @@ classes: wide
     <img src="/assets/images/logo.png" alt="Vision">
     <h3>Vision and Approach</h3>
     <p>Learn about SHAREing’s mission and long-term strategy.</p>
-    <a href="/about/vision" class="about-button">Explore</a>
+    <a href="/about/vision-shareing" class="about-button">Explore</a>
   </div>
 
   <div class="about-card">
@@ -149,7 +149,7 @@ classes: wide
     <img src="/assets/images/logo.png" alt="Core Team">
     <h3>Core Team</h3>
     <p>Meet the people behind SHAREing.</p>
-    <a href="/about/team" class="about-button">Meet</a>
+    <a href="/about-overview/team-consortium" class="about-button">Meet</a>
   </div>
 
   <div class="about-card">
