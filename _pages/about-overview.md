@@ -42,54 +42,47 @@ classes: wide
   margin-top: 1rem;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  margin: 3rem auto;
-}
+
 
 .about-card {
-  background: #ffffff;
+  
   padding: 2rem 1.5rem;
   border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 10px 18px rgba(0,0,0,0.05);
   display:flex;
   flex-direction: column;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  justify-self: center;
+
 }
 
 .about-card img {
-  height: 140px;        
+    height: 70px;        
   width: auto;          
   object-fit: contain;  
   flex-shrink: 0;       
   margin-bottom: 1rem;
 }
 .about-grid {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 2rem;
-  margin: 3rem 0;
+  padding: 0 10rem;
 }
 
-.about-card {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
 
 .about-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-}
-
-.about-card img {
-  height: 70px;
-  margin-bottom: 1rem;
 }
 
 .about-button {
@@ -112,6 +105,25 @@ classes: wide
 }
 
 
+@media (max-width: 1200px) {
+  .about-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .about-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1.25rem; 
+    gap: 1.5rem;
+  }
+}
 </style>
 
 <section class="parallax-hero">
@@ -154,9 +166,17 @@ classes: wide
 
   <div class="about-card">
     <img src="/assets/images/logo.png" alt="Organisation">
-    <h3>Organisation & Funding</h3>
+    <h3>Organisation</h3>
     <p>How SHAREing is structured and how to get involved.</p>
-    <a href="/about/organisation" class="about-button">Learn more</a>
+    <a href="/about/organisation" class="about-button">Visit</a>
+  </div>
+  
+  
+    <div class="about-card">
+    <img src="/assets/images/logo.png" alt="Organisation">
+    <h3>Flexible funds</h3>
+    <p>Please check our flexible funds guidance notes</p>
+    <a href="/about/flexible-funds" class="about-button">Guidance</a>
   </div>
 
 </section>
