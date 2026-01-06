@@ -1,6 +1,6 @@
 ---
 layout: splash
-permalink: /
+permalink: /about/home-shareing/
 hidden: true
 header:
   overlay_color: "#5e616c"
@@ -397,7 +397,7 @@ header:
   transition: all 0.3s ease; 
 }
 
-
+/* Hover */
 .offering-card .btn:hover {
   background-color: #8b3a92; 
   transform: translateY(-2px);
