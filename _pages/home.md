@@ -98,7 +98,7 @@ header:
       <img src="/assets/images/hpc-ai.jpg" alt="About SHAREing">
       <h3>About SHAREing</h3>
       <p>More about SHAREing, its vision and the people behind the project.</p>
-      <a href="/about/" class="btn btn--primary">Find out more</a>
+      <a href="/about-overview/" class="btn btn--primary">Find out more</a>
     </article>
 
     <article class="offering-card">
@@ -126,7 +126,7 @@ header:
       <img src="/assets/images/sc-booth.jpg" alt="Resources">
       <h3>SHAREing resources</h3>
       <p>SHAREing’s outcomes and materials are freely available to the UK research community.</p>
-      <a href="/resources/" class="btn btn--primary">Access these</a>
+      <a href="/resources/" class="btn btn--primary">Access</a>
     </article>
 
     <article class="offering-card">
