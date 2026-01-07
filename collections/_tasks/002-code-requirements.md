@@ -6,9 +6,14 @@ date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 summary: Define what codes have to bring along to make them eligible for a code assessment.
 workpackage: "wp1.1"
-status: progress
+status: completed
 ---
 
+## Outcomes
+
+- We have defined recommended checklists for submission which can be found in Appendix B of the [performance assessment workbook](/assets/pdfs/perf_analysis_workbook_brief.pdf).
+- This recommended checklist then defines the [Microsoft Form](https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlIUXnqx3D81Bt-KemxGOyY5UOU9RQkFSOE5UU1Y1QVZNS0QyNlFYNjRNOS4u) which is used as the interface for submitting codes to SHAREing.
+- Collectively the checklist in the guidebook, the benchmarking guidelines and Microsoft Form consitute the submission interface and can be [here](/assessment/submission) or under the 'Performance Assessment' tab.
 
 ## Fit to programme
 
@@ -39,22 +44,10 @@ not limited to):
 3. Containers
 4. Invocation scripts
 5. One single batch file that builds and executes everything
-6. ...
+6. Information on resource use
 
 It is the job of this workpackage to identify what kind of (reproducibility) information we expect
 external codes to provide. For this, we have to study similar initiatives (cmp SSI, POP, but also
 the SC reproducibility badge) and distill it into a list of checkboxes. Obviously, a project tackling
 this tasks might apply the guidelines immediately to some of their codes. 
-
-## Outcomes
-
-- Recommendation checklist how people can prepare a benchmark before they actually hand it over to someone else for a performance analysis.
-- Some example setups (optional).
-
-The recommendation checklist should be integrated into the [performance assessment workbook](/performance-assessment/guidebook.md) that we curate on SHAREing's webpage as living document.
-However, it also should be distilled into a separate checklist that people can download/open on SHAREing's webpage and then work through.
-  
-
-
-
 

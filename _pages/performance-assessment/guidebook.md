@@ -1,7 +1,28 @@
 ---
+layout: splash
 permalink: /performance-assessment/guidebook
+
+classes: wide
 ---
 <style>
+
+.assessment-header {
+  text-align: center;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.assessment-header h1 {
+  font-size: 2.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.assessment-header p {
+  color: #555;
+  font-size: 1.1rem;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
 
 .full-width-btn-container {
   max-width: 1100px;
@@ -30,7 +51,7 @@ permalink: /performance-assessment/guidebook
 </style>
 
 
-<div class="workpackages-header">
+<div class="assessment-header">
   <h1>Performance assessment guidebook</h1>
   <p></p>
 </div>
