@@ -6,6 +6,48 @@ classes: wide
 
 ---
 <style>
+
+.assessment-header {
+  text-align: center;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.assessment-header h1 {
+  font-size: 2.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.assessment-header p {
+  color: #555;
+  font-size: 1.1rem;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.full-width-btn-container {
+  max-width: 1100px;
+  margin: 0 auto 1.5rem auto;
+}
+
+.full-width-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem 1.4rem;
+  border-radius: 8px;
+  background: #CDA3CD;
+  color: white !important;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.full-width-btn:hover {
+  background: #0E2841; !important;
+  color: #ffffff !important;
+}
+
 .parallax-hero {
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -114,15 +156,20 @@ classes: wide
 
 </style>
 
-<section>
-  <h2>Performance Assessment</h2>
+<div class="assessment-header">
+  <h1>Performance Assessment</h1>
   <p>
     A core part of SHAREing's vision is performance analysis, with the aim of
     building a performance assessment service. This page hosts materials and
     resources on performance methodologies and tools for Research Technical
     Professionals (RTPs) to begin producing performance assessments.
-  </p>
-</section>
+</p>
+</div>
+<div class="full-width-btn-container">
+  <a class="full-width-btn" href="/assessment/submission">
+    📊 Submit your code for assessment here
+  </a>
+</div>
 
 <section class="about-grid">
 
