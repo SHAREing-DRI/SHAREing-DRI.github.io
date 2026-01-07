@@ -183,7 +183,7 @@ classes: wide
   <div class="about-card">
     <img src="/assets/images/squarelogo-greytext-orangebody-greymoons.png" alt="Jupyter notebook">
     <h3>High-level assessment notebook</h3>
-    <p>A draft guidebook on how to begin a performance assessment</p>
+    <p>A Jupyter notebook to perform a high-level performance assessment</p>
     <a href="/performance-assessment/notebook" class="about-button">Learn more</a>
   </div>
 
