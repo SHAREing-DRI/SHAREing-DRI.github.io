@@ -360,7 +360,7 @@ header:
   <div class="news-content">
     <span class="news-date">November 2025</span>
         <h3>Performance Assessment Webinar</h3>
-        <p>In early November SHAREing organised an online seminar dedicated to performance assessments with talks given by representatives from Durham University, Barcelona Supercomputing Centre, Cardiff University and DiRAC. Please see  <a href="http://127.0.0.1:4000/events/202511-performance-webinar/">here</a></p>
+        <p>In early November SHAREing organised an online seminar dedicated to performance assessments with talks given by representatives from Durham University, Barcelona Supercomputing Centre, Cardiff University and DiRAC. Please see  <a href="/events/202511-performance-webinar/">here</a></p>
       </div>
     </div>
       
