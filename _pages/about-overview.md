@@ -55,6 +55,9 @@ classes: wide
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   justify-self: center;
+ height: 620px;
+ width: 200px;
+ border-top: 4px solid #68246d;
 
 }
 
@@ -129,7 +132,6 @@ classes: wide
 <section class="parallax-hero">
   <div class="parallax-overlay">
     <h1> About SHAREing</h1>
-    <p>Skills Hub for Accelerated Research Environments Inspiring the Next Generation</p>
   </div>
 </section>
 
