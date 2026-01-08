@@ -4,7 +4,7 @@ icon_alt: Award icon
 categories:
   - Webinar-WP-3
 group: events
-date: 2026-01-31
+date: 2026-01-30
 layout: event
 image: assets/images/logo.png
 project-type: Webinar

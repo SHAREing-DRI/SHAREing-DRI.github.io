@@ -229,6 +229,12 @@ layout: splash
         <a href="https://www.durham.ac.uk/staff/gokmen-kilic/" target="_blank">Read more</a>
    </div>
    
+        <div class="person-card">
+      <img src="/assets/profilepics/generic.jpg" alt="Davide Costanzo">
+      <h3>Clare Collyer</h3>
+      <div class="role">Post Award Finance and Project Manager · Durham University</div>
+    </div>
+    
      <div class="person-card">
       <img src="/assets/profilepics/generic.jpg" alt="Davide Costanzo">
       <h3>Davide Costanzo</h3>

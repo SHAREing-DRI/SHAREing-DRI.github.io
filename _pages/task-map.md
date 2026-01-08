@@ -8,14 +8,13 @@ classes: wide page__center no-title
 
 <style>
 
-/* ===== MAIN LAYOUT ===== */
 
 .wp-columns {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;              /* smaller gap */
+  gap: 18px;             
   width: 100%;
-  max-width: 1400px;      /* reduced from 1600 */
+  max-width: 1400px;      
   margin: 0 auto;
   padding: 8px;
   transform-origin: top center;
@@ -27,14 +26,7 @@ classes: wide page__center no-title
   }
 }
 
-/* Keep 1-column for tablet/mobile only */
-@media (max-width: 1100px) {
-  .wp-columns {
-    grid-template-columns: 1fr;
-  }
-}
 
-/* Small displays → 1 column */
 @media (max-width: 1100px) {
   .wp-columns {
     grid-template-columns: 1fr;
@@ -42,17 +34,21 @@ classes: wide page__center no-title
 }
 
 
-/* ===== COLUMN BOX ===== */
+@media (max-width: 1100px) {
+  .wp-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .wp-column {
   background: #ffffff;
   border-radius: 14px;
-  padding: 14px 14px 20px;   /* reduced padding */
+  padding: 14px 14px 20px;  
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-top: 4px solid #68246d;
 }
 
-
-/* ===== TITLES ===== */
 
 .wp-column-title {
   font-size: 1.35rem;
@@ -80,14 +76,13 @@ classes: wide page__center no-title
 }
 
 
-/* ===== SUBGROUP BLOCK ===== */
 
 .wp-subblock {
   border-radius: 8px;
   padding: 10px;
   margin: 14px 0;
   background: #FDF6FF;
-  border: 3px solid #F0DEF5; /* slightly thinner */
+  border: 3px solid #F0DEF5;
 }
 
 .wp-subblock-header {
@@ -133,7 +128,6 @@ classes: wide page__center no-title
 }
 
 
-/* ===== KANBAN ===== */
 
 .kanban {
   display: grid;

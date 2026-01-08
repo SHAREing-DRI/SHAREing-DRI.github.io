@@ -44,6 +44,7 @@ layout: splash
   margin: 1.3rem 0;
   box-shadow: 0 1px 4px rgba(0,0,0,0.04);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border-top: 4px solid #68246d;
 }
 
   

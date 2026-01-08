@@ -94,6 +94,7 @@ classes: wide
 .about-card {
   background: #ffffff;
   padding: 2rem 1.5rem;
+  border-top: 4px solid #68246d;
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 10px 18px rgba(0,0,0,0.05);
