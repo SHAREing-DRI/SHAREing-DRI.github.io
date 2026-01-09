@@ -5,7 +5,7 @@ layout: tasks
 image: https://pubs.acs.org/cms/10.1021/acs.jcim.3c01648/asset/images/medium/ci3c01648_0007.gif
 summary: Study behaviour and efficiency of community code's GPU port 
 workpackage: "wp1.1"
-status: complete
+status: completed
 ---
 
 
