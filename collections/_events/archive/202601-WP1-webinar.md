@@ -10,8 +10,7 @@ image: assets/images/logo.png
 project-type: Webinar
 web-page: https://events.teams.microsoft.com/event/08a5c545-523e-4d8b-be68-65636b967388@7250d88b-4b68-4529-be44-d59a2d8a6f94
 location: Online
-summary: This webinar brings together members of SHAREing and external collaborators to present the findings of performance assessments they have been involved in.
----
+summary: This webinar brings together members of SHAREing and external collaborators to 
 
 ## Event information
 
