@@ -15,7 +15,7 @@ summary: This webinar brings together members of SHAREing and external collabora
 
 ## Event information
 
-SHAREing is organising an afternoon webinar to present and discuss Professional Skills Training.
+SHAREing is organising an afternoon webinar to present and discuss Professional Skills Training on 23rd January at 3pm.
 
 [Register for webinar](https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUMFlUWFNVMkxWVktBNVRIQzU4U0E5V1NEMy4u){: .btn .btn--event .btn--large}
 
