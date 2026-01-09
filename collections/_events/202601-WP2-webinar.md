@@ -15,7 +15,7 @@ summary: This webinar brings together members of SHAREing and external collabora
 
 ## Event information
 
-SHAREing is organising an afternoon webinar to present and discuss Technical Skills training.
+SHAREing is organising an afternoon webinar to present and discuss Technical Skills Training 16th January at 3pm.
 
 
 [Register for webinar](https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUMFlUWFNVMkxWVktBNVRIQzU4U0E5V1NEMy4u){: .btn .btn--event .btn--large}
