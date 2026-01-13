@@ -44,49 +44,52 @@ classes: wide
 
 
 
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin: 3rem auto;
+}
+
 .about-card {
-  
+  background: #ffffff;
   padding: 2rem 1.5rem;
+  border-top: 4px solid #68246d;
   border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.05);
   display:flex;
   flex-direction: column;
-  background: white;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  justify-self: center;
- height: 620px;
- width: 200px;
- border-top: 4px solid #68246d;
-
 }
 
 .about-card img {
-    height: 70px;        
+  height: 140px;        
   width: auto;          
   object-fit: contain;  
-  flex-shrink: 0;       
-  margin-bottom: 1rem;
+  flex-shrink: 0; 
 }
 .about-grid {
-  position: relative;
-  left: 50%;
-  right: 50%;
-  width: 100vw;
-  margin-left: -50vw;
-  margin-right: -50vw;
-
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
-  padding: 0 10rem;
+  margin: 3rem 0;
 }
 
+.about-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
 .about-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  box-shadow: 0 35px 55px rgba(0,0,0,0.3);
 }
+
+
 
 .about-button {
   display: inline-block;
@@ -148,28 +151,33 @@ classes: wide
   <div class="about-card">
     <img src="/assets/images/logo.png" alt="Vision">
     <h3>Vision and Approach</h3>
-    <p>Learn about SHAREing’s mission and long-term strategy.</p>
+    <p>Learn about SHAREing’s mission and long-term strategy</p>
     <a href="/about/vision-shareing" class="about-button">Explore</a>
   </div>
 
   <div class="about-card">
     <img src="/assets/images/logo.png" alt="Consortium Partners">
     <h3>Institutions</h3>
-    <p>All the partner institutions involved in SHAREing through their co-leads (CoL).</p>
+    <p>All the partner institutions involved in SHAREing through their co-leads (CoL)</p>
     <a href="/about/consortium-institutions" class="about-button">View</a>
   </div>
 
   <div class="about-card">
     <img src="/assets/images/logo.png" alt="Core Team">
     <h3>Core Team</h3>
-    <p>Meet the people behind SHAREing.</p>
+    <p>Meet the people behind SHAREing</p>
     <a href="/about-overview/team-consortium" class="about-button">Meet</a>
   </div>
+
+</section>
+
+<section class="about-grid">
+
 
   <div class="about-card">
     <img src="/assets/images/logo.png" alt="Organisation">
     <h3>Organisation</h3>
-    <p>How SHAREing is structured and how to get involved.</p>
+    <p>How SHAREing is structured and how to get involved</p>
     <a href="/about/organisation" class="about-button">Visit</a>
   </div>
   
@@ -180,8 +188,19 @@ classes: wide
     <p>Please check our flexible funds guidance notes</p>
     <a href="/about/flexible-funds" class="about-button">Guidance</a>
   </div>
+  
+      <div class="about-card">
+    <img src="/assets/images/logo.png" alt="Organisation">
+    <h3>Advisory Board</h3>
+    <p>Meet the members of our advisory board</p>
+    <a href="/about/advisory-board" class="about-button">Guidance</a>
+  </div>
+  
 
 </section>
+
+
+
 
 
 <section>

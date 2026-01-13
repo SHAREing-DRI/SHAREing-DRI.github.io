@@ -158,6 +158,20 @@ layout: splash
       <div class="role">Research Software Engineer · Advanced Research Computing · Durham University</div>
     </div>
     
+    
+            <div class="person-card">
+      <img src="/assets/profilepics/clare.jpg" alt="Davide Costanzo">
+      <h3>Clare Collyer</h3>
+      <div class="role">Post Award Finance and Project Manager · Durham University</div>
+    </div>
+    
+    
+                <div class="person-card">
+      <img src="/assets/profilepics/EvaFernandez.jpeg" alt="Eva Fernandez Amez">
+      <h3>Eva Fernandez Amez</h3>
+      <div class="role">Community Manager for Digital Research Infrastructure · Durham University</div>
+    </div>
+    
 
     <div class="person-card">
       <img src="/assets/profilepics/Longshaw.jpg" alt="Stephen Longshaw">
@@ -192,12 +206,7 @@ layout: splash
    </div>
     
     
-            <div class="person-card">
-      <img src="/assets/profilepics/EvaFernandez.jpeg" alt="Eva Fernandez Amez">
-      <h3>Eva Fernandez Amez</h3>
-      <div class="role">Community Manager for Digital Research Infrastructure · Durham University</div>
-    </div>
-    
+
     
                 <div class="person-card">
       <img src="https://apps.dur.ac.uk/biography/image/1768" alt="Alastair Basden">
@@ -229,11 +238,7 @@ layout: splash
         <a href="https://www.durham.ac.uk/staff/gokmen-kilic/" target="_blank">Read more</a>
    </div>
    
-        <div class="person-card">
-      <img src="/assets/profilepics/generic.jpg" alt="Davide Costanzo">
-      <h3>Clare Collyer</h3>
-      <div class="role">Post Award Finance and Project Manager · Durham University</div>
-    </div>
+
     
      <div class="person-card">
       <img src="/assets/profilepics/generic.jpg" alt="Davide Costanzo">
