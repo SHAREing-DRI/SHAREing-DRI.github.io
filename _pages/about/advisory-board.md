@@ -140,8 +140,6 @@ layout: splash
       <img src="/assets/profilepics/generic.jpg" alt="Profile Picture">
       <h3>Advisory Member</h3>
       <div class="role">Job Title · Institution</div>
-
-   
         <a href="">Read more</a>
     </div>
 
