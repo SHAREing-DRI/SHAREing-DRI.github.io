@@ -192,8 +192,8 @@ classes: wide
       <div class="about-card">
     <img src="/assets/images/logo.png" alt="Organisation">
     <h3>Advisory Board</h3>
-    <p>Meet the members of our advisory board</p>
-    <a href="/about/advisory-board" class="about-button">Guidance</a>
+    <p>Meet the members of our Advisory Board</p>
+    <a href="/about/advisory-board" class="about-button">View</a>
   </div>
   
 
