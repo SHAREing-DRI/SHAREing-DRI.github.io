@@ -8,7 +8,7 @@ date: 2026-01-23
 layout: event
 image: assets/images/logo.png
 project-type: Webinar
-web-page: https://events.teams.microsoft.com/event/0ea9f143-238e-454e-af7b-c931fbe331b9@7250d88b-4b68-4529-be44-d59a2d8a6f94
+web-page: https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUMFlUWFNVMkxWVktBNVRIQzU4U0E5V1NEMy4u
 location: Online
 summary: This webinar brings together members of SHAREing and external collaborators to discuss their progress and work on the Professional Skills as part of the training pillar of SHAREing
 ---
