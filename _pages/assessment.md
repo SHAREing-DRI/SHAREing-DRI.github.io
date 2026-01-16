@@ -204,14 +204,14 @@ classes: wide
   <div class="about-card">
     <img src="/assets/images/logo.png" alt="BabelStream Report">
     <h3>BabelStream Report</h3>
-    <p>A high-level performace report of BabelStream</p>
+    <p>A high-level performance report of BabelStream</p>
     <a href="/reports/babelstream" class="about-button">View</a>
   </div>
 
   <div class="about-card">
     <img src="/assets/images/logo.png" alt="QE Report">
     <h3>Quantum Espresso Report</h3>
-    <p>A high-level performace report of Quantum Espresso</p>
+    <p>A high-level performance report of Quantum Espresso</p>
     <a href="/reports/quantum-espresso" class="about-button">View</a>
   </div>
 
