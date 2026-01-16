@@ -194,4 +194,26 @@ classes: wide
     <p>A draft guidebook for designing and writing benchmarks</p>
     <a href="/tasks/005_benchmark-guidelines" class="about-button">View</a>
   </div>
+
+</section>
+
+<h1>Performance Assessments</h1>
+  <p>Below are links to reports from completed performance assessments. These reports are using SHAREing's performance methodology which is in a very early stage of development.</p>
+<section class="about-grid">
+
+  <div class="about-card">
+    <img src="/assets/images/logo.png" alt="BabelStream Report">
+    <h3>BabelStream Report</h3>
+    <p>A high-level performace report of BabelStream</p>
+    <a href="/reports/babelstream" class="about-button">View</a>
+  </div>
+
+  <div class="about-card">
+    <img src="/assets/images/logo.png" alt="QE Report">
+    <h3>Quantum Espresso Report</h3>
+    <p>A high-level performace report of Quantum Espresso</p>
+    <a href="/reports/quantum-espresso" class="about-button">View</a>
+  </div>
+
+
 </section>
