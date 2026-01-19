@@ -215,5 +215,11 @@ classes: wide
     <a href="/reports/quantum-espresso" class="about-button">View</a>
   </div>
 
+  <div class="about-card">
+    <img src="/assets/images/logo.png" alt="ExaHyPE Report">
+    <h3>ExaHyPE Report</h3>
+    <p>A high-level performance report of ExaHyPE</p>
+    <a href="/reports/exahype" class="about-button">View</a>
+  </div>
 
 </section>
