@@ -81,7 +81,8 @@ benchmark is set up with $2^{27}$ elements.
 
 The I/O of BabelStream is incredibly minimal. There are no input files and the
 only output is written to standard output showing some information on the
-benchmark outcomes (e.g., measured memory bandwidths, etc.).
+benchmark outcomes (e.g., measured memory bandwidths, etc.). Therefore, we
+neglect I/O from our analysis.
 
 ### Machine details
 
@@ -131,8 +132,10 @@ variable or through the SLURM resource statements in a job script.
 
 Below we present results on the high-level performance metrics for BabelStream.
 As we only study the OpenMP (CPU) version of BabelStream our analysis is
-restricted to just three of the five SHAREing performance metrics: **core**,
-**intra-node** and **I/O**.
+restricted to just two of the five SHAREing performance metrics: **core**,
+**intra-node**. Whilst we could measure **I/O** performance, BabelStream has
+negligible I/O and so this would not give any meaningful information on
+performance.
 
 ### Core
 
@@ -190,22 +193,19 @@ efficiency drops below 80% and 60% for two and three cores, respectively.
 Hence, these metrics are heavily penalising because of the high number of
 available cores. 
 
-### I/O
-
-The table below includes the **I/O** metric which is the proportion of total
-runtime that the benchmark spends in reading and writing to disk.
-
-<div align="center">
-  <img width="900" alt="Intra-node performance metric" src="/assets/report-figs/babelstream/io-table.svg">
-</div>
-
-BabelStream reads nothing from disk, and performs incredibly minimal writing to
-standard output and so to four significant we observe no I/O performance
-issues.
-
 ### Summary
 
-Below we summarise our three metrics in the form of a Kiviat diagram.
+Below we summarise our two metrics in the form of a Kiviat diagram. We can
+see that both **core** and **intra-node** performance are poor here. Our core
+performance metric takes into account only single-core compute rate, and as
+BabelStream is a highly memory-bound benchmark this is perhaps not surprising.
+However, a more detailed analysis of the core performance issue is necessary.
+
+Likewise, the strong scaling results are poor. This could in part be due to
+analysing a problem size which is 'too small', but again should be analysed in
+further detail at the intra-node level. Performance issues can rarely be
+decoupled, so it may be that these core and intra-node performance issues are
+inter-dependent.
 
 <div align="center">
   <img width="900" alt="Summary kiviat" src="/assets/report-figs/babelstream/summary.svg">
