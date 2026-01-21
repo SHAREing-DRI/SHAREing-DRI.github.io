@@ -162,7 +162,7 @@ layout: splash
             <div class="person-card">
       <img src="/assets/profilepics/clare.jpg" alt="Davide Costanzo">
       <h3>Clare Collyer</h3>
-      <div class="role">Post Award Finance and Project Manager · Durham University</div>
+      <div class="role">Research Project Manager · Durham University</div>
     </div>
     
     
