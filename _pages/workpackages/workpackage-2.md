@@ -418,7 +418,7 @@ This group reviews the status quo of technical skills training for RTPs in the U
   {% for task in open %}
     <div class="task-card open-task">
       <div>{{ task.title }}</div>
-      <a class="apply-btn" href="{{ task.url }}">View & Apply</a>
+      <a class="apply-btn" href="{{ task.url }}">Propose a Solution</a>
     </div>
   {% endfor %}
   
