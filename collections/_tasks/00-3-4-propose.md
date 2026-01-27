@@ -1,5 +1,5 @@
 ---
-title: "Propose your own task based on WP3.4"
+title: "Suggest a new task based on WP3.4"
 layout: tasks
 
 image: assets/images/logo.png

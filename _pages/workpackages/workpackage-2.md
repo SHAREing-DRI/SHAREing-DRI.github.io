@@ -359,7 +359,7 @@ This group reviews the status quo of technical skills training for RTPs in the U
 
   <!-- Propose a Task Card -->
   <div style="background:#f7f9fc; border-left:12px solid #B906B9; padding:1rem 1.25rem; border-radius:8px; ">
-    <h3 style="margin-top:0; color:#002A41; font-size:22px;">Propose a Task</h3>
+    <h3 style="margin-top:0; color:#002A41; font-size:22px;">Suggest a New Task</h3>
     <p style="margin-bottom:0rem; line-height:1.6; font-size:16px;">
      Have an idea that could benefit SHAREing? Use this option to submit a task proposal. Focus on <strong>what</strong>. you want to do and <strong>why</strong>. it matters for SHAREing and the WPs.
      <br>
@@ -428,7 +428,7 @@ This group reviews the status quo of technical skills training for RTPs in the U
 
   <!-- PROPOSE -->
   <button class="accordion-btn propose-tab" data-target="{{ wp }}-propose">
-   Propose Task <span class="arrow">►</span>
+   Suggest New Task  <span class="arrow">►</span>
   </button>
   <div id="{{ wp }}-propose" class="accordion-panel">
 
@@ -439,7 +439,7 @@ This group reviews the status quo of technical skills training for RTPs in the U
   {% for task in propose %}
     <div class="task-card propose-task">
       <div>{{ task.title }}</div>
-      <a class="apply-btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUQUs0QUFRQkhDNU83T1JMUkFFSlJHWjNXMy4u" target="_blank" rel="noopener noreferrer">Apply</a>
+      <a class="apply-btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUQUs0QUFRQkhDNU83T1JMUkFFSlJHWjNXMy4u" target="_blank" rel="noopener noreferrer">Suggest</a>
     </div>
   {% endfor %}
 
