@@ -418,7 +418,7 @@ This group reviews the status quo of professional skills training for RTPs in th
   {% for task in open %}
     <div class="task-card open-task">
       <div>{{ task.title }}</div>
-      <a class="apply-btn" href="{{ task.url }}">View & Apply</a>
+      <a class="apply-btn" href="{{ task.url }}">Propose a Solution</a>
     </div>
   {% endfor %}
   
