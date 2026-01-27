@@ -92,7 +92,12 @@ layout: splash
 .person-card .role {
   font-size: 0.8rem;
   color: #666;
-  margin-bottom: 0.6rem;
+}
+
+.person-card .institution {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 800;
 }
 
 .person-card details {
@@ -139,7 +144,7 @@ layout: splash
     <div class="person-card">
       <img src="https://hpc.fau.de/files/2021/03/thomas-gruber_2020.jpg" alt="Profile Picture">
       <h3>Thomas Gruber</h3>
-      <div class="role">Erlangen National High Performance Computing Center</div>
+      <div class="role">Erlangen National High Performance Computing Center<br><br></div>
         <a href="https://hpc.fau.de/person/thomas-gruber/">Read more</a>
     </div>
 
@@ -149,8 +154,8 @@ layout: splash
     <div class="person-card">
       <img src="/assets/profilepics/eleanor.jpeg" alt="Profile Picture">
       <h3>Eleanor Broadway</h3>
-      <div class="role">HPC Architect  · <br> EPCC</div>
-      <div class="HPC Architect"></div>
+      <div class="role">HPC Architect</div>
+       <div class="institution">EPCC<br><br></div>
 
    
          <a href="https://www.epcc.ed.ac.uk/about-us/our-team/eleanor-broadway">Read more</a>
@@ -158,12 +163,13 @@ layout: splash
 
 
     <div class="person-card">
-      <img src="/assets/profilepics/generic.jpg" alt="Profile Picture">
-      <h3></h3>
-      <div class="role"></div>
+      <img src="/assets/profilepics/christine.jpg" alt="Profile Picture">
+      <h3>Christine Kitchen</h3>
+      <div class="role">Deputy Director, Computing Department</div>
+       <div class="institution">European Centre for Medium-Range Weather Forecasts (ECMWF)</div>
 
    
-         <a href=""></a>
+         <a href="https://www.ecmwf.int/en/about/who-we-are/staff-profiles/christine-kitchen">Read more</a>
     </div>
     
     

@@ -249,7 +249,7 @@ classes: wide page__center no-title
 
   <!-- Propose a Task Card -->
   <div style="background:#f7f9fc; border-left:8px solid #005a9c; padding:0.5rem 0.75rem; border-radius:6px;">
-    <h3 style="margin:0; color:#002A41; font-size:16px;">Propose a Task</h3>
+    <h3 style="margin:0; color:#002A41; font-size:16px;">Suggest a New Task</h3>
     <p style="margin:0; line-height:1.4; font-size:12px;">
       Have an idea that could benefit SHAREing? Use this option to submit a task proposal. Focus on <strong>what</strong> you want to do and <strong>why</strong> it matters for SHAREing and the WPs.
       <br>
@@ -359,7 +359,7 @@ classes: wide page__center no-title
      class="propose-task-link"
      target="_blank"
      rel="noopener">
-    Propose your task for {{ wp | upcase }}
+    Suggest a new task for {{ wp | upcase }}
   </a>
 </div>
 
