@@ -241,7 +241,7 @@ layout: splash
 
     
      <div class="person-card">
-      <img src="/assets/profilepics/generic.jpg" alt="Davide Costanzo">
+      <img src="/assets/profilepics/davide.png" alt="Davide Costanzo">
       <h3>Davide Costanzo</h3>
       <div class="role">Head of Particle Physics and Particle Astrophysics Research Cluster · University of Sheffield</div>
     </div>
