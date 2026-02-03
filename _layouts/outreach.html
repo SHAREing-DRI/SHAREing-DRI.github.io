@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<article class="event-page">
+
+  <header class="event-header">
+    <h1>{{ page.title }}</h1>
+
+    <p class="event-dates">
+      {{ page.start_date | date: "%d %B %Y" }}
+      –
+      {{ page.date | date: "%d %B %Y" }}
+    </p>
+
+    {% if page.location %}
+      <p class="event-location">📍 {{ page.location }}</p>
+    {% endif %}
+
+    {% if page.categories %}
+      <p class="event-categories">
+        {% for cat in page.categories %}
+          <span class="event-tag">{{ cat }}</span>
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    {% if page.image %}
+      <img class="event-hero" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    {% endif %}
+  </header>
+
+  <div class="event-body">
+    {{ content }}
+  </div>
+
+</article>
+
