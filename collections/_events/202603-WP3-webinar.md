@@ -15,7 +15,7 @@ summary: This webinar brings together members of SHAREing and external collabora
 
 ## Event information
 
-SHAREing is organising an afternoon webinar to present and discuss Professional Skills Training on 3rd of March, 3pm-4pm.
+SHAREing is organising an afternoon webinar to present and discuss Professional Skills Training on 6th of March, 3pm-4pm.
 
 ## Agenda
 
