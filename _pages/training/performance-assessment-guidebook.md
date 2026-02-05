@@ -17,7 +17,7 @@ Whenever participants find out that they lack some (very) basic terminology or c
   ![HPC knowledge graph](/assets/images/hpc-foundations-knowledge-graph.png)
 </a>
 
-Please click the link [here](https://360.articulate.com/review/content/df08a035-b9d6-4de4-ae5f-4c62b33bc67b/review) to access the 'Foundations of HPC' knowledge graph.
+Please click the link [here](https://shareing-dri.github.io/hpc-concepts-course/) to access the 'Foundations of HPC' knowledge graph.
 
 
 ## Acknowledgements
