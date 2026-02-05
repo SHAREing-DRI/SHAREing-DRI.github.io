@@ -18,7 +18,16 @@ header:
    <!-- ADD NEWS HERE -->
    
    
-   
+       <div class="news-card">
+  <div class="news-content">
+    <span class="news-date">December 2025</span>
+    <h3>CIUK 2025</h3>
+    <p>
+      Muitple members of SHAREing attended CIUK 2025 in December, including talks from SHAREing's Martyn Guest and Eva Fernandez Amez. An overview of these talks can be found
+      <a href="/events/202512-CIUK25/">here</a>.
+    </p>
+  </div>
+</div>
    
    
    <!-- COPY AND PASTE THIS TEMPLATE -->
