@@ -13,7 +13,7 @@ Whenever participants find out that they lack some (very) basic terminology or c
 
 ## Knowledge graph (overview)
 
-<a href="https://360.articulate.com/review/content/df08a035-b9d6-4de4-ae5f-4c62b33bc67b/review">
+<a href="https://shareing-dri.github.io/hpc-concepts-course/">
   ![HPC knowledge graph](/assets/images/hpc-foundations-knowledge-graph.png)
 </a>
 
