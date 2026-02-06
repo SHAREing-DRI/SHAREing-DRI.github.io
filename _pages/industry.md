@@ -386,8 +386,6 @@ padding: 1.5rem 0.5rem;
 
 
 <section class="section-wide longform">
-  <h4>Understanding software performance in practice</h4>
-
   <p>
 SHAREing’s performance assessment gives you a clear, independent view of how your software behaves today and what realistically could be improved tomorrow. By identifying performance limitations, bottlenecks, and suitable technology options, we help organisations reduce uncertainty before committing time and resources to major changes. If you are considering scaling, new hardware, or further development, getting in touch is a simple first step towards understanding your options and making confident, evidence-based decisions.
   </p>
