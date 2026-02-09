@@ -86,6 +86,7 @@ padding: 1.5rem 0.5rem;
   font-size: 1.5rem;
   margin-bottom: 1.2rem;
   margin-top: 1rem !important;
+  text-align: center;
 }
 
 .industry-hero p {
@@ -236,8 +237,9 @@ padding: 1.5rem 0.5rem;
 
 .longform {
   max-width: 2000px;
-  margin: 4rem auto;
   padding: 2.5rem 3rem;
+    margin-bottom:2rem;
+  margin-top:2rem;
   background: rgba(255,255,255,0.9);
   border-radius: 20px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.08);
@@ -270,9 +272,44 @@ padding: 1.5rem 0.5rem;
   );
 }
 
+.hero-callout {
+  display: inline-block;
+  max-width: 100%;
+  margin: 1rem auto 1rem;
+  padding: 0.6rem 1.2rem;
+
+  border-radius: 999px;
+  background: rgba(104,36,109,0.1);
+  color: #68246d;
+
+  font-weight: 600;
+  font-size: 2rem;  text-align: center;
+
+  box-sizing: border-box;
+  white-space: normal;
+}
+
+
 
 @media(max-width: 800px){
   .boundary { grid-template-columns: 1fr; }
+  
+    .parallax-hero {
+    height: 35vh;
+    background-attachment: scroll;
+      margin-bottom: 3rem;
+  }
+  
+ 
+  .image-2
+  .image-1 {
+    background-position: center;
+  }
+  
+    .hero-callout {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
 }
 
 
@@ -291,6 +328,14 @@ padding: 1.5rem 0.5rem;
 </section>
 
 
+<br>
+
+
+<section class="section-wide" style="text-align:center;">
+  <div class="hero-callout">
+    Software performance plays a key role in controlling costs and avoiding unnecessary investment
+  </div>
+</section>
 
 
 <section class="section-wide longform">
@@ -324,6 +369,13 @@ padding: 1.5rem 0.5rem;
     SHAREing enables informed decision-making without committing organisations to specific
     technologies or optimisation strategies.
   </p>
+  
+  <p>
+  The result is a clear, evidence-based understanding of what constrains performance today and what
+  realistically could be improved in the future, including where improvements would lead to
+  measurable cost savings or better return on investment.
+</p>
+
 </section>
 
 
@@ -399,7 +451,7 @@ SHAREing’s performance assessment gives you a clear, independent view of how y
 
   <div class="visual-grid">
 
-    <a href="/about-overview/team-consortium" class="visual-card-link">
+    <a href="/contact/" class="visual-card-link">
       <div class="visual-card">
         <img src="/assets/images/team.jpg" alt="Contact SHAREing">
         <div class="visual-overlay">Talk to us</div>
