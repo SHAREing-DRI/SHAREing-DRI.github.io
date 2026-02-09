@@ -13,4 +13,8 @@ main:
     url: /resources/
   - title: "Network"
     url: /network/
+  - title: "Industry"
+    url: /industry/
+  - title: "Contact"
+    url: /contact/
     
