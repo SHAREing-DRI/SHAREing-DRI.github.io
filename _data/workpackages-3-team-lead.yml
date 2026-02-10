@@ -1,3 +1,16 @@
+
+lead-wp: "Eva Fernandez - Durham University"
+lead_photo: "/assets/profilepics/EvaFernandez.jpeg"
+  
+wp3.1:
+  title: "WP3.1 – Identify and curate educational pathways
+  "
+  summary: ""
+   
+wp3.2:
+  title: "WP3.2 – Establish and curate didactic best practices"
+  summary: ""
+  
 wp3.3:
   title: "WP3.3 – Develop e-learning content that is not covered elsewhere yet essential for accelerate computing"
   lead: "Eva Fernandez Amez - Durham University"
@@ -9,4 +22,24 @@ wp3.4:
   lead: "Eva Fernandez Amez - Durham University"
   lead_photo: "/assets/profilepics/EvaFernandez.jpeg"
   summary: "This group reviews the status quo of professional skills training in the UK. We identify shortcomings of existing training, missing ingredients, and best practices in the delivery of training. The group identifies and commissions user questionnaires, the creation of new training material and training events."
-
+  
+wp3.5:
+  title: "WP3.5 – Liaise with industry, professional bodiesand academia to map learning outcomes onto a points-based accreditation and learning outcomesfor MScs and CDTs"
+  summary: ""
+   
+   
+wp3.6:
+  title: "WP3.6 – Establish research culture focus group ensuring that EDIA values, culture and objectives are taken into account for material delivery and design"
+  summary: ""
+   
+wp3.7:
+  title: "WP3.7 – Engage in Knowledge Exchange DRI initiative"
+  summary: ""
+  
+  
+wp3.8:
+  title: "WP3.8 – Identify and publish series of case studies how DRI teams contribute towards code University values and objectives, allowing local institutions to establish clear RTP career pathway"
+  summary: ""
+ 
+ 
+ 

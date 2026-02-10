@@ -1,5 +1,5 @@
 ---
-permalink: /task-map/
+permalink: /task-maps/
 title: "Task Map"
 layout: default
 sidebar: false
@@ -11,18 +11,18 @@ classes: wide page__center no-title
 
 .wp-columns {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;             
+  grid-template-columns: repeat(4, minmax(200px, 1fr)); /* ancho mínimo 200px */
+  gap: 12px;             
   width: 100%;
   max-width: 1400px;      
   margin: 0 auto;
   padding: 8px;
-  transform-origin: top center;
+  align-items: start; /* fuerza que las columnas empiecen arriba */
 }
 
 @media (max-width: 1600px) {
   .wp-columns {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -43,10 +43,13 @@ classes: wide page__center no-title
 
 .wp-column {
   background: #ffffff;
-  border-radius: 14px;
-  padding: 14px 14px 20px;  
+  border-radius: 12px;
+  padding: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   border-top: 4px solid #68246d;
+  display: flex;
+  flex-direction: column;
+  height: auto; /* permite que crezca según contenido */
 }
 
 
@@ -76,14 +79,22 @@ classes: wide page__center no-title
 }
 
 
+.wp-subblocks-wrapper {
+  display: grid;
+  grid-template-columns: 1fr; /* cada subgrupo ocupa toda la columna del WP */
+  row-gap: 12px;
+}
 
 .wp-subblock {
-  border-radius: 8px;
-  padding: 10px;
-  margin: 14px 0;
   background: #FDF6FF;
   border: 3px solid #F0DEF5;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* asegura que el contenido empiece arriba */
 }
+
 
 .wp-subblock-header {
   display: flex;
@@ -108,7 +119,7 @@ classes: wide page__center no-title
 }
 
 .wp-subtitle {
-  font-size: 1rem;
+  font-size: 0.6rem;
   font-weight: 600;
   color: #003d66;
 }
@@ -127,20 +138,25 @@ classes: wide page__center no-title
   margin-top: 3px;
 }
 
-
-
 .kanban {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  display: flex;
+  gap: 12px;
   margin-top: 8px;
+  flex-wrap: nowrap;     /* No se bajan */
+  overflow-x: auto;      /* Scroll horizontal si hace falta */
 }
 
 .column {
-  background: #ffffff;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #eee;
+  flex: 1 1 120px;       /* ancho mínimo 120px */
+  display: flex;
+  flex-direction: column; 
+}
+
+/* Botón debajo */
+.propose-task {
+  margin-top: 12px;      /* espacio con la kanban */
+  text-align: center;
+  width: 100%;
 }
 
 .column h3 {
@@ -174,6 +190,34 @@ classes: wide page__center no-title
   font-size: 0.6rem;
   line-height: 0.2;  
 }
+
+.tasks-wrapper .extra-task {
+  display: none;  /* Oculta tareas extra */
+}
+
+.tasks-wrapper.expanded .extra-task {
+  display: block; /* Muestra cuando se expande */
+}
+
+.toggle-tasks {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 4px;
+  background: #003d66;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-tasks:hover {
+  background: #68246d;
+}
+
+
 
 .propose-task {
   margin-top: 10px;
@@ -270,9 +314,10 @@ classes: wide page__center no-title
 <div class="wp-columns">
 
 {% assign wp_groups =
-  "wp1:wp1.1,wp1.2,wp1.3|
-   wp2:wp2.3,wp2.4|
-   wp3:wp3.3,wp3.4" | split:"|" %}
+  "wp1:wp1.1,wp1.2,wp1.3,wp1.4,wp1.5|
+   wp2:wp2.1,wp2.2,wp2.3,wp2.4,wp2.5,wp2.6,wp2.7,wp2.8|
+   wp3:wp3.1,wp3.2,wp3.3,wp3.4,wp3.5,wp3.6,wp3.7,wp3.8|
+    wp4:wp4.1,wp4.2,wp4.3,wp4.4" | split:"|" %}
 
 {% for group in wp_groups %}
 
@@ -295,13 +340,25 @@ classes: wide page__center no-title
 
   <div class="wp-column">
 
-    <!-- MAIN WP HEADER -->
-    <div class="wp-column-title">
-      <a href="{{ wp_target }}">
-        <div class="wp-main-number">Work Package {{ wp_number }}</div>
-        <div class="wp-main-subtitle">{{ wp_page.title }}</div>
-      </a>
-    </div>
+<!-- MAIN WP HEADER -->
+<div class="wp-column-title">
+  <a href="{{ wp_target }}">
+    <div class="wp-main-number">Work Package {{ wp_number }}</div>
+    <div class="wp-main-subtitle">{{ wp_page.title }}</div>
+  </a>
+</div>
+
+<!-- WP LEAD BLOCK -->
+
+{% assign wp_file = "workpackages-" | append: wp_number | append: "-team-lead" %}
+{% assign wp_lead_data = site.data[wp_file] %}
+
+<div class="wp-lead-block" style="display:flex; align-items:center; font-size:0.8rem; gap:12px; background:#FDF6FF; padding:8px 12px; border-radius:10px; border:1px solid #F0DEF5; margin-bottom:12px;">
+  <img src="{{ wp_lead_data.lead_photo }}" alt="{{ wp_lead_data.lead-wp }}" style="width:50px; height:50px; border-radius:50%; object-fit:cover;">
+  <div style="display:flex; flex-direction:column;">
+    <div style="font-weight:600; color:#003d66;">{{ wp_lead_data.lead-wp }}</div>
+  </div>
+</div>
 
     {% assign wp_file = "workpackages-" | append: wp_number | append: "-team-lead" %}
 
@@ -317,51 +374,106 @@ classes: wide page__center no-title
 
         <!-- Header section -->
         <div class="wp-subblock-header">
-          <img src="{{ meta.lead_photo }}" alt="{{ meta.lead }}" class="wp-lead-photo">
+         
           <div class="wp-subblock-text">
             <div class="wp-subtitle">{{ meta.title }}</div>
-            <div class="wp-lead"><strong>Lead:</strong> {{ meta.lead }}</div>
+          
           </div>
         </div>
 
         <!-- Kanban -->
         <div class="kanban">
-          <div class="column open-col">
-            <h3>Open</h3>
-            {% if open.size > 0 %}
-              {% for task in open %}
-                <div class="task"><a href="{{ task.url }}">{{ task.title }}</a></div>
-              {% endfor %}
-            {% endif %}
-          </div>
+<div class="column open-col">
+  <h3>Open</h3>
+  {% assign num_to_show = 2 %}
+  {% if open.size > 0 %}
+    <div class="tasks-wrapper">
+      {% for task in open limit:num_to_show %}
+        <div class="task"><a href="{{ task.url }}">{{ task.title }}</a></div>
+      {% endfor %}
 
-          <div class="column progress-col">
-            <h3>Ongoing</h3>
-            {% if progress.size > 0 %}
-              {% for task in progress %}
-                <div class="task"><a href="{{ task.url }}">{{ task.title }}</a></div>
-              {% endfor %}
-            {% endif %}
-          </div>
+      {% assign extra_tasks = open | slice: num_to_show, open.size %}
+      {% for task in extra_tasks %}
+        <div class="task extra-task"><a href="{{ task.url }}">{{ task.title }}</a></div>
+      {% endfor %}
+    </div>
 
-          <div class="column completed-col">
-            <h3>Completed</h3>
-            {% if completed.size > 0 %}
-              {% for task in completed %}
-                <div class="task"><a href="{{ task.url }}">{{ task.title }}</a></div>
-              {% endfor %}
-            {% endif %}
-          </div>
+    {% if open.size > num_to_show %}
+      <button class="toggle-tasks">Show more</button>
+    {% endif %}
+  {% endif %}
+</div>
+
+
+
+
+
+
+
+
+<div class="column progress-col">
+  <h3>Progress</h3>
+  {% assign num_to_show = 2 %}
+  {% if progress.size > 0 %}
+    <div class="tasks-wrapper">
+      {% for task in progress limit:num_to_show %}
+        <div class="task"><a href="{{ task.url }}">{{ task.title }}</a></div>
+      {% endfor %}
+
+      {% assign extra_tasks = progress | slice: num_to_show, progress.size %}
+      {% for task in extra_tasks %}
+        <div class="task extra-task"><a href="{{ task.url }}">{{ task.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    {% if progress.size > num_to_show %}
+      <button class="toggle-tasks">Show more</button>
+    {% endif %}
+  {% endif %}
+</div>
+
+
+
+
+
+
+<div class="column completed-col">
+  <h3>Completed</h3>
+  {% assign num_to_show = 2 %}
+  {% if completed.size > 0 %}
+    <div class="tasks-wrapper">
+      {% for task in completed limit:num_to_show %}
+        <div class="task"><a href="{{ task.url }}">{{ task.title }}</a></div>
+      {% endfor %}
+
+      {% assign extra_tasks = completed | slice: num_to_show, completed.size %}
+      {% for task in extra_tasks %}
+        <div class="task extra-task"><a href="{{ task.url }}">{{ task.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    {% if completed.size > num_to_show %}
+      <button class="toggle-tasks">Show more</button>
+    {% endif %}
+  {% endif %}
+</div>
+
           
 
-    <div class="propose-task" style="grid-column: 1 / 4; width: 100%;">
-  <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUQUs0QUFRQkhDNU83T1JMUkFFSlJHWjNXMy4u"
-     class="propose-task-link"
-     target="_blank"
-     rel="noopener">
+<!-- Kanban de tareas -->
+<div class="kanban">
+  <div class="column open-col">...</div>
+  <div class="column progress-col">...</div>
+  <div class="column completed-col">...</div>
+</div>
+
+<!-- Botón de sugerir, siempre debajo -->
+<div class="propose-task">
+  <a href="..." class="propose-task-link" target="_blank" rel="noopener">
     Suggest a new task for {{ wp | upcase }}
   </a>
 </div>
+
 
   </div>
 
@@ -374,3 +486,20 @@ classes: wide page__center no-title
 {% endfor %}
 
 </div>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll(".toggle-tasks").forEach(function(button) {
+    button.addEventListener("click", function() {
+      const wrapper = this.previousElementSibling; // tasks-wrapper
+      wrapper.classList.toggle("expanded");
+      this.textContent = wrapper.classList.contains("expanded") ? "Show less" : "Show more";
+    });
+  });
+});
+
+</script>
+
