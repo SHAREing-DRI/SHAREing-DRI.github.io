@@ -1,3 +1,7 @@
+
+lead-wp: "Thomas Flynn - Durham University"
+lead_photo: "/assets/profilepics/thomas.jpg"
+
 wp1.1:
   title: "WP1.1 – Performance Assessment"
   lead: "Martyn Guest - Cardiff University"
@@ -15,3 +19,15 @@ wp1.3:
   lead: "Gokmen Kilic - Durham University"
   lead_photo: "/assets/profilepics/Gokmen.jpg"
   summary: "This group discusses the status quo of testbeds in the UK. We identify which information is to be collected and has to be consolidated, best practices in describing and assessing the testbeds, and the group also can make recommendations which testbeds they would like to see within the community to allow for faster progress in the field."
+  
+wp1.4:
+  title: "WP1.4 – Host special interest group and workshops on hardware horizon scanning"
+  lead: "Thomas Flynn - Durham University"
+  lead_photo: "/assets/profilepics/thomas.jpg"
+  summary: "v"
+  
+wp1.5:
+  title: "WP1.5 –  Develop case studies from assessed codes on how accelerate compute enables accelerated sciences and a better utilisation of DRI"
+  lead: "Thomas Flynn - Durham University"
+  lead_photo: "/assets/profilepics/thomas.jpg"
+  summary: "v"

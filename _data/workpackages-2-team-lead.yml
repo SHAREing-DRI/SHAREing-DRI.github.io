@@ -1,3 +1,15 @@
+
+lead-wp: "Ed Bennett - Swansea University"
+lead_photo: "/assets/profilepics/Bennett.jpg"
+ 
+wp2.1:
+  title: "WP2.1 – Identify and curate educational pathways"
+  summary: ""
+   
+wp2.2:
+  title: "WP2.2 – Establish and curate didactic best practices"
+  summary: ""
+  
 wp2.3:
   title: "WP2.3 – Develop e-learning content that is not covered elsewhere yet essential for accelerate computing"
   lead: "Ed Bennett - Swansea University"
@@ -9,3 +21,24 @@ wp2.4:
   lead: "Ed Bennett - Swansea University"
   lead_photo: "/assets/profilepics/Bennett.jpg"
   summary: "This group reviews the status quo of technical training in the UK. We identify shortcomings of existing training, missing ingredients, and best practices in the delivery of training. The group identifies and commissions user questionnaires, the creation of new training material and training events."
+  
+wp2.5:
+  title: "WP2.5 – Liaise with industry, professional bodiesand academia to map learning outcomes onto a points-based accreditation and learning outcomesfor MScs and CDTs"
+  summary: ""
+   
+   
+wp2.6:
+  title: "WP2.6 – Establish research culture focus group ensuring that EDIA values, culture and objectives are taken into account for material delivery and design"
+  summary: ""
+   
+wp2.7:
+  title: "WP2.7 – Engage in Knowledge Exchange DRI initiative"
+  summary: ""
+  
+  
+wp2.8:
+  title: "WP2.8 – Identify and publish series of case studies how DRI teams contribute towards code University values and objectives, allowing local institutions to establish clear RTP career pathway"
+  summary: ""
+ 
+ 
+ 
