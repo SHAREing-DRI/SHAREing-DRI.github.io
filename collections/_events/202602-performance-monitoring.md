@@ -6,6 +6,7 @@ date: 2026-02-25
 location: Hybrid Swansea University/Zoom
 categories:
   - Workshop
+web-page: https://indico.global/event/16430/
 summary: A workshop to understand options for monitoring performance of shared accelerated compute. 
 ---
 
@@ -23,3 +24,6 @@ on how to connect hardware data to user workloads.
 We welcome both in-person and remote participation in this event.
 The Zoom link to participate remotely
 will be sent to registered participants in advance of the event.
+
+[Register for webinar](https://indico.global/event/16430/){: .btn .btn--event .btn--large}
+
