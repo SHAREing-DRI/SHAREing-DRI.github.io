@@ -197,7 +197,39 @@ classes: wide
 
 </section>
 
-<h1>Performance Assessments</h1>
+
+<h1>Performance Assessment repository</h1>
+<p>The assessment-framework repository contains the templates for performing a performance assessment of newly submitted software using the above form. These templates are used by assessors to evaluate the software in three stages:
+    Currently only the pre-assessment stage is templated. </p>
+
+<section class="about-grid">
+
+  <div class="about-card">
+    <img src="/assets/images/logo.png" alt="Assessment Framework Repository">
+    <h3>Performance assessment guidebook</h3>
+    <p>A draft guidebook on how to begin a performance assessment</p>
+    <a href="https://github.com/SHAREing-DRI/assessment-framework/" class="about-button">Go to repository</a>
+  </div>
+
+  <div class="about-card">
+    <img src="/assets/images/logo.png" alt="Pre-assessment template">
+    <h3>Pre-assessment template</h3>
+    <p>Template used by assessors to evaluate submitted code before undertaking an assessment</p>
+    <a href="https://github.com/SHAREing-DRI/assessment-framework/blob/main/preassessment-template-internal.md" class="about-button">Go to template</a>
+  </div>
+
+  <div class="about-card">
+    <img src="/assets/images/logo.png" alt="High level assessment template">
+    <h3>High level assessment template</h3>
+    <p>Work in progress, does not link anywhere.</p>
+    <a href="" class="about-button">View</a>
+  </div>
+
+</section>
+
+
+    
+  <h1>Example Performance Assessments</h1>
   <p>Below are links to reports from completed performance assessments. These reports are using SHAREing's performance methodology which is in a very early stage of development.</p>
 <section class="about-grid">
 
