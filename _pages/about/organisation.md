@@ -77,7 +77,8 @@ layout: splash
 
 .wp-grid {
  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+ 
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.6rem;           
   margin-top: 1rem;
 }
@@ -200,6 +201,8 @@ layout: splash
   of SHAREing.
   </p>
 
+
+
   <div class="wp-grid">
     <div class="wp-card">
       <h4>WP1 <br> Performance Assessment</h4>
@@ -219,7 +222,33 @@ layout: splash
       <a href="/workpackages/workpackage-3/">WP3.3 - Develop e-learning content</a>
       <a href="/workpackages/workpackage-3/">WP3.4 - Organise training events</a>
     </div>
-  </div>
+    
+    
+       <div class="wp-card">
+      <h4>WP4 <br> Outreach, stakeholder engagement and capacity building</h4>
+      <a href="/workpackages/workpackage-2/">WP4.1 - Liase with compute centres, RTP comunities, and lobby groups.</a>
+      <a href="/workpackages/workpackage-2/">WP4.3 - Marketing and brand-building in collaboration with the knowledge exchange DRI grant. Presence at international and UK conferences</a>
+    </div>
+
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br>
   <p>
      Working groups are open to the wider community. Regular subgroup webinars are

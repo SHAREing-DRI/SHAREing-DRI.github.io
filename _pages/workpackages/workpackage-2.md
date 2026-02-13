@@ -4,7 +4,7 @@ title: "Workpackage 2: Technical training"
 classes: wide
 layout: splash
 ---
-
+{% assign suggest_url = page.apply | default: site.data.propose_links.default %}
 <style>
 /* WORKPACKAGE BASE STYLES*/
 .wp-section {
@@ -368,8 +368,9 @@ This group reviews the status quo of technical skills training for RTPs in the U
   </div>
 
 </div>
+
 <div class="eligibility-box">
-  ⚠️ <strong>Eligibility:</strong> At this time, only dRTP members who are formally affiliated with one of the SHAREing consortium universities and institutions: Durham, Manchester, Queen Mary University of London, Swansea, Cardiff, CoSeC, or Sheffield can submit or propose tasks.
+  <strong>Eligibility:</strong> SHAREing tasks are open to <strong> all contributors based at UK universities or other organisations eligible for UKRI funding </strong>
 </div>
 
 
@@ -439,7 +440,7 @@ This group reviews the status quo of technical skills training for RTPs in the U
   {% for task in propose %}
     <div class="task-card propose-task">
       <div>{{ task.title }}</div>
-      <a class="apply-btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUQUs0QUFRQkhDNU83T1JMUkFFSlJHWjNXMy4u" target="_blank" rel="noopener noreferrer">Suggest</a>
+      <a class="apply-btn" href="{{ suggest_url }}" target="_blank" rel="noopener noreferrer">Suggest</a>
     </div>
   {% endfor %}
 
