@@ -1,5 +1,5 @@
 ---
-permalink: /task-overview/
+permalink: /task-map-overview/
 title: "Task Map"
 layout: default
 sidebar: false

@@ -334,12 +334,7 @@ These tasks typically run for one to three months and may be funded for up to 10
 <section class="section">
   <h2>Propose your Own Tasks </h2>
 
-  <p>
- dRTPs may also propose new tasks. Proposals are reviewed within the relevant Work
-    Package and, if approved, become Open Tasks. Proposers have priority to lead the
-    task, with detailed planning and costings completed at the formal bid stage.
-  </p>
-  
+ 
    <div class="cta-wrapper">
     <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUQUs0QUFRQkhDNU83T1JMUkFFSlJHWjNXMy4u" class="cta">Propose your Own Task</a>
   </div>

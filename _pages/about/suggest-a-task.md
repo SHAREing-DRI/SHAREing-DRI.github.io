@@ -373,8 +373,7 @@ layout: splash
 
 <p>
   Once a proposed task has been reviewed and accepted by the SHAREing consortium, it will be published on the website as an open task. 
-  Any eligible contributor, in line with the funding eligibility criteria described above, may apply to receive funding to carry out the task. 
-  The person who originally suggested the task will be given priority to lead its execution, but others may also submit applications if interested.
+  Any eligible contributor, in line with the funding eligibility criteria described above, may apply to receive funding to carry out the task.
 </p>
 </section>
 
