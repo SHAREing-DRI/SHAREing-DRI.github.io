@@ -1,5 +1,5 @@
 ---
-permalink: /task-map/
+permalink: /task-map-previous/
 title: "Task Map"
 layout: default
 sidebar: false
@@ -253,7 +253,7 @@ classes: wide page__center no-title
     <p style="margin:0; line-height:1.4; font-size:12px;">
       Have an idea that could benefit SHAREing? Use this option to submit a task proposal. Focus on <strong>what</strong> you want to do and <strong>why</strong> it matters for SHAREing and the WPs.
       <br>
-      Your proposal will be reviewed by the relevant WP. If approved, it will become an Open Task listed on the website, open for anyone to apply. As the person who suggested the task, <strong>you will have priority to lead it</strong>, but others can also apply if interested. At this stage, there’s no need to include costings or detailed plans — just provide a clear description and show how the task aligns with SHAREing’s goals. The detailed “how” and paperwork will be part of the formal bid later.
+      Your proposal will be reviewed by the relevant WP. If approved, it will become an Open Task listed on the website, open for anyone to apply. At this stage, there’s no need to include costings or detailed plans — just provide a clear description and show how the task aligns with SHAREing’s goals. The detailed “how” and paperwork will be part of the formal bid later.
     </p>
   </div>
 
