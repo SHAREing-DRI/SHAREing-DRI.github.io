@@ -50,7 +50,7 @@ layout: splash
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 1.5rem;
-  margin-top:2rem;
+  margin-top:1rem;
 }
 
 .section-muted {
@@ -87,7 +87,6 @@ layout: splash
   font-size: 1.05rem;
   line-height: 1.75;
   color: var(--text-dark);
-  max-width: 900px;
 }
 
 .section-lead {
@@ -168,7 +167,7 @@ layout: splash
 
 .wp-grid {
  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.6rem;           
   margin-top: 1rem;
 }
@@ -214,6 +213,8 @@ layout: splash
 }
 
 
+
+
 @media (max-width: 900px) {
   .cards-grid {
     grid-template-columns: 1fr;
@@ -254,7 +255,7 @@ layout: splash
     
     
     <div class="notice-box">
-      <strong>All applicants must read the Flexible Fund Guidance before submitting a proposal.</strong>
+      <strong>All applicants must read the Flexible Fund Guidance before submitting a task suggestion.</strong>
       <br>
       Tasks will be supported through SHAREing Flexible Funds and must comply with UKRI funding rules and eligibility requirements.
       <br>
@@ -280,13 +281,12 @@ layout: splash
 
   <p>
     All proposed Tasks must align clearly with one of SHAREing’s Work Packages and, specifically, 
-    with one of the active groups operating within that Work Package. Proposals that fall outside 
+    with one of the active groups operating within that Work Package. Suggestions that fall outside 
     the defined scope of a Work Package will not be considered.
   </p>
 
   <p>
-    Applicants are strongly encouraged to review the objectives and current activities of each 
-    Work Package before submitting a proposal. A Task should strengthen, extend, or complement 
+    Applicants are strongly encouraged to review the objectives and current activities of each Work Package before submitting a suggested task. A Task should strengthen, extend, or complement 
     the work of an existing group.
   </p>
 
@@ -313,6 +313,15 @@ layout: splash
       <a href="/workpackages/workpackage-3/">WP3.3 - Develop e-learning content</a>
       <a href="/workpackages/workpackage-3/">WP3.4 - Organise training events</a>
     </div>
+    
+    
+       <div class="wp-card">
+      <h4>WP4 <br> Outreach, stakeholder engagement and capacity building</h4>
+      <a href="/workpackages/workpackage-2/">WP4.1 - Liase with compute centres, RTP comunities, and lobby groups.</a>
+      <a href="/workpackages/workpackage-2/">WP4.3 - Marketing and brand-building in collaboration with the knowledge exchange DRI grant. Presence at international and UK conferences</a>
+    </div>
+    
+    
   </div>
 
   <br>
@@ -328,28 +337,44 @@ layout: splash
 <section class="section">
   <h2>How to Submit</h2>
 
-  <p>
-    You may submit your proposal using the online form or download the template to prepare your submission offline.
-  </p>
+<p>
+  There are two ways to suggest a new task. You may either complete the Microsoft Form online, 
+  or download a copy of the template and submit it by email to <strong> shareing@durham.ac.uk </strong>.
+</p>
+
+<p>
+  If submitting by email, please complete the downloaded template and send it as an attachment 
+  to the contact address provided in the Flexible Fund guidance.
+</p>
+
 
   <div class="cta-buttons">
-    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=YOURFORMID"
+    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUOUZQWjA3VVNRQ01MRE9PU1BGOVRJTkY0VC4u"
        class="cta-primary">
-       Submit Proposal Online
+       Suggest a New Task (Online Form)
     </a>
-
-    <a href="/assets/documents/SHAREing-Task-Proposal-Template.pdf"
+    </div>
+<div class="cta-buttons">
+    <a href="/assets/documents/suggest-task-application-form-pdf.pdf"
        class="cta-secondary">
-       Download Proposal Template (PDF)
+       Download Suggestion Template (PDF)
+    </a></div>
+    
+      <div class="cta-buttons">
+      <a href="/assets/documents/suggest-task-application-form-word-document.docx"
+       class="cta-secondary">
+       Download Suggestion Template (Word Document)
     </a>
+    
   </div>
+
 
   <br>
 
 <p>
-  Once a proposed Task has been reviewed and accepted by the SHAREing consortium, it will be published on the website as an Open Task. 
-  Any eligible contributor, in line with the funding eligibility criteria described above, may apply to receive funding to carry out the Task. 
-  The person who originally suggested the Task will be given priority to lead its execution, but others may also submit applications if interested.
+  Once a proposed task has been reviewed and accepted by the SHAREing consortium, it will be published on the website as an open task. 
+  Any eligible contributor, in line with the funding eligibility criteria described above, may apply to receive funding to carry out the task. 
+  The person who originally suggested the task will be given priority to lead its execution, but others may also submit applications if interested.
 </p>
 </section>
 

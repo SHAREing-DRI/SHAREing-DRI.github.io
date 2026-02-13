@@ -305,10 +305,7 @@ for desktop/institutional compute will not be funded.
  <a href="https://www.ukri.org/apply-for-funding/before-you-apply/find-out-if-you-can-apply-for-funding/#contents-list" >institution eligible to receive UKRI funding.</a>
   </p>
     <p>
-   All applications will be reviewed and assessed by a panel. The panel members and 
-assessment criteria will be announced for each call. Outcomes will be shared and an 
-award agreement issued for successful applications, which must be signed and returned 
-prior to commencement of work/commitment of funds.
+   All applications will be reviewed and assessed by a panel drawn from the SHAREing Team. Outcomes will be shared and an award agreement issued for successful applications, which must be signed and returned prior to commencement of work/commitment of funds.
   </p>
 
   <p>
@@ -367,8 +364,7 @@ changing project requirement.
   </p>
   
       <p>
-All projects awarded under this scheme must be completed and fully invoiced by 28th
-February 2028.
+Project dates and reporting will be stated in the award agreement, but in all cases, projects awarded under this scheme must be completed and fully invoiced by 28th February 2028.
   </p>
   
   
@@ -419,13 +415,7 @@ sites, as these events help to increase SHAREing's visibility. In such a case, t
 obviously is available.
  </p>
     
-    
-<p>
-At this point in time, SHAREing budget is ringfenced, i.e. eligible RTPs have to be employed
-at a consortium partner and in the ideal case have a direct relation to one of the co-leads. However, collaborations with external partners are explicitly encouraged. If joint work is
-identified, we have to ensure that the funding is allocated for consortium member activity 
-only. We plan to change this in later stages of the programme to allow funding of activity at non consortium members.
- </p>        
+       
   </div>
 </section>
 

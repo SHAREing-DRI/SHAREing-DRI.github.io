@@ -1,5 +1,5 @@
 ---
-permalink: /task-map/
+permalink: /task-overview-new/
 title: "Task Map"
 layout: default
 sidebar: false
@@ -11,18 +11,24 @@ classes: wide page__center no-title
 
 .wp-columns {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+grid-template-columns: repeat(4, minmax(100px, 1fr));
   gap: 18px;             
   width: 100%;
-  max-width: 1400px;      
+  max-width: 1500px;      
   margin: 0 auto;
   padding: 8px;
   transform-origin: top center;
+  align-items: stretch;
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 600px) {
   .wp-columns {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  
+  .expand-collapse-btn{
+  display:none;
   }
 }
 
@@ -44,10 +50,15 @@ classes: wide page__center no-title
 .wp-column {
   background: #ffffff;
   border-radius: 14px;
-  padding: 14px 14px 20px;  
+  padding: 10px 8px 14px;  
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   border-top: 4px solid #68246d;
+    display: flex;
+   flex-direction: column;
+    height: 100%;
 }
+
+
 
 
 .wp-column-title {
@@ -59,6 +70,7 @@ classes: wide page__center no-title
   color: #003d66;
     font-size: 1.15rem;
   margin-bottom: 18px;
+   min-height: 60px; 
 }
 
 .wp-main-number {
@@ -69,10 +81,18 @@ classes: wide page__center no-title
 }
 
 .wp-main-subtitle {
-  font-size: 1rem;
+  font-size: 0.7rem;
   font-weight: 500;
   color: #555;
   margin-top: 5px;
+  
+    line-height: 1.4;
+  min-height: calc(1.4em * 2);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;     
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 
@@ -81,9 +101,15 @@ classes: wide page__center no-title
   border-radius: 8px;
   padding: 10px;
   margin: 14px 0;
-  background: #FDF6FF;
-  border: 3px solid #F0DEF5;
+  background: #ffffff;
+  border: 3px solid #002A41;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
+
+
+
 
 .wp-subblock-header {
   display: flex;
@@ -107,10 +133,33 @@ classes: wide page__center no-title
   
 }
 
+.wp-subblocks-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 12px;
+
+  align-items: stretch;
+}
+
+.wp-header-wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  row-gap: 8px;
+}
+
+
 .wp-subtitle {
-  font-size: 1rem;
+  font-size: 0.5rem;
   font-weight: 600;
   color: #003d66;
+  text-align: center;
+    line-height: 1.4;
+  min-height: calc(1.4em * 4);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;      
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .wp-lead {
@@ -128,20 +177,33 @@ classes: wide page__center no-title
 }
 
 
+.wp-subblocks-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 12px;
+}
+
 
 .kanban {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  display: flex;         
+  gap: 12px;              
   margin-top: 8px;
+  flex-wrap: wrap;      
+    min-height: 110px; /
 }
 
 .column {
   background: #ffffff;
   padding: 8px;
   border-radius: 8px;
-  border: 1px solid #eee;
+  flex: 1 1 200px;     
+  display: flex;
+  flex-direction: column; 
+ display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
+
 
 .column h3 {
   font-size: 0.7rem;
@@ -157,6 +219,36 @@ classes: wide page__center no-title
 .progress-col h3 { background:#940594; }
 .completed-col h3 { background:#490349; }
 
+
+.tasks-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1; 
+    position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1;
+  min-height: calc((1.3em * 2 + 14px) * 2); 
+}
+
+
+
+.extra-task {
+  display: none; 
+}
+
+.tasks-wrapper.expanded .extra-task {
+  display: block; 
+}
+
+
+.empty-task {
+  visibility: hidden;
+}
+
+
 .task {
   background:#ffffff;
   border-radius: 6px;
@@ -166,13 +258,21 @@ classes: wide page__center no-title
   border: 2px solid #EAEAEA;
   box-shadow: 0 1px 4px rgba(0,0,0,0.05);
   font-weight: 700;
+  
 }
 
 .task a {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;   
+  overflow: hidden;
+
+  line-height: 1.3;
+  min-height: calc(1.3em * 2);
+
   text-decoration: none;
   color: #003d66;
   font-size: 0.6rem;
-  line-height: 0.2;  
 }
 
 .propose-task {
@@ -200,12 +300,36 @@ classes: wide page__center no-title
 }
 
 
-/* ===== TASK HOVER EFFECTS ===== */
+
+.toggle-tasks {
+  margin-top: auto; 
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  border-radius: 6px;
+  background: #003d66;
+  color: #fff;
+  border: none;
+    min-height: 26px;
+}
+.toggle-tasks:hover {
+  background: #68246d;
+}
+
+
+
+
 
 .open-col .task:hover {
   box-shadow: 0 0 10px rgba(185, 6, 185, 0.45);
   border-color: #B906B9;
   background: rgba(185, 6, 185, 0.08);
+  transform: translateY(-2px);
+}
+
+.open-col .task {
+
+  background: #FDDFFD;
   transform: translateY(-2px);
 }
 
@@ -216,53 +340,254 @@ classes: wide page__center no-title
   transform: translateY(-2px);
 }
 
+.progress-col .task {
+  background: #E9C9E9;
+  transform: translateY(-2px);
+}
+
+
+.completed-col .task{
+  background: #DED0DE;
+  transform: translateY(-2px);
+}
+
+
 .completed-col .task:hover {
   box-shadow: 0 0 10px rgba(73, 3, 73, 0.45);
   border-color: #490349;
   background: rgba(73, 3, 73, 0.08);
   transform: translateY(-2px);
 }
-.eligibility-box {
- 
-  font-size: 0.7rem !important;      
-  color: #333 !important;               
-  line-height: 1.4 !important;
-  margin: 1rem 0 !important;         
-  display: block !important;            
+
+
+.task-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 1500px;
+  margin: 1.2rem auto;
 }
+
+
+.filter-group {
+  display: flex;
+  gap: 12px;
+}
+
+
+
+
+.filter-btn {
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 20px;
+  border: 2px solid #003d66;
+  background: white;
+  color: #003d66;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: #003d66;
+  color: white;
+}
+
+.filter-btn.active {
+  background: #003d66;
+  color: white;
+}
+
+
+.expand-collapse-btn {
+
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 20px;
+  border: 2px solid #68246d;
+  background: white;
+  color: #68246d;
+  cursor: pointer;
+  transition: all 0.2s ease;
+    position: absolute;
+  left: 0.5rem;
+}
+
+
+
+.expand-collapse-btn:hover {
+  background: #68246d;
+  color: white;
+}
+
+.expand-collapse-btn.active {
+  background: #68246d;
+  color: white;
+}
+
+
+
+.no-tasks-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 90%;
+  font-size: 0.6rem;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.4;
+  pointer-events: none; 
+}
+
+
+.wp-suggest-task {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.wp-suggest-task a {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: 14px;
+  border: 2px dashed #68246d;
+  color: #68246d;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  background: #faf5fb;
+}
+
+.wp-suggest-task a:hover {
+  background: #68246d;
+  color: white;
+  border-color: #68246d;
+}
+
+
+.eligibility-box {
+  max-width: 1400px;
+  margin: 2rem auto 1rem;
+  padding: 16px 18px;
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #FDF6FF, #f7f9fc);
+  border: 2px solid #F0DEF5;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+
+  font-size: 0.75rem;
+  color: #002A41;
+  line-height: 1.45;
+}
+
+.eligibility-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-top: 2px;
+}
+
 .eligibility-box strong {
-  font-weight: 600 !important;
+  font-weight: 700;
+}
+
+.eligibility-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+ align-items: stretch;
+}
+
+.eligibility-pill {
+  padding: 4px 10px;
+  border: 1px solid #68246d;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  background: #faf5fb;
+  border: 1px solid #003d66;
+  color: #940594;
+}
+
+.eligibility-pill:hover {
+  border-color: #490349;
+  background: #FEECFE;
+  transform: translateY(-2px);
+}
+
+.eligibility-pill a{
+  color: #940594;
+}
+
+
+
+
+
+body.filter-open .progress-col,
+body.filter-open .completed-col {
+  display: none;
+}
+
+body.filter-progress .open-col,
+body.filter-progress .completed-col {
+  display: none;
+}
+
+body.filter-completed .open-col,
+body.filter-completed .progress-col {
+  display: none;
 }
 
 </style>
 
 
-<div style="max-width:1400px; margin:0 auto; padding:0 15px; display:flex; flex-direction:column; gap:0.5rem; margin-top:0.01rem">
+<div class="eligibility-box">
+  <div class="eligibility-icon">🌍</div>
 
-  <!-- Open Tasks Card -->
-  <div style="background:#f7f9fc; border-left:8px solid #B906B9; padding:0.5rem 0.75rem; border-radius:6px; margin-top:1rem;">
-    <h3 style="margin:0; color:#002A41; font-size:16px;">Open Tasks</h3>
-    <p style="margin:0; line-height:1.4; font-size:12px;">
-      These are tasks already defined by the SHAREing Working Groups (WPs). They are published and ready for applications. Anyone interested <strong>can apply to take them on</strong>. Open Tasks are like mini-projects with clear goals and scope — your role is to help deliver them according to the WP plan.
-    </p>
+  <div>
+   
+    SHAREing tasks are open to <strong> all contributors based at UK universities or other organisations eligible for UKRI funding </strong>
+    <br>
+    You can <strong> apply to </strong> work on an <strong> existing open task </strong> or <strong> suggest a new task </strong> for one of the Working Packages.
+    All applications and task suggestions are discussed through SHAREing’s open Working Group meetings and reviewed by consortium members. Approved task suggestions will be published on this page.
+    Approved task applications may be supported and funded where they align with SHAREing priorities and UKRI eligibility criteria.
+
+    <div class="eligibility-actions">
+      <div class="eligibility-pill"><a href="/about/flexible-funds">
+    Flexible Funds guidelines</a></div>
+    <div class="eligibility-pill"><a href="/about/organisation">
+    How SHAREing is organised</a></div>
+      <div class="eligibility-pill"><a href="/contact/">
+    Got a question? Get in touch</a></div>
+    </div>
   </div>
-
-  <!-- Propose a Task Card -->
-  <div style="background:#f7f9fc; border-left:8px solid #005a9c; padding:0.5rem 0.75rem; border-radius:6px;">
-    <h3 style="margin:0; color:#002A41; font-size:16px;">Suggest a New Task</h3>
-    <p style="margin:0; line-height:1.4; font-size:12px;">
-      Have an idea that could benefit SHAREing? Use this option to submit a task proposal. Focus on <strong>what</strong> you want to do and <strong>why</strong> it matters for SHAREing and the WPs.
-      <br>
-      Your proposal will be reviewed by the relevant WP. If approved, it will become an Open Task listed on the website, open for anyone to apply. As the person who suggested the task, <strong>you will have priority to lead it</strong>, but others can also apply if interested. At this stage, there’s no need to include costings or detailed plans — just provide a clear description and show how the task aligns with SHAREing’s goals. The detailed “how” and paperwork will be part of the formal bid later.
-    </p>
-  </div>
-
-  <!-- Eligibility Box -->
-  <div class="eligibility-box" style="max-width:100%">
-    ⚠️ <strong>Eligibility:</strong> At this time, only dRTP members who are formally affiliated with one of the SHAREing consortium universities and institutions: Durham, Manchester, Queen Mary University of London, Swansea, Cardiff, CoSeC, or Sheffield can submit or propose tasks.
-  </div>
-
 </div>
+
+
+
+
+<div class="task-filter">
+  <button class="expand-collapse-btn" id="expandCollapseBtn">
+    Collapse all
+  </button>
+
+  <div class="filter-group">
+    <button class="filter-btn active" data-status="open">Open</button>
+    <button class="filter-btn" data-status="progress">In progress</button>
+    <button class="filter-btn" data-status="completed">Completed</button>
+  </div>
+</div>
+
 
 
 
@@ -272,7 +597,8 @@ classes: wide page__center no-title
 {% assign wp_groups =
   "wp1:wp1.1,wp1.2,wp1.3|
    wp2:wp2.3,wp2.4|
-   wp3:wp3.3,wp3.4" | split:"|" %}
+   wp3:wp3.3,wp3.4|
+   wp4:wp4.1,wp4.3" | split:"|" %}
 
 {% for group in wp_groups %}
 
@@ -281,27 +607,47 @@ classes: wide page__center no-title
   {% assign wp_list = parts[1] | split:"," %}
   {% assign wp_number = wp_main | replace:"wp","" %}
 
-  <!-- Find WP collection file: WP1.md, WP2.md, WP3.md -->
+
   {% assign wp_filename = "WP" | append: wp_number | append: ".md" %}
   {% assign wp_page = site.workpackages | where:"path", wp_filename | first %}
 
-  <!-- If 'path' doesn't match because of subdirectory under 'collections/' -->
+
   {% if wp_page == nil %}
     {% assign wp_page = site.workpackages | where_exp:"p","p.path contains wp_filename" | first %}
   {% endif %}
 
-  <!-- Correct permalink to user-facing page in _pages/workpackages/ -->
   {% assign wp_target = "/workpackages/workpackage-" | append: wp_number | append:"/" %}
 
   <div class="wp-column">
 
-    <!-- MAIN WP HEADER -->
-    <div class="wp-column-title">
-      <a href="{{ wp_target }}">
-        <div class="wp-main-number">Work Package {{ wp_number }}</div>
-        <div class="wp-main-subtitle">{{ wp_page.title }}</div>
-      </a>
-    </div>
+
+<div class="wp-column-title">
+  <a href="{{ wp_target }}">
+    <div class="wp-main-number">Work Package {{ wp_number }}</div>
+    <div class="wp-main-subtitle">{{ wp_page.title }}</div>
+  </a>
+</div>
+
+<div class="wp-suggest-task">
+  <a href="/about/suggest-a-task">
+    + Suggest a new task for this WP
+  </a>
+</div>
+
+
+
+
+{% assign wp_file = "workpackages-" | append: wp_number | append: "-team-lead" %}
+{% assign wp_lead_data = site.data[wp_file] %}
+
+<div class="wp-lead-block" style="display:flex; align-items:center; font-size:0.8rem; gap:12px; background:#FDF6FF; padding:8px 12px; border-radius:10px; border:1px solid #F0DEF5; margin-bottom:12px;">
+  <img src="{{ wp_lead_data.lead_photo }}" alt="{{ wp_lead_data.lead-wp }}" style="width:50px; height:50px; border-radius:50%; object-fit:cover;">
+  <div style="display:flex; flex-direction:column;">
+    <div style="font-weight:600; color:#003d66;">{{ wp_lead_data.lead-wp }}</div>
+  </div>
+</div>
+
+    
 
     {% assign wp_file = "workpackages-" | append: wp_number | append: "-team-lead" %}
 
@@ -312,56 +658,201 @@ classes: wide page__center no-title
       {% assign progress = site.tasks | where:"workpackage",wp | where:"status","progress" %}
       {% assign completed = site.tasks | where:"workpackage",wp | where:"status","completed" %}
 
-      <!-- SUBGROUP BLOCK -->
+
       <div class="wp-subblock">
 
-        <!-- Header section -->
+
         <div class="wp-subblock-header">
-          <img src="{{ meta.lead_photo }}" alt="{{ meta.lead }}" class="wp-lead-photo">
-          <div class="wp-subblock-text">
+             <div class="wp-subblock-text">
             <div class="wp-subtitle">{{ meta.title }}</div>
-            <div class="wp-lead"><strong>Lead:</strong> {{ meta.lead }}</div>
           </div>
         </div>
 
-        <!-- Kanban -->
         <div class="kanban">
-          <div class="column open-col">
-            <h3>Open</h3>
-            {% if open.size > 0 %}
-              {% for task in open %}
-                <div class="task"><a href="{{ task.url }}">{{ task.title }}</a></div>
-              {% endfor %}
-            {% endif %}
-          </div>
+        
+        
+        
+        
+<div class="column open-col">
 
-          <div class="column progress-col">
-            <h3>Ongoing</h3>
-            {% if progress.size > 0 %}
-              {% for task in progress %}
-                <div class="task"><a href="{{ task.url }}">{{ task.title }}</a></div>
-              {% endfor %}
-            {% endif %}
-          </div>
 
-          <div class="column completed-col">
-            <h3>Completed</h3>
-            {% if completed.size > 0 %}
-              {% for task in completed %}
-                <div class="task"><a href="{{ task.url }}">{{ task.title }}</a></div>
-              {% endfor %}
-            {% endif %}
-          </div>
-          
 
-    <div class="propose-task" style="grid-column: 1 / 4; width: 100%;">
-  <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUQUs0QUFRQkhDNU83T1JMUkFFSlJHWjNXMy4u"
-     class="propose-task-link"
-     target="_blank"
-     rel="noopener">
-    Suggest a new task for {{ wp | upcase }}
-  </a>
+<div class="tasks-wrapper">
+  {% assign num_to_show = 2 %}
+
+  {% if open.size == 0 %}
+    <div class="no-tasks-message">
+      There are no current open tasks for this subgroup.
+    </div>
+
+    {% for i in (1..num_to_show) %}
+      <div class="task empty-task">&nbsp;</div>
+    {% endfor %}
+
+  {% else %}
+
+    {% for task in open limit:num_to_show %}
+      <div class="task">
+        <a href="{{ task.url }}">{{ task.title }}</a>
+      </div>
+    {% endfor %}
+
+    {% assign extra_tasks = open | slice: num_to_show, open.size %}
+    {% for task in extra_tasks %}
+      <div class="task extra-task">
+        <a href="{{ task.url }}">{{ task.title }}</a>
+      </div>
+    {% endfor %}
+
+    {% if open.size < num_to_show %}
+      {% assign empty_slots = num_to_show | minus: open.size %}
+      {% for i in (1..empty_slots) %}
+        <div class="task empty-task">&nbsp;</div>
+      {% endfor %}
+    {% endif %}
+
+  {% endif %}
 </div>
+
+  
+  
+  
+
+{% if open.size > num_to_show %}
+  <button class="toggle-tasks">Show more</button>
+{% else %}
+  <div class="toggle-tasks" style="visibility:hidden;">Show more</div>
+{% endif %}
+
+</div>
+
+
+
+
+
+
+
+<div class="column progress-col">
+ 
+ 
+ 
+ 
+<div class="tasks-wrapper">
+  {% assign num_to_show = 2 %}
+
+  {% if progress.size == 0 %}
+    <div class="no-tasks-message">
+      There are no current tasks in progress for this subgroup.
+    </div>
+
+    {% for i in (1..num_to_show) %}
+      <div class="task empty-task">&nbsp;</div>
+    {% endfor %}
+
+  {% else %}
+
+    {% for task in progress limit:num_to_show %}
+      <div class="task">
+        <a href="{{ task.url }}">{{ task.title }}</a>
+      </div>
+    {% endfor %}
+
+    {% assign extra_tasks = progress | slice: num_to_show, progress.size %}
+    {% for task in extra_tasks %}
+      <div class="task extra-task">
+        <a href="{{ task.url }}">{{ task.title }}</a>
+      </div>
+    {% endfor %}
+
+    {% if progress.size < num_to_show %}
+      {% assign empty_slots = num_to_show | minus: progress.size %}
+      {% for i in (1..empty_slots) %}
+        <div class="task empty-task">&nbsp;</div>
+      {% endfor %}
+    {% endif %}
+
+  {% endif %}
+</div>
+
+  
+  
+
+
+
+
+
+  {% if progress.size > num_to_show %}
+    <button class="toggle-tasks">Show more</button>
+  {% else %}
+    <div class="toggle-tasks" style="visibility:hidden;">Show more</div>
+  {% endif %}
+</div>
+
+
+
+
+
+
+<div class="column completed-col">
+
+
+
+
+
+<div class="tasks-wrapper">
+  {% assign num_to_show = 2 %}
+
+  {% if completed.size == 0 %}
+    <div class="no-tasks-message">
+      There are no current completed tasks for this subgroup.
+    </div>
+
+    {% for i in (1..num_to_show) %}
+      <div class="task empty-task">&nbsp;</div>
+    {% endfor %}
+
+  {% else %}
+
+    {% for task in completed limit:num_to_show %}
+      <div class="task">
+        <a href="{{ task.url }}">{{ task.title }}</a>
+      </div>
+    {% endfor %}
+
+    {% assign extra_tasks = completed | slice: num_to_show, completed.size %}
+    {% for task in extra_tasks %}
+      <div class="task extra-task">
+        <a href="{{ task.url }}">{{ task.title }}</a>
+      </div>
+    {% endfor %}
+
+    {% if completed.size < num_to_show %}
+      {% assign empty_slots = num_to_show | minus: completed.size %}
+      {% for i in (1..empty_slots) %}
+        <div class="task empty-task">&nbsp;</div>
+      {% endfor %}
+    {% endif %}
+
+  {% endif %}
+</div>
+
+  
+  
+  
+  
+  
+  
+  
+
+  {% if completed.size > num_to_show %}
+    <button class="toggle-tasks">Show more</button>
+  {% else %}
+    <div class="toggle-tasks" style="visibility:hidden;">Show more</div>
+  {% endif %}
+</div>
+
+
+
 
   </div>
 
@@ -374,3 +865,114 @@ classes: wide page__center no-title
 {% endfor %}
 
 </div>
+
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  // EXPAND ALL ON FIRST LOAD
+  document.querySelectorAll(".tasks-wrapper").forEach(wrapper => {
+    wrapper.classList.add("expanded");
+  });
+
+  // Update all toggle buttons to "Show less"
+  document.querySelectorAll(".toggle-tasks").forEach(button => {
+    button.textContent = "Show less";
+
+    button.addEventListener("click", function() {
+      const wrapper = this.previousElementSibling;
+      wrapper.classList.toggle("expanded");
+      this.textContent = wrapper.classList.contains("expanded") 
+        ? "Show less" 
+        : "Show more";
+    });
+  });
+
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.body.classList.add("filter-open");
+
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+      const status = this.dataset.status;
+
+
+      document.body.classList.remove(
+        "filter-open",
+        "filter-progress",
+        "filter-completed"
+      );
+
+
+      document.body.classList.add(`filter-${status}`);
+
+      document.querySelectorAll(".filter-btn").forEach(b =>
+        b.classList.remove("active")
+      );
+      this.classList.add("active");
+    });
+  });
+
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const expandBtn = document.getElementById("expandCollapseBtn");
+
+  function getVisibleWrappers() {
+    return Array.from(document.querySelectorAll(".tasks-wrapper"))
+      .filter(wrapper => {
+        const column = wrapper.closest(".column");
+        return column && window.getComputedStyle(column).display !== "none";
+      });
+  }
+
+  function getVisibleToggleButtons() {
+    return Array.from(document.querySelectorAll(".toggle-tasks"))
+      .filter(btn => {
+        const column = btn.closest(".column");
+        return column && window.getComputedStyle(column).display !== "none";
+      });
+  }
+
+  expandBtn.addEventListener("click", function () {
+
+    const wrappers = getVisibleWrappers();
+    const toggles = getVisibleToggleButtons();
+
+    if (wrappers.length === 0) return;
+
+    const allExpanded = wrappers.every(wrapper =>
+      wrapper.classList.contains("expanded")
+    );
+
+    wrappers.forEach(wrapper => {
+      wrapper.classList.toggle("expanded", !allExpanded);
+    });
+
+    toggles.forEach(btn => {
+      btn.textContent = !allExpanded ? "Show less" : "Show more";
+    });
+
+    expandBtn.textContent = !allExpanded
+      ? "Collapse all"
+      : "Expand all";
+  });
+
+});
+</script>
+
+
+
