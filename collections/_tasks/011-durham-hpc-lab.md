@@ -6,7 +6,7 @@ date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 summary: Integrate the links to the Durham HPC Hardware Lab into SHAREing webpage.
 workpackage: "wp1.3"
-status: open
+status: progress
 ---
 
 ## Fit to programme

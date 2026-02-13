@@ -211,11 +211,30 @@ a.btn--secondary:active {
             
     </div>
   </div>
+  </section>
+  <!-- Workpackage 3 -->
+<section class="wp-card">
+  
+    <div>
+      <h3>Work package 4 — Outreach, stakeholder engagement and capacity building</h3>
+      <p>
+       This group focuses on outreach, stakeholder engagement and capacity building to maximise SHAREing's long-term impact. It connects researchers, infrstructure providers, industry and policymakers through sustained, two-wat collaboration. It aims to supports skills development, knowledge exchange and community growth across the DRI ecosystem.
+By embedding SHAREing’s outputs in existing networks, it helps ensure lasting benefit beyond the project’s lifetime.
+      </p>
+      <div class="wp-actions">
+       <a class="btn--primary" href="/workpackages/workpackage-4">Visit subgroups and tasks</a>
+      <a class="btn--primary" href="/webinars/webinar-wp-4">Webinars</a>
+       
+            
+    </div>
+  </div>
+  
+  
+  
+  
   
 </section>
 
 
-  ⚠️ <strong>Eligibility Notice:</strong> This call for tasks is currently open only to dRTP members who are formally affiliated with one of the SHAREing consortium universities:
-  Durham, Manchester, Queen Mary University of London, Swansea, Cardiff, CoSeC, or Sheffield. Individuals who are not
-  members of a dRTP at one of these institutions are not eligible to submit or propose tasks for this call.
+
 
