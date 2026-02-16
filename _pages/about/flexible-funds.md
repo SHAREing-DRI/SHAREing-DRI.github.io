@@ -301,7 +301,7 @@ The fund is intended to support activities under the three categories below:
 for desktop/institutional compute will not be funded.
   </p>
     <p>
- Proposals must be led by a researcher or research technical professional based in an 
+ Proposals must be led by a contributor based in an 
  <a href="https://www.ukri.org/apply-for-funding/before-you-apply/find-out-if-you-can-apply-for-funding/#contents-list" >institution eligible to receive UKRI funding.</a>
   </p>
     <p>
