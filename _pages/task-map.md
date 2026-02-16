@@ -551,27 +551,33 @@ body.filter-completed .progress-col {
 </style>
 
 
+
 <div class="eligibility-box">
   <div class="eligibility-icon">🌍</div>
 
   <div>
    
-    SHAREing tasks are open to <strong> all contributors based at UK universities or other organisations eligible for UKRI funding </strong>
-    <br>
-    You can <strong> apply to </strong> work on an <strong> existing open task </strong> or <strong> suggest a new task </strong> for one of the Working Packages.
+    SHAREing tasks are open to <strong>all contributors based at UK universities or other organisations eligible for UKRI funding</strong>. You can apply to work on an existing open task or suggest a new task for one of the Working Packages. The current funding timelines are:
+    <div class="deadline-info">
+      • <strong>Suggest a New Task:</strong> Rolling call (open at any time)<br>
+      • <strong>Propose a Solution to an Open Task:</strong> Reviewed quarterly – 
+      <strong>Current deadline: 23 March</strong>
+    </div>
+
     All applications and task suggestions are discussed through SHAREing’s open Working Group meetings and reviewed by consortium members. Approved task suggestions will be published on this page.
     Approved task applications may be supported and funded where they align with SHAREing priorities and UKRI eligibility criteria.
 
     <div class="eligibility-actions">
       <div class="eligibility-pill"><a href="/about/flexible-funds">
-    Flexible Funds guidelines</a></div>
-    <div class="eligibility-pill"><a href="/about/organisation">
-    How SHAREing is organised</a></div>
+        Flexible Funds guidelines</a></div>
+      <div class="eligibility-pill"><a href="/about/organisation">
+        How SHAREing is organised</a></div>
       <div class="eligibility-pill"><a href="/contact/">
-    Got a question? Get in touch</a></div>
+        Got a question? Get in touch</a></div>
     </div>
   </div>
 </div>
+
 
 
 
