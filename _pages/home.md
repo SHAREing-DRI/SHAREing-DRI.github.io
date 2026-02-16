@@ -27,12 +27,12 @@ header:
     <h3>SHAREing Flexible Funds Now Open UK-Wide</h3>
     <p>
       SHAREing has opened its Flexible Fund opportunities to all contributors based at UK universities 
-      or other organisations eligible for UKRI funding. You no longer need to be part of a consortium institution to apply. You can <a href="/about/suggest-a-task/">suggest a new task</a> (rolling call) or 
-      <a href="/about/propose-a-solution/">propose a solution to an open task</a> 
+      or other organisations eligible for UKRI funding. You no longer need to be part of a consortium institution to apply. You can <a href="/about/suggest-a-task">suggest a new task</a> (rolling call) or 
+      <a href="/about/propose-a-solution">propose a solution to an open task</a> 
       (reviewed quarterly – current deadline: <strong>23 March</strong>).
     </p>
     <p>
-      Explore open opportunities on the <a href="/task-map/">Task Map</a>.
+      Explore open opportunities on the <a href="/task-map">Task Map</a>.
     </p>
   </div>
 </div>
