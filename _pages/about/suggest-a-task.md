@@ -252,7 +252,11 @@ layout: splash
     </div>
     
     
-    
+   
+  <div class="notice-box">
+    <strong>📅 Call status: Rolling</strong><br>
+    Task suggestions can be submitted at any time. There is no fixed deadline. Once approved by the consortium, the task will be published as an open task on the Task Map. Funding applications for open tasks are reviewed quarterly.
+  </div>
     
     <div class="notice-box">
       <strong>All applicants must read the Flexible Fund Guidance before submitting a task suggestion.</strong>

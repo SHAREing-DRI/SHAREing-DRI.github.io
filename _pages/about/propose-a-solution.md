@@ -267,6 +267,11 @@ layout: splash
         <strong>eligible to receive UKRI funding</strong>
       </a>.
     </div>
+    
+     <div class="notice-box">
+    <strong>📅 Application Deadlines</strong><br>
+    Proposals to deliver open tasks are reviewed quarterly.<strong>Current deadline: 23 March</strong>
+     </div>
 
     <div class="notice-box">
       <strong>All applicants must read the Flexible Fund Guidance before submitting a proposal.</strong>
