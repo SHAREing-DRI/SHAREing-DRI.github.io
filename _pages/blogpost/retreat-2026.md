@@ -280,7 +280,7 @@ display: none;
   <h2>Outreach and representation</h2>
 
   <p>
-    Eva Fernandez provided an overview of the outreach and engagement activity undertaken over the past year, reflecting the growing visibility of SHAREing across the community. Upcoming events include representation at the SIAM PP Collaboration Workshop, Durham HPC Days, and ISC, where SHAREing will engage audiences in different ways and continue to strengthen sector connections.
+    Eva Fernandez provided an overview of the outreach and engagement activity undertaken over the past year, reflecting the growing visibility of SHAREing across the community. Upcoming events include representation at the SIAM PP, Collaboration Workshop, Durham HPC Days, and ISC, where SHAREing will engage audiences in different ways and continue to strengthen sector connections.
   </p>
 
   <h2>Project delivery and funding</h2>
