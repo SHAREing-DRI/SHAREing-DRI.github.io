@@ -279,7 +279,7 @@ layout: splash
   <h2>Open Tasks and Aplications</h2>
 
   <p>
-  Once approved and published, <strong> digital Research Technical Professionals (dRTPs) from consortium institutions </strong> may apply to carry out these tasks.
+  Once approved and published, all contributors based at UK universities or other organisations eligible for UKRI funding may apply to carry out these tasks.
   
   
   
@@ -310,7 +310,7 @@ These tasks typically run for one to three months and may be funded for up to 10
 
  
   <p>
-    Once commissioned, dRTP teams carry out the agreed work and contribute directly
+    Once commissioned, collaborators will carry out the agreed work and contribute directly
     to SHAREing’s overall objectives. 
     <br>
     <br>
