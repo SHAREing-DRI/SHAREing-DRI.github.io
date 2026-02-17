@@ -8,7 +8,7 @@ classes: wide
 
 <style>
 
-/* ===== PAGE LAYOUT ===== */
+
 
 .blog-layout {
   display: grid;
@@ -19,7 +19,7 @@ classes: wide
   padding: 4rem 1.75rem 5rem;
 }
 
-/* ===== SIDEBAR ===== */
+
 
 .blog-sidebar {
   position: sticky;
@@ -110,7 +110,7 @@ classes: wide
   box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-/* ===== BODY CONTENT ===== */
+
 
 .blog-content {
   font-size: 1.1rem;
@@ -147,7 +147,7 @@ classes: wide
   bottom: -8px;
 }
 
-/* ===== QUOTE BLOCK ===== */
+
 
 .blog-quote {
   margin: 3rem 0;
@@ -187,7 +187,7 @@ classes: wide
 }
 
 
-/* ===== RESPONSIVE ===== */
+
 
 @media (max-width: 1000px) {
 
@@ -221,13 +221,13 @@ display: none;
     <div class="divider"></div>
 
     <h5>More</h5>
-    <a href="/home/">← Back to home</a>
+    <a href="/">← Back to home</a>
     <a href="/contact/">Contact page</a>
 
   </aside>
 
 
-  <!-- MAIN CONTENT -->
+
   <main class="blog-main">
 
     <div class="blog-category">Retreat</div>
