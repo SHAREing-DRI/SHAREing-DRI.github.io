@@ -38,18 +38,10 @@ classes: wide
 }
 
 .parallax-overlay p {
-  font-size: 1.3rem;
+  font-size: 0.8rem;
   margin-top: 1rem;
 }
 
-
-
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  margin: 3rem auto;
-}
 
 .about-card {
   background: #ffffff;
@@ -62,17 +54,23 @@ classes: wide
   flex-direction: column;
 }
 
+
+
 .about-card img {
-  height: 140px;        
-  width: auto;          
-  object-fit: contain;  
-  flex-shrink: 0; 
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: contrast(0.95) saturate(0.9) brightness(1.05);
+  image-rendering: auto;
 }
+
+
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 3fr));
   gap: 2rem;
-  margin: 3rem 0;
+  margin: 3rem;
 }
 
 .about-card {
@@ -149,21 +147,21 @@ classes: wide
 <section class="about-grid">
 
   <div class="about-card">
-    <img src="/assets/images/logo.png" alt="Vision">
+    <img src="/assets/images/hpc-ai.jpg" alt="Vision">
     <h3>Vision and Approach</h3>
     <p>Learn about SHAREing’s mission and long-term strategy</p>
     <a href="/about/vision-shareing" class="about-button">Explore</a>
   </div>
 
   <div class="about-card">
-    <img src="/assets/images/logo.png" alt="Consortium Partners">
+    <img src="/assets/images/Durham.jpg" alt="Consortium Partners">
     <h3>Institutions</h3>
     <p>All the partner institutions involved in SHAREing through their co-leads (CoL)</p>
     <a href="/about/consortium-institutions" class="about-button">View</a>
   </div>
 
   <div class="about-card">
-    <img src="/assets/images/logo.png" alt="Core Team">
+    <img src="/assets/eventphotos/jan-retreat-group.JPEG" alt="Core Team">
     <h3>Core Team</h3>
     <p>Meet the people behind SHAREing</p>
     <a href="/about-overview/team-consortium" class="about-button">Meet</a>
@@ -175,7 +173,7 @@ classes: wide
 
 
   <div class="about-card">
-    <img src="/assets/images/logo.png" alt="Organisation">
+    <img src="/assets/images/rsecon25.jpg" alt="Organisation">
     <h3>Organisation</h3>
     <p>How SHAREing is structured and how to get involved</p>
     <a href="/about/organisation" class="about-button">Visit</a>
@@ -183,19 +181,42 @@ classes: wide
   
   
     <div class="about-card">
-    <img src="/assets/images/logo.png" alt="Organisation">
+    <img src="/assets/images/ciuk2025.JPEG" alt="Flexible funds">
     <h3>Flexible funds</h3>
     <p>Please check our flexible funds guidance notes</p>
     <a href="/about/flexible-funds" class="about-button">Guidance</a>
   </div>
   
       <div class="about-card">
-    <img src="/assets/images/logo.png" alt="Organisation">
+    <img src="/assets/images/retreat-2-jan.JPEG" alt="Organisation">
     <h3>Advisory Board</h3>
     <p>Meet the members of our Advisory Board</p>
     <a href="/about/advisory-board" class="about-button">View</a>
   </div>
+  </section>
+
+<section class="about-grid">
   
+        <div class="about-card">
+    <img src="/assets/images/performance-assessment-1.jpg" alt="Industry">
+    <h3>Industry</h3>
+    <p>Check our performance assessment service for industry</p>
+    <a href="/industry" class="about-button">See more</a>
+  </div>
+  
+          <div class="about-card">
+    <img src="/assets/images/logo.png" alt="Organisation">
+    <h3>Suggest a New Task - Guidance</h3>
+    <p>Thinking of suggesting a new task for a work package?</p>
+    <a href="/about/suggest-a-task" class="about-button">Read this</a>
+  </div>
+  
+            <div class="about-card">
+    <img src="/assets/images/logo.png" alt="Organisation">
+    <h3>Propose a Solution to an Open Task</h3>
+    <p>Apply to carry out the work identfied by one of the current open tasks</p>
+    <a href="/about/propose-a-solution" class="about-button">Read this</a>
+  </div>
 
 </section>
 
@@ -206,8 +227,7 @@ classes: wide
 <section>
   <h2>Contact</h2>
   <p>
-    For enquiries or collaboration, please contact the core team
-    or your local partner institution.
+    For enquires or collaboration, please contact the core team or your local partner institution. <a href="/contact"> Find out more here</a>
   </p>
 </section>
 

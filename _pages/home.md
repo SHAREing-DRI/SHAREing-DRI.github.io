@@ -38,6 +38,17 @@ header:
 </div>
 
 
+<div class="news-card">
+  <div class="news-content">
+    <span class="news-date">January 2026</span>
+    <h3>SHAREing Retreat January 2026</h3>
+    <p>
+      For the first time since the beginning of the project, the consortium came together in person — an important milestone and a valuable opportunity to reflect collectively on our progress.  <a href="/blogpost/retreat-2026/">Check this blog post</a> to read a summary of the outcomes.
+          </p>
+  </div>
+</div>
+
+
 
 
        <div class="news-card">
@@ -52,7 +63,16 @@ header:
 </div>
    
    
-   <!-- COPY AND PASTE THIS TEMPLATE -->
+
+     
+
+      
+    
+   <details class="past-news">
+    <summary>Past news</summary>
+    
+    
+       <!-- COPY AND PASTE THIS TEMPLATE -->
     
        <div class="news-card">
   <div class="news-content">
@@ -65,8 +85,8 @@ header:
   </div>
 </div>
      <!-- COPY AND PASTE THIS TEMPLATE -->
-     
-     
+    
+         
        <div class="news-card">
   <div class="news-content">
     <span class="news-date">November 2025</span>
@@ -74,10 +94,6 @@ header:
         <p>In early November SHAREing organised an online seminar dedicated to performance assessments with talks given by representatives from Durham University, Barcelona Supercomputing Centre, Cardiff University and DiRAC. Please see  <a href="/events/202511-performance-webinar/">here</a></p>
       </div>
     </div>
-      
-    
-   <details class="past-news">
-    <summary>Past news</summary>
     
        <div class="news-card">
   <div class="news-content">
@@ -173,8 +189,8 @@ header:
 
 
 <div class="social-buttons">
-  <a href="https://www.linkedin.com/company/shareing/" class="btn btn--info btn--large">LinkedIn</a>
-  <a href="https://bsky.app/profile/shareing.bsky.social" class="btn btn--info btn--large">Bluesky</a>
+  <a href="https://www.linkedin.com/company/shareing/" class="btn btn--primary">LinkedIn</a>
+  <a href="https://bsky.app/profile/shareing.bsky.social" class="btn btn--primary">Bluesky</a>
 </div>
 
 
@@ -273,6 +289,16 @@ header:
   margin-bottom: 0.5rem;
   color: #68246d;
 }
+
+.section-wide img {
+  width: 600px;
+  height: 200px;
+  border-radius: 12px;
+  filter: contrast(0.95) saturate(0.9) brightness(1.05);
+  image-rendering: auto;
+  align-items:center;
+}
+
 
 
 .section-wide h4{

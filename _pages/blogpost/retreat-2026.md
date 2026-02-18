@@ -1,7 +1,7 @@
 ---
 layout: default
 permalink: /blogpost/retreat-2026/
-title: "SHAREing-DRI Retreat January 2026"
+title: "SHAREing Retreat January 2026"
 search: false
 classes: wide
 ---
@@ -171,7 +171,7 @@ classes: wide
   height: 70px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.8);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
 
 .author-info {
@@ -232,7 +232,7 @@ display: none;
 
     <div class="blog-category">Retreat</div>
 
-    <h1 class="blog-title">SHAREing-DRI Retreat, January 2026</h1>
+    <h1 class="blog-title">SHAREing Retreat, January 2026</h1>
 
     <div class="blog-subtitle">
       A moment to reflect, realign, and shape the next phase of our journey.
