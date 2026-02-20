@@ -258,7 +258,7 @@ display: none;
     <div class="blog-content">
 
   <p>
-    For the first time since the beginning of the project, the consortium came together in person — an important milestone and a valuable opportunity to reflect collectively on our progress.
+    For the first time since the beginning of the project, the consortium came together in person, an important milestone and a valuable opportunity to reflect collectively on our progress.
   </p>
 
   <h2>Revisiting our foundations</h2>
@@ -274,7 +274,7 @@ display: none;
   </p>
 
   <p>
-    Building on this, we discussed the continued development of the performance assessment service — which is now live. Researchers can submit their software for review and receive a structured performance assessment report, marking an important step in operationalising the service.
+    Building on this, we discussed the continued development of the performance assessment service, which is now live. Researchers can submit their software for review and receive a structured performance assessment report, marking an important step in operationalising the service.
   </p>
 
   <h2>Outreach and representation</h2>
