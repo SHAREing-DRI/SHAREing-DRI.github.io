@@ -130,6 +130,9 @@ collections:
   workpackages:
     output: true
     permalink: /:collection/:path
+  blogpost:
+    output: true
+    permalink: /:collection/:path
     
 #category_archive:
 #  type: liquid
