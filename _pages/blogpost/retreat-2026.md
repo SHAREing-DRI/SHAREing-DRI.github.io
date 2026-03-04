@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /blogpost/retreat-2026/
+permalink: /blogpost/retreat-202/
 title: "SHAREing Retreat January 2026"
 search: false
 classes: wide

@@ -162,24 +162,29 @@ classes: wide
 <section>
   <h2></h2>
   <p>
-   Check out the latest blog posts published by team members.
+   Explore insights, updates, and stories from both the SHAREing team and the wider HPC community. This space showcases contributions highlighting progress, events, and discussions across high-performance computing.
   </p>
 </section>
 
 <section class="about-grid">
 
- 
+  {% comment %}
+  Loop through all posts in the _blogpost collection, sorted by date descending
+  {% endcomment %}
+  {% assign sorted_posts = site.blogpost | sort: 'date' | reverse %}
+
+  {% for post in sorted_posts %}
     <div class="about-card">
-    <img src="/assets/eventphotos/jan-retreat-group.JPEG" alt="Organisation">
-    <h3>SHAREing Retreat January 2026</h3>
-    <p>by Eva Fernandez Amez</p>
-    <a href="/blogpost/retreat-2026" class="about-button">Read</a>
-  </div>
-  
-  
+      {% if post.hero_image %}
+        <img src="{{ post.hero_image }}" alt="{{ post.title }}">
+      {% endif %}
+      <h3>{{ post.title }}</h3>
+      <p>by {{ post.author }}</p>
+      <a href="{{ post.url }}" class="about-button">Read</a>
+    </div>
+  {% endfor %}
 
 </section>
-
   <h2>Contact</h2>
   <p>
     For enquires or collaboration, please contact the core team or your local partner institution. <a href="/contact"> Find out more here</a>

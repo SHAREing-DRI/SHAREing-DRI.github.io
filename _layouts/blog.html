@@ -1,0 +1,237 @@
+---
+layout: default
+classes: wide
+---
+
+<style>
+
+
+
+.blog-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.75rem 5rem;
+}
+
+.blog-sidebar {
+  position: sticky;
+  top: 120px;
+  height: fit-content;
+  background: #002A41;
+  padding: 2rem 1.75rem;
+  border-radius: 10px;
+}
+
+.blog-sidebar h5 {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 1.2rem;
+}
+
+.blog-sidebar a {
+  display: block;
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: #ffffff;
+  padding: 0.6rem 0;
+  transition: all 0.2s ease;
+}
+
+.blog-sidebar a:hover {
+  color: #68246d;
+  transform: translateX(4px);
+}
+
+.blog-sidebar .divider {
+  margin: 2rem 0;
+  height: 1px;
+  background: #eee;
+}
+
+/* ===== MAIN ===== */
+
+.blog-main {
+  max-width: 1000px;
+}
+
+.blog-category {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #68246d;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.blog-title {
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 1rem;
+}
+
+.blog-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.author-block {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 3rem;
+}
+
+.author-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.author-info {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.author-info strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #111;
+  font-weight: 600;
+}
+
+.blog-hero-image {
+  margin: 2rem 0 3.5rem;
+}
+
+.blog-hero-image img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.blog-content {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #2a2a2a;
+}
+
+.blog-content p {
+  margin-bottom: 1.6rem;
+}
+
+.blog-content h2 {
+  font-size: 1.6rem;
+  margin-top: 3.5rem;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  color: #111;
+  position: relative;
+}
+
+.blog-content h2::after {
+  content: "";
+  width: 40px;
+  height: 3px;
+  background: #68246d;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+}
+
+.blog-quote {
+  margin: 3rem 0;
+  padding: 2rem;
+  font-size: 1.2rem;
+  font-style: italic;
+  background: linear-gradient(
+    135deg,
+    rgba(104,36,109,0.05),
+    rgba(104,36,109,0.02)
+  );
+  border-radius: 16px;
+  color: #333;
+}
+
+
+
+@media (max-width: 1000px) {
+  .blog-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-sidebar {
+    display: none;
+  }
+
+  .blog-main {
+    max-width: 100%;
+  }
+}
+
+</style>
+
+<div class="blog-layout">
+
+
+ <aside class="blog-sidebar">
+
+  {% if page.social_links %}
+    <h5>Connect</h5>
+    {% for link in page.social_links %}
+      <a href="{{ link.url }}" target="_blank">{{ link.title }} ↗</a>
+    {% endfor %}
+    <div class="divider"></div>
+  {% endif %}
+
+  <a href="/">← Back </a>
+ 
+
+</aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="blog-main">
+
+    {% if page.category %}
+      <div class="blog-category">{{ page.category }}</div>
+    {% endif %}
+
+    <h1 class="blog-title">{{ page.title }}</h1>
+
+    {% if page.subtitle %}
+      <div class="blog-subtitle">{{ page.subtitle }}</div>
+    {% endif %}
+
+    {% if page.author %}
+    <div class="author-block">
+      <img src="{{ page.author_image }}" alt="{{ page.author }}" class="author-avatar">
+      <div class="author-info">
+        <strong>{{ page.author }}</strong>
+        {{ page.date | date: "%B %Y" }}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if page.hero_image %}
+    <div class="blog-hero-image">
+      <img src="{{ page.hero_image }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+
+    <div class="blog-content">
+      {{ content }}
+    </div>
+
+  </main>
+
+</div>
