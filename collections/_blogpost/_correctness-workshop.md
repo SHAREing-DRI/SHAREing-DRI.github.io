@@ -18,13 +18,6 @@ author_image: ""
 hero_image: "" 
 # Date of the post, please use the format: YYYY/MM/DD
 date: 2026-02-01
-social_links:
-  - title: LinkedIn
-    url: ""
-  - title: Bluesky
-    url: ""
-  - title: Email
-    url: ""
 ---
 
 <!-- 
