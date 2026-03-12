@@ -560,7 +560,7 @@ body.filter-completed .progress-col {
     SHAREing tasks are open to <strong>all contributors based at UK universities or other organisations eligible for UKRI funding</strong>. You can apply to work on an existing open task or suggest a new task for one of the Working Packages. The current funding timelines are:
     <div class="deadline-info">
       • <strong>Suggest a New Task:</strong> Rolling call (open at any time)<br>
-      • <strong>Propose a Solution to an Open Task:</strong> Reviewed quarterly – 
+      • <strong>Propose a Solution to an Open Task:</strong> Reviewed quarterly - 
       <strong>Current deadline: 23 March</strong>
     </div>
 
