@@ -180,7 +180,6 @@ classes: wide
     <img src="/assets/images/hpc_knowledge_graph.png" alt="Guidebook">
     <h3>HPC Concepts</h3>
     <p>Some basic revision material that’s worth revisiting before any assessment or benchmarking exercises. Made for newcomers without a background in HPC.</p>
-    <a href="/training/hpc-foundations" class="about-button">HPC Concepts Material</a>
+    <a href="https://shareing-dri.github.io/hpc-concepts-course/" class="about-button">HPC Concepts Material</a>
   </div>
-
 </section>
