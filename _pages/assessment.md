@@ -241,9 +241,9 @@ classes: wide
   </div>
 
   <div class="about-card">
-    <img src="/assets/images/logo.png" alt="QE Report">
+    <img src="/assets/images/logo.png" alt="LAMMPS Report">
     <h3>LAMMPS Report</h3>
-    <p>A high-level performance report of Quantum Espresso</p>
+    <p>A high-level performance report of LAMMPS</p>
     <a href="/reports/lammps" class="about-button">View</a>
   </div>
 

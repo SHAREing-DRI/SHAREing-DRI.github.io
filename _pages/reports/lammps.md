@@ -1,7 +1,7 @@
 ---
 layout: splash
 title: "Performance Assessment"
-permalink: /reports/babelstream/
+permalink: /reports/lammps/
 classes: wide
   
 ---
