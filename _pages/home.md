@@ -17,7 +17,15 @@ header:
   
    <!-- ADD NEWS HERE -->
    
-   
+ <div class="news-card">
+  <div class="news-content">
+    <span class="news-date">March 2026</span>
+    <h3>SIAM PP26</h3>
+    <p>
+      SHAREing was presented recently at the SIAM Parallel Processing 2026 (PP26) conference as a poster submission by Thomas Flynn. He has also summarised his thoughts of the SIAM PP26 conference <a href="/blogpost/siampp26/">here</a>, including themes that are relevant to SHAREing and digital Research Technical Professionals (dRTPs) more broadly.
+    </p>
+  </div>
+</div>  
    
    
    
