@@ -246,6 +246,12 @@ classes: wide
     <p>A high-level performance report of LAMMPS</p>
     <a href="/reports/lammps" class="about-button">View</a>
   </div>
+  <div class="about-card">
+    <img src="/assets/images/logo.png" alt="QE Report">
+    <h3>Quantum Espresso Report</h3>
+    <p>A high-level performance report of Quantum Espresso</p>
+    <a href="/reports/quantum-espresso" class="about-button">View</a>
+  </div>
 
   <div class="about-card">
     <img src="/assets/images/logo.png" alt="ExaHyPE Report">
