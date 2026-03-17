@@ -205,7 +205,7 @@ core_performance_stats.core_perf_table()
 
 
 <div align="center">
-  <img src="/assets/report-figs/quantumespresso/output_9_0.png" alt="Core performance metric" width="900">
+  <img src="/assets/report-figs/quantum-espresso/output_9_0.png" alt="Core performance metric" width="900">
 </div>
 
 
@@ -270,7 +270,7 @@ intra_node_performance_stats.parallel_efficiency_figure()
 
 
 <div align="center">
-  <img src="/assets/report-figs/quantumespresso/output_15_0.png" alt="Parallel efficiency figure" width="900">
+  <img src="/assets/report-figs/quantum-espresso/output_15_0.png" alt="Parallel efficiency figure" width="900">
 </div>
 
 
@@ -283,7 +283,7 @@ intra_node_performance_stats.runtimes_figure()
 
 
 <div align="center">
-  <img src="/assets/report-figs/quantumespresso/output_17_0.png" alt="Parallel runtimes" width="900">
+  <img src="/assets/report-figs/quantum-espresso/output_17_0.png" alt="Parallel runtimes" width="900">
 </div>
 
 
@@ -296,7 +296,7 @@ intra_node_performance_stats.intra_node_perf_table()
 
 
 <div align="center">
-  <img src="/assets/report-figs/quantumespresso/output_19_0.png" alt="Intra node performance table" width="900">
+  <img src="/assets/report-figs/quantum-espresso/output_19_0.png" alt="Intra node performance table" width="900">
 </div>
 
 
@@ -341,7 +341,7 @@ gpu_performance_stats.gpu_perf_table()
 
 
 <div align="center">
-  <img src="/assets/report-figs/quantumespresso/output_25_0.png" alt="GPU performance table" width="900">
+  <img src="/assets/report-figs/quantum-espresso/output_25_0.png" alt="GPU performance table" width="900">
 </div>
 
 
@@ -371,7 +371,7 @@ io_performance_stats.io_perf_table()
 
 
 <div align="center">
-  <img src="/assets/report-figs/quantumespresso/output_31_0.png" alt="IO performance metric" width="900">
+  <img src="/assets/report-figs/quantum-espresso/output_31_0.png" alt="IO performance metric" width="900">
 </div>
 
 
