@@ -6,7 +6,7 @@ classes: wide
   
 ---
 
-# ExaGryPE Performance Report
+# ExaGRyPE Performance Report
 
 A test submission for the performance assessment of [ExaGRyPE](https://hpcsoftware.pages.gitlab.lrz.de/Peano/dc/d1a/applications_exahype2_ExaGRyPE.html), available as part of the [Peano repository](https://gitlab.lrz.de/hpcsoftware/Peano.git) under the stable branch `p4`.
 
