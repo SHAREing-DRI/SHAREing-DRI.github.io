@@ -257,7 +257,7 @@ classes: wide
     <img src="/assets/images/logo.png" alt="ExaGRyPE Report">
     <h3>ExaGRyPE Report</h3>
     <p>A pre-assessment report of ExaGRyPE</p>
-    <a href="/reports/exagype" class="about-button">View</a>
+    <a href="/reports/exagrype" class="about-button">View</a>
   </div>
 
 </section>
