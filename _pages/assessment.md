@@ -254,10 +254,10 @@ classes: wide
   </div>
 
   <div class="about-card">
-    <img src="/assets/images/logo.png" alt="ExaHyPE Report">
-    <h3>ExaHyPE Report</h3>
-    <p>A high-level performance report of ExaHyPE</p>
-    <a href="/reports/exahype" class="about-button">View</a>
+    <img src="/assets/images/logo.png" alt="ExaGRyPE Report">
+    <h3>ExaGRyPE Report</h3>
+    <p>A pre-assessment report of ExaGRyPE</p>
+    <a href="/reports/exagrype" class="about-button">View</a>
   </div>
 
 </section>
