@@ -281,15 +281,7 @@ layout: splash
   <p>
   Once approved and published, all contributors based at UK universities or other organisations eligible for UKRI funding may apply to carry out these tasks.
   
-  
-  
-  <div class="cta-wrapper">
-    <a href="/about/institutions" class="cta">
-      Consortium member institutions
-    </a>
-  </div>
-  
-  
+    
 These tasks typically run for one to three months and may be funded for up to 100% full-time equivalent (FTE). In practice, many proposals span three months at a reduced workload, allowing teams to balance the task alongside other. Successful applications will include:
   </p>
 
