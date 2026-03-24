@@ -169,6 +169,13 @@ classes: wide
 
 
   <div class="about-card">
+    <img src="/assets/logos/SwanseaUniversity.svg" alt="Swansea University">
+    <h3>Performance and Utilisation Monitoring Workshop</h3>
+    <p>A report on our recent Performance and Utilisation Monitoring of Accelerated Compute workshop</p>
+    <a href="/assets/pdfs/performance-utilisation-monitoring-report.pdf" class="about-button">See the Report</a>
+  </div>
+  
+  <div class="about-card">
     <img src="/assets/events-banner/correctness.png" alt="Guidebook">
     <h3>Correctness and Debugging Workshop</h3>
     <p>A report on our recent Correctness and Debugging Workshop Series </p>

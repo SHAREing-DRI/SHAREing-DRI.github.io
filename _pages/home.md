@@ -16,6 +16,16 @@ header:
   <div class="news-grid">
   
    <!-- ADD NEWS HERE -->
+<div class="news-card">
+  <div class="news-content">
+    <span class="news-date">March 2026</span>
+    <h3>Performance and Utilisation Monitoring of Accelerated Compute</h3>
+    <p>
+      A report on our recent Performance and Utilisation Monitoring of Accelerated Compute workshop is now available on the
+      <a href="/events/202602-performance-monitoring/">event's page</a>.
+    </p>
+  </div>
+</div>
    
  <div class="news-card">
   <div class="news-content">
