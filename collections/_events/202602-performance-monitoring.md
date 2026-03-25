@@ -16,14 +16,10 @@ as part of Work Package 2
 is understanding how to monitor
 utilisation, efficiency, and performance of software on accelerated compute.
 
-This workshop brings together
+This workshop brought together
 experts from hardware and software vendors and HPC centres
 to share experiences and best practices
 on how to connect hardware data to user workloads.
 
-We welcome both in-person and remote participation in this event.
-The Zoom link to participate remotely
-will be sent to registered participants in advance of the event.
-
-[Register for webinar](https://indico.global/event/16430/){: .btn .btn--event .btn--large}
+[Read the report on the event](/assets/pdfs/performance-utilisation-monitoring-report.pdf){: .btn .btn--event .btn--large}
 
