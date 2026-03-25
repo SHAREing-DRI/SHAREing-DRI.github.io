@@ -9,7 +9,7 @@ workpackage: "wp1.1"
 status: completed
 ---
 ## Outcomes
-[The outcomes of this task can be found here](assets/documents/SHAREing-mini-project-003--celeritas-code-assessment.html)
+[The outcomes of this task can be found here](https://shareing-dri.github.io/assets/documents/SHAREing-mini-project-003--celeritas-code-assessment.html)
 
 ## Fit to programme
 
