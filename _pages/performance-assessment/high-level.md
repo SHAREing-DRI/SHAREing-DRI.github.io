@@ -1,6 +1,6 @@
 ---
 layout: splash
-permalink: /performance-assessment/notebook
+permalink: /performance-assessment/high-level
 
 classes: wide
 ---
@@ -51,12 +51,12 @@ classes: wide
 </style>
 
 <div class="assessment-header">
-  <h1>High-level assessment notebook </h1>
+  <h1>High-level assessment</h1>
   <p></p>
 </div>
 <div class="full-width-btn-container">
   <a class="full-width-btn" href="https://github.com/SHAREing-DRI/high-level-notebook">
-    🔎 Explore SHAREing's high-level assessment notebook
+    🔎 Explore SHAREing's high-level assessment repository
   </a>
 </div>
 
@@ -73,12 +73,12 @@ Further details of the preparation can be found in the guidebook, and the
 lower-level analysis is in a very early stage of development. However, the
 high-level analysis is now at a stage in which it can be implemented and
 refined via user feedback. To get this process started we have created a
-**Jupyter notebook** to allow digital Research Technical Professionals (RTPs)
-to have a go at running some software through this relatively light-touch
-assessment.
+template high-level report to allow digital Research Technical Professionals
+(RTPs) to have a go at running some software through this relatively
+light-touch assessment.
 
-The GitHub repository hosting the notebook and dependencies is linked
-above. Feedback for the notebook can be implemented via GitHub issues, or feel
-free to open a Pull Request for proposed features. The notebook has limited
-dependencies and is still in an early stage of development.
+The GitHub repository hosting the report, Python scripts and dependencies is
+linked above. Feedback for the notebook can be implemented via GitHub issues,
+or feel free to open a Pull Request for proposed features. The notebook has
+limited dependencies and is still in an early stage of development.
 
