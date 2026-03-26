@@ -215,7 +215,7 @@ classes: wide
 
   <div class="about-card">
     <img src="/assets/images/logo.png" alt="High-level assessment template">
-    <h3>High level assessment template</h3>
+    <h3>High-level assessment template</h3>
     <p>Template used by assessors to produce the high-level assessment</p>
 <a href="/performance-assessment/high-level" class="about-button">Learn more</a>
   </div>
