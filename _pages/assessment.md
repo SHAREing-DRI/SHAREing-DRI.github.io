@@ -182,13 +182,6 @@ classes: wide
   </div>
 
   <div class="about-card">
-    <img src="/assets/images/squarelogo-greytext-orangebody-greymoons.png" alt="Jupyter notebook">
-    <h3>High-level assessment notebook</h3>
-    <p>A Jupyter notebook to perform a high-level performance assessment</p>
-    <a href="/performance-assessment/notebook" class="about-button">Learn more</a>
-  </div>
-
-  <div class="about-card">
     <img src="/assets/images/logo.png" alt="Guidebook">
     <h3>Benchmark guidelines</h3>
     <p>A draft guidebook for designing and writing benchmarks</p>
@@ -219,10 +212,10 @@ classes: wide
   </div>
 
   <div class="about-card">
-    <img src="/assets/images/logo.png" alt="High level assessment template">
+    <img src="/assets/images/logo.png" alt="High-level assessment template">
     <h3>High level assessment template</h3>
-    <p>Work in progress, does not link anywhere.</p>
-    <a href="" class="about-button">View</a>
+    <p>Template used by assessors to produce the high-level assessment</p>
+<a href="/performance-assessment/high-level" class="about-button">Learn more</a>
   </div>
 
 </section>
@@ -230,7 +223,7 @@ classes: wide
 
     
   <h1>Example Performance Assessments</h1>
-  <p>Below are links to reports from completed performance assessments. These reports are using SHAREing's performance methodology which is in a very early stage of development.</p>
+  <p>Below are links to reports of completed performance assessments. These reports are using SHAREing's performance methodology which is in a very early stage of development.</p>
 <section class="about-grid">
 
   <div class="about-card">
