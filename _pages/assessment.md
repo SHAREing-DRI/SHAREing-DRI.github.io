@@ -253,5 +253,13 @@ classes: wide
     <p>A pre-assessment report of ExaGRyPE</p>
     <a href="/reports/exagrype" class="about-button">View</a>
   </div>
+  
+  
+    <div class="about-card">
+    <img src="/assets/images/logo.png" alt="ExaGRyPE Report">
+    <h3>Celeritas</h3>
+    <p>Celeritas code assessment</p>
+    <a href="/assets/documents/SHAREing-mini-project-003--celeritas-code-assessment.html" class="about-button">View</a>
+  </div>
 
 </section>
