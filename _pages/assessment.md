@@ -254,12 +254,18 @@ classes: wide
     <a href="/reports/exagrype" class="about-button">View</a>
   </div>
   
-  
-    <div class="about-card">
-    <img src="/assets/images/logo.png" alt="ExaGRyPE Report">
+  <div class="about-card">
+    <img src="/assets/images/logo.png" alt="Celeritas Report">
     <h3>Celeritas</h3>
     <p>Celeritas code assessment</p>
     <a href="/assets/documents/SHAREing-mini-project-003--celeritas-code-assessment.html" class="about-button">View</a>
   </div>
 
+  <div class="about-card">
+    <img src="/assets/images/logo.png" alt="HemeLB Report"> 
+    <h3>HemeLB Report</h3>
+    <p>A high-level performance report of HemeLB</p>
+    <a href="/reports/hemelb" class="about-button">View</a>
+  </div>
+  
 </section>
