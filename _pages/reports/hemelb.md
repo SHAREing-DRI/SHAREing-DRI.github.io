@@ -1,6 +1,6 @@
 ---
 layout: splash
-title: "Performance Assessment"
+title: "HemeLB Performance Assessment"
 permalink: /reports/hemelb/
 classes: wide
   

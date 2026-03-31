@@ -1,6 +1,6 @@
 ---
 layout: splash
-title: "Performance Assessment"
+title: "BabelStream Performance Assessment"
 permalink: /reports/babelstream/
 classes: wide
   
