@@ -19,10 +19,9 @@ A test submission of **HemeLB**, available on the [HemeLB](https://github.com/UC
 - [x] [2: Description of working environment](#2-description-of-working-environment)
 - [x] [3: Building](#3-building)
 - [x] [4: Running](#4-running)
-- [ ] [5: Code complexity](#5-code-complexity)
-- [ ] [6: I/O](#6-memory-storage-and-io)
-- [ ] [7: Assessment structure](#7-assessment-structure)
-
+- [x] [5: Code complexity](#5-code-complexity)
+- [x] [6: I/O](#6-memory-storage-and-io)
+- [x] [7: Assessment structure](#7-assessment-structure)
 
 ## 1: Code
 The main codebase for HemeLB can be cloned with
