@@ -3,7 +3,6 @@ layout: splash
 title: "HemeLB Performance Assessment"
 permalink: /reports/hemelb/
 classes: wide
-  
 ---
 
 # HemeLB Performance Report
@@ -120,6 +119,8 @@ mpirun -np xx hemepure -in input.xml -out results
 ```
 where `input.xml` is the file in the path: `/nobackup/<username>/NVIDIA-TestPipe/input_VP.xml`. 
 
+It should be noted that by default HemeLB can run across a minimum of 3 cores, i.e., there is no serial implementation. This impacts how we perform our core and intranode analyses, though these points will be discussed further in the high-level analysis below.
+
 ## 5: Code Complexity
 Next to no scaling information is given in the documentation. There are input files given to generate a weak scaling, though we do not yet include that in the analysis here as the internode analysis is still under development.
 
@@ -148,27 +149,41 @@ For these three dimensions, at a high level we will use:
 As discussed above, we restrict our assessment to CPU, intranode and I/O. This code has the functionality for both internode and GPU, though we do not consider these here as the GPU version of the code is distinct, and more works is required on the internode performance methodology for SHAREing.
 
 ## CPU Analysis
-For a basic high-level analysis of CPU performance, we look for the floating-point operation rate compared to the theoretical rate for the CPU.
+For a basic high-level analysis of CPU performance, we look for the floating-point operation rate compared to the theoretical rate for the CPU. 
 
 The hardware capabilities were determined with
 ```bash
-likwid-bench -t peakflops -W N:128*16kB:128
+likwid-bench -t peakflops -W N:16kB:1
 ```
+
+Recall, however, that we do not have a single core run available with HemeLB. Hence, our method here is run the benchmark across a full 128 core node of Hamilton, which is more inline with the runtime configurations used by the UKRI Living Benchmarks results given [here](https://github.com/ukri-bench/benchmark-hemelb?tab=readme-ov-file#example-performance-data). Using LIKWID we can measure the FLOPS of this run and gain an average value of the FLOPS per core.
 
 The software CPU compute rate was determined with
 ```bash
 likwid-mpirun -np 128 -nperdomain N:128 -g FLOPS_DP -- ./hemepure -in /nobackup/<username>/NVIDIA-TestPipe/input_VP.xml -out results_core_128proc
 ```
-
+which gives us the following table output
+```bash
++---------------------------+-------------+-----------+-----------+-----------+-----------+-----------+-----------+
+|           Metric          |     Sum     |    Min    |    Max    |    Avg    |  %ile 25  |  %ile 50  |  %ile 75  |
++---------------------------+-------------+-----------+-----------+-----------+-----------+-----------+-----------+
+|  Runtime (RDTSC) [s] STAT | 116051.4149 |  905.8362 |  907.6755 |  906.6517 |  906.2632 |  906.5896 |  906.9101 |
+| Runtime unhalted [s] STAT | 193011.3978 | 1504.5754 | 1510.3770 | 1507.9015 | 1506.4118 | 1508.4062 | 1509.0731 |
+|      Clock [MHz] STAT     | 427361.4220 | 3335.3093 | 3341.3232 | 3338.7611 | 3337.5642 | 3338.5719 | 3339.5577 |
+|          CPI STAT         |           0 |         0 |         0 |         0 |         0 |         0 |         0 |
+|     DP [MFLOP/s] STAT     |  30554.2358 |         0 | 2013.8461 |  238.7050 |         0 |         0 |         0 |
++---------------------------+-------------+-----------+-----------+-----------+-----------+-----------+-----------+
+```
+Resulting in our core analysis table below
 |          |  MFLOP/s   | 
 | -------- | ---------- |
-| CPU      | 921372.41  |
-| Measured | 30554.2358 |
+| CPU      |  238.7050  |
+| Measured |   8855.41  |
 
-We determine this software to have a CPU score of `0.033161657`.
+We therefore determine this software to have a CPU score of `0.026955838`.
 
 ## IO Analysis
-For a basic high-level analysis of IO performance, we look for the proportion of the runtime spent processing IO requests.
+For a basic high-level analysis of IO performance, we look for the proportion of the runtime spent processing IO requests. Again we use the 128 core run as our baseline.
 
 The IO time was determined with
 ```shell
@@ -195,14 +210,14 @@ and finally one for **STDIO**
 ```bash
 # shared files: time_by_cumul_io_only: 0.010979
 ```
-Therefore, the I/O operations are split across POSIX, MPIIO and STDIO. This gives total I/O (reads, writes and metadata operations) runtimes of 0.028255s, 2.020328s and 0.010979s for POSIX, MPIIO and STDIO, respectively, averaged across all 128 MPI ranks.
+Therefore, the I/O operations are split across POSIX, MPIIO and STDIO. This gives total I/O (reads, writes and metadata operations) runtimes of 0.028255s, 2.020328s and 0.010979s for POSIX, MPIIO and STDIO, respectively, averaged across all 128 MPI ranks. We can see that the time in reads and writes in relatively negligible. The metadata operations are more pronounced though still only account for less than one percent of total runtime.
 
 For a total runtime of 235s, the IO utilisation ratio is `0.008764094`, and the IO score is `0.991235906`.
 
 ## Intranode Analysis
 For a basic high-level analysis of intranode performance, we perform a strong scaling by fixing the problem size and increasing core allocation.
 
-For this code, we tested with core counts in powers of 2 from 4 to 128.
+For this code, we tested with core counts in powers of 2 from 4 to 128 because the minimum number of cores HemeLB can use is 3.
 
 | Thread count | Time (s) | Parallel efficiency |
 | ------------ | -------- | ------------------- |
@@ -226,11 +241,11 @@ The following table collates the results of all above sections. These scores are
 
 | Result |         Score         |  Metric result   |
 | ---------------- | ----------- | ---------------- |
-| CPU              | 0.033161657 | 30554.2358FLOP/s |
-| IO               | 0.991235906 | 2.059562         |
-| Intranode (80%) | 0.0625      | 8 cores          |
+| CPU              | 0.026955838 | 238.7050 MFLOP/s |
+| IO               | 0.991235906 | 2.059562s        |
+| Intranode (80%)  | 0.0625      | 8 cores          |
 
-In summary we can see that the I/O performance is extremely good, as the benchmark spends the vast majority of its time in computation. However, the core and intranode performance are considerably lower. Again the intranode scaling was performed relative to a 4 core run, rather than a serial run as is typical, though the single node scaling still drops off very rapidly.
+In summary we can see that the I/O performance is extremely good, as the benchmark spends the vast majority of its time in computation. However, the core and intranode performance are considerably lower. Again the intranode scaling was performed relative to a 4 core run, rather than a serial run as is typical, though the single node scaling still drops off very rapidly. From the performance data listed on the UKRI Living Benchmarks [page](https://github.com/ukri-bench/benchmark-hemelb?tab=readme-ov-file#example-performance-data), we can see the indicative run is a whole 128 core node on COSMA. Therefore we do not have currently have access to any other intranode results for HemeLB, so further analysis is required.
 
 <div align="center">
   <img src='/assets/report-figs/hemelb/summary.svg' width=750 />
