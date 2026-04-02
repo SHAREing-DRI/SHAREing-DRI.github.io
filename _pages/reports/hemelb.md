@@ -175,6 +175,7 @@ which gives us the following table output
 +---------------------------+-------------+-----------+-----------+-----------+-----------+-----------+-----------+
 ```
 Resulting in our core analysis table below
+
 |          |  MFLOP/s   | 
 | -------- | ---------- |
 | CPU      |  238.7050  |
