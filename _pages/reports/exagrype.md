@@ -27,11 +27,13 @@ A test submission for the performance assessment of [ExaGRyPE](https://hpcsoftwa
 
 ## 1: Benchmark setup
 The main codebase, Peano, that ExaGRyPE is a part of, can be cloned using:
+
 ```bash
 git clone -b p4 https://gitlab.lrz.de/hpcsoftware/Peano.git
 ```
 
 The submitter specifies the version on the `p4` branch (which is stable) must be used. The benchmark itself is part of the codebase and can be accessed, setup and run using:
+
 ```bash
 cd benchmarks/exahype2/ccz4/single-black-hole
 
@@ -47,9 +49,15 @@ The submitter has confirmed that the benchmark should take approximately 10 minu
 
 ### Varying input for scaling performance
 The submitter has indicated that the program should scale linearly with the "number of cells" value. The provided example arguments for the benchmark generates 23479 cells in total.  The primary problem size parameter to be varied is the `--cell-size`. In the example provided this is set to `1.8`. The submitter has indicated that this can be changed in multiples of three.  Increasing the size of the parameter, for example to `5.2` leads to a smaller and coarser setup. This value can be read from the console output. For example:
+
 ```
-27 tree(s): (#0:53/390)(#1:53/390)(#2:105/754)(#3:53/390)(#4:105/754)(#5:261/1534)(#6:105/754)(#7:53/390)(#8:105/754)(#9:53/390)(#10:105/754) (#11:261/1534)(#12:105/754)(#13:261/1534)(#14:20229/3250)(#15:261/1534)(#16:105/754)(#17:261/1534)(#18:105/754)(#19:53/390)(#20:105/754) (#21:53/390)(#22:105/754)(#23:261/1534)(#24:105/754)(#25:53/390)(#26:105/754) total=23479/24622 (local/virtual)
+27 tree(s): (#0:53/390)(#1:53/390)(#2:105/754)(#3:53/390)(#4:105/754)(#5:261/1534)(#6:105/754)
+(#7:53/390)(#8:105/754)(#9:53/390)(#10:105/754) (#11:261/1534)(#12:105/754)(#13:261/1534)
+(#14:20229/3250)(#15:261/1534)(#16:105/754)(#17:261/1534)(#18:105/754)(#19:53/390)(#20:105/754)
+(#21:53/390)(#22:105/754)(#23:261/1534)(#24:105/754)(#25:53/390)(#26:105/754) total=23479/24622
+(local/virtual)
 ```
+
 The submitter has provided [a link](https://hpcsoftware.pages.gitlab.lrz.de/Peano/d4/d35/benchmarks_exahype2_ccz4_single_black_hole_hpc_assessment.html) to detailed instructions and background information to the benchmark. This includes graphs detailing scaling in terms of load (number of cells and number of trees per rank) and runtime for two types of methodologies ([regular grid](https://hpcsoftware.pages.gitlab.lrz.de/Peano/d4/d35/benchmarks_exahype2_ccz4_single_black_hole_hpc_assessment.html#autotoc_md998) and [adaptive mesh](https://hpcsoftware.pages.gitlab.lrz.de/Peano/d4/d35/benchmarks_exahype2_ccz4_single_black_hole_hpc_assessment.html#autotoc_md1000)). Explanations for each setting are also provided.
 
 ## 2: Description of working environment
@@ -66,7 +74,7 @@ export I_MPI_CXX=icpx
 module load python/3.13.9
 ```
 
-Hamilton's hardware information will be provided in a [later section]().
+Hamilton's hardware information will be provided in a [later section](#6-hardware-information).
 
 ### Tools required for pre-assessment and high-level assessment
 1. Pre-assessment:
@@ -79,8 +87,10 @@ Hamilton's hardware information will be provided in a [later section]().
 3. Low-level assessment (may require admin privileges):
 	- `vtune` for detailed profiling and hardware metrics (especially for Intel systems and compilers)
 	- `valgrind` for detailed memory analysis
+
 ## 3: Compiler Setup
 The submitter has provided the following instructions to compile Peano/ExaGRyPE:
+
 ```bash
 libtoolize; aclocal; autoconf; autoheader; cp src/config.h.in .
 
@@ -114,6 +124,7 @@ The submitter has indicated that they assume that a "one MPI rank per NUMA domai
 
 ## 5: Memory, Storage and I/O
 The regions of interest in the output can be identified using (comments directly quoted from submitter):
+
 ```
 // Calculation starts as the code plots start
 AlgorithmicStep [TimeStep]
@@ -123,7 +134,7 @@ AlgorithmicStep [TimeStep]
 time stepping: 85.1353s (avg=17.0271,#measurements=5,max=23.0463(value #0),min=5.28955(value #3)
 ```
 
-Apart from the essential console output, the submitter has indicated that unnecessary I/O (plots) can be switched off by providing the `--plot 0.0` argument to `performance-studies.py`. The submitter has emphasised that using any other value for `--plot` enables the output. They also noted that that the code neither reads nor writes to large input files. 
+Apart from the essential console output, the submitter has indicated that unnecessary I/O (plots) can be switched off by providing the `--plot 0.0` argument to `performance-studies.py`. The submitter has emphasised that using any other value for `--plot` enables the output. They also noted that the code neither reads nor writes to large input files. 
 
 No estimate of the memory usage was provided by the submitter.
 
@@ -140,10 +151,12 @@ There are 120 standard compute nodes and 2 high-memory ones:
 | Cores               | 128                                                                                                                                             |
 | RAM                 | Standard: 256GB (246GB available to users)<br>High-memory: 2TB                                                                                  |
 | Local storage       | 400GB SSD                                                                                                                                       |
-Each socket on each compute node is divided into 4 NUMA domains that each have a dedicated memory channel. Each of these NUMA domains are further split into 4 groups, where each has its own 16MB L3 cache (totalling to 256MB in one processor). Each of these groups contains 4 core that each have 512KB of L2 cache and 32KB of L1 cache.
-## 7: Code separation
 
+Each socket on each compute node is divided into 4 NUMA domains that each have a dedicated memory channel. Each of these NUMA domains are further split into 4 groups, where each has its own 16MB L3 cache (totalling to 256MB in one processor). Each of these groups contains 4 core that each have 512KB of L2 cache and 32KB of L1 cache.
+
+## 7: Code separation
 No labelled code sections are provided by the submitter.
+
 ## 8: Historic optimisations
 No specific historic optimisation information provided by the submitter.
 
@@ -157,11 +170,13 @@ The submitter has indicated that out of the three performance dimensions, the on
 ## Pre-assessment report
 ### Compilation issues
 The assessor set up the modules on Hamilton as [described earlier](#cluster-hamilton) and confirmed them using `module list`:
+
 ```
 Currently Loaded Modulefiles:
   1) oneapi/2025.2      3) tbb/2022.0         5) python/3.13.9
   2) gcc/15.2           4) intelmpi/2021.16
 ```
+
 The assessor then cloned and built Peano following [the compilation instructions](#3-compiler-setup). The code was compiled on the login node. The `-j 16` flag was used with `make` to speed-up compilation and did not produce any errors.
 
 The assessor then followed the instructions to [compile the benchmark](#1-benchmark-setup) on the login node. The default version of Python on Hamilton had some missing libraries resulting in an error when attempting to compile the benchmark. The assessor found the list of required libraries within the [Peano documentation](https://hpcsoftware.pages.gitlab.lrz.de/Peano/df/dbc/tutorials_exahype2_applications_exagrype_faq.html#autotoc_md723): `jinja2`, `ast_comment` and `vtk` and installed them in a virtual environment. This allowed for the compilation to go ahead. However, an additional parameter of `-j 16` needed to be provided to `performance-studies.py` to keep the compilation from taking over an entire node. In the assessor's experience however, regardless of the number of thread used with `-j`, the compilation got stuck for several minutes and exited after reporting termination "by signal 9". This was reported on both the login node and on the compute node via `srun -N 1 --pty bash` with the latter indicating an "out-of-memory" error.

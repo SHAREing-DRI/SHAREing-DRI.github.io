@@ -16,6 +16,16 @@ header:
   <div class="news-grid">
   
    <!-- ADD NEWS HERE -->
+<div class="news-card">
+  <div class="news-content">
+    <span class="news-date">March 2026</span>
+    <h3>Performance and Utilisation Monitoring of Accelerated Compute</h3>
+    <p>
+      A report on our recent Performance and Utilisation Monitoring of Accelerated Compute workshop is now available on the
+      <a href="/events/202602-performance-monitoring/">event's page</a>.
+    </p>
+  </div>
+</div>
    
  <div class="news-card">
   <div class="news-content">
@@ -45,8 +55,17 @@ header:
   </div>
 </div>
 
+   
 
-<div class="news-card">
+     
+
+      
+    
+   <details class="past-news">
+    <summary>Past news</summary>
+    
+    
+    <div class="news-card">
   <div class="news-content">
     <span class="news-date">January 2026</span>
     <h3>SHAREing Retreat January 2026</h3>
@@ -69,16 +88,7 @@ header:
     </p>
   </div>
 </div>
-   
-   
 
-     
-
-      
-    
-   <details class="past-news">
-    <summary>Past news</summary>
-    
     
        <!-- COPY AND PASTE THIS TEMPLATE -->
     

@@ -172,6 +172,9 @@ classes: wide
   </a>
 </div>
 
+<h2>SHAREing guides</h2>
+<p> SHAREing produces guides on performance assessments and related topics which we make publically available. We have a living document which works as a guidebook on our experiences of building a performance assessment service. Benchmarking guidelines have also been produced to support developers in building effective benchmarks of their codes. </p>
+
 <section class="about-grid">
 
   <div class="about-card">
@@ -179,13 +182,6 @@ classes: wide
     <h3>Performance assessment guidebook</h3>
     <p>A draft guidebook on how to begin a performance assessment</p>
     <a href="/performance-assessment/guidebook" class="about-button">Explore</a>
-  </div>
-
-  <div class="about-card">
-    <img src="/assets/images/squarelogo-greytext-orangebody-greymoons.png" alt="Jupyter notebook">
-    <h3>High-level assessment notebook</h3>
-    <p>A Jupyter notebook to perform a high-level performance assessment</p>
-    <a href="/performance-assessment/notebook" class="about-button">Learn more</a>
   </div>
 
   <div class="about-card">
@@ -197,8 +193,7 @@ classes: wide
 
 </section>
 
-
-<h1>Performance Assessment repository</h1>
+<h2>Performance Assessment repository</h2>
 <p>The assessment-framework repository contains the templates for performing a performance assessment of newly submitted software using the above form. These templates are used by assessors to evaluate the software in three stages:
     Currently only the pre-assessment stage is templated. </p>
 
@@ -219,18 +214,17 @@ classes: wide
   </div>
 
   <div class="about-card">
-    <img src="/assets/images/logo.png" alt="High level assessment template">
-    <h3>High level assessment template</h3>
-    <p>Work in progress, does not link anywhere.</p>
-    <a href="" class="about-button">View</a>
+    <img src="/assets/images/logo.png" alt="High-level assessment template">
+    <h3>High-level assessment template</h3>
+    <p>Template used by assessors to produce the high-level assessment</p>
+<a href="/performance-assessment/high-level" class="about-button">Learn more</a>
   </div>
 
 </section>
-
-
     
-  <h1>Example Performance Assessments</h1>
-  <p>Below are links to reports from completed performance assessments. These reports are using SHAREing's performance methodology which is in a very early stage of development.</p>
+<h2>Example Performance Assessments</h2>
+<p>Below are links to reports of completed performance assessments. These reports are using SHAREing's performance methodology which is in a very early stage of development.</p>
+
 <section class="about-grid">
 
   <div class="about-card">
@@ -254,10 +248,24 @@ classes: wide
   </div>
 
   <div class="about-card">
-    <img src="/assets/images/logo.png" alt="ExaGRyPE Report">
+    <img src="/assets/images/logo.png" alt="ExaGRyPE Report"> 
     <h3>ExaGRyPE Report</h3>
     <p>A pre-assessment report of ExaGRyPE</p>
     <a href="/reports/exagrype" class="about-button">View</a>
   </div>
+  
+  <div class="about-card">
+    <img src="/assets/images/logo.png" alt="Celeritas Report">
+    <h3>Celeritas</h3>
+    <p>Celeritas code assessment</p>
+    <a href="/assets/documents/SHAREing-mini-project-003--celeritas-code-assessment.html" class="about-button">View</a>
+  </div>
 
+  <div class="about-card">
+    <img src="/assets/images/logo.png" alt="HemeLB Report"> 
+    <h3>HemeLB Report</h3>
+    <p>A high-level performance report of HemeLB</p>
+    <a href="/reports/hemelb" class="about-button">View</a>
+  </div>
+  
 </section>

@@ -6,8 +6,14 @@ image: https://celeritas-project.github.io/celeritas/_includes/full-logo.png
 summary: Study Celeritas an notably focus on its single-precision potential and GPU suitability
 wp: 1.1
 workpackage: "wp1.1"
-status: progress
+status: completed
 ---
+## Outcomes
+
+This project has now finished. The outcomes can be found in [this report](https://shareing-dri.github.io/assets/documents/SHAREing-mini-project-003--celeritas-code-assessment.html).
+
+[See Task 003 report](https://shareing-dri.github.io/assets/documents/SHAREing-mini-project-003--celeritas-code-assessment.html){: .btn .btn--event .btn--large}
+
 
 ## Fit to programme
 
@@ -28,10 +34,4 @@ The goal of this mini-project is to use the existing Celeritas code implementati
 3. assess the ability to run code on AMD GPUs compared to the original CUDA implementation.
 
 
-## Outcomes
-
-- Report on lessons learned on all three aspects on SHAREing's webpages
-
-This project has now finished. The outcomes can be found [in a report on the SHAREing webpage](/performance-assessment/2025-sheffield).
-  
 
