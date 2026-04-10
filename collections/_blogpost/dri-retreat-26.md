@@ -7,7 +7,7 @@ subtitle: "Reflections on community, communication, and collaboration across DRI
 author: Eva Fernandez Amez
 author_image: /assets/profilepics/EvaFernandez.jpeg
 hero_image: /assets/images/dri-retreat-26.jpeg
-date: 2026-09-04
+date: 2026-04-09
 social_links:
   - title: LinkedIn
     url: "https://www.linkedin.com/company/shareing/"
