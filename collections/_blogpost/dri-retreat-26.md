@@ -36,11 +36,11 @@ social_links:
 <h2>Sorry... what was that?</h2>
 
 <p>
-  One thing that really stood out, and that resonates strongly with my role in SHAREing, was the session on effective communication. We were asked to explain one of our recent projects to different audiences - such as a line manager, a funder, or even a 10-year-old. This simple exercise made a huge difference in how we chose our words and analogies.
+  One thing that really stood out, and that resonates strongly with my role in SHAREing, was the session on effective communication. We were asked to explain one of our recent projects to different audiences – such as a line manager, a funder, or even a 10-year-old. This simple exercise made a huge difference in how we chose our words and analogies.
 </p>
 
 <p>
-  It really reinforced how important it is to understand who we are communicating with and what message we want to convey. The discussion also touched on the use of acronyms - often a barrier to clear communication. One of the most entertaining moments was hearing examples of the funniest misunderstandings caused by unfamiliar acronyms. It was a great reminder of the importance of using accessible language whenever possible.
+  It really reinforced how important it is to understand who we are communicating with and what message we want to convey. The discussion also touched on the use of acronyms – often a barrier to clear communication. One of the most entertaining moments was hearing examples of the funniest misunderstandings caused by unfamiliar acronyms. It was a great reminder of the importance of using accessible language whenever possible.
 </p>
 
 <h2>So, how do you apply for funding? </h2>
@@ -51,16 +51,13 @@ social_links:
 
 <h2>A great week all round</h2>
 
+<p>
+  Overall, it was a fantastic week – a great opportunity to connect with colleagues, exchange ideas, and reflect on shared challenges and successes. A big thank you to everyone involved in organising such a valuable and engaging event!
+</p>
 
 <div class="blog-quote">
   <a href="https://n8cir.org.uk/training-and-events/dri-retreat-2026/">
     Visit the DRI retreat website
   </a>
 </div>
-
-<p>
-  Overall, it was a fantastic week - a great opportunity to connect with colleagues, exchange ideas, and reflect on shared challenges and successes. A big thank you to everyone involved in organising such a valuable and engaging event!
-</p>
-
-
 

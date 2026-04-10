@@ -15,6 +15,25 @@ header:
   
   <div class="news-grid">
   
+  
+  
+   <div class="news-card">
+  <div class="news-content">
+    <span class="news-date">April 2026</span>
+    <h3>DRI Retreat 2026</h3>
+    <p>
+Some of our team members had the opportunity to attend the DRI Retreat in Manchester this past March. Our Community Manager, Eva Fernandez Amez, reflects on her first experience at the retreat and shares key takeaways that we’re looking to incorporate into SHAREing’s work. <a href="/blogpost/dri-retreat-26/">Read the full blog post</a>.
+    </p>
+  </div>
+</div>  
+  
+  
+  
+  
+  
+  
+  
+  
    <!-- ADD NEWS HERE -->
 <div class="news-card">
   <div class="news-content">
@@ -37,8 +56,15 @@ header:
   </div>
 </div>  
    
-   
-   
+     
+
+     
+
+      
+    
+   <details class="past-news">
+    <summary>Past news</summary>
+       
 <div class="news-card">
   <div class="news-content">
     <span class="news-date">February 2026</span>
@@ -54,16 +80,6 @@ header:
     </p>
   </div>
 </div>
-
-   
-
-     
-
-      
-    
-   <details class="past-news">
-    <summary>Past news</summary>
-    
     
     <div class="news-card">
   <div class="news-content">
