@@ -51,16 +51,13 @@ social_links:
 
 <h2>A great week all round</h2>
 
+<p>
+  Overall, it was a fantastic week – a great opportunity to connect with colleagues, exchange ideas, and reflect on shared challenges and successes. A big thank you to everyone involved in organising such a valuable and engaging event!
+</p>
 
 <div class="blog-quote">
   <a href="https://n8cir.org.uk/training-and-events/dri-retreat-2026/">
     Visit the DRI retreat website
   </a>
 </div>
-
-<p>
-  Overall, it was a fantastic week – a great opportunity to connect with colleagues, exchange ideas, and reflect on shared challenges and successes. A big thank you to everyone involved in organising such a valuable and engaging event!
-</p>
-
-
 
