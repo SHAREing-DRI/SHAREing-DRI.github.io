@@ -151,6 +151,40 @@ classes: wide
     gap: 1.5rem;
   }
 }
+
+@media (max-width: 768px) {
+  .parallax-hero {
+    background-attachment: scroll;
+    height: 30vh;
+  }
+  
+    .parallax-overlay {
+    padding: 1.5rem;
+  }
+
+  .parallax-overlay h1 {
+    font-size: 2rem;
+  }
+  
+  
+    .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 0 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .about-card {
+    padding: 1.5rem;
+  }
+
+  .about-button {
+    font-size: 0.85rem;
+    padding: 0.5rem 1.2rem;
+  }
+  
+  
+}
 </style>
 
 <section class="parallax-hero">

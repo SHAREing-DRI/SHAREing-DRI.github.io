@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Events
-permalink: /events/
+permalink: /past-events/
 ---
 
 <style>
@@ -17,7 +17,7 @@ permalink: /events/
 
 
 .events-header {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .events-header h1 {
@@ -116,6 +116,7 @@ permalink: /events/
   line-height: 1.5;
 }
 
+
 .event-tags {
   margin-top: 0.5rem;
 }
@@ -128,6 +129,33 @@ permalink: /events/
   margin-right: 6px;
   border-radius: 999px;
   font-size: 0.75rem;
+}
+
+.event-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 10px 14px;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.event-button:hover {
+  background: #333;
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+.event-card {
+  cursor: pointer;
+}
+
+.event-button {
+  background: transparent;
+  border: 1px solid #111;
+  color: #111;
 }
 
 .event-button {
@@ -160,11 +188,6 @@ permalink: /events/
   transform: translateY(-1px);
   color: #ffffff;
 }
-.event-card {
-  cursor: pointer;
-}
-
-
 
 
 
@@ -191,23 +214,22 @@ permalink: /events/
       <p>Workshops, conferences, and activities involving SHAREing members.</p>
     </header>
     
-   
-    <a class="event-button button-past" href="/past-events/">
-  Browse past events
+    <a class="event-button button-past" href="/events/">
+  Browse upcoming events
 </a>
 
     <div class="events-grid">
 
 {% assign today = "now" | date: "%Y-%m-%d" %}
-{% assign sorted_events = site.events | sort: "date" %}
+{% assign sorted_events = site.events | sort: "date" | reverse %}
 
 {% for event in sorted_events %}
 
   {% assign event_end = event.date | date: "%Y-%m-%d" %}
 
-  {% if event_end >= today %}
+  {% if event_end <= today %}
 
-
+    
 
     <article class="event-card">
 

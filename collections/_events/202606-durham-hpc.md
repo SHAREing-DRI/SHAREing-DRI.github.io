@@ -1,12 +1,12 @@
 ---
 title: "Durham HPC Days 2026"
 layout: event
-image: assets/events-banner/hpc-days.png
+image: "https://github.com/hpc-days/Durham-HPC-Days-2026/blob/main/assets/images/eva-blue-banner.png?raw=true"
 start_date: 2026-06-15
 date: 2026-06-19
 location: Durham
 categories:
-  - Workshop
+  - Conference
 summary: Hosted by Durham University, this year’s programme will feature talks and workshops bringing together researchers, industry partners, and HPC professionals from across the UK and beyond. 
 ---
 

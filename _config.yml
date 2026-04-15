@@ -133,6 +133,9 @@ collections:
   blogpost:
     output: true
     permalink: /:collection/:path
+  event:
+    output: true
+    permalink: /:collection/:path
     
 #category_archive:
 #  type: liquid

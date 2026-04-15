@@ -284,7 +284,7 @@ padding: 1.5rem 0.5rem;
    <a href="mailto:shareing@durham.ac.uk" class="contact-card">
   <span>EMAIL</span>
   <h3>General enquiries</h3>
-  <p>Questions, discussions, and initial contact.</p>
+  
   <div class="contact-extra">
     <p>
       <strong>Email:</strong><br>
@@ -300,8 +300,8 @@ padding: 1.5rem 0.5rem;
    class="contact-card">
 
   <span>LINKEDIN</span>
-  <h3>Professional updates</h3>
-  <p>News, events, and announcements.</p>
+  <h3>Stay in touch</h3>
+  
   <div class="contact-extra">
     <p>SHAREing on LinkedIn</p>
   </div>
@@ -315,7 +315,7 @@ padding: 1.5rem 0.5rem;
 
   <span>BLUESKY</span>
   <h3>Community engagement</h3>
-  <p>Informal updates and discussion.</p>
+  
   <div class="contact-extra">
     <p>@shareing.bsky.social</p>
   </div>

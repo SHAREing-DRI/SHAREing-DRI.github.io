@@ -5,12 +5,14 @@ layout: splash
 ---
 
 <style>
+
+
 :root {
   --brand-purple: #68246d;
   --brand-purple-light: #faf7fb;
   --text-dark: #333;
   --text-muted: #555;
- --brand-blue-light:  #EBF3F5;
+  --brand-blue-light:  #EBF3F5;
   --brand-blue: #002A41;
 }
 
@@ -18,21 +20,22 @@ layout: splash
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  height: 42vh;
+  height: 40vh;
   background-image: url('/assets/images/sc-booth.jpg');
   background-attachment: fixed;
-  background-position: 80% 40%;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-position: 80% 40%;
 }
 
 .parallax-overlay {
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(104,36,109,0.9), rgba(104,36,109,0.45));
+background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,16 +49,14 @@ layout: splash
   margin-bottom: 0.5rem;
 }
 
+
+
 .parallax-overlay p {
-  font-size: 1.25rem;
-  max-width: 700px;
+  font-size: 0.8rem;
+  margin-top: 1rem;
 }
 
-.section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
+
 
 
 .section {
@@ -140,21 +141,22 @@ layout: splash
   margin-bottom: 2rem;
 }
 
-.cards-grid {
- 
-  
-  position: relative;
-  left: 50%;
-  right: 50%;
-  width: 100vw;
-  margin-left: -50vw;
-  margin-right: -50vw;
 
+
+
+
+.cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  padding: 0 10rem;
+
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
 }
+
+
 
 .card {
   background: #fff;
@@ -216,6 +218,86 @@ layout: splash
 .funding-table tbody tr:last-child td {
   border-bottom: none;
 }
+
+
+@media (max-width: 1024px) {
+  .wp-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .wp-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1.5rem;
+  }
+  
+     .parallax-hero {
+    background-attachment: scroll;
+    height: 30vh;
+  }
+  
+    .parallax-overlay {
+    padding: 1.5rem;
+  }
+
+  .parallax-overlay h1 {
+    font-size: 2rem;
+  }
+  
+  
+  .wp-grid {
+ display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.6rem;           
+  margin-top: 1rem;
+}
+
+
+.wp-card a {
+
+  font-size: 0.8rem;
+}
+
+
+.section img {
+display: none;
+
+}
+
+  
+  .cards-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  padding: 0 10rem;
+}
+
+
+  @media (max-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    padding: 0 1.5rem;
+  }
+}
+  
+  
+  
+}
+
+
 
 </style>
 

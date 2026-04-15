@@ -80,13 +80,14 @@ layout: splash
 }
 
 .person-card img {
-  width: 200px;
+   width: 200px;
   height: 200px;
-  object-fit: contain;   
-  background: #f7f7f7;   
+  object-fit: contain;
+  background: #f7f7f7;
   border-radius: 50%;
-  padding: 12px;        
-  margin-bottom: 1rem;
+  padding: 12px;
+  margin: 0 auto 1rem auto;
+  display: block;
 }
 
 .person-card h3 {
@@ -151,6 +152,77 @@ layout: splash
 }
 
 
+@media (max-width: 768px) {
+
+  /* HERO */
+  .parallax-hero {
+    height: 28vh;
+    background-attachment: scroll; 
+    background-position: center;
+  }
+
+  .parallax-overlay {
+    height: 28vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1.2rem;
+    border-radius: 0;
+  }
+
+  .parallax-overlay h1 {
+    font-size: 1.8rem;
+    margin-top: 0;
+  }
+
+  .parallax-overlay p {
+    font-size: 1rem;
+    text-align: left; 
+  }
+
+  /* GRID */
+  .people-grid {
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  /* CARD */
+  .person-card {
+    padding: 1.2rem;
+    border-radius: 14px;
+  }
+
+  .person-card img {
+    width: 120px;
+    height: 120px;
+    padding: 8px;
+    object-position: center;
+    
+  }
+
+  .person-card h3 {
+    font-size: 1rem;
+  }
+
+  .person-card .role {
+    font-size: 0.85rem;
+  }
+
+  .person-card details {
+    font-size: 0.8rem;
+  }
+
+  .person-card summary,
+  .person-card a {
+    font-size: 0.95rem;
+  }
+
+  /* BUTTON */
+  .about-button {
+    font-size: 0.8rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
 
 </style>
 
