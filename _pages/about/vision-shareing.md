@@ -8,46 +8,48 @@ layout: splash
 <style>
 
 
+:root {
+  --brand-purple: #68246d;
+  --brand-purple-light: #faf7fb;
+  --text-dark: #333;
+  --text-muted: #555;
+  --brand-blue-light:  #EBF3F5;
+  --brand-blue: #002A41;
+}
 
 .parallax-hero {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-
   height: 40vh;
   background-image: url('/assets/images/sc-booth.jpg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  background-position: 80% 40%; 
+    background-position: 80% 40%; 
 }
-
 
 .parallax-overlay {
-  background: linear-gradient(
-    to top,
-    rgba(104, 36, 109, 0.85),
-    rgba(104, 36, 109, 0.45)
-  );
-  color: white;
-  width: 100vw;
-  height: 40vh;
+  width: 100%;
+  height: 100%;
+background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  border-radius: 12px;
+  color: #fff;
 }
-
 
 .parallax-overlay h1 {
-  font-size: 2.8rem;
-  margin-top: 8rem;
-  
-  justify-content: center;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
 }
+
 
 .parallax-overlay p {
   font-size: 1.3rem;
@@ -140,16 +142,53 @@ layout: splash
   margin-right: auto;
 }
 
+@media (max-width: 640px) {
+  .wp-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1.5rem;
+  }
+  
+     .parallax-hero {
+    background-attachment: scroll;
+    height: 30vh;
+  }
+  
+    .parallax-overlay {
+    padding: 1.5rem;
+  }
+
+  .parallax-overlay h1 {
+    font-size: 2rem;
+  }
+  
+  
+  .wp-grid {
+ display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.6rem;           
+  margin-top: 1rem;
+}
 
 
+.wp-card a {
+
+  font-size: 0.8rem;
+}
+
+
+.section img {
+display: none;
+
+}
+
+}
 
 </style>
 
 
 <section class="parallax-hero">
   <div class="parallax-overlay">
-    <h1>       SHAREing's Vision       </h1>
-     <p>Faster delivery of faster science workflows using faster hardware building blocks</p>
+    <h1>SHAREing's Vision</h1>
   </div>
 </section>
 

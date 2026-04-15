@@ -219,6 +219,36 @@ layout: splash
   .cards-grid {
     grid-template-columns: 1fr;
   }
+  
+   .parallax-hero {
+    background-attachment: scroll;
+    height: 30vh;
+  }
+  
+    .parallax-overlay {
+    padding: 1.5rem;
+  }
+
+  .parallax-overlay h1 {
+    font-size: 2rem;
+  }
+  
+  
+  .wp-grid {
+ display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.6rem;           
+  margin-top: 1rem;
+}
+
+
+.wp-card a {
+
+  font-size: 0.8rem;
+}
+  
+  
+  
 }
 </style>
 

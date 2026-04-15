@@ -123,6 +123,31 @@ layout: splash
 .person-card summary::-webkit-details-marker {
   display: none;
 }
+
+
+@media (max-width: 640px) {
+  .people-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .person-card {
+    padding: 0.8rem;
+  }
+
+  .person-card img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .person-card h3 {
+    font-size: 0.75rem;
+  }
+
+  .person-card .role {
+    font-size: 0.65rem;
+  }
+}
 </style>
 
 
