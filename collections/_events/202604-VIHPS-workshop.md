@@ -41,5 +41,5 @@ This work is supported by UKRI Digital Research Infrastructure Programme [grant 
 
 
 
-[Find out more and register for webinar](https://www.vi-hps.org/training/tws/tw49.html){: .btn .btn--event .btn--large}
+[Find out more and register](https://www.vi-hps.org/training/tws/tw49.html){: .btn .btn--event .btn--large}
 
