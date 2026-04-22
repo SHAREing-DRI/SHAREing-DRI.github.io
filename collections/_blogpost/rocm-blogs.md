@@ -1,12 +1,12 @@
 ---
 layout: blog
 permalink: /blogpost/rocm-blogs/
-title: "ROCm Blogs: A Curated Guide for HPC & AI Practitioners"
+title: "ROCm Blogs: Guides for HPC & AI Practitioners"
 category: External
-subtitle: "A collection of technical articles covering GPU optimisation, profiling tools, and performance on AMD hardware"
-author: "AMD HPC & AI Application Enablement Team"
-author_image: ""
-date: 2026-04-08
+subtitle: "A collection of technical articles covering profiling and optimisation on AMD GPUs"
+author: "Thomas Gibson"
+author_image: "/assets/profilepics/ThomasGibson.png"
+date: 2026-04-22
 social_links:
   - title: LinkedIn
     url: "https://www.linkedin.com/company/shareing/"
@@ -17,17 +17,23 @@ social_links:
 ---
 
 <p>
-The <a href="https://rocm.blogs.amd.com/">AMD ROCm Blogs</a> site hosts a growing library of technical articles written by developers and teams at AMD. Many of these articles are directly relevant for scientific software developers, computational scientists, and research software engineers interested in kernel optimisation, profiling methodologies, GPU hardware architecture, and programming models on AMD platforms.
+The <a href="https://rocm.blogs.amd.com/">AMD ROCm Blogs</a> site hosts a growing number of technical articles written by various teams at AMD with experience in
+optimising software for AMD GPUs. Many of these articles are directly relevant for scientific software developers,
+computational scientists, and research software engineers interested in kernel optimisation, profiling methodologies, GPU hardware architecture,
+and programming models on AMD platforms.
 </p>
 
 <p>
-This page brings together several articles from across the ROCm Blogs catalogue. Whether you are porting an application to AMD hardware, learning to profile with ROCm tools, or exploring the performance capabilities of your application, this is a good place to start.
+This page brings together several articles from across the ROCm Blogs catalogue. Whether you are porting an application to AMD hardware,
+learning to profile with ROCm tools, or exploring the performance capabilities of your application, this is a good place to start.
 </p>
 
 <h2>Optimisation</h2>
 
 <p>
-These articles address the practical work of making HPC codes run well on AMD GPUs: memory-bandwidth analysis, stencil tuning, communication libraries, process placement, and sparse linear algebra. Several are multi-part series that build progressively from a baseline implementation to more advanced tuning strategies.
+These articles address the practical work of making HPC codes run well on AMD GPUs: memory-bandwidth analysis, stencil tuning,
+communication libraries, process placement, and sparse linear algebra. Several are multi-part series that build progressively from a
+baseline implementation to more advanced tuning strategies.
 </p>
 
 <h3>Finite difference method -- Laplacian (4-part series)</h3>
@@ -72,7 +78,7 @@ These articles address the practical work of making HPC codes run well on AMD GP
 <h2>Profiling and tooling</h2>
 
 <p>
-These articles cover the AMD profiling ecosystem, portability toolchains, and compilers -- the software infrastructure that supports development and performance analysis on AMD GPUs.
+These articles cover the AMD profiling ecosystem, portability toolchains, and compilers: the software infrastructure that supports development and performance analysis on AMD GPUs.
 </p>
 
 <h3>Performance profiling on AMD GPUs (3-part series)</h3>
@@ -98,7 +104,8 @@ These articles cover the AMD profiling ecosystem, portability toolchains, and co
 <h2>GPU architecture and programming models</h2>
 
 <p>
-These articles cover AMD GPU architecture from matrix cores and memory hierarchies to ISA-level detail, alongside practical programming guides for HIP, OpenMP offloading, and C++ parallel algorithms.
+These articles cover AMD GPU architecture from matrix cores and memory hierarchies to ISA-level detail, alongside practical
+programming guides for HIP, OpenMP offloading, and C++ parallel algorithms.
 </p>
 
 <h3>Standalone articles</h3>
@@ -117,7 +124,9 @@ These articles cover AMD GPU architecture from matrix cores and memory hierarchi
 <h2>About these blogs</h2>
 
 <p>
-The <a href="https://rocm.blogs.amd.com/">ROCm Blogs</a> site is maintained by AMD and publishes technical content spanning high-performance computing, artificial intelligence, and GPU software development. The articles presented on this page were produced by AMD's HPC and AI Application Enablement teams. For the full catalogue, visit <a href="https://rocm.blogs.amd.com/">rocm.blogs.amd.com</a>.
+The <a href="https://rocm.blogs.amd.com/">ROCm Blogs</a> site is maintained by AMD and publishes technical content spanning high-performance computing,
+artificial intelligence, and GPU software development. The articles presented on this page were produced by AMD's HPC and AI Application Enablement teams.
+For the full catalogue, visit <a href="https://rocm.blogs.amd.com/">rocm.blogs.amd.com</a>.
 </p>
 
 ---
