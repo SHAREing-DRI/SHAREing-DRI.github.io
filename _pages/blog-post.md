@@ -132,6 +132,19 @@ classes: wide
   font-weight: 600;
 }
 
+.external-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #002A41;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+}
+
 @media (max-width: 1200px) {
   .about-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -209,8 +222,11 @@ classes: wide
 
   {% for post in sorted_posts %}
     <div class="about-card">
-      {% if post.hero_image %}
+      {% if post.hero_image and post.hero_image != "" %}
         <img src="{{ post.hero_image }}" alt="{{ post.title }}">
+      {% endif %}
+      {% if post.category == "External" %}
+        <span class="external-badge">External</span>
       {% endif %}
       <h3>{{ post.title }}</h3>
       <p>by {{ post.author }}</p>

@@ -214,7 +214,9 @@ classes: wide
 
     {% if page.author %}
     <div class="author-block">
+      {% if page.author_image and page.author_image != "" %}
       <img src="{{ page.author_image }}" alt="{{ page.author }}" class="author-avatar">
+      {% endif %}
       <div class="author-info">
         <strong>{{ page.author }}</strong>
         {{ page.date | date: "%B %Y" }}
