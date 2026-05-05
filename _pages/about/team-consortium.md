@@ -6,8 +6,6 @@ layout: splash
 
 <style>
 
-
-
 .parallax-hero {
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -23,9 +21,8 @@ layout: splash
   display: flex;
   align-items: center;
   justify-content: center;
-  background-position: 60% 50%; 
+  background-position: 60% 50%;
 }
-
 
 .parallax-overlay {
   background: linear-gradient(
@@ -40,7 +37,6 @@ layout: splash
   border-radius: 12px;
 }
 
-
 .parallax-overlay h1 {
   font-size: 2.8rem;
   margin-top: 8rem;
@@ -51,7 +47,6 @@ layout: splash
   margin-top: 1rem;
   text-align: justify;
 }
-
 
 .people-grid {
   display: grid;
@@ -124,7 +119,6 @@ layout: splash
   display: none;
 }
 
-
 @media (max-width: 640px) {
   .people-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -150,13 +144,11 @@ layout: splash
 }
 </style>
 
-
 <section class="parallax-hero">
   <div class="parallax-overlay">
     <h1>       Team Members       </h1>
   </div>
 </section>
-
 
 <section class="section-wide">
   <div class="people-grid">
@@ -176,14 +168,19 @@ layout: splash
       <h3>Ed Bennett</h3>
       <div class="role">Senior Research Software Engineer, Swansea Academy of Advanced Computing · Swansea University</div>
     </div>
-    
+
       <div class="person-card">
       <img src="/assets/profilepics/thomas.jpg" alt="Thomas Flynn">
       <h3>Thomas Flynn</h3>
       <div class="role">Research Software Engineer · Advanced Research Computing · Durham University</div>
     </div>
     
-    
+    <div class="person-card">
+      <img src="/assets/profilepics/generic.jpg" alt="Ananya Gangopadhyay">
+      <h3>Ananya Gangopadhyay</h3>
+      <div class="role">Research Software Engineer · Advanced Research Computing · Durham University</div>
+    </div>
+
             <div class="person-card">
       <img src="/assets/profilepics/clare.jpg" alt="Davide Costanzo">
       <h3>Clare Collyer</h3>
@@ -229,10 +226,7 @@ layout: splash
     
         <a href="https://www.qmul.ac.uk/maths/profiles/lucinib.html" target="_blank">Read more</a>
    </div>
-    
-    
 
-    
                 <div class="person-card">
       <img src="https://apps.dur.ac.uk/biography/image/1768" alt="Alastair Basden">
       <h3>Alastair Basden</h3>
@@ -245,7 +239,7 @@ layout: splash
       <h3>Georgios Fourtakas</h3>
       <div class="role">Associate Professor, School of Engineering · The University of Manchester</div>
     </div>
-    
+
     <div class="person-card">
       <img src="/assets/profilepics/Bell.jpg" alt="Eamonn Bell">
       <h3>Eamonn Bell</h3>
@@ -254,7 +248,6 @@ layout: splash
         <a href="https://www.eamonnbell.com" target="_blank">Read more</a>
    </div>
 
-   
       <div class="person-card">
       <img src="/assets/profilepics/Gokmen.jpg" alt="Gokmen Kilic">
       <h3>Gokmen Kilic</h3>
@@ -262,9 +255,7 @@ layout: splash
      
         <a href="https://www.durham.ac.uk/staff/gokmen-kilic/" target="_blank">Read more</a>
    </div>
-   
 
-    
      <div class="person-card">
       <img src="/assets/profilepics/davide.png" alt="Davide Costanzo">
       <h3>Davide Costanzo</h3>
@@ -300,4 +291,3 @@ layout: splash
     
       </div>  
 </section>
-
