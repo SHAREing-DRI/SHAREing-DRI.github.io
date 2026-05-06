@@ -176,7 +176,7 @@ layout: splash
     </div>
     
     <div class="person-card">
-      <img src="/assets/profilepics/generic.jpg" alt="Ananya Gangopadhyay">
+      <img src="/assets/profilepics/ananya.jpg" alt="Ananya Gangopadhyay">
       <h3>Ananya Gangopadhyay</h3>
       <div class="role">Research Software Engineer · Advanced Research Computing · Durham University</div>
     </div>

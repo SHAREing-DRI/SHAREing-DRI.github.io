@@ -18,7 +18,7 @@ feature_row:
     alt: "Thomas Flynn"
     title: "Thomas Flynn"
     excerpt: "Thomas Flynn, Research Software Engineer, Advanced Research Computing, Durham University"
-  - image_path: /assets/profilepics/generic.jpg
+  - image_path: /assets/profilepics/ananya.jpg
     alt: "Ananya Gangopadhyay"
     title: "Ananya Gangopadhyay"
     excerpt: "Ananya Gangopadhyay, Research Software Engineer, Advanced Research Computing, Durham University"  
