@@ -171,6 +171,20 @@ layout: splash
    
          <a href="https://www.ecmwf.int/en/about/who-we-are/staff-profiles/christine-kitchen">Read more</a>
     </div>
+
+
+        <div class="person-card">
+      <img src="/assets/profilepics/Simon_Hettrick_photo.jpg" alt="Profile Picture">
+      <h3>Simon Hettrick</h3>
+      <div class="role">Director of Strategy</div>
+       <div class="institution"> Software Sustainability Institute</div>
+
+   
+         <a href="https://www.linkedin.com/in/simon-hettrick/">Read more</a>
+    </div>
+
+
+    
     
     
       </div>  
