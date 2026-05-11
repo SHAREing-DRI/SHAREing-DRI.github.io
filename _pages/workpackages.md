@@ -234,7 +234,3 @@ By embedding SHAREing’s outputs in existing networks, it helps ensure lasting 
   
   
 </section>
-
-
-
-

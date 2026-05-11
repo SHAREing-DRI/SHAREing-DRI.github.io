@@ -494,5 +494,3 @@ This work package defines and improves SHAREing’s performance assessment frame
 </div>
 
 {% endfor %}
-
-

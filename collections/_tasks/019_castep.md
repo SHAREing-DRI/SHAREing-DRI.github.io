@@ -1,45 +1,36 @@
 ---
-title: "Community GPU codes: Castep - Task 019"
-layout: tasks
+title: "Example Preparation and Benchmarking of Community Codes using CASTEP"
+layout: champions
 date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: https://www.castep.org/user/themes/mytheme/images/logo/CASTEP_Logo_2.png
+image: https://images.pexels.com/photos/7723368/pexels-photo-7723368.jpeg
 summary: Study behaviour and efficiency of community code's GPU port 
 workpackage: "wp1.1"
-status: open
+status: progress
+person:
+  name: Oscar van Vuren
+  role: 
+  institution: Cardiff University
+  image: /assets/profilepics/generic.jpg
 
 ---
 
 
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda behind [WP 1.1](/about/workinggroups).
-
-The task number is 019.
+This was a proposed solution answering Task 019: Community GPU codes: Castep, behind [WP 2.3](/workpackages/workpackage-2/).
 
 
-## Description
+## Summary
 
-CASTEP is one all-time classic in HPC benchmarking and one of the workhorses on UK supercomputers.
-The goal of this task is to take CASTEP and to curate an example run that allows an independent team to
-assess the code’s performance. On the long term, we’d expect any team submitting codes to SHAREing to provide us with such
-an example run before we start. This will give us a repository of codes to play around with when we study 
-performance assessment approaches.
-
-However, we initially have to create a few examples ourselves, so people know what they need to deliver when they submit their code, 
-but also to enable us to apply our performance analysis methodologies to codes of actual relevance. 
-
-Obviously, the team taking up this task might want to go beyond the mere prep of benchmarking and actually do some benchmarking and analysis themselves. 
-However, the core delivery of this task has to be a documentation of best practices on our webpages plus a working example.
-
+Benchmarking and testing of academic codes is a challenging task, due to the number and scale of available software packages and compilation/hardware environments. This work will develop best practice for preparing a code for performance evaluation, ensuring optimal, reproducible and rigorous analysis of software packages. We will use the CASTEP electronic structure code to develop an example of such best practice. This practice will be fully documented to ensure portability to other community academic codes, allowing compute resource managers and academics to get optimal performance from a given code running on the specific hardware available to them. 
 
 ## Outcomes
 
-- Brief experience report on the SHAREing webpages.
-- Recommendation checklist how people can prepare a benchmark before they actually hand it over to someone else for a performance analysis.
-- Package of CASTEP which we can use to 
+We intend to produce a high- quality example of how community electronic structure codes should be prepared for performance evaluation. This will take the form of a published checklist of critical elements such as a full build script, key optimisation flags and a representative test case for community codes to use as a template.  Additionally, we will write this checklist into a detailed section in the performance assessment workbook to aid in SHAREing’s goal of making performance assessments simple and accessible.
 
-The recommendation checklist should be integrated into the [performance assessment workbook](/performance-assessment/guidebook.md) that we curate on SHAREing's webpage as living document.
-However, it also should be distilled into a separate checklist that people can download/open on SHAREing's webpage and then work through.
+A worked example, including a detailed workflow, of the preparation required for community codes, using CASTEP, will be made fully available via code hosting services such as GitHub. This worked example will align with the checklist, acting as a demonstration case for software preparation.
+
+Build and execution scripts for exemplar CASTEP runs will be provided for all the compilation environments available to the team, via the testbeds identified. These will include functional builds for all architectures and combinations of compilers and libraries, and, where possible, optimal build flags for these systems. Additionally, performance data will be gathered during this process and delivered to SHAREing for comparison with the black-box performance assessment. This data, and the build scripts through which it was generated, will be made available to the wider HPC community through GitHub.
   
 

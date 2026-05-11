@@ -1,0 +1,634 @@
+---
+layout: default
+---
+
+
+
+
+<section 
+  class="task-hero"
+  {% if page.image %}
+    style="background-image: url('{{ page.image }}');"
+  {% endif %}
+>
+  <div class="task-hero-overlay"></div>
+
+  <div class="task-hero-content">
+
+    {% if page.work_package %}
+      <div class="task-label">
+        {{ page.work_package }}
+      </div>
+    {% endif %}
+    
+    {% if page.workpackage %}
+  <div class="task-wp-tag">
+    {{ page.workpackage }}
+  </div>
+{% endif %}
+
+    <h1>{{ page.title }}</h1>
+    
+    
+        {% if page.status == "progress" %}
+  <div class="task-wp-tag">
+    In progress
+  </div>
+{% endif %}
+
+        {% if page.status == "completed" %}
+  <div class="task-wp-tag">
+    Completed
+  </div>
+{% endif %}
+
+
+        {% if page.status == "open" %}
+  <div class="task-wp-tag">
+    Open to Solutions
+  </div>
+{% endif %}
+
+
+
+
+    {% if page.description %}
+      <p class="task-subtitle">
+        {{ page.description }}
+      </p>
+    {% endif %}
+
+  </div>
+</section>
+
+
+<!-- PAGE -->
+<section class="task-page">
+
+  <div class="task-grid">
+
+    <!-- SIDEBAR -->
+    {% if page.person %}
+    <aside class="task-sidebar">
+
+      <div class="sidebar-card">
+
+        <div class="sidebar-heading">
+          Task Lead
+        </div>
+
+        <div class="profile-row">
+
+          {% if page.person.image %}
+            <img 
+              src="{{ page.person.image }}" 
+              alt="{{ page.person.name }}"
+              class="profile-image"
+            >
+          {% endif %}
+
+          <div class="profile-meta">
+
+            {% if page.person.name %}
+              <div class="profile-name">
+                {{ page.person.name }}
+              </div>
+            {% endif %}
+
+            {% if page.person.role %}
+              <div class="profile-role">
+                {{ page.person.role }}
+              </div>
+            {% endif %}
+
+            {% if page.person.institution %}
+              <div class="profile-inst">
+                {{ page.person.institution }}
+              </div>
+            {% endif %}
+
+          </div>
+
+        </div>
+
+      </div>
+
+      {% if page.links %}
+      <div class="sidebar-card">
+
+        <div class="sidebar-heading">
+          Related Links
+        </div>
+
+        <ul class="sidebar-links">
+          {% for link in page.links %}
+            <li>
+              <a href="{{ link.url }}">
+                {{ link.name }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+
+      </div>
+      {% endif %}
+
+    </aside>
+    {% endif %}
+
+
+    <!-- CONTENT -->
+    <main class="task-main">
+
+      <article class="content-card">
+        <div class="content-body">
+          {{ content }}
+        </div>
+      </article>
+
+    </main>
+
+  </div>
+
+</section>
+
+
+
+<style>
+
+
+.task-page {
+  background: #f5f7fb;
+  padding: 4rem 1.5rem;
+}
+
+
+.task-hero {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    min-height: 52vh;
+    background-attachment: fixed;
+    background-position: center 60%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    overflow: hidden;
+    
+
+}
+
+.task-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(8, 15, 35, 0.92) 0%,
+      rgba(8, 15, 35, 0.60) 45%,
+      rgba(8, 15, 35, 0.30) 100%
+    );
+}
+
+.task-hero-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1200px;
+  width: 100%;
+
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.task-label {
+  display: inline-block;
+
+  padding: 0.45rem 0.9rem;
+  margin-bottom: 1.2rem;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+
+  color: rgba(255,255,255,0.92);
+
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.task-hero h1 {
+  max-width: 900px;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  margin-bottom: 2rem;
+}
+
+.task-subtitle {
+  max-width: 760px;
+
+  margin-top: 1.4rem;
+
+  font-size: 1.15rem;
+  line-height: 1.7;
+
+  color: rgba(255,255,255,0.82);
+}
+
+
+.task-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  display: grid;
+  gap: 2.5rem;
+
+  align-items: start;
+}
+
+/* SIDEBAR */
+.task-sidebar {
+
+  top: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar-card {
+  background: #ffffff;
+
+  border-radius: 22px;
+
+  padding: 1.6rem;
+
+  border: 1px solid rgba(0,0,0,0.06);
+
+  box-shadow:
+    0 4px 18px rgba(0,0,0,0.04),
+    0 1px 2px rgba(0,0,0,0.03);
+}
+
+.sidebar-heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: #7b8190;
+
+  margin-bottom: 1.4rem;
+}
+
+/* PROFILE */
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.profile-meta {
+  min-width: 0;
+}
+
+.profile-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #101828;
+}
+
+.profile-role {
+  margin-top: 0.2rem;
+
+  font-size: 0.9rem;
+  color: #5d6472;
+}
+
+.profile-inst {
+  margin-top: 0.35rem;
+
+  font-size: 0.82rem;
+  color: #8a90a0;
+}
+
+/* LINKS */
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-links li {
+  margin-bottom: 0.7rem;
+}
+
+.sidebar-links a {
+  color: #1e3a8a;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.sidebar-links a:hover {
+  text-decoration: underline;
+}
+
+/* MAIN CONTENT */
+.task-main {
+  min-width: 0;
+}
+
+.content-card {
+  background: #ffffff;
+
+  border-radius: 28px;
+
+  border: 1px solid rgba(0,0,0,0.06);
+
+  box-shadow:
+    0 4px 18px rgba(0,0,0,0.04),
+    0 1px 2px rgba(0,0,0,0.03);
+
+  overflow: hidden;
+}
+
+.content-body {
+  padding: 3rem;
+}
+
+/* TYPOGRAPHY */
+.content-body {
+  color: #344054;
+
+  font-size: 1.03rem;
+  line-height: 1.85;
+}
+
+.content-body h2 {
+  margin-top: 2.8rem;
+  margin-bottom: 1rem;
+
+  font-size: 1.7rem;
+  line-height: 1.2;
+
+  color: #101828;
+}
+
+.content-body h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.7rem;
+
+  color: #101828;
+}
+
+.content-body p {
+  margin-bottom: 1.3rem;
+}
+
+.content-body ul,
+.content-body ol {
+  padding-left: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-body li {
+  margin-bottom: 0.55rem;
+}
+
+.content-body img {
+  border-radius: 18px;
+}
+
+/* TABLES */
+.content-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.content-body th,
+.content-body td {
+  border: 1px solid #e5e7eb;
+  padding: 0.9rem;
+  text-align: left;
+}
+
+.content-body th {
+  background: #f9fafb;
+}
+
+/* CODE */
+.content-body pre {
+  background: #111827;
+  color: #f9fafb;
+
+  padding: 1.2rem;
+  border-radius: 16px;
+
+  overflow-x: auto;
+}
+
+.content-body code {
+  font-size: 0.92em;
+}
+
+.task-wp-tag {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 0.45rem 1rem;
+  margin-bottom: 1rem;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.14);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.18);
+
+  color: #ffffff;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+
+
+  .ws-hero {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    height: 52vh;
+    min-height: 320px;
+    background-attachment: fixed;
+    background-position: center 60%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+
+  .ws-hero__overlay {
+    position: absolute;
+    inset: 0;
+  background: 
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), /* contrast layer */
+    linear-gradient(
+      135deg,
+      rgba(120, 90, 0, 0.95) 0%,
+      rgba(255, 200, 0, 0.75) 60%,
+      rgba(120, 90, 0, 0.55) 100%
+    );
+  }
+
+
+  .ws-hero__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+   linear-gradient(rgba(255, 220, 120, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 220, 120, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+
+  .ws-hero__content {
+    position: relative;
+    z-index: 2;
+    padding: 0 3rem 3rem;
+    max-width: 860px;
+  }
+
+  .ws-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 0.75rem;
+  }
+
+  .ws-hero__eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 2px;
+  background: #ffffff;
+    border-radius: 2px;
+  }
+
+  .ws-hero h1 {
+    
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 0.5rem;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  .ws-hero h1 em {
+    font-style: italic;
+    color: #7ec8ff;
+  }
+
+  .ws-hero__sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.60);
+    font-weight: 300;
+    margin: 0;
+    letter-spacing: 0.01em;
+  }
+
+
+@media (max-width: 950px) {
+
+  .task-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .task-sidebar {
+    position: relative;
+    top: 0;
+  }
+
+  .task-hero {
+    min-height: 44vh;
+  }
+
+  .task-hero-content {
+    padding: 4rem 1.5rem 3rem;
+  }
+
+  .content-body {
+    padding: 2rem;
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .task-hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .profile-row {
+    align-items: flex-start;
+  }
+
+  .content-body {
+    padding: 1.5rem;
+  }
+
+}
+
+</style>
+
+
+<script>
+(function() {
+  function onScroll() {
+    document.querySelectorAll('.fade-in').forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) el.classList.add('visible');
+    });
+  }
+  document.addEventListener('scroll', onScroll);
+  document.addEventListener('DOMContentLoaded', onScroll);
+})();
+</script>
+

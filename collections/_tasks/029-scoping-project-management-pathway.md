@@ -1,17 +1,20 @@
 ---
-title: "Scoping a Project Management Pathway - Task 029"
-layout: tasks
+title: "Scoping a Project Management Pathway"
+layout: champions
 image: https://plus.unsplash.com/premium_photo-1676496046182-356a6a0ed002?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 summary: Deliver review of existing professional skills training landscape.
 workpackage: "wp3.3"
 status: progress
+person:
+  name: Clare Collyer
+  role: Research Project Manager
+  institution: Durham University
+  image: /assets/profilepics/clare.jpg
 ---
 
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda behind [WP 3.3](/about/workinggroups).
-
-The task number is 029.
+This was a proposed solution answering Task 029: Scoping a Project Management Pathway, behind [WP 3.3](/about/workinggroups).
 
 ## Description
 

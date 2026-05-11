@@ -136,6 +136,9 @@ collections:
   event:
     output: true
     permalink: /:collection/:path
+  champions:
+    output: true
+    permalink: /:collection/:path
     
 #category_archive:
 #  type: liquid
