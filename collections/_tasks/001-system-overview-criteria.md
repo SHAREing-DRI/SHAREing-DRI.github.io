@@ -1,8 +1,8 @@
 ---
-title: "System overview criteria - Task 001"
-layout: tasks
+title: "Testbed descriptions and consolidation"
+layout: champions
 
-image: assets/images/logo.png
+image: https://images.pexels.com/photos/17489160/pexels-photo-17489160.jpeg
 date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 summary: Define the minimal valuable information that a system specification has to provide.
@@ -10,14 +10,19 @@ wp: 1.1
 workpackage: "wp1.1"
 status: progress
 lead: "Gokmen Kilic"
-summary: "Central access point to UK testbeds"
+status: progress
+person:
+  name: Alastair Basden
+  role: Director of COSMA
+  institution: Durham University
+  image: "https://apps.dur.ac.uk/biography/image/1768"
 ---
 
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda behind [WP 1.3](/workpackages/workpackage-1/).
 
-The task number is 001.
+This was a proposed solution answering Task 001: System overview criteria , behind [WP 1.1](/about/workinggroups).
+
 
 
 ## Description

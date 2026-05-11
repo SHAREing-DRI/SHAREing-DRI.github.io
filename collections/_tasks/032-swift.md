@@ -1,23 +1,23 @@
 ---
-title: "Documenting the HPC Hardware Lab at Durham University"
+title: "Investigation of quantum acceleration of the SWIFT HPC cosmology code "
 layout: champions
-image: https://images.pexels.com/photos/23884118/pexels-photo-23884118.jpeg
+image: https://images.pexels.com/photos/4644811/pexels-photo-4644811.jpeg
 date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 summary: Integrate the links to the Durham HPC Hardware Lab into SHAREing webpage.
-workpackage: "wp1.3"
+workpackage: "wp1.1"
 status: progress
 person:
-  name: Alastair Basden
-  role: Director of COSMA
+  name: Omer Rathore
+  role: 
   institution: Durham University
-  image: "https://apps.dur.ac.uk/biography/image/1768"
+  image: /assets/profilepics/generic.jpg
 ---
 
 ## Fit to programme
 
 
-This was a proposed solution answering Task 011: Durham HPC Lab, behind [WP 1.3](/about/workinggroups).
+This was a proposed solution answering Task 001, behind [WP 1.1](/about/workinggroups).
 
 
 ## Summary
@@ -28,7 +28,4 @@ including immersion cooling and waste heat reuse.  This Lab has grown organicall
 
 ## Outcomes
 
-The main output will be clear and clean documentation for the HPC
-Hardware Lab at Durham, with a known go-to location for information,
-and easy and natural navigation capability.  This project will also
-deliver content feeds into SHAREing's hardware portal.
+The primary output will be a detailed, publicly available report that explains how to identify classical components of an algorithm that are suitable for quantum acceleration, sets out clear criteria for selection, and shows how to reformulate those tasks for quantum execution. It will also address the practical caveats required to achieve genuine end-to-end gains in practice, such as data movement, resource estimates, error budgets, and hybrid integration. Although developed in the context of SWIFT, the core methodology will be transferable to other research codes and valuable to the wider UK community. Subject to securing separate funding (currently pending) for access to quantum systems, this could also potentially produce a publication that quantifies endto-end speedups in SWIFT, extending our earlier work on quantum-assisted load balancing. 

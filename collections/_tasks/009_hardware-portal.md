@@ -1,33 +1,34 @@
 ---
-title: "Hardware Portal - Task 009"
-layout: tasks
+title: "HPC testbed and production system information service"
+layout: champions
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: assets/images/logo.png
+image: https://images.pexels.com/photos/1375261/pexels-photo-1375261.jpeg
 summary: Design and delivery of a portal where HPC testbeds can be catalogued.
 workpackage: "wp1.3"
 status: progress
+person:
+  name: Ed Bennett
+  institution: Swansea University
+  image: /assets/profilepics/Bennett.jpg
 ---
 
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda behind [WP 1.3](/workpackages/workpackage-1/).
+This was a proposed solution answering Task 009: Hardware Portal, behind [WP 1.3](/about/workinggroups).
 
-The task number is 009.
 
-<!-- I need some pictures and links -->
 
-## Description
+## Summary
 
-SHAREing requires a portal where all the available testbeds are enlisted.
-We envisage a page where compute centres can add their own systems, and users can search for particular system characteristics.
-In the ideal case, the meta information on the portal can be extended, such that the information as identified in 
-<a href="https://shareing-dri.github.io/tasks/001-system-overview-criteria/">Task 0001</a> can be added and searched.
-
+We will create a basic set of tools built on standard software hosting platforms (e.g. GitHub) that will use stored data about HPC testbeds and production systems to generate and host a site providing a uniform set of information about them to interested potential users. It will provide a light-touch, uniform methodology for HPC system managers to contribute and update information about their systems and policies, and a light-touch review process allowing this activity to be sustained past the funded period of SHAREing. 
 
 ## Outcomes
 
-- [Portal to register and search new hardware (testbeds)][portal].
+A basic static site structure will be created with Jekyll. This will be generated after each information update by a Continuous Integration workflow. Initially this will use GitHub Actions and GitHub Pages, but where possible the tools and workflows will be written flexibly such that they may be rapidly ported and deployed to another host (e.g. GitLab Pages, Codeberg, StaticHost.eu) should this become necessary or desirable. 
 
-This task is WiP. 
+Individual systems (or partitions of systems) will be submitted as single Markdown files, with a structured information block at the top containing the required information. Jekyll templates will automatically translate this to a summary table showing all systems, broken down by scope (test bed or production system), linking to a more detailed information page on each system. 
 
-[portal]: /hpc-testbeds/
+For an initial minimal viable product, the small set of variables discussed in the call will be collected and tabulated; this will be expanded based on the output of mini-project 001 as the latter progresses. 
+
+The use of Markdown will allow system managers to provide more free-form information on their systems, accessible on the detailed information page. 
+

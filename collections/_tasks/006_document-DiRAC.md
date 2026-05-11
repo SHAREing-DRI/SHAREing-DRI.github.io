@@ -1,19 +1,24 @@
 ---
-title: "Document DiRAC Performance Analysis Methodology - Task 006"
-layout: tasks
+title: "Document DiRAC Performance Analysis Methodology"
+layout: champions
 date: 2025-10-01
-image: assets/images/logo.png
+image: https://i0.wp.com/dirac.ac.uk/wp-content/uploads/2023/06/CUMULUS.jpeg?fit=800%2C533&ssl=1
 summary: 
 workpackage: "wp1.2"
 status: progress
+person:
+  name: Thomas Flynn Basden
+  role: 
+  institution: Durham University
+  image: /assets/profilepics/thomas.jpg
 
 ---
 
 
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda behind [WP 1.2](/workpackages/workpackage-1/).
-The task number is 006.
+
+This was a proposed solution answering Task 006: Document DiRAC Performance Analysis Methodology, behind [WP 1.2](/workpackages/workpackage-1/).
 
 
 ## Description
