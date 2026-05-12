@@ -4,7 +4,7 @@ layout: tasks
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 image: assets/images/logo.png
 workpackage: "wp2.3"
-status: open
+status: review
 
 ---
 
