@@ -115,12 +115,19 @@ sidebar: false
   font-size: 0.8rem;
 }
 
-.flow-card p {
+.flow-card p, a {
   margin: 0;
   color: #475569;
   line-height: 1.6;
   font-size: 0.8rem;
 }
+
+.flow-card a:hover {
+  margin: 0;
+  color: #740574;
+  transition: none;
+}
+
 
 .blue-card {
   border-left: 5px solid #002A41;
@@ -840,6 +847,41 @@ grid-template-columns: repeat(4, minmax(100px, 1fr));
 
 
 
+.funding-banner {
+  background: linear-gradient(90deg, #68246d, #940594);
+  color: white;
+  text-align: center;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 20;
+   width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 0rem !important;
+}
+
+.funding-banner a {
+  color: white;
+  font-weight: 700;
+  margin-left: 10px;
+  text-decoration: underline;
+}
+
+.funding-banner a:hover {
+  opacity: 0.85;
+}
+
+@keyframes scroll-banner {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 
 
 body.filter-open .progress-col,
@@ -858,6 +900,11 @@ body.filter-completed .progress-col {
 }
 
 </style>
+<div class="funding-banner">
+  <div class="funding-banner-track">
+    📢 The next SHAREing Flexible Fund call to propose solutions to open tasks is now open until <strong>8 July 2026</strong>.
+  </div>
+</div>
 
 <details class="collapsible-diagram">
 
@@ -887,6 +934,16 @@ body.filter-completed .progress-col {
         <p>
           Explore the open tasks across our Working Packages (WP1, WP2, WP3, WP4).
         </p>
+      </div>
+      
+        <div class="flow-card blue-card">
+        
+
+        
+    <a href="https://shareing-dri.github.io/about/flexible-funds">  Check our Flexible Fund Guidance</a>
+            
+            
+            
       </div>
 
       <div class="flow-card blue-card">

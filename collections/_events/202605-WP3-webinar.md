@@ -1,5 +1,5 @@
 ---
-title: "Work Package 3 - Professional skills"
+title: "WP3 Open Meeting - Professional skills"
 icon_alt: Award icon
 categories:
   - Webinar WP3
@@ -15,7 +15,7 @@ summary: This webinar brings together members of SHAREing and external collabora
 
 ## Event information
 
-SHAREing is organising an afternoon webinar to present and discuss Professional Skills Training on 22nd May from 2pm to 3pm.
+SHAREing is organising an afternoon webinar to present and discuss Professional Skills Training on 22nd May from 1pm to 2pm.
 
 ## Agenda
 

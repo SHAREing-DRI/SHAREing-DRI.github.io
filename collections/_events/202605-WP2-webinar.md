@@ -1,5 +1,5 @@
 ---
-title: "Work Package 2 - Technical Skills Training"
+title: "WP2 Open Meeting - Technical Skills Training"
 icon_alt: Award icon
 categories:
   - Webinar WP2
@@ -15,7 +15,7 @@ summary: This webinar brings together members of SHAREing and external collabora
 
 ## Event information
 
-SHAREing is organising an afternoon webinar to present and discuss Technical Skills Training 15th May from 2pm to 3pm.
+SHAREing is organising an afternoon webinar to present and discuss Technical Skills Training 15th May from 1pm to 2pm.
 
 
 [Register for webinar](https://events.teams.microsoft.com/event/938852b6-6b07-461f-b027-89f539f24f29@7250d88b-4b68-4529-be44-d59a2d8a6f94){: .btn .btn--event .btn--large}
