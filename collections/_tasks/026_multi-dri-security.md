@@ -5,7 +5,7 @@ layout: tasks
 image: assets/images/logo.png
 summary: Funding to initiate a brief weekly ARC/DiRAC security meeting including training by skill transfer.
 workpackage: "wp2.3"
-status: open
+status: review
 ---
 
 

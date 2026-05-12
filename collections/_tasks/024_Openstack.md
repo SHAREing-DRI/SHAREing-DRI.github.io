@@ -5,7 +5,7 @@ layout: tasks
 image: assets/images/logo.png
 summary: Engaging StackHPC (SME) to aid an openstack upgrade, with the methods then written up afterwards. 
 workpackage: "wp2.3"
-status: open
+status: review
 ---
 
 
