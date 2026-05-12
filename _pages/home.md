@@ -7,7 +7,10 @@ header:
   overlay_image: /assets/images/banner-big.png
 ---
 
-
+<div class="funding-banner">
+  📢 The next SHAREing Flexible Fund call to propose solutions to open tasks is now open until <strong>8 July 2026</strong>.
+  <a href="/task-map/">View open tasks →</a>
+</div>
 
 
 <section class="section-wide section-muted">
@@ -291,6 +294,34 @@ Some of our team members had the opportunity to attend the DRI Retreat in Manche
   scroll-snap-type: x mandatory;
   padding-bottom: 2rem;
 }
+
+
+.funding-banner {
+  background: linear-gradient(90deg, #68246d, #940594);
+  color: white;
+  text-align: center;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 20;
+   width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 0rem !important;
+}
+
+.funding-banner a {
+  color: white;
+  font-weight: 700;
+  margin-left: 10px;
+  text-decoration: underline;
+}
+
+.funding-banner a:hover {
+  opacity: 0.85;
+}
+
 
 .news-card {
   flex: 0 0 360px;
