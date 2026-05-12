@@ -115,12 +115,19 @@ sidebar: false
   font-size: 0.8rem;
 }
 
-.flow-card p {
+.flow-card p, a {
   margin: 0;
   color: #475569;
   line-height: 1.6;
   font-size: 0.8rem;
 }
+
+.flow-card a:hover {
+  margin: 0;
+  color: #740574;
+  transition: none;
+}
+
 
 .blue-card {
   border-left: 5px solid #002A41;
@@ -887,6 +894,16 @@ body.filter-completed .progress-col {
         <p>
           Explore the open tasks across our Working Packages (WP1, WP2, WP3, WP4).
         </p>
+      </div>
+      
+        <div class="flow-card blue-card">
+        
+
+        
+    <a href="https://shareing-dri.github.io/about/flexible-funds">  Check our Flexible Fund Guidance</a>
+            
+            
+            
       </div>
 
       <div class="flow-card blue-card">
