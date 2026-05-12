@@ -17,6 +17,25 @@ header:
   
   
   
+  
+     <div class="news-card">
+  <div class="news-content">
+    <span class="news-date">May 2026</span>
+    <h3>Next round of SHAREing's Flexible Funds is Now Open</h3>
+    <p>
+    The next round to Propose a solution to a current Open Task is now open! Check out the current open tasks or <a href="/about/suggest-a-task">suggest a new task</a>.</p>
+   
+   <p> The current deadline to <a href="/about/propose-a-solution">propose a solution to an open task</a> is <strong> 8 July 2026 </strong> </p>
+  </div>
+</div>  
+
+
+
+
+
+  
+  
+  
    <div class="news-card">
   <div class="news-content">
     <span class="news-date">April 2026</span>
@@ -46,15 +65,7 @@ Some of our team members had the opportunity to attend the DRI Retreat in Manche
   </div>
 </div>
    
- <div class="news-card">
-  <div class="news-content">
-    <span class="news-date">March 2026</span>
-    <h3>SIAM PP26</h3>
-    <p>
-      SHAREing was presented recently at the SIAM Parallel Processing 2026 (PP26) conference as a poster submission by Thomas Flynn. He has also summarised his thoughts of the SIAM PP26 conference <a href="/blogpost/siampp26/">here</a>, including themes that are relevant to SHAREing and digital Research Technical Professionals (dRTPs) more broadly.
-    </p>
-  </div>
-</div>  
+
    
      
 
@@ -64,6 +75,19 @@ Some of our team members had the opportunity to attend the DRI Retreat in Manche
     
    <details class="past-news">
     <summary>Past news</summary>
+    
+    
+     <div class="news-card">
+  <div class="news-content">
+    <span class="news-date">March 2026</span>
+    <h3>SIAM PP26</h3>
+    <p>
+      SHAREing was presented recently at the SIAM Parallel Processing 2026 (PP26) conference as a poster submission by Thomas Flynn. He has also summarised his thoughts of the SIAM PP26 conference <a href="/blogpost/siampp26/">here</a>, including themes that are relevant to SHAREing and digital Research Technical Professionals (dRTPs) more broadly.
+    </p>
+  </div>
+</div>  
+
+
        
 <div class="news-card">
   <div class="news-content">

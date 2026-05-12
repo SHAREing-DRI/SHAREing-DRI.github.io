@@ -3,11 +3,263 @@ permalink: /task-map/
 title: "Task Map"
 layout: default
 sidebar: false
-classes: wide page__center no-title
 ---
 
 <style>
+.shareing-diagram {
+  font-family: system-ui, sans-serif;
+  background: #f8fafc;
+  border: 1px solid #dbe4ee;
+  border-radius: 24px;
+  padding: 0.9rem;
 
+  max-width: 1200px;
+  margin: auto auto;
+
+  color: #17365d;
+}
+
+.shareing-diagram h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.shareing-diagram .intro {
+  text-align: center;
+  max-width: 1200px;
+  color: #475569;
+  line-height: 1.7;
+  font-size: 0.7rem;
+}
+
+.diagram-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.diagram-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.column-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 0.9rem;
+    min-height: 110px;
+}
+
+.column-title.blue {
+  background: #D9F1FF;
+  border: 2px solid #002A41;
+  color: #002A41;
+}
+
+.column-title.green {
+  background: #FEE8FE;
+  border: 2px solid #740574;
+  color: #740574;
+}
+
+.icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.blue .icon-circle {
+  background: #002A41;
+}
+
+.green .icon-circle {
+  background: #740574;
+}
+
+.flow-card {
+  background: white;
+  border-radius: 18px;
+  padding: 1rem;
+  border: 1px solid #dbe4ee;
+  position: relative;
+}
+
+.flow-card::after {
+  content: "↓";
+  position: absolute;
+  bottom: -1.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+.flow-card:last-child::after {
+  display: none;
+}
+
+.flow-card h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.8rem;
+}
+
+.flow-card p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
+  font-size: 0.8rem;
+}
+
+.blue-card {
+  border-left: 5px solid #002A41;
+}
+
+.green-card {
+  border-left: 5px solid #740574;
+}
+
+.meeting-boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+
+
+
+.meeting-box strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #17365d;
+}
+
+.deadline-card {
+  background: linear-gradient(135deg, #17365d, #1d4ed8);
+  color: white;
+  border-radius: 18px;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.deadline-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.deadline-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.connector {
+  position: absolute;
+  left: 50%;
+  top: 67%;
+  width: 180px;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.connector-line {
+  border-top: 3px dashed #2f9e44;
+  position: relative;
+}
+
+.connector-line::after {
+  content: "➜";
+  position: absolute;
+  right: -12px;
+  top: -14px;
+  color: #1d4ed8;
+  font-size: 1.5rem;
+}
+
+.connector-text {
+  background: white;
+  border: 1px solid #dbe4ee;
+  border-radius: 12px;
+  padding: 0.75rem;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #475569;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.review-section {
+  margin-top: 2.5rem;
+  background: #f3f0ff;
+  border: 1px solid #ddd6fe;
+  border-radius: 18px;
+  padding: 0.8rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.review-section h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+   font-size: 0.8rem;
+}
+
+.review-section p {
+  margin: 0;
+  line-height: 1.7;
+  color: #475569;
+  font-size: 0.8rem;
+}
+
+.footer-note {
+  margin-top: 2rem;
+  border: 2px dashed #c4b5fd;
+  border-radius: 14px;
+  padding: 1rem;
+  text-align: center;
+  color: #6d28d9;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+
+  .diagram-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .meeting-boxes {
+    grid-template-columns: 1fr;
+  }
+
+  .review-section {
+    grid-template-columns: 1fr;
+  }
+
+  .connector {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin: 0.5rem 0 1rem 0;
+  }
+
+  .connector-line {
+    display: none;
+  }
+}
 
 .wp-columns {
   display: grid;
@@ -62,7 +314,7 @@ grid-template-columns: repeat(4, minmax(100px, 1fr));
 
 
 .wp-column-title {
-  font-size: 1.35rem;
+  font-size: 0.9rem;
   font-weight: 700;
   text-align: center;
   padding-bottom: 10px;
@@ -377,6 +629,30 @@ grid-template-columns: repeat(4, minmax(100px, 1fr));
 
 
 
+.wp-btn {
+  background: #f8fafc;
+  border: 1px solid #dbe4ee;
+  border-radius: 12px;
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.wp-btn:hover {
+  background: #f8fafc;
+  border: 1px solid #740574;
+  color: #740574;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.wp-btn.active {
+  background: #003d66;
+  color: white;
+}
+
+
+
+
 
 .filter-btn {
   padding: 6px 14px;
@@ -529,6 +805,39 @@ grid-template-columns: repeat(4, minmax(100px, 1fr));
   color: #940594;
 }
 
+.collapsible-diagram {
+  margin: 2rem 0;
+
+}
+
+.collapsible-diagram summary {
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 20px;
+  border: 2px solid #003d66;
+  background: white;
+  color: #003d66;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  max-width: 400px;
+    margin: auto auto;
+    text-align: center;
+}
+
+.collapsible-diagram summary:hover {
+  background: #1d4ed8;
+  color: #ffffff;
+}
+
+.collapsible-diagram summary::-webkit-details-marker {
+  display: none;
+}
+
+.collapsible-content {
+  margin-top: 1.5rem;
+}
+
 
 
 
@@ -550,35 +859,136 @@ body.filter-completed .progress-col {
 
 </style>
 
+<details class="collapsible-diagram">
 
+  <summary>
+    How SHAREing Flexible Funds Work
+  </summary>
 
-<div class="eligibility-box">
-  <div class="eligibility-icon">🌍</div>
+<div class="collapsible-content">
+  <div class="shareing-diagram">
 
-  <div>
-   
-    SHAREing tasks are open to <strong>all contributors based at UK universities or other organisations eligible for UKRI funding</strong>. You can apply to work on an existing open task or suggest a new task for one of the Working Packages. The current funding timelines are:
-    <div class="deadline-info">
-      • <strong>Suggest a New Task:</strong> Rolling call (open at any time)<br>
-      • <strong>Propose a Solution to an Open Task:</strong> Reviewed quarterly - 
-      <strong>Current deadline: 23 March</strong>
+  <p class="intro">
+    SHAREing funds people to carry out solutions to important challenges.
+    You can get involved in two ways: <strong> propose a solution </strong> to an existing open task or <strong> suggest a new task</strong>. <br>
+  </p>
+
+  <div class="diagram-grid">
+
+    <!-- LEFT -->
+    <div class="diagram-column">
+
+      <div class="column-title blue">
+        <div class="icon-circle">📋</div>
+        PROPOSE A SOLUTION TO AN EXISTING OPEN TASK
+      </div>
+
+      <div class="flow-card blue-card">
+        <p>
+          Explore the open tasks across our Working Packages (WP1, WP2, WP3, WP4).
+        </p>
+      </div>
+
+      <div class="flow-card blue-card">
+        <h4>Submit your proposal</h4>
+        <p>
+          Propose your solution to an existing open task.
+        </p>
+      </div>
+
+      <div class="deadline-card">
+        <h3>Proposal deadline</h3>
+        <p>8 July 2026</p>
+      </div>
+
     </div>
 
-    All applications and task suggestions are discussed through SHAREing’s open Working Group meetings and reviewed by consortium members. Approved task suggestions will be published on this page.
-    Approved task applications may be supported and funded where they align with SHAREing priorities and UKRI eligibility criteria.
+    <!-- RIGHT -->
+    <div class="diagram-column">
 
-    <div class="eligibility-actions">
-      <div class="eligibility-pill"><a href="/about/flexible-funds">
-        Flexible Funds guidelines</a></div>
-      <div class="eligibility-pill"><a href="/about/organisation">
-        How SHAREing is organised</a></div>
-      <div class="eligibility-pill"><a href="/contact/">
-        Got a question? Get in touch</a></div>
+      <div class="column-title green">
+        <div class="icon-circle">💡</div>
+        SUGGEST A NEW TASK
+      </div>
+
+      <div class="flow-card green-card">
+        <h4>Suggest a new task (rolling call)</h4>
+        <p>
+          Submit your idea for a new task at any time using the “Suggest a Task” form.
+        </p>
+      </div>
+
+      <div class="flow-card green-card">
+        <h4>Discussed at open Working Package meetings</h4>
+        <p>
+          Your suggestion will be discussed at the next open meeting for the relevant Working Package:
+        </p>
+
+        <div class="meeting-boxes">
+        
+
+
+  
+      <a class="wp-btn" href="https://events.teams.microsoft.com/event/38be2c9a-e1aa-4334-aa0a-e5aba51d919a@7250d88b-4b68-4529-be44-d59a2d8a6f94"> <strong> WP1 </strong>  <br> 29 May 2026</a>
+      
+      <a class="wp-btn" href="https://events.teams.microsoft.com/event/938852b6-6b07-461f-b027-89f539f24f29@7250d88b-4b68-4529-be44-d59a2d8a6f94"> <strong> WP2 </strong>  <br> 15 May 2026</a>
+            
+            
+     <a class="wp-btn" href=" https://events.teams.microsoft.com/event/7268ce97-0bdb-4f89-b5c4-cedcc8ef04ec@7250d88b-4b68-4529-be44-d59a2d8a6f94"> <strong> WP3 </strong>  <br> 22 May 2026</a>
+         
+
+
+          
+          
+  
+
+      
+        </div>
+      </div>
+      
+      
+      
+      
+
+      <div class="flow-card green-card">
+        <h4>Approved?</h4>
+        <p>
+          If approved, the new task will be added to the map of open tasks on this website. You are welcome to propose a solution to the task by July 8 2026
+        </p>
+      </div>
+
     </div>
+
+
+
   </div>
-</div>
+
+  <!-- REVIEW SECTION -->
+  <div class="review-section">
+
+    <div>
+      <h4>Review and decision</h4>
+
+      <p>
+        All task suggestions and proposals are reviewed through SHAREing’s open governance process and assessed for alignment with SHAREing priorities and UKRI eligibility requirements.
+      </p>
+    </div>
+
+    <div>
+      <h4>Successful proposals</h4>
+
+      <p>
+        Approved proposals may be supported and funded through SHAREing Flexible Funds.
+      </p>
+    </div>
+
+  </div>
 
 
+ </div>
+
+ </div>
+</details>
 
 
 
