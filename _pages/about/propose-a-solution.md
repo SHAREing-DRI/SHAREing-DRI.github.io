@@ -292,7 +292,7 @@ layout: splash
     
      <div class="notice-box">
     <strong>📅 Application Deadlines</strong><br>
-    Proposals to deliver open tasks are reviewed quarterly.<strong>Current deadline: 23 March</strong>
+    Proposals to deliver open tasks are reviewed quarterly.<strong>Current deadline: 8 July</strong>
      </div>
 
     <div class="notice-box">
