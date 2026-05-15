@@ -77,11 +77,23 @@ Above: Members of one of the initial working group meetings.
 
 ## Versions
 
-**This document is still in an early stage of development**
+**This document is still in an early stage of development (arguably a pre-release)**
 
-The current version of the performance analysis workbook is a brief
-introduction to terminology, preparing for an assessment and SHAREing's
-proposed high-level analysis.
+We envisage the performance assessment methodology to be largely made of three stages:
+
+1) **Pre-assessment:** getting the code ready for assessment
+
+2) **High-level assessment:** calculating metrics that give an overview of the code's performance
+
+3) **Lower-level assessment:** guided by the high-level assessment, we dig down into the performance details
+
+We are happy to announce that an initial version of the **Pre-assessment** and **High-level assessment** are included in our guidebook as:
+
+* **Chapter 4: Preparation**
+* **Chapter 5: High-level first glance**
+
+respectively. These are still in development, but other parts of the assessment methodology are also starting to take shape throughout the guidebook, though are much earlier drafts.
+
 
 ## Acknowledgements
 
