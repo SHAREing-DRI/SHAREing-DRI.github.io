@@ -57,13 +57,25 @@ layout: default
         {{ page.description }}
       </p>
     {% endif %}
+    
 
   </div>
 </section>
 
 
+
 <!-- PAGE -->
 <section class="task-page">
+
+
+{% if page.outputs_url %}
+  <div class="task-actions">
+    <a href="{{ page.outputs_url }}" class="task-button">
+      {{ page.outputs_label | default: "View Outputs" }}
+    </a>
+  </div>
+{% endif %}
+
 
   <div class="task-grid">
 
@@ -137,6 +149,8 @@ layout: default
     {% endif %}
 
 
+
+
     <!-- CONTENT -->
     <main class="task-main">
 
@@ -157,9 +171,48 @@ layout: default
 <style>
 
 
+.task-actions {
+  margin-top: 2rem;
+}
+
+.task-button {
+
+  
+   max-width: 1000px;
+  margin: 0 auto;
+
+  display: grid;
+  text-align: center;
+  padding: 0.9rem 1.4rem;
+
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  background: #68246D;
+  color: #ffffff;
+
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+
+  box-shadow:
+    0 6px 6px rgba(0,0,0,0.18);
+}
+
+.task-button:hover {
+  background: #AD3CB6;
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+
 .task-page {
   background: #f5f7fb;
-  padding: 4rem 1.5rem;
+  padding: 1rem 1.5rem;
 }
 
 
@@ -266,7 +319,7 @@ layout: default
 
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .sidebar-card {
