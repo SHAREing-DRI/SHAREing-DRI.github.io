@@ -11,6 +11,8 @@ main:
     url: /training/
   - title: "Resources & Ecosystem"
     url: /resources/
+  - title: "Tasks Completed"
+    url: /tasks-completed/
   - title: "Network"
     url: /network/
   - title: "Industry"
