@@ -1,46 +1,20 @@
 ---
-title: "Benchmark guidelines (kickstart) - Task 005"
-layout: tasks
-image: assets/images/logo.png
+title: "Benchmark guidelines (kickstart)"
+layout: champions
+image: https://images.pexels.com/photos/6077600/pexels-photo-6077600.jpeg
 summary: Start a performance assessment overview/guidelines
 workpackage: "wp1.2"
 date: "05-12-2025"
 status: completed
+outputs_label: Explore SHAREing's benchmark guidelines
+outputs_url: http://127.0.0.1:4000/assets/pdfs/shareing-benchmark-guide.pdf
+person:
+  name: Thomas Flynn
+  role: 
+  institution: Durham University
+  image: /assets/profilepics/thomas.jpg
 ---
 
-<style>
-
-.full-width-btn-container {
-  max-width: 1100px;
-  margin: 0 auto 1.5rem auto;
-}
-
-.full-width-btn {
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding: 1rem 1.4rem;
-  border-radius: 8px;
-  background: #CDA3CD;
-  color: white !important;
-  text-decoration: none;
-  transition: background 0.25s ease, color 0.25s ease;
-}
-
-.full-width-btn:hover {
-  background: #0E2841; !important;
-  color: #ffffff !important;
-}
-
-</style>
-
-<div class="full-width-btn-container">
-  <a class="full-width-btn" href="/assets/pdfs/shareing-benchmark-guide.pdf">
-    🔎 Explore SHAREing's benchmark guidelines
-  </a>
-</div>
 
 Through of combination of: discussions with researchers, the [SHAREing
 performance assessment seminar](/events/202511-performance-webinar/) and a
@@ -75,10 +49,8 @@ suggestions are highly encouraged!**
 
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda
-behind [WP 1.2](/about/workinggroups).
+This was a proposed solution answering Task 005: DBenchmark Guideline, behind [WP 1.2](/workpackages/workpackage-1/).
 
-The task number is 005.
 
 ## Description
 

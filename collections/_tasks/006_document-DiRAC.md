@@ -7,7 +7,7 @@ summary:
 workpackage: "wp1.2"
 status: progress
 person:
-  name: Thomas Flynn Basden
+  name: Thomas Flynn
   role: 
   institution: Durham University
   image: /assets/profilepics/thomas.jpg

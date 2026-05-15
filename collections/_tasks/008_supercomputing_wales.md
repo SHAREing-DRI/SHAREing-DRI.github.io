@@ -1,12 +1,18 @@
 ---
-title: "Supercomputing Wales - Task 008"
-layout: tasks
+title: "Supercomputing Wales"
+layout: champions
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: /assets/logos/SupercomputingWales.svg
+image: https://images.pexels.com/photos/15859215/pexels-photo-15859215.jpeg
 summary: Summary of code assessments delivered through Supercomputing Wales
 workpackage: "wp1.2"
 date: "30-11-2025"
 status: completed
+person:
+  name: Ed Bennett
+  role: 
+  institution: Swansea University
+  image: /assets/profilepics/Bennett.jpg
+
 ---
 Using records retained from the time period, and having conversations with staff 
 at the Supercomputing Wales partner institutions, we will document the approaches used for
@@ -27,11 +33,9 @@ underpinning them and lessons learned from them.
 
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda behind [WP 1.1](/about/workinggroups).
+This was a proposed solution answering Task 008: Supercomputing Wales, behind [WP 1.2](/workpackages/workpackage-1/).
 
-The task number is 008.
 
-<!-- I need some pictures and links -->
 
 ## Description
 
