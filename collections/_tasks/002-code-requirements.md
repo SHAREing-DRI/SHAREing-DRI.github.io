@@ -1,25 +1,32 @@
 ---
-title: "Specification of Assessment Code Requirements - Task 002"
-layout: tasks
+title: "Specification of Assessment Code Requirements"
+layout: champions
 image: assets/images/logo.png
 date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 summary: Define what codes have to bring along to make them eligible for a code assessment.
 workpackage: "wp1.1"
 status: completed
+image: https://images.pexels.com/photos/36496969/pexels-photo-36496969.jpeg
+person:
+  name: Thomas Flynn Basden
+  role: 
+  institution: Durham University
+  image: /assets/profilepics/thomas.jpg
 ---
-
 ## Outcomes
 
 - We have defined recommended checklists for submission which can be found in Appendix B of the [performance assessment workbook](/assets/pdfs/perf_analysis_workbook_brief.pdf).
 - This recommended checklist then defines the [Microsoft Form](https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlIUXnqx3D81Bt-KemxGOyY5UOU9RQkFSOE5UU1Y1QVZNS0QyNlFYNjRNOS4u) which is used as the interface for submitting codes to SHAREing.
 - Collectively the checklist in the guidebook, the benchmarking guidelines and Microsoft Form consitute the submission interface and can be [here](/assessment/submission) or under the 'Performance Assessment' tab.
 
+
+
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda behind [WP 1.1](/workpackages/workpackage-1/).
+This was a proposed solution answering Task 002: Specification of Assessment Code Requirements, behind [WP 1.1](/about/workinggroups).
 
-The task number is 002.
+
 
 
 ## Description

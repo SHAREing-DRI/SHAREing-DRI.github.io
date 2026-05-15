@@ -1,25 +1,28 @@
 ---
-title: "Celeritas assessment - Task 003"
-layout: tasks
+title: "Celeritas assessment"
+layout: champions
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: https://celeritas-project.github.io/celeritas/_includes/full-logo.png
+image: https://images.pexels.com/photos/29652322/pexels-photo-29652322.jpeg
 summary: Study Celeritas an notably focus on its single-precision potential and GPU suitability
 wp: 1.1
 workpackage: "wp1.1"
 status: completed
+outputs_label: View report
+outputs_url: https://shareing-dri.github.io/assets/documents/SHAREing-mini-project-003--celeritas-code-assessment.html
+person:
+  name: Davide Costanzo
+  institution: University of Sheffield
+  image: /assets/profilepics/davide.png
 ---
 ## Outcomes
 
 This project has now finished. The outcomes can be found in [this report](https://shareing-dri.github.io/assets/documents/SHAREing-mini-project-003--celeritas-code-assessment.html).
 
-[See Task 003 report](https://shareing-dri.github.io/assets/documents/SHAREing-mini-project-003--celeritas-code-assessment.html){: .btn .btn--event .btn--large}
-
 
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda behind [WP 1.1](/workpackages/workpackage-1/).
+This was a proposed solution answering Task 003: Code Performance Assessment, behind [WP 1.1](/workpackages/workpackage-1/).
 
-The task number is 003.
 
 ## Description
 

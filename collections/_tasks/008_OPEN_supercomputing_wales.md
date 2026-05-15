@@ -5,7 +5,7 @@ layout: tasks
 image: /assets/logos/SupercomputingWales.svg
 summary: Summary of code assessments delivered through Supercomputing Wales
 workpackage: ""
-status: completed
+status: progress
 ---
 
 
