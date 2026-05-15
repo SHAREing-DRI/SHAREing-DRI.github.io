@@ -176,7 +176,7 @@ classes: wide
   </div>
   
   <div class="about-card">
-    <img src="/assets/events-banner/correctness.png" alt="Guidebook">
+    <img src="/assets/events-banner/correctness.png" alt="Durham, VI-HPS, UCL">
     <h3>Correctness and Debugging Workshop</h3>
     <p>A report on our recent Correctness and Debugging Workshop Series </p>
     <a href="/events/202511-correctness-workshop" class="about-button">See the Report</a>
@@ -184,9 +184,16 @@ classes: wide
   
 
   <div class="about-card">
-    <img src="/assets/images/hpc_knowledge_graph.png" alt="Guidebook">
+    <img src="/assets/images/hpc_knowledge_graph.png" alt="Knowledge graph">
     <h3>HPC Concepts</h3>
     <p>Some basic revision material that’s worth revisiting before any assessment or benchmarking exercises. Made for newcomers without a background in HPC.</p>
-    <a href="https://shareing-dri.github.io/hpc-concepts-course/" class="about-button">HPC Concepts Material</a>
+    <a href="/hpc-concepts-course/" class="about-button">HPC Concepts Material</a>
+  </div>
+
+  <div class="about-card">
+    <img src="/assets/images/signpost.svg" alt="Signpost">
+    <h3>GPU programming knowledge graph</h3>
+    <p>A map of the space of knowledge one can obtain around how to program for GPUs, and links to where to learn more about each topic.</p>
+    <a href="/training/gpu-programming-roadmap" class="about-button">Explore the map</a>
   </div>
 </section>
