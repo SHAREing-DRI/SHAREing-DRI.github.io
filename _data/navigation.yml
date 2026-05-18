@@ -8,9 +8,9 @@ main:
       - title: "Team"
         url: /about-overview/team-consortium
       - title: "Organisation"
-        url: /about/organisation/
+        url: /organisation/
       - title: "Advisory Board"
-        url: /about/advisory-board/
+        url: /advisory-board/
       - title: "Industry"
         url: /industry/
         
