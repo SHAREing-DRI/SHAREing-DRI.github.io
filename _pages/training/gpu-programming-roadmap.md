@@ -152,6 +152,20 @@ and how they connect.
 
 
 <script type="module">
+  const setupSVG = function() {
+    const svgs = document.querySelectorAll('svg');
+    if (svgs.length == 0) {
+      setTimeout(setupSVG, 500);
+      return;
+    }
+    if (svgs.length == 1) {
+      svgs[0].viewBox.baseVal.x = 0;
+      svgs[0].viewBox.baseVal.y = 0;
+      return
+    }
+  };
+
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true, htmlLabels: false , securityLevel: 'loose' });
+  setupSVG();
 </script>
