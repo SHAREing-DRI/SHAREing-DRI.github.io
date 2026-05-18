@@ -1,0 +1,306 @@
+<header class="site-header">
+  <nav class="site-nav">
+
+
+    <div class="mobile-header">
+
+      <a class="mobile-logo" href="{{ '/' | relative_url }}">
+        <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Home Logo">
+      </a>
+
+      <button class="menu-toggle" aria-label="Open Menu">
+        ☰
+      </button>
+
+    </div>
+
+    <ul class="nav-list">
+
+
+      <li class="nav-item home-button desktop-logo">
+        <a href="{{ '/' | relative_url }}">
+          <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Home Logo">
+        </a>
+      </li>
+
+      {% for item in site.data.navigation.main %}
+
+      <li class="nav-item {% if item.sublinks %}has-dropdown{% endif %}">
+
+        <a href="{{ item.url }}">
+          {{ item.title }}
+        </a>
+
+        {% if item.sublinks %}
+
+<button type="button" class="dropdown-toggle" aria-label="Toggle Dropdown">
+  +
+</button>
+
+        <ul class="dropdown">
+
+          {% for sublink in item.sublinks %}
+
+          <li>
+            <a href="{{ sublink.url }}">
+              {{ sublink.title }}
+            </a>
+          </li>
+
+          {% endfor %}
+
+        </ul>
+
+        {% endif %}
+
+      </li>
+
+      {% endfor %}
+
+    </ul>
+
+  </nav>
+</header>
+
+<style>
+
+.site-header {
+  background: none;
+  color: #0d1b2a;
+  position: relative;
+  z-index: 1000;
+}
+
+.site-nav {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 10px 16px;
+
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-align: center;
+  line-height: 1.2;
+  color: #0d1b2a;
+}
+
+.nav-item:hover {
+  background: #1b263b;
+}
+
+.nav-item:hover > a {
+  color: white;
+}
+
+.home-button > a {
+  background: #D9DFFF;
+}
+
+.home-button > a:hover {
+  background: #778da9;
+}
+
+.home-button img,
+.mobile-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  background: white;
+  min-width: 240px;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  z-index: 999;
+}
+
+.dropdown li a {
+  display: block;
+  padding: 12px 16px;
+  color: #1b263b;
+  text-decoration: none;
+    font-size: 0.75rem;
+}
+
+.dropdown li a:hover {
+  background: #D9DFFF;
+}
+
+@media (min-width: 769px) {
+
+  .nav-item:hover .dropdown {
+    display: block;
+  }
+
+
+}
+
+
+.mobile-header {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #0d1b2a;
+}
+
+.dropdown-toggle {
+  display: none;
+}
+
+
+@media (max-width: 768px) {
+
+  .mobile-header {
+    display: flex;
+  }
+
+  .desktop-logo {
+    display: none;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #eee;
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid #f2f2f2;
+  }
+
+  .nav-item > a {
+    justify-content: flex-start;
+    padding: 16px;
+    min-height: auto;
+  }
+
+  .nav-item:hover {
+    background: none;
+  }
+
+  .nav-item:hover > a {
+    color: #0d1b2a;
+  }
+
+  .dropdown {
+    position: static;
+    display: none;
+    width: 100%;
+    box-shadow: none;
+    background: #f8f9fc;
+  }
+
+  .dropdown.active {
+    display: block;
+  }
+
+  .dropdown li a {
+    padding-left: 32px;
+  }
+
+  .dropdown-toggle {
+    display: block;
+    position: absolute;
+    right: 14px;
+    top: 12px;
+
+    background: none;
+    border: none;
+
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #1b263b;
+  }
+
+}
+
+</style>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Mobile menu
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navList = document.querySelector('.nav-list');
+
+  menuToggle.addEventListener('click', function () {
+    navList.classList.toggle('active');
+  });
+
+  // Mobile dropdowns
+  const dropdownButtons = document.querySelectorAll('.dropdown-toggle');
+
+  dropdownButtons.forEach(button => {
+
+    button.addEventListener('click', function (e) {
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      // Find dropdown inside same nav item
+      const parentItem = this.closest('.has-dropdown');
+      const dropdown = parentItem.querySelector('.dropdown');
+
+      dropdown.classList.toggle('active');
+
+      // Toggle + and -
+      if (dropdown.classList.contains('active')) {
+        this.textContent = '−';
+      } else {
+        this.textContent = '+';
+      }
+
+    });
+
+  });
+
+});
+
+</script>
