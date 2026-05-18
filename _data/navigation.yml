@@ -4,7 +4,7 @@ main:
     url: /about-overview/
     sublinks:
       - title: "Overview"
-        url: /about/vision-shareing/
+        url: /about/vision-shareing
       - title: "Team"
         url: /about-overview/team-consortium
       - title: "Organisation"
