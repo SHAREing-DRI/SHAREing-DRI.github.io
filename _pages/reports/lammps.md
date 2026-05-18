@@ -331,7 +331,6 @@ The GPU performance is massively improved in runtime, despite low reported utili
 
 The total memory required for these test simulations was well below the single node capacity on Hamilton. Expected avenues of interest are the various compiler options for heterogenous compute, modifications to number of MPI threads per GPU, and expected slow down due to increased IO when checkpointing and atomic positions are required. 
 
-Currently the quality of the high level metrics does not allow for a comprehensive summary, or guidance on the direction to begin further analysis.
 
 
 

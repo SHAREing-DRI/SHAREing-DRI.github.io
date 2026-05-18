@@ -376,8 +376,6 @@ io_performance_stats.io_perf_table()
 
 The intra node performance degrades quickly for this problem set, with less than 40% of the parallel efficiency reached before 32 cores. The GPU performance is massively improved, with a single Nvidia H200 outperforming 32 cores by a factor of more than 3 when measuring runtime. This is despite the fact that only 56% of the total runtime had the GPU utilised for this problem. The memory utilisation of the GPU's vram was low, but given the problem size this is to expected. The CPU and GPU versions of the code are not unified at present, with unification planned as detailed in the [project roadmap](https://www.quantum-espresso.org/road-map/). The total memory required for these test simulations was well below the single node capacity on Hamilton. Key regions of development are OpenMP performance; GPU performance and benchmarking of different hardware types; improving building and packaging; interfacing with scripting languages and improving pseudopotential support. IO can be relatively concise for a given compute size so the IO measurements presented here being a small fraction of total runtime was expected.
 
-Currently the quality of the high level metrics does not allow for a comprehensive summary, or guidance on the direction to begin further analysis.
-
 
 
 ## Low level analysis
