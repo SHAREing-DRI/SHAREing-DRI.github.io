@@ -1,24 +1,86 @@
 main:
+
   - title: "About"
     url: /about-overview/
-  - title: "Work Packages"
+    sublinks:
+      - title: "Overview"
+        url: /about/vision-shareing/
+      - title: "Team"
+        url: /about-overview/team-consortium
+      - title: "Organisation"
+        url: /about/organisation/
+      - title: "Advisory Board"
+        url: /about/advisory-board/
+      - title: "Industry"
+        url: /industry/
+        
+  - title: "Tasks"
     url: /task-map/
+    sublinks:
+      - title: "Task Map"
+        url: /task-map/
+      - title: "Tasks Completed"
+        url: /tasks-completed/
+      - title: "Tasks in Progress"
+        url: /tasks-in-progress/
+
+  - title: "Work Packages"
+    url: /workpackages/
+    sublinks:
+      - title: "Task Map"
+        url: /task-map/
+      - title: "WP1"
+        url: /workpackages/workpackage-1/
+      - title: "WP2"
+        url: /workpackages/workpackage-2/
+      - title: "WP3"
+        url: /workpackages/workpackage-3/
+        
+  - title: "Flexible Funds"
+    url: /about/flexible-funds
+    sublinks:
+      - title: "Flexible Fund Guidance"
+        url: /about/flexible-funds
+      - title: "Suggest a New Task"
+        url: /about/suggest-a-task
+      - title: "Propose a Solution to an Open Task"
+        url: /about/propose-a-solution
+
+
   - title: "Events"
     url: /events/
+    sublinks:
+      - title: "Upcoming Events"
+        url: /events/
+      - title: "Past Events"
+        url: /past-events/
+
   - title: "Performance Assessment"
     url: /assessment/
-  - title: "Training & Upskilling"
+
+       		 
+
+
+  - title: "Training & Resources"
     url: /training/
-  - title: "Resources & Ecosystem"
-    url: /resources/
-  - title: "Tasks Completed"
-    url: /tasks-completed/
+    sublinks:
+      - title: "Training"
+        url: /training/
+      - title: "Resources"
+        url: /resources/
+
   - title: "Network"
     url: /network/
-  - title: "Industry"
-    url: /industry/
+    sublinks:
+      - title: "Supporters"
+        url: /network/supporters/
+      - title: "Industry"
+        url: /industry/
+
+
   - title: "Blog Posts"
     url: /blog-post/
+
   - title: "Contact"
     url: /contact/
-    
+
