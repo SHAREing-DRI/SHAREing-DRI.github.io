@@ -7,10 +7,6 @@ header:
   overlay_image: /assets/images/banner-big.png
 ---
 
-<div class="funding-banner">
-  📢 The next SHAREing Flexible Fund call to propose solutions to open tasks is now open until <strong>8 July 2026</strong>.
-  <a href="/task-map/">View open tasks →</a>
-</div>
 
 
 <section class="section-wide section-muted">

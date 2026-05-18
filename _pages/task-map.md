@@ -900,11 +900,8 @@ body.filter-completed .progress-col {
 }
 
 </style>
-<div class="funding-banner">
-  <div class="funding-banner-track">
-    📢 The next SHAREing Flexible Fund call to propose solutions to open tasks is now open until <strong>8 July 2026</strong>.
-  </div>
-</div>
+
+
 
 <details class="collapsible-diagram">
 
