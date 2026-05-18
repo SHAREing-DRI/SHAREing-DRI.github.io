@@ -8,9 +8,9 @@ main:
       - title: "Team"
         url: /about-overview/team-consortium
       - title: "Organisation"
-        url: /organisation/
+        url: /about/organisation
       - title: "Advisory Board"
-        url: /advisory-board/
+        url: /about/advisory-board
       - title: "Industry"
         url: /industry/
         
@@ -73,7 +73,7 @@ main:
     url: /network/
     sublinks:
       - title: "Supporters"
-        url: /network/supporters/
+        url: /network/supporters
       - title: "Industry"
         url: /industry/
 
