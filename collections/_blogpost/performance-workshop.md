@@ -15,7 +15,7 @@ subtitle: ""
 author: "Ed Bennett"
 author_image: "/assets/profilepics/Bennett.jpg"
 # Main post image
-hero_image: "http://127.0.0.1:4000/assets/images/home-assessment.png" 
+hero_image: "https://shareing-dri.github.io/assets/images/home-assessment.png" 
 # Date of the post, please use the format: YYYY/MM/DD
 date: 2026-03-26
 social_links:
