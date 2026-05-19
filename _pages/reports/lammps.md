@@ -271,7 +271,7 @@ We compute the proportion of the maximum memory footprint used by the software b
 
 
 ```python
-gpu_utilisation = 0.95
+gpu_utilisation = 0.30
 ```
 
 We read these values into our `gpu_perf` class
@@ -321,4 +321,24 @@ io_performance_stats.io_perf_table()
 
 <div align="center">
   <img src="/assets/report-figs/lammps/output_31_0.png" alt="I/O performance metric" width="900">
+</div>
+
+
+### High level summary
+
+The intra node performance degrades quickly for this problem set, with less than 60% of the parallel efficiency reached before 32 cores.
+The GPU performance is massively improved in runtime, despite low reported utilisation. The memory utilisation of the GPU's vram was low, but given the problem size this is to expected. There are large numbers of possible targeted architectures, heterogenous compute backends, and optional frameworks (KOKKOS) available at build time for LAMMPS, and as such, this GPU measurement does not begin to describe the expected performance of any other benchmark size, or hardware.
+
+The total memory required for these test simulations was well below the single node capacity on Hamilton. Expected avenues of interest are the various compiler options for heterogenous compute, modifications to number of MPI threads per GPU, and expected slow down due to increased IO when checkpointing and atomic positions are required. 
+
+
+
+
+## Low level analysis
+
+
+
+
+<div align="center">
+  <img src="/assets/report-figs/lammps/radar.png" alt="" width="900">
 </div>

@@ -85,8 +85,6 @@ Some of our team members had the opportunity to attend the DRI Retreat in Manche
     </p>
   </div>
 </div>  
-
-
        
 <div class="news-card">
   <div class="news-content">

@@ -97,14 +97,14 @@ In traditional DFT, computation time grows with [O(Syste size^3)](https://spiral
 
 Load balancing for molecular integration is [best performed heuristically](https://arxiv.org/html/2303.14280v1), so it is likely changes to the shape of the underlying hardware assignment could cause irregularities in scaling behaviour.
 
-# 5: Memory, Storage and I/O
+# 3.5: Memory, Storage and I/O
 Memory is reported at approx 23GB for the ausurf benchmarks.
 Generates ~3.6GB of output files in ```#OUTDIR#```
 
 
 
 
-# 6: Hardware information
+# 3.6: Hardware information
 
 AMD EPYC 7702 64-Core Processor on 1 node - Hamilton.
 ```
@@ -124,11 +124,7 @@ Requires domain knowledge of quantum-espresso to identify science producing sect
 
 # 3.8 Historic optimisations
 
-Requires domain knowledge of quantum-espresso to identify algorithmic optimistions vs poorly implemented (i.e. confusing or non-functinoal) or justified (i.e. not valid for hardware in use, not valid fo majority test cases) computational justifications. 
-# <img src='./images/logo.svg' width=90 style="vertical-align:middle" /> SHAREing: High-level performance assessment notebook
-
-This a template notebook for performing a high-level performance assessment, designed by the SHAREing consurtium. We see this notebook as a working document, where performance analysts can input measured data for a code, and use the markdown cells to make notes of their assessment.
-
+Requires domain knowledge of quantum-espresso to identify algorithmic optimistions vs poorly implemented (i.e. confusing or non-functinoal) or justified (i.e. not valid for hardware in use, not valid fo majority test cases) computational justifications.
 
 
 
@@ -155,8 +151,8 @@ We recommend the analyst provide key pieces of information (which currently cont
 * Libraries/dependencies - mpi, nvcc
 * Details on data input - using the ausurf benchmark configuration
 
-## Report
-
+# Report
+## High Level Analysis
 
 ```python
 from topics.core import core_perf
@@ -318,11 +314,10 @@ gpu_runtime_data = np.array([(1,67.18),(2,41,35)
 ],dtype=[('GPU count', 'i4'),('Loop Time','f4')])
 #gpu used for 15.61+17.68+4.5 total seconds
 gpu_time_ratio = (15.61 + 17.68 + 4.5)/gpu_runtime_data["Loop Time"][0]
-print(gpu_time_ratio)
-gpu_utilisation = 0.95
+print("GPU run time ratio:",gpu_time_ratio)
 ```
 
-    0.5625186041728631
+    GPU run time ratio: 0.5625186041728631
 
 
 We read these values into our `gpu_perf` class
@@ -374,7 +369,21 @@ io_performance_stats.io_perf_table()
   <img src="/assets/report-figs/quantum-espresso/output_31_0.png" alt="IO performance metric" width="900">
 </div>
 
+<div align="center">
+  <img src="/assets/report-figs/lammps/radar.png" alt="" width="900">
+</div>
+### High level summary
+
+The intra node performance degrades quickly for this problem set, with less than 40% of the parallel efficiency reached before 32 cores. The GPU performance is massively improved, with a single Nvidia H200 outperforming 32 cores by a factor of more than 3 when measuring runtime. This is despite the fact that only 56% of the total runtime had the GPU utilised for this problem. The memory utilisation of the GPU's vram was low, but given the problem size this is to expected. The CPU and GPU versions of the code are not unified at present, with unification planned as detailed in the [project roadmap](https://www.quantum-espresso.org/road-map/). The total memory required for these test simulations was well below the single node capacity on Hamilton. Key regions of development are OpenMP performance; GPU performance and benchmarking of different hardware types; improving building and packaging; interfacing with scripting languages and improving pseudopotential support. IO can be relatively concise for a given compute size so the IO measurements presented here being a small fraction of total runtime was expected.
+
+
+
+## Low level analysis
+
+
+
+
 
 This project has received funding through the UKRI Digital Research Infrastructure Programme under grant UKRI1801 (SHAREing)
 
-<img src='./images/ukri.png' width=200 style="vertical-align:middle" /> 
+<img src='/assets/logos/ukri.png' width=200 style="vertical-align:middle" /> 
