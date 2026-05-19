@@ -2,7 +2,7 @@
 title: "Live dynamic power management for HPC"
 layout: champions
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: https://images.pexels.com/photos/4280696/pexels-photo-4280696.jpeg
+image: https://images.pexels.com/photos/4280696/pexels-photo-4280696.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: An investigation into dynamic power capping, tying in with grid cost and carbon intensity, and a write up of the findings
 
 workpackage: "wp1.3"

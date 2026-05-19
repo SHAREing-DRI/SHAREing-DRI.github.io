@@ -2,7 +2,7 @@
 title: "Testbed descriptions and consolidation"
 layout: champions
 
-image: https://images.pexels.com/photos/17489160/pexels-photo-17489160.jpeg
+image: https://images.pexels.com/photos/17489160/pexels-photo-17489160.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 summary: Define the minimal valuable information that a system specification has to provide.

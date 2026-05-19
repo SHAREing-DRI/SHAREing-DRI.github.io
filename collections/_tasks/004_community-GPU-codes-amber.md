@@ -2,7 +2,7 @@
 title: "Showcasing the Performance of Community GPU Codes in Life Sciences and Genomics"
 layout: champions
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: https://images.pexels.com/photos/35967917/pexels-photo-35967917.png
+image: https://images.pexels.com/photos/35967917/pexels-photo-35967917.png?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: Study behaviour and efficiency of community code's GPU port 
 workpackage: "wp1.1"
 status: progress

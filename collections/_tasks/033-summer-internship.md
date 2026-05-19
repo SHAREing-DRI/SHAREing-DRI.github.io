@@ -2,7 +2,7 @@
 title: "Summer pre-degree internships at Durham University"
 layout: champions
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: "https://images.pexels.com/photos/5124874/pexels-photo-5124874.jpeg"
+image: https://images.pexels.com/photos/5124874/pexels-photo-5124874.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: 
 workpackage: "wp4.1"
 status: progress

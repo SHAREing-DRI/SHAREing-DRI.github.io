@@ -1,7 +1,7 @@
 ---
 title: "Benchmark guidelines (kickstart)"
 layout: champions
-image: https://images.pexels.com/photos/6077600/pexels-photo-6077600.jpeg
+image: https://images.pexels.com/photos/6077600/pexels-photo-6077600.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: Start a performance assessment overview/guidelines
 workpackage: "wp1.2"
 date: "05-12-2025"
