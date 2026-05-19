@@ -236,6 +236,8 @@ layout: default
 .task-hero-overlay {
   position: absolute;
   inset: 0;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 
   background:
     linear-gradient(
@@ -244,6 +246,7 @@ layout: default
       rgba(8, 15, 35, 0.60) 45%,
       rgba(8, 15, 35, 0.30) 100%
     );
+
 }
 
 .task-hero-content {
