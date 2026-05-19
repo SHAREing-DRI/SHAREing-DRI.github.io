@@ -225,7 +225,7 @@ Feedback for the notebook is welcomed via GitHub issues, or via merge requests w
     <img src="/assets/images/logo.png" alt="High-level assessment template">
     <h3>High-level assessment template</h3>
     <p>Template used by assessors to produce the high-level assessment</p>
-    <a href="https://github.com/SHAREing-DRI/assessment-template/blob/main/high-level-report.md" class="about-button">Learn more</a>
+    <a href="https://github.com/SHAREing-DRI/assessment-template/blob/main/high-level-report.md" class="about-button">Go to template</a>
   </div>
 
 </section>
