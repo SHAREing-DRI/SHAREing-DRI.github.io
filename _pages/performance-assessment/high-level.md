@@ -55,8 +55,8 @@ classes: wide
   <p></p>
 </div>
 <div class="full-width-btn-container">
-  <a class="full-width-btn" href="https://github.com/SHAREing-DRI/high-level-notebook">
-    🔎 Explore SHAREing's high-level assessment repository
+  <a class="full-width-btn" href="https://github.com/SHAREing-DRI/assessment-template">
+    🔎 Explore SHAREing's high-level assessment template
   </a>
 </div>
 

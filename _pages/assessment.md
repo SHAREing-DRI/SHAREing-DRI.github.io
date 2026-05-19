@@ -193,9 +193,9 @@ classes: wide
 
 </section>
 
-<h2>Performance Assessment repository</h2>
-<p>The assessment-framework repository contains the templates for performing a performance assessment of newly submitted software using the above form. These templates are used by assessors to evaluate the software in three stages:
-    Currently only the pre-assessment stage is templated. </p>
+<h1>Performance Assessment repository</h1>
+<p>The assessment-template repository contains the templates for performing a performance assessment of newly submitted software using the above form. These templates are used by assessors to evaluate the software in three stages:
+    Currently the pre-assessment and high-level assessment stages are templated, and work is ongoing on the methodology for lower-level assessment stages. </p>
 
 <section class="about-grid">
 
@@ -210,14 +210,14 @@ classes: wide
     <img src="/assets/images/logo.png" alt="Pre-assessment template">
     <h3>Pre-assessment template</h3>
     <p>Template used by assessors to evaluate submitted code before undertaking an assessment</p>
-    <a href="https://github.com/SHAREing-DRI/assessment-framework/blob/main/preassessment-template-internal.md" class="about-button">Go to template</a>
+    <a href="https://github.com/SHAREing-DRI/assessment-template/blob/main/pre-assessment-report.md" class="about-button">Go to template</a>
   </div>
 
   <div class="about-card">
     <img src="/assets/images/logo.png" alt="High-level assessment template">
     <h3>High-level assessment template</h3>
     <p>Template used by assessors to produce the high-level assessment</p>
-<a href="/performance-assessment/high-level" class="about-button">Learn more</a>
+    <a href="/performance-assessment/high-level" class="about-button">Learn more</a>
   </div>
 
 </section>
