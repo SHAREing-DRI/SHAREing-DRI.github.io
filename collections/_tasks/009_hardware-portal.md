@@ -2,7 +2,7 @@
 title: "HPC testbed and production system information service"
 layout: champions
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: https://images.pexels.com/photos/1375261/pexels-photo-1375261.jpeg
+image: https://images.pexels.com/photos/1375261/pexels-photo-1375261.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: Design and delivery of a portal where HPC testbeds can be catalogued.
 workpackage: "wp1.3"
 status: progress

@@ -3,7 +3,7 @@ title: "Example Preparation and Benchmarking of Community Codes using CASTEP"
 layout: champions
 date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: https://images.pexels.com/photos/7723368/pexels-photo-7723368.jpeg
+image: https://images.pexels.com/photos/7723368/pexels-photo-7723368.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: Study behaviour and efficiency of community code's GPU port 
 workpackage: "wp1.1"
 status: progress

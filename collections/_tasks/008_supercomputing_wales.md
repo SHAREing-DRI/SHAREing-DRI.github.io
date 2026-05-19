@@ -2,7 +2,7 @@
 title: "Supercomputing Wales"
 layout: champions
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: https://images.pexels.com/photos/15859215/pexels-photo-15859215.jpeg
+image: https://images.pexels.com/photos/15859215/pexels-photo-15859215.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: Summary of code assessments delivered through Supercomputing Wales
 workpackage: "wp1.2"
 date: "30-11-2025"

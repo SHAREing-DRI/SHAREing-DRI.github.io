@@ -2,7 +2,7 @@
 title: "Celeritas assessment"
 layout: champions
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: https://images.pexels.com/photos/29652322/pexels-photo-29652322.jpeg
+image: https://images.pexels.com/photos/29652322/pexels-photo-29652322.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: Study Celeritas an notably focus on its single-precision potential and GPU suitability
 wp: 1.1
 workpackage: "wp1.1"

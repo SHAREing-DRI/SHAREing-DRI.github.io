@@ -2,7 +2,7 @@
 title: "Performance analysis for UK Numerical Relativity community codes"
 layout: champions
 date: 2025-10-01
-image: https://images.pexels.com/photos/12899191/pexels-photo-12899191.jpeg
+image: https://images.pexels.com/photos/12899191/pexels-photo-12899191.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: 
 workpackage: "wp1.3"
 status: progress

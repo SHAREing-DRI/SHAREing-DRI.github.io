@@ -2,7 +2,7 @@
 title: "Document DiRAC Performance Analysis Methodology"
 layout: champions
 date: 2025-10-01
-image: https://i0.wp.com/dirac.ac.uk/wp-content/uploads/2023/06/CUMULUS.jpeg?fit=800%2C533&ssl=1
+image: https://i0.wp.com/dirac.ac.uk/wp-content/uploads/2023/06/CUMULUS.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: 
 workpackage: "wp1.2"
 status: progress

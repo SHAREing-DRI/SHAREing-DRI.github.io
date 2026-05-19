@@ -2,7 +2,7 @@
 title: "Practical Lustre installation and management guide development"
 layout: champions
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: https://images.pexels.com/photos/12210678/pexels-photo-12210678.jpeg
+image: https://images.pexels.com/photos/12210678/pexels-photo-12210678.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: A write up of how we install various Lustre systems on different hardware here, including commandline flags for people to follow.
 workpackage: "wp2.3"
 status: progress

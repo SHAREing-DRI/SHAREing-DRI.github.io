@@ -7,7 +7,7 @@ date: 2025-10-01
 summary: Define what codes have to bring along to make them eligible for a code assessment.
 workpackage: "wp1.1"
 status: completed
-image: https://images.pexels.com/photos/36496969/pexels-photo-36496969.jpeg
+image: https://images.pexels.com/photos/36496969/pexels-photo-36496969.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 person:
   name: Thomas Flynn Basden
   role: 

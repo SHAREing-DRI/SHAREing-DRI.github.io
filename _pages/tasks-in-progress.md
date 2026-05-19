@@ -90,8 +90,8 @@ classes: wide
 
   border-radius: 999px;
 
-  background: rgba(255,255,255,0.14);
-  backdrop-filter: blur(10px);
+
+background: rgba(255,255,255,0.9);
 
   border: 1px solid rgba(255,255,255,0.18);
 
@@ -148,6 +148,25 @@ classes: wide
 }
 
 
+.assessment-header {
+  text-align: center;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.assessment-header h1 {
+  font-size: 2.1rem;
+  margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
+}
+
+.assessment-header p {
+  color: #555;
+  font-size: 0.8rem;
+  max-width: 1200px;
+  margin: 1rem auto;
+}
+v
+
 @media (max-width: 768px) {
   .parallax-hero {
     background-attachment: scroll;
@@ -168,18 +187,18 @@ classes: wide
 
 </style>
 
-<section class="parallax-hero">
-  <div class="parallax-overlay">
-    <h1>Tasks in progress</h1>
-  </div>
-</section>
+
+<div class="assessment-header">
+  <h1>Tasks in Progress</h1>
+  <p>
+
+This page showcases the current work taking place within SHAREing. These activities were proposed as solutions to open tasks across the different work packages. Browse the mini-projects currently in progress and <a href='https://shareing-dri.github.io/contact/'>get in touch</a> if you would like to get involved.
+
+If you are interested in contributing similar work, please explore our current <a href='https://shareing-dri.github.io/task-map/'>open tasks and propose your own solution</a>.
 
 
-<br>
-<br>
-This page showcases the current work taking place within SHAREing. These activities were proposed as solutions to open tasks across the different work packages. Browse the mini-projects currently in progress and [get in touch](https://shareing-dri.github.io/contact/) if you would like to get involved.
-
-If you are interested in contributing similar work, please explore our current [open tasks and propose your own solution](https://shareing-dri.github.io/task-map/)
+</p>
+</div>
 
 
 <section class="section-wide">
@@ -192,8 +211,8 @@ If you are interested in contributing similar work, please explore our current [
 
         {% if task.image %}
           <img 
-            src="{{ task.image }}" 
-            alt="{{ task.title }}" 
+             src="{{ task.image }}" 
+             loading="lazy"
             class="task-main-image"
           >
         {% endif %}
@@ -213,6 +232,7 @@ If you are interested in contributing similar work, please explore our current [
             {% if task.person.image %}
               <img 
                 src="{{ task.person.image }}" 
+                loading="lazy"
                 alt="{{ task.person.name }}"
                 class="task-profile-pic"
               >

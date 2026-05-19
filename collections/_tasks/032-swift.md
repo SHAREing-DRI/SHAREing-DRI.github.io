@@ -1,7 +1,7 @@
 ---
 title: "Investigation of quantum acceleration of the SWIFT HPC cosmology code "
 layout: champions
-image: https://images.pexels.com/photos/4644811/pexels-photo-4644811.jpeg
+image: https://images.pexels.com/photos/4644811/pexels-photo-4644811.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 summary: Integrate the links to the Durham HPC Hardware Lab into SHAREing webpage.

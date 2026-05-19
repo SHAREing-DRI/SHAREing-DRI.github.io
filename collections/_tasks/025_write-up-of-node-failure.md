@@ -2,7 +2,7 @@
 title: "Analysis of HPC node failure rates, with application to maintaining systems out of warranty"
 layout: champions
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: https://images.pexels.com/photos/5050305/pexels-photo-5050305.jpeg
+image: https://images.pexels.com/photos/5050305/pexels-photo-5050305.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: Based on captured data over the years, including systems where dynamic power on/off is used.
 workpackage: "wp2.3"
 status: progress

@@ -1,7 +1,7 @@
 ---
 title: "Documenting the HPC Hardware Lab at Durham University"
 layout: champions
-image: https://images.pexels.com/photos/23884118/pexels-photo-23884118.jpeg
+image: https://images.pexels.com/photos/23884118/pexels-photo-23884118.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 date: 2025-10-01
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
 summary: Integrate the links to the Durham HPC Hardware Lab into SHAREing webpage.
