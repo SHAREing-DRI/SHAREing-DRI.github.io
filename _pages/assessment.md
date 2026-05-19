@@ -193,7 +193,7 @@ classes: wide
 
 </section>
 
-<h1>Performance Assessment repository</h1>
+<h2>Performance Assessment repository</h2>
 <p>The assessment-template repository contains the templates for performing a performance assessment of newly submitted software using the above form. These templates are used by assessors to evaluate the software in three stages:
     Currently the pre-assessment and high-level assessment stages are templated, and work is ongoing on the methodology for lower-level assessment stages. </p>
 
