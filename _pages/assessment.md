@@ -194,16 +194,24 @@ classes: wide
 </section>
 
 <h2>Performance Assessment repository</h2>
-<p>The assessment-template repository contains the templates for performing a performance assessment of newly submitted software using the above form. These templates are used by assessors to evaluate the software in three stages:
-    Currently the pre-assessment and high-level assessment stages are templated, and work is ongoing on the methodology for lower-level assessment stages. </p>
+
+The assessment-template repository contains the templates for performing a performance assessment of newly submitted software using the above form.
+These templates are used by assessors to evaluate the software across the assessment stages. 
+Currently the pre-assessment and high-level assessment stages are templated, and work is ongoing on the methodology for lower-level assessment stages.
+
+The high-level analysis is now at a stage in which it can be implemented and refined via user feedback.
+To get this process started we have created a template high-level report to allow digital Research Technical Professionals (dRTPs) to have a go at running some high-level assessments.
+
+The GitHub repository hosting the templates, Python scripts, and dependencies is linked below, along with the templates directly.
+Feedback for the notebook is welcomed via GitHub issues, or via merge requests with proposed features.
 
 <section class="about-grid">
 
   <div class="about-card">
     <img src="/assets/images/logo.png" alt="Assessment Framework Repository">
-    <h3>Performance assessment guidebook</h3>
-    <p>A draft guidebook on how to begin a performance assessment</p>
-    <a href="https://github.com/SHAREing-DRI/assessment-framework/" class="about-button">Go to repository</a>
+    <h3>Performance assessment templates repository</h3>
+    <p>Repository containing the templates and Python scripts for data processing and graph generation</p>
+    <a href="https://github.com/SHAREing-DRI/assessment-template" class="about-button">Go to repository</a>
   </div>
 
   <div class="about-card">
@@ -217,7 +225,7 @@ classes: wide
     <img src="/assets/images/logo.png" alt="High-level assessment template">
     <h3>High-level assessment template</h3>
     <p>Template used by assessors to produce the high-level assessment</p>
-    <a href="/performance-assessment/high-level" class="about-button">Learn more</a>
+    <a href="https://github.com/SHAREing-DRI/assessment-template/blob/main/high-level-report.md" class="about-button">Learn more</a>
   </div>
 
 </section>
