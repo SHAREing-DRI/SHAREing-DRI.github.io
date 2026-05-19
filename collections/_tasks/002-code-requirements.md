@@ -9,7 +9,7 @@ workpackage: "wp1.1"
 status: completed
 image: https://images.pexels.com/photos/36496969/pexels-photo-36496969.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 person:
-  name: Thomas Flynn Basden
+  name: Thomas Flynn
   role: 
   institution: Durham University
   image: /assets/profilepics/thomas.jpg
