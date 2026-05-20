@@ -173,11 +173,8 @@ classes: wide
     <a href="/hpc-testbeds" class="about-button">UK HPC Testbeds</a>
   </div>
 
-</section>
-
-<section class="about-grid">
-
   <div class="about-card">
+    <img src="/assets/images/tools.jpg" alt="Tools">
     <h3>Performance Assessment Software List</h3>
     <p>List of the various pieces of software that are required or helpful when doing a performance assessment</p>
     <a href="/resources/assessment-software" class="about-button">List</a>
