@@ -16,6 +16,21 @@ header:
   
   
   
+       <div class="news-card">
+  <div class="news-content">
+  
+    <span class="news-date">May 2026</span>
+    <h3>Collaboration Workshop 2026 (CW26)</h3>
+    
+    <p>
+    Our Community Manager, Eva Fernandez Amez, reflects on her experience at CW26 and shares the key takeaways from the SHAREing and CAKE workshop held during the conference.
+<a href="/blogpost/CW-26/">Read the full blog post</a>.
+</p>
+  </div>
+</div>  
+
+
+  
   
      <div class="news-card">
   <div class="news-content">
