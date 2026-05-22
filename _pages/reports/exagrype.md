@@ -7,7 +7,7 @@ classes: wide
 
 # ExaGRyPE Performance Report
 
-A test submission for the performance assessment of [ExaGRyPE](https://hpcsoftware.pages.gitlab.lrz.de/Peano/dc/d1a/applications_exahype2_ExaGRyPE.html), available as part of the [Peano repository](https://gitlab.lrz.de/hpcsoftware/Peano.git) under the stable branch `p4`. Pre-assessment was completed on 27-04-2026, with a recommendation to proceed with high-level assessment.
+A test submission for the performance assessment of [ExaGRyPE](https://hpcsoftware.pages.gitlab.lrz.de/Peano/dc/d1a/applications_exahype2_ExaGRyPE.html), available as part of the [Peano repository](https://gitlab.lrz.de/hpcsoftware/Peano.git) under the stable branch `p4`. Pre-assessment was completed on 27-04-2026, and high-level assessment on 22-05-2026.
 
 ## Disclaimers
 
@@ -21,7 +21,7 @@ A test submission for the performance assessment of [ExaGRyPE](https://hpcsoftwa
 - [x] [3: Compilation and optimisations](#3-compilation-and-optimisations)
 - [x] [4: Runtime behaviour, memory, storage and I/O](#4-runtime-behaviour-memory-storage-and-io)
 - [x] [5: Computational complexity and scaling](#5-computational-complexity-and-scaling)
-- [x] [6: Pre-assessment outcome](#6-pre-assessment-outcome)
+- [x] [6: High-level assessment](#6-high-level-assessment)
 
 ## 1: Benchmark setup
 
@@ -200,9 +200,9 @@ The `/usr/bin/time -v` command was used to measure the execution time, and the `
 
 | MPI ranks | Threads per rank | Execution time (s) | Memory usage (GB) | Memory usage (%) | Lines of output |
 | --------- | ---------------- | ------------------ | ----------------- | ---------------- | --------------- |
-| 1         | 1                | 244.62             | 7.02           | 44.25            | 193             |
-| 1         | 32               |  56.94             | 0.440            | 71.25            | 399             |
-| 2         | 16               |  46.46             | 3.00           |  3.90            | 399             |
+| 1         | 1                | 244.62             | 7.02              | 44.25            | 193             |
+| 1         | 32               |  56.94             | 0.440             | 71.25            | 399             |
+| 2         | 16               |  46.46             | 3.00              |  3.90            | 399             |
 
 The benchmark produced up to 400 lines of output, depending on the number of threads used. This included the lines reporting the value of interest i.e. number of cells [indicated by the submitter](#fetch-and-run-benchmark), along with the processor ID, MPI rank ID and time step. All three configurations produced a total of 19683 cells by the end of the run (N.B. this value is lower than the expected 23479 cells indicated by the submitter). For the `-n 2 -c 16` configuration, the trees built per rank had 19318 and 365 cells respectively at the end of the run.
 
@@ -216,14 +216,136 @@ However, the submitter has indicated that the benchmark's problem size should sc
 
 The submitter has provided [a link](https://hpcsoftware.pages.gitlab.lrz.de/Peano/d4/d35/benchmarks_exahype2_ccz4_single_black_hole_hpc_assessment.html) to detailed instructions and background information to the benchmark. This includes graphs detailing [scaling](https://hpcsoftware.pages.gitlab.lrz.de/Peano/d4/d35/benchmarks_exahype2_ccz4_single_black_hole_hpc_assessment.html#autotoc_md974) in terms of load (number of cells and number of trees per rank) and runtime for two types of methodologies (regular grid and adaptive mesh). Explanations for each setting are also provided. Apart from `--cell-size`, the [linked documentation](https://hpcsoftware.pages.gitlab.lrz.de/Peano/d4/d35/benchmarks_exahype2_ccz4_single_black_hole_hpc_assessment.html) lists other variable parameters that could impact the performance and scaling such as the type of solver used, the load balancing paradigm, task scheduling etc. The submitter has also indicated that they assume that a "one MPI rank per NUMA domain" configuration may be optimal and that there is "no restriction on GPU-MPI association".
 
-## 6: Pre-assessment outcome
+## 6: High-level assessment
 
 The assessor was successfully able to compile and run the benchmark with multiple configurations. The problem size was also easy to scale and so the benchmark can be used for both strong and weak scaling analysis during the main analysis.
 
-The assessor will now proceed with high-level assessment.  The submitter has specified that out of the three performance dimensions, the ones relevant to this assessment and benchmark are:
+The assessor then proceeded with high-level assessment. The submitter had specified that out of the three performance dimensions, the ones relevant to this assessment and benchmark are:
 
-1. Core-level assessment
-2. Intra-node assessment
-3. GPU/accelerator assessment
+- [x] [Core-level assessment](#core-level-assessment)
+- [x] [Intra-node assessment](#intra-node-assessment)
+- [ ] [GPU/accelerator assessment](#gpuaccelerator-assessment)
 
-As the submitter has asked that the initial assessment should be done without GPUs, and as the assessor was unsuccessful in compiling the version with GPU offloading enabled on Hamilton, the "GPU/accelerator assessment" will not be prioritised in this iteration of the full assessment.
+### Core-level assessment
+
+For a high-level analysis of a single core's performance, we look for the floating-point operation rate compared to the theoretical rate, $R^{core}_{theoretical}$ for a core. The hardware capabilities were determined with `likwid-bench` pinned to a single core on the first socket of a node:
+
+```bash
+likwid-bench -t peakflops -w S0:16kB:1
+```
+
+To analyse the performance of a single core, the Serial version of the scaled "finer" benchmark (`test-serial-finer`) was run with `likwid-perfctr` to get the observed floating point rate
+
+```bash
+likwid-perfctr -f -C 0 -g FLOPS_DP ./test-serial-finer
+```
+
+Despite running on a single core, the job was given access to an exclusive node with all cores and 200 GB memory available to it. The observed and theoretical floating point rates were as follows:
+
+|           Rate            | MFLOPS/s  |
+| ------------------------- | --------- |
+| $R^{core}_{theoretrical}$ | 8883.75   |
+| $R^{core}_{observed}$     | 7028.03   |
+
+Based on these results, we determined that this software has a score of $C^{core} = \frac{R_{observed}}{R_{theoretical}}\approx 0.79111...\approx0.8$.
+
+### Intra-node assessment
+
+As noted [earlier](#3-compilation-and-optimisations), Peano and ExaGRyPE can be compiled and executed on a single node with one of two configurations. Both are analysed below using a strong scaling analysis over 1 to 128 cores, with the problem size fixed to the "finer" version of the benchmark (`test-omp-only-finer`). The Serial configuration was used to obtain the runtime of the 1 core/thread run.
+
+#### OpenMP-only configuration
+
+For thread/processor count (`NUM_THREADS`), `likwid-pin` was used to pin each OpenMP thread to consecutive logical cores on the node up till the number of threads used for that run:
+
+```bash
+/usr/bin/time -v likwid-pin -c N:0-${NUM_THREADS-1} ./test-omp-only-finer
+```
+
+All runs below were executed in the same SLURM job submission script which was allocated nodes on an entire core, and 200GB of memory:
+
+```bash
+#SBATCH -c 128       # Use all cores on the node
+#SBATCH --mem=200G   # Memory allocated to the entire node
+#SBATCH -N 1         # Run on an entire node
+#SBATCH -p multi     # Use an exclusive node
+```
+
+However, for the run for 64 and 128 cores, the runs resulted in an out-of-memory error. They were run again on the `bigmem` partition, which allowed for increasing the memory size to 380 GB.
+
+The table below shows the runtime and the parallel efficiency for the run per thread count. Alongside that, the maximum resident set size (MaxRSS) value tracked using `/usr/bin/time -v` also indicates the memory needs for each job.
+
+| Threads (cores) | Time (s) | Parallel Efficiency | MaxRSS (GB) |
+| --------------- | -------- | ------------------- | ----------- |
+| 1               | 9255.00  | 1.00                | 186.54      |
+| 2               | 5372.00  | 0.86                | 170.77      |
+|  4              | 2536.52  | 0.91                | 171.60      |
+|  8              | 1303.37  | 0.89                | 175.59      |
+| 16              | 732.47   | 0.79                | 181.12      |
+| 32              | 742.67   | 0.39                | 193.69      |
+| 64              | 659.37   | 0.22                | 249.33      |
+| 128             | 800.48   | 0.09                | 217.41      |
+
+!["ExaGRyPE OpenMP-only Intra-node performance"](/assets/report-figs/exagrype/intranode-omp-only.png)
+
+The graph above shows a steep decline in parallel efficiency as the number of thread were increased. The 80% threshold for the OpenMP version was determined to be at 8 cores and the 60% threshold at 16 cores:
+$$
+C^{80\%}_{intra(OpenMP)}=\frac{p^{80\%}_{critical,intra(OpenMP)}}{p_{max,intra(OpenMP)}}=\frac{8}{128}=6.25\%
+$$
+and
+$$
+C^{60\%}_{intra(OpenMP)}=\frac{p^{60\%}_{critical,intra(OpenMP)}}{p_{max,intra(OpenMP)}}=\frac{16}{128}=12.5\%
+$$
+
+### Hybrid (OpenMP + MPI) configuration
+
+Based on the submitter's indication that 1 rank per NUMA domain is expected to yield better performance, the Hybrid configuration (`test-omp-mpi-finer`) was run for each core count as follows with `likwid-mpirun`. An MPI rank was pinned to each of the 8 NUMA domains on the node, and consecutively allocating a thread to each of the 16 cores in the domain:
+
+```bash
+/usr/bin/time -v likwid-mpirun -n $MPI_RANKS -pin M0:0-15_M1:0-15_..._M${MPI_RANKS-1}:01-15 ./test-omp-mpi-finer
+```
+
+The runtimes up to 16 cores is similar to that of the OpenMP-only version, which was expected as they are run on a single rank. However, the runtimes for 32 to 128 cores were notably longer than the OpenMP-only version. Despite that, the change in parallel efficiency as the number of cores were increased for the Hybrid configuration is similar to that of the OpenMP-only version.
+
+The memory usage of the benchmark was also tracked using `/usr/bin/time/ -v`. As observed in the table below, the memory footprint for all runs was much lower, and none of the jobs required the use of the `bigmem` partition.
+
+| Rank | Thread per rank | Processors | Time (s) | Parallel Efficiency | MaxRSS (GB) |
+| ---- | --------------- | ---------- | -------- | ------------------- | ----------- |
+| 1    | 1               | 1          | 9255.00  | 1.00                | 186.54      |
+| 1    | 2               | 2          | 5420.00  | 0.85                | 0.02        |
+| 1    | 4               | 4          | 2541.65  | 0.91                | 0.02        |
+| 1    | 8               | 8          | 1317.85  | 0.88                | 0.02        |
+| 1    | 16              | 16         | 744.52   | 0.78                | 0.02        |
+| 2    | 16              | 32         | 1021.36  | 0.28                | 0.02        |
+| 4    | 16              | 64         | 1056.50  | 0.14                | 0.02        |
+| 8    | 16              | 128        | 1196.51  | 0.05                | 0.02        |
+
+!["ExaGRyPE Hybrid (OpenMP + MPI) Intra-node performance"](/assets/report-figs/exagrype/intranode-omp-mpi.png)
+
+Like the OpenMP-only configuration, the 80% threshold for the Hybrid version is at 8 cores and the 60% threshold is at 16 cores:
+$$
+C^{80\%}_{intra(Hybrid)}=\frac{p^{80\%}_{critical,intra(Hybrid)}}{p_{max,intra(Hybrid)}}=\frac{8}{128}=6.25\%
+$$
+and
+$$
+C^{60\%}_{intra(OpenMP)}=\frac{p^{60\%}_{critical,intra(OpenMP)}}{p_{max,intra(OpenMP)}}=\frac{16}{128}=12.5\%
+$$
+
+## GPU/accelerator assessment
+
+While GPU assessment was requested, as noted [earlier](#gpu-configuration), there was not enough information on GPU compilation for a system like Hamilton, and the instructions in the documentation for Grace Hoppers did not translate trivially to the H100s on it. The submitter had also noted that they are not pursuing the GPU analysis in the first run of this assessment. The GPU analysis was therefore not undertaken at this time.
+
+## Summary
+
+The following table collates the results of all above sections. These scores are indicative only, and cannot truly be compared to one another meaningfully without taking into account domain knowledge and methodological differences between them.
+
+| Result                        | Score  | Metric result   |
+| ----------------------------- | ------ | --------------- |
+| CPU                           | 0.8    | 7028.03 MFLOPS/s|
+| Intra-node OpenMP only (80%)  | 0.0625 | 8 cores         |
+| Intra-node MPI + OpenMP (80%) | 0.0625 | 8 cores         |
+
+!["ExaGRyPE high-level assessment summary"](/assets/report-figs/exagrype/summary.png)
+
+Drawing conclusions from each metric individually, the code's core performance was determined to be good, and should not be the focus of further investigation.
+
+However, the intra-node performance in both the OpenMP-only and Hybrid configurations shows poor strong scaling performance, albeit with better memory usage for the Hybrid one. The intra-node performance should be the initial focus of further lower-level analysis.
