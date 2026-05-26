@@ -11,6 +11,7 @@ person:
   role: Professor of Theoretical Physics
   institution: King's College London
   image: /assets/profilepics/eugene-lim.jpg
+  link: https://www.kcl.ac.uk/people/eugene-lim
 
 ---
 
