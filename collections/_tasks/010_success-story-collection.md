@@ -10,7 +10,7 @@ person:
   name: Eugene Lim
   role: Professor of Theoretical Physics
   institution: King's College London
-  image: /assets/profilepics/generic.jpg
+  image: /assets/profilepics/eugene-lim.jpg
 
 ---
 
