@@ -21,7 +21,7 @@ layout: splash
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   height: 40vh;
-  background-image: url('/assets/images/sc-booth.jpg');
+  background-image: url('/assets/images/sc-booth.avif');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;

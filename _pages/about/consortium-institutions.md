@@ -21,7 +21,7 @@ layout: splash
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   height: 40vh;
-  background-image: url('/assets/images/home-assessment.png');
+  background-image: url('https://images.pexels.com/photos/4493204/pexels-photo-4493204.jpeg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -29,7 +29,7 @@ layout: splash
   display: flex;
   align-items: center;
   justify-content: center;
-    background-position: 80% 40%; 
+    background-position: 180% 40%; 
 }
 
 .parallax-overlay {
