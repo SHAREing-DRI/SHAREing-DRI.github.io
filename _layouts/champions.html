@@ -102,10 +102,15 @@ layout: default
           <div class="profile-meta">
 
             {% if page.person.name %}
-              <div class="profile-name">
+            
+                  
+             <a href="{{ page.person.link }}">
                 {{ page.person.name }}
-              </div>
+              </a>
+
             {% endif %}
+            
+
 
             {% if page.person.role %}
               <div class="profile-role">
