@@ -14,7 +14,7 @@ layout: splash
   margin-right: calc(50% - 50vw);
 
   height: 40vh;
-  background-image: url('/assets/images/home-assessment.png');
+  background-image: url('https://images.pexels.com/photos/6592358/pexels-photo-6592358.jpeg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -23,7 +23,7 @@ layout: splash
   display: flex;
   align-items: center;
   justify-content: center;
-  background-position: 60% 50%; 
+  background-position: 100% 50%; 
 }
 
 
@@ -163,7 +163,7 @@ layout: splash
 
 
     <div class="person-card">
-      <img src="/assets/profilepics/christine.jpg" alt="Profile Picture">
+      <img src="/assets/profilepics/christine.avif" alt="Profile Picture">
       <h3>Christine Kitchen</h3>
       <div class="role">Deputy Director, Computing Department</div>
        <div class="institution">European Centre for Medium-Range Weather Forecasts (ECMWF)</div>

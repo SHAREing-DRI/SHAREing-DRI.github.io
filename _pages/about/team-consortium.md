@@ -12,7 +12,7 @@ layout: splash
   margin-right: calc(50% - 50vw);
 
   height: 40vh;
-  background-image: url('/assets/images/team-sc.jpg');
+  background-image: url('/assets/images/team-sc.avif');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -189,7 +189,7 @@ layout: splash
     
     
                 <div class="person-card">
-      <img src="/assets/profilepics/EvaFernandez.jpeg" alt="Eva Fernandez Amez">
+      <img src="/assets/profilepics/EvaFernandez.avif" alt="Eva Fernandez Amez">
       <h3>Eva Fernandez Amez</h3>
       <div class="role">Community Manager for Digital Research Infrastructure · Durham University</div>
     </div>
@@ -235,7 +235,7 @@ layout: splash
     
     
 <div class="person-card">
-      <img src="/assets/profilepics/GFourtakas.jpg" alt="Georgios Fourtakas">
+      <img src="/assets/profilepics/GFourtakas.avif" alt="Georgios Fourtakas">
       <h3>Georgios Fourtakas</h3>
       <div class="role">Associate Professor, School of Engineering · The University of Manchester</div>
     </div>

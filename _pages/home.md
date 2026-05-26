@@ -240,14 +240,14 @@ Some of our team members had the opportunity to attend the DRI Retreat in Manche
     </article>
 
     <article class="offering-card">
-      <img src="/assets/images/sc-booth.jpg" alt="Resources">
+      <img src="/assets/images/sc-booth.avif" alt="Resources">
       <h3>SHAREing resources</h3>
       <p>SHAREing’s outcomes and materials are freely available to the UK research community.</p>
       <a href="/resources/" class="btn btn--primary">Access</a>
     </article>
 
     <article class="offering-card">
-      <img src="/assets/images/team.jpg" alt="Network">
+      <img src="/assets/images/team-sc.avif" alt="Network">
       <h3>Network</h3>
       <p>SHAREing is embedded in a strong network of Digital Research Infrastructure partners.</p>
       <a href="/network/" class="btn btn--primary">Find out more</a>
@@ -263,18 +263,6 @@ Some of our team members had the opportunity to attend the DRI Retreat in Manche
   <a href="https://bsky.app/profile/shareing.bsky.social" class="btn btn--primary">Bluesky</a>
 </div>
 
-
-
-<section class="section-wide">
-  <h4>Project Overview</h4>
-  <p> At the HPC–AI Conference, Tobias Weinzierl introduced SHAREing in a dedicated talk highlighting its mission to strengthen the UK’s Digital Research Infrastructure (DRI) landscape. The presentation covered SHAREing’s goals, structure, and upcoming activities, emphasising its role in connecting the UK’s DRI community and advancing performance assessment and training initiatives. </p>
-  <div class="video-card">
-    <iframe
-      src="https://durham.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5a91c0b6-acc9-4a3c-9c00-b39200b39edd&autoplay=false&offerviewer=false&showtitle=false&showbrand=false"
-      allowfullscreen>
-    </iframe>
-  </div>
-</section>
 
 
 
