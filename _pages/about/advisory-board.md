@@ -142,7 +142,7 @@ layout: splash
   <div class="people-grid">
 
     <div class="person-card">
-      <img src="https://hpc.fau.de/files/2021/03/thomas-gruber_2020.jpg" alt="Profile Picture">
+      <img src="/assets/profilepics/thomas-gruber.jpg" alt="Profile Picture">
       <h3>Thomas Gruber</h3>
       <div class="role">Erlangen National High Performance Computing Center<br><br></div>
         <a href="https://hpc.fau.de/person/thomas-gruber/">Read more</a>
