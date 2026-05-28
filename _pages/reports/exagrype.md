@@ -90,7 +90,7 @@ The hardware details for Hamilton are [available online](https://www.durham.ac.u
 | Specification               | Details                                                                                                                                                           |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Number of compute nodes     | Standard: 120; High-memory: 2                                                                                                                                     |
-| Processors                  | 2 $\times$ [AMD EPYC 7702 64-Core Processors](https://www.amd.com/en/support/downloads/drivers.html/processors/epyc/epyc-7002-series/amd-epyc-7702.html) per node |
+| Processors                  | 2 $$\times$$ [AMD EPYC 7702 64-Core Processors](https://www.amd.com/en/support/downloads/drivers.html/processors/epyc/epyc-7002-series/amd-epyc-7702.html) per node |
 | Clock speed                 | 3.30 MHz per CPU                                                                                                                                                  |
 | Sockets                     | 2 per node                                                                                                                                                        |
 | Cores                       | 128 per node                                                                                                                                                      |
@@ -103,8 +103,8 @@ Hamilton also has one GPU node with the following configuration (N.B. the assess
 
 | Specification               | Details                                                                                                                                                           |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Processors                  | 2 $\times$ [AMD EPYC 9555 64-Core Processors](https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9555.html)                              |
-| GPUs                        | 8 $\times$ [NVIDIA H200 NVL](https://www.nvidia.com/en-gb/data-center/h200/)                                                                                      |
+| Processors                  | 2 $$\times$$ [AMD EPYC 9555 64-Core Processors](https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9555.html)                              |
+| GPUs                        | 8 $$\times$$ [NVIDIA H200 NVL](https://www.nvidia.com/en-gb/data-center/h200/)                                                                                      |
 | RAM                         | 2.2 TB                                                                                                                                                            |
 | Local storage               | 3 TB NVMe                                                                                                                                                         |
 
@@ -184,7 +184,7 @@ The submitter indicated that MPI usage could be turned off by removing the `--wi
 
 ### Serial configuration
 
-The serial configuration of the code is required for accurate speed-up analysis as $t_{serial} \neq t_{p=1}$, where the latter is for a binary compiled for parallel runs. The serial version was compiled by removing both the `--with-mpi` and the `--with-multithreading` flags. The benchmark was also re-compiled using the `performance-studies.py` script for this configuration: `test-base-serial`.
+The serial configuration of the code is required for accurate speed-up analysis as $$t_{serial} \neq t_{p=1}$$, where the latter is for a binary compiled for parallel runs. The serial version was compiled by removing both the `--with-mpi` and the `--with-multithreading` flags. The benchmark was also re-compiled using the `performance-studies.py` script for this configuration: `test-base-serial`.
 
 ### GPU configuration
 
@@ -230,7 +230,7 @@ The assessor then proceeded with high-level assessment. The submitter had specif
 
 ### Core-level assessment
 
-For a high-level analysis of a single core's performance, we look for the floating-point operation rate compared to the theoretical rate, $R^{core}_{theoretical}$ for a core. The hardware capabilities were determined with `likwid-bench` pinned to a single core on the first socket of a node:
+For a high-level analysis of a single core's performance, we look for the floating-point operation rate compared to the theoretical rate, $$R^{core}_{theoretical}$$ for a core. The hardware capabilities were determined with `likwid-bench` pinned to a single core on the first socket of a node:
 
 ```bash
 likwid-bench -t peakflops -w S0:16kB:1
@@ -246,10 +246,10 @@ Despite running on a single core, the job was given access to an exclusive node 
 
 |           Rate            | MFLOPS/s  |
 | ------------------------- | --------- |
-| $R^{core}_{theoretrical}$ | 8883.75   |
-| $R^{core}_{observed}$     | 7028.03   |
+| $$R^{core}_{theoretrical}$$ | 8883.75   |
+| $$R^{core}_{observed}$$     | 7028.03   |
 
-Based on these results, we determined that this software has a score of $C^{core} = \frac{R_{observed}}{R_{theoretical}}\approx 0.79111...\approx0.8$.
+Based on these results, we determined that this software has a score of $$C^{core} = \frac{R_{observed}}{R_{theoretical}}\approx 0.79111...\approx0.8$$.
 
 ### Intra-node assessment
 
