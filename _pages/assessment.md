@@ -63,9 +63,8 @@ classes: wide
   display: flex;
   align-items: center;
   justify-content: center;
-  background-position: 50% 180%; 
+  background-position: 50% 180%;
 }
-
 
 .parallax-overlay {
   background: rgba(104, 36, 109, 0.75);
@@ -103,10 +102,10 @@ classes: wide
 }
 
 .about-card img {
-  height: 140px;        
-  width: auto;          
+  height: 140px;
+  width: auto;
   object-fit: contain;  
-  flex-shrink: 0;       
+  flex-shrink: 0;
   margin-bottom: 1rem;
 }
 .about-grid {
@@ -153,7 +152,6 @@ classes: wide
   background: #4e1a53;
   transform: scale(1.05);
 }
-
 
 </style>
 
@@ -229,7 +227,7 @@ Feedback for the notebook is welcomed via GitHub issues, or via merge requests w
   </div>
 
 </section>
-    
+
 <h2>Example Performance Assessments</h2>
 <p>Below are links to reports of completed performance assessments. These reports are using SHAREing's performance methodology which is in a very early stage of development.</p>
 
@@ -256,9 +254,9 @@ Feedback for the notebook is welcomed via GitHub issues, or via merge requests w
   </div>
 
   <div class="about-card">
-    <img src="/assets/images/logo.png" alt="ExaGRyPE Report"> 
+    <img src="/assets/images/logo.png" alt="ExaGRyPE Report">
     <h3>ExaGRyPE Report</h3>
-    <p>A pre-assessment report of ExaGRyPE</p>
+    <p>A high-level performance report of ExaGRyPE</p>
     <a href="/reports/exagrype" class="about-button">View</a>
   </div>
   
@@ -270,7 +268,7 @@ Feedback for the notebook is welcomed via GitHub issues, or via merge requests w
   </div>
 
   <div class="about-card">
-    <img src="/assets/images/logo.png" alt="HemeLB Report"> 
+    <img src="/assets/images/logo.png" alt="HemeLB Report">
     <h3>HemeLB Report</h3>
     <p>A high-level performance report of HemeLB</p>
     <a href="/reports/hemelb" class="about-button">View</a>
