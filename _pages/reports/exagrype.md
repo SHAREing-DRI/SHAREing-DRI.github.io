@@ -178,7 +178,7 @@ The compiled benchmark executable was re-named to `test-base-omp-mpi` to indicat
 
 ### OpenMP-only configuration
 
-The submitter indicated that MPI usage could be turned off by removing the `--with-mpi` flag for `./configure`. As an alternative option for the Intra-node assessment requested by the submitter, another version of the Peano codebase and ExaGRyPE was compiled for an "OpenMP-only" configuration by removing the `--with-mpi` flag. The benchmark was also re-compiled using the `performance-studies.py` script for this configuration: `test-base-omp-only`.
+The submitter indicated that MPI usage could be turned off by removing the `--with-mpi` flag for `./configure`. As an alternative option for the intra-node assessment requested by the submitter, another version of the Peano codebase and ExaGRyPE was compiled for an "OpenMP-only" configuration by removing the `--with-mpi` flag. The benchmark was also re-compiled using the `performance-studies.py` script for this configuration: `test-base-omp-only`.
 
 ### Serial configuration
 
@@ -341,7 +341,7 @@ The following table collates the results of all above sections. These scores are
 | Result                        | Score  | Metric result   |
 | ----------------------------- | ------ | --------------- |
 | CPU                           | 0.8    | 7028.03 MFLOPS/s|
-| Intra-node OpenMP only (80%)  | 0.0625 | 8 cores         |
+| Intra-node OpenMP-only (80%)  | 0.0625 | 8 cores         |
 | Intra-node MPI + OpenMP (80%) | 0.0625 | 8 cores         |
 
 !["ExaGRyPE high-level assessment summary"](/assets/report-figs/exagrype/summary.png)
