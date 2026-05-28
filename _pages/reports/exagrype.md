@@ -4,7 +4,9 @@ title: "ExaGRyPE Performance Report"
 permalink: /reports/exagrype
 classes: wide  
 ---
-
+<script type="text/javascript" async
+     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+   </script>
 # ExaGRyPE Performance Report
 
 A test submission for the performance assessment of [ExaGRyPE](https://hpcsoftware.pages.gitlab.lrz.de/Peano/dc/d1a/applications_exahype2_ExaGRyPE.html), available as part of the [Peano repository](https://gitlab.lrz.de/hpcsoftware/Peano.git) under the stable branch `p4`. Pre-assessment was completed on 27-04-2026, and high-level assessment on 22-05-2026.
