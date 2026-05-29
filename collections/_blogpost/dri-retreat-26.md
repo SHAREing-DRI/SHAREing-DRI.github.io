@@ -5,7 +5,7 @@ title: "DRI Retreat 2026: Reflections and Takeaways"
 category: Retreat
 subtitle: "Reflections on community, communication, and collaboration across DRI"
 author: Eva Fernandez Amez
-author_image: /assets/profilepics/EvaFernandez.jpeg
+author_image: /assets/profilepics/EvaFernandez.avif
 hero_image: /assets/images/dri-retreat-26.jpeg
 date: 2026-04-09
 social_links:
