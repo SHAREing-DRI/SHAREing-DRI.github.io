@@ -5,7 +5,7 @@ title: "SHAREing Retreat, January 2026"
 category: Retreat
 subtitle: "A moment to reflect, realign, and shape the next phase of our journey."
 author: Eva Fernandez Amez
-author_image: /assets/profilepics/EvaFernandez.jpeg
+author_image: /assets/profilepics/EvaFernandez.avif
 hero_image: /assets/eventphotos/jan-retreat-group.JPEG
 date: 2026-02-01
 social_links:
