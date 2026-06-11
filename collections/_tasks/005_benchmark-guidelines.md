@@ -7,7 +7,7 @@ workpackage: "wp1.2"
 date: "05-12-2025"
 status: completed
 outputs_label: Explore SHAREing's benchmark guidelines
-outputs_url: http://127.0.0.1:4000/assets/pdfs/shareing-benchmark-guide.pdf
+outputs_url: /assets/pdfs/shareing-benchmark-guide.pdf
 person:
   name: Thomas Flynn
   role: 
