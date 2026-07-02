@@ -5,7 +5,7 @@ layout: champions
 image: https://images.pexels.com/photos/35967917/pexels-photo-35967917.png?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: Study behaviour and efficiency of community code's GPU port 
 workpackage: "wp1.1"
-status: progress
+status: complete
 person:
   name: Martyn F Guest
   role: 
