@@ -6,6 +6,8 @@ image: https://images.pexels.com/photos/35967917/pexels-photo-35967917.png?auto=
 summary: Study behaviour and efficiency of community code's GPU port 
 workpackage: "wp1.1"
 status: completed
+outputs_label: View slides from CIUK 2025
+outputs_url: https://github.com/SHAREing-DRI/SHAREing-DRI.github.io/blob/main/assets/pdfs/GPU-enabled-MD-Codes.CIUK25.MFG.pdf
 person:
   name: Martyn F Guest
   role: 
