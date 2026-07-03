@@ -5,7 +5,8 @@ group: events
 start_date: 2026-03-23
 date: 2026-03-27
 layout: event
-image: "https://n8cir.org.uk/media/images/DRI_UKRI-43.2e16d0ba.fill-1200x300.png"
+location: Manchester, UK
+image: "https://images.pexels.com/photos/10391463/pexels-photo-10391463.jpeg"
 web-page: "https://n8cir.org.uk/training-and-events/dri-retreat-2026/"
 summary: Members of SHAREing will be attending the DRI Retreat 2026
 ---
