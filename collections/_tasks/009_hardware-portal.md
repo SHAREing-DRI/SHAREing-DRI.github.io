@@ -5,7 +5,9 @@ layout: champions
 image: https://images.pexels.com/photos/1375261/pexels-photo-1375261.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: Design and delivery of a portal where HPC testbeds can be catalogued.
 workpackage: "wp1.3"
-status: progress
+status: completed
+outputs_label: Access the testbeds portal
+outputs_url: https://shareing-dri.github.io/hpc-testbeds/
 person:
   name: Ed Bennett
   institution: Swansea University
