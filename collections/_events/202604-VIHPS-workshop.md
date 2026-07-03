@@ -7,7 +7,7 @@ group: events
 start_date: 2026-04-27
 date: 2026-04-29
 layout: event
-image: assets/images/home-assessment.png
+image: https://images.pexels.com/photos/23884118/pexels-photo-23884118.jpeg
 project-type: Webinar
 web-page: https://www.vi-hps.org/training/tws/tw49.html
 location: Durham (on-site)
