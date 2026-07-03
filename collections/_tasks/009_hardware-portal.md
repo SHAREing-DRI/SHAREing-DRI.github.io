@@ -32,5 +32,5 @@ Individual systems (or partitions of systems) will be submitted as single Markdo
 
 For an initial minimal viable product, the small set of variables discussed in the call will be collected and tabulated; this will be expanded based on the output of mini-project 001 as the latter progresses. 
 
-The use of Markdown will allow system managers to provide more free-form information on their systems, accessible on the detailed information page. 
+The use of Markdown will allow system managers to provide more free-form information on their systems, accessible on the detailed information page.
 
