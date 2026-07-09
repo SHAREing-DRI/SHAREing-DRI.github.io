@@ -12,22 +12,32 @@ search: false
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-
   height: 50vh;
+  background-image: url('/assets/images/isc26/pic1.jpeg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
-.image-1 {
-  background-image: url('/assets/images/group.jpg');
-    background-position: 150% 20%; 
+.parallax-overlay {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,42,65,0.9), rgba(0,42,65,0.45));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.parallax-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
 }
 
 
@@ -261,15 +271,16 @@ padding: 1.5rem 0.5rem;
 </style>
 
 
-<section class="parallax-hero image-1">
+<section class="parallax-hero">
+  <div class="parallax-overlay">
+    <h1>Get in touch</h1>
+  </div>
 </section>
 
 <br>
 
 <section class="contact-hero">
-  <span class="contact-badge">Get in touch</span>
 
-  <h1>Contact SHAREing</h1>
   <p>
     Whether you are exploring a performance assessment, have a specific question,
     or are interested in collaboration, we would be pleased to hear from you.

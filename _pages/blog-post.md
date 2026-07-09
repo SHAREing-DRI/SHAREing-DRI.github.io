@@ -12,7 +12,7 @@ classes: wide
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   height: 50vh;
-  background-image: url('/assets/images/sc-booth.jpg');
+  background-image: url('/assets/images/isc26/pic1.jpeg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;

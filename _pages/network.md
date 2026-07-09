@@ -14,7 +14,7 @@ layout: splash
   margin-right: calc(50% - 50vw);
 
   height: 40vh;
-  background-image: url('/assets/images/team-sc.jpg');
+  background-image: url('');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -23,7 +23,7 @@ layout: splash
   display: flex;
   align-items: center;
   justify-content: center;
-  background-position: 60% 50%; 
+  background-position: 10% 180%; 
 }
 
 
