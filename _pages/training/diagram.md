@@ -1,5 +1,5 @@
 ---
-permalink: /training/diagram2
+permalink: /training/diagram
 ---
 
 
