@@ -7,6 +7,7 @@ subtitle: "The Things I Never Noticed Before"
 author: Eva Fernandez Amez
 author_image: /assets/profilepics/EvaFernandez.avif
 hero_image: /assets/images/hpc-days-26/banner-hpc-days.png
+date: 2026-07-09
 social_links:
   - title: LinkedIn
     url: "https://www.linkedin.com/company/shareing/"
@@ -60,11 +61,11 @@ There are many aspects of the conference we could talk about, but today I would 
 
 
   <div class="blog-highlight">
-   <strong> Hybrid conferences require a bit more planning than just adding a video call  </strong>. Microsoft Teams Webinars work surprisingly well for hybrid sessions. While other platforms allow you to set up registration-based events, not all institutions have access to them. If your institution uses Microsoft tools, Teams Webinars are a solid option. They allow you to run in-person sessions while speakers join online and present directly from their own devices, avoiding the need to send slides in advance. Fun fact: this year alone, we ran more than 30 sessions, with over 90 speakers and more than 200 attendees on some days.
+   <strong> Hybrid conferences require a bit more planning than just adding a video call</strong>. Microsoft Teams Webinars work surprisingly well for hybrid sessions. While other platforms allow you to set up registration-based events, not all institutions have access to them. If your institution uses Microsoft tools, Teams Webinars are a solid option. They allow you to run in-person sessions while speakers join online and present directly from their own devices, avoiding the need to send slides in advance. Fun fact: this year alone, we ran more than 30 sessions, with over 90 speakers and more than 200 attendees on some days.
   </div>
 
    <div class="blog-highlight">
-   <strong> Mobile-friendly design for your website really matters. </strong>  No matter how polished your conference website looks on a laptop, it is essential to ensure it works properly on mobile devices. Most attendees will check the programme on their phones, so investing time in accessibility and responsive design makes a real difference to the user experience.
+   <strong> Mobile-friendly design for your website really matters. </strong> No matter how polished your conference website looks on a laptop, it is essential to ensure it works properly on mobile devices. Most attendees will check the programme on their phones, so investing time in accessibility and responsive design makes a real difference to the user experience.
   </div>
 
   <div class="blog-highlight">
@@ -99,11 +100,11 @@ There are many aspects of the conference we could talk about, but today I would 
 </div>
 
   <div class="blog-highlight">
-  <strong> The programme extends well beyond the lecture theatres </strong>. This year, we complemented the technical sessions with a combination of morning walks, early morning runs, poster sessions and evening dinners in the green areas around the venue. All of these activities need to be factored into the conference logistics as much as the official programme. After all, if you’re inviting people to a 6:30 am run, you definitely need to make sure at least one volunteer is awake and ready to get going!
+  <strong> The <a href="https://hpc-days.github.io/Durham-HPC-Days-2026/programme-week-2026/" target="_blank" rel="noopener"> programme</a> extends well beyond the lecture theatres</strong>. This year, we complemented the technical sessions with a combination of morning walks, early morning runs, poster sessions and evening dinners in the green areas around the venue. All of these activities need to be factored into the conference logistics as much as the official programme. After all, if you’re inviting people to a 6:30 am run, you definitely need to make sure at least one volunteer is awake and ready to get going!
   </div>
 
    <div class="blog-highlight">
-The <strong> music at the conference social </strong> on the Tuesday had a local connection too. The musicians who led the ceilidh evening are part of a <strong> local band from the North East </strong>. When they are not bringing HPC Days attendees onto the dance floor, some of them can often be found performing traditional carols during the Christmas events at Beamish, The Living Museum of the North.
+The <strong> music at the conference social </strong> on the Tuesday had a local connection too. The musicians who led the ceilidh evening are part of a <strong> local band from the North East</strong>. When they are not bringing HPC Days attendees onto the dance floor, some of them can often be found performing traditional carols during the Christmas events at Beamish, The Living Museum of the North.
   </div>
 
 
@@ -142,7 +143,7 @@ The <strong> music at the conference social </strong> on the Tuesday had a local
 
 
   <div class="blog-highlight">
-  The <strong> NetDRIVE 2026 Summer School </strong> was held alongside HPC Days, giving the PhD students attending the opportunity to participate in some of the conference sessions and tutorials. During the event, the summer school participants created posters, which were then showcased as part of the HPC Days programme on the Friday. Running the two events concurrently created a more welcoming and friendly atmosphere while providing excellent networking opportunities for early-career researchers.
+  The <strong> <a href="https://durham.readthedocs.io/en/latest/netdrive/ss2026.html" target="_blank" rel="noopener"> NetDRIVE 2026 Summer School</a></strong> was held alongside HPC Days, giving the PhD students attending the opportunity to participate in some of the conference sessions and tutorials. During the event, the summer school participants created posters, which were then showcased as part of the HPC Days programme on the Friday. Running the two events concurrently created a more welcoming and friendly atmosphere while providing excellent networking opportunities for early-career researchers.
   </div>
 
   <div class="blog-highlight">
@@ -150,7 +151,7 @@ This year, we received outstanding support from the <strong> <a href="https://ww
   </div>
 
   <div class="blog-highlight">
-  <strong> Food trucks, beer and good company: sometimes that’s all you need </strong>. While most conferences tend to include at least one formal conference dinner, that was (deliberately) not the case for HPC Days. We wanted to preserve the “homemade” feel of the first editions: this is almost a week-long gathering of friends and colleagues that share the same passion. And, as with most things in life, sometimes simpler is better. Instead, dinner was provided by <a href="https://www.ddceventcatering.com/" target="_blank" rel="noopener"> DDC Event Catering </a>(our local North East food truck company), while traditional seating arrangements were replaced with picnic benches in the gardens surrounding a small lake near the conference venue. June evenings in Durham are among the best times of the year to enjoy the outdoors, and this was something we wanted to make the most of.
+  <strong> Food trucks, beer and good company: sometimes that’s all you need</strong>. While most conferences tend to include at least one formal conference dinner, that was (deliberately) not the case for HPC Days. We wanted to preserve the “homemade” feel of the first editions: this is almost a week-long gathering of friends and colleagues that share the same passion. And, as with most things in life, sometimes simpler is better. Instead, dinner was provided by <a href="https://www.ddceventcatering.com/" target="_blank" rel="noopener"><strong> DDC Event Catering</strong></a> (our local North East food truck company), while traditional seating arrangements were replaced with picnic benches in the gardens surrounding a small lake near the conference venue. June evenings in Durham are among the best times of the year to enjoy the outdoors, and this was something we wanted to make the most of.
   </div>
 
 
@@ -162,7 +163,7 @@ This year, we received outstanding support from the <strong> <a href="https://ww
   <div class="swiper-wrapper">
 
     <div class="swiper-slide">
-      <img src= "/assets/images/hpc-days-26/lake.jpeg">
+      <img src= "/assets/images/hpc-days-26/poster.jpeg">
     </div>
 
     <div class="swiper-slide">
