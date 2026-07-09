@@ -2,6 +2,7 @@
 permalink: /training/diagram2
 ---
 
+
 <div class="roadmap">
 
   <!-- STEP 1 -->
