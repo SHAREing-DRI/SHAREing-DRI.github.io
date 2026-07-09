@@ -264,6 +264,21 @@ layout: splash
 
 <br>
 
+<section class="notice-box">
+
+
+    
+  
+   <strong>📅 Application deadline</strong><br>
+
+Calls to propose solutions for open tasks are launched quarterly. <strong>The current call closed on 8 July 2026. A new call will open later this year.</strong>
+  
+    
+</section>
+
+
+
+
 <section class="section">
   <p class="section-lead">
     SHAREing invites eligible contributors to apply for Flexible Fund support to deliver solutions to approved open Tasks.
@@ -292,7 +307,7 @@ layout: splash
     
      <div class="notice-box">
     <strong>📅 Application Deadlines</strong><br>
-    Proposals to deliver open tasks are reviewed quarterly.<strong>Current deadline: 8 July</strong>
+    Proposals to deliver open tasks are reviewed quarterly.<strong> The current call closed on 8 July 2026. A new call will open later this year.</strong>
      </div>
 
     <div class="notice-box">

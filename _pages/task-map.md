@@ -901,7 +901,9 @@ body.filter-completed .progress-col {
 
 </style>
 
-
+<div class="funding-banner">
+  📢 The current Flexible Fund call to propose solutions to open tasks has now <strong>closed</strong>. A new call will open later this year. Until then, you can browse existing tasks and continue to<a href="/about/suggest-a-task/">Suggest New Tasks</a> on a rolling basis.
+</div>
 
 <details class="collapsible-diagram">
 
@@ -924,7 +926,7 @@ body.filter-completed .progress-col {
 
       <div class="column-title blue">
         <div class="icon-circle">📋</div>
-        PROPOSE A SOLUTION TO AN EXISTING OPEN TASK
+      PROPOSE A SOLUTION TO AN EXISTING OPEN TASK – Call currently closed
       </div>
 
       <div class="flow-card blue-card">
@@ -952,7 +954,7 @@ body.filter-completed .progress-col {
 
       <div class="deadline-card">
         <h3>Proposal deadline</h3>
-        <p>8 July 2026</p>
+          <p>Closed on 8 July. A new call will open later this year.</p>
       </div>
 
     </div>
@@ -962,7 +964,7 @@ body.filter-completed .progress-col {
 
       <div class="column-title green">
         <div class="icon-circle">💡</div>
-        SUGGEST A NEW TASK
+          SUGGEST A NEW TASK – Call currently open
       </div>
 
       <div class="flow-card green-card">
@@ -975,9 +977,11 @@ body.filter-completed .progress-col {
       <div class="flow-card green-card">
         <h4>Discussed at open Working Package meetings</h4>
         <p>
-          Your suggestion will be discussed at the next open meeting for the relevant Working Package:
+          Your suggestion will be discussed at the next open meeting for the relevant Working Package.
         </p>
 
+
+<!--
         <div class="meeting-boxes">
         
 
@@ -989,15 +993,12 @@ body.filter-completed .progress-col {
             
             
      <a class="wp-btn" href=" https://events.teams.microsoft.com/event/7268ce97-0bdb-4f89-b5c4-cedcc8ef04ec@7250d88b-4b68-4529-be44-d59a2d8a6f94"> <strong> WP3 </strong>  <br> 22 May 2026</a>
-         
-
-
-          
-          
-  
-
-      
         </div>
+
+
+          -->
+
+
       </div>
       
       
@@ -1007,15 +1008,18 @@ body.filter-completed .progress-col {
       <div class="flow-card green-card">
         <h4>Approved?</h4>
         <p>
-          If approved, the new task will be added to the map of open tasks on this website. You are welcome to propose a solution to the task by July 8 2026
+          If approved, the new task will be added to the map of open tasks on this website. You are then welcome to propose a solution to the task.
         </p>
       </div>
+
+    
 
     </div>
 
 
 
   </div>
+
 
   <!-- REVIEW SECTION -->
   <div class="review-section">
