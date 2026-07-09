@@ -453,7 +453,7 @@ SHAREing’s performance assessment gives you a clear, independent view of how y
 
     <a href="/contact/" class="visual-card-link">
       <div class="visual-card">
-        <img src="/assets/images/team.jpg" alt="Contact SHAREing">
+        <img src="/assets/images/isc26/pic2.jpeg" alt="Contact SHAREing">
         <div class="visual-overlay">Talk to us</div>
       </div>
     </a>
