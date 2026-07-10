@@ -15,7 +15,23 @@ header:
   <div class="news-grid">
   
   
+  <div class="news-card">
+  <div class="news-content">
   
+    <span class="news-date">June 2026</span>
+    <h3>Durham HPC Days 2026</h3>
+    
+    <p>
+   This year's Durham HPC Days received great support from SHAREing. Eva Fernandez Amez takes us behind the scenes <a href="/blogpost/hpcdays-2026/">in this blog post</a>, offering a sneak peek into what goes into organising a conference, how it can best serve the community, and how it helps strengthen the projects that bring us together.
+</p>
+  </div>
+</div>  
+
+
+
+
+
+
        <div class="news-card">
   <div class="news-content">
   
@@ -49,7 +65,21 @@ header:
 
   
   
-  
+
+
+   
+     
+
+     
+
+      
+    
+   <details class="past-news">
+    <summary>Past news</summary>
+
+
+
+      
    <div class="news-card">
   <div class="news-content">
     <span class="news-date">April 2026</span>
@@ -67,7 +97,7 @@ Some of our team members had the opportunity to attend the DRI Retreat in Manche
   
   
   
-   <!-- ADD NEWS HERE -->
+
 <div class="news-card">
   <div class="news-content">
     <span class="news-date">March 2026</span>
@@ -80,15 +110,6 @@ Some of our team members had the opportunity to attend the DRI Retreat in Manche
 </div>
    
 
-   
-     
-
-     
-
-      
-    
-   <details class="past-news">
-    <summary>Past news</summary>
     
     
      <div class="news-card">
@@ -129,80 +150,86 @@ Some of our team members had the opportunity to attend the DRI Retreat in Manche
 
 
 
-
-       <div class="news-card">
-  <div class="news-content">
-    <span class="news-date">December 2025</span>
-    <h3>CIUK 2025</h3>
-    <p>
-      Muitple members of SHAREing attended CIUK 2025 in December, including talks from SHAREing's Martyn Guest and Eva Fernandez Amez. An overview of these talks can be found
-      <a href="/events/202512-CIUK25/">here</a>.
-    </p>
-  </div>
-</div>
-
-    
-       <!-- COPY AND PASTE THIS TEMPLATE -->
-    
-       <div class="news-card">
-  <div class="news-content">
-    <span class="news-date">December 2025</span>
-    <h3>Correctness and Debugging Workshop</h3>
-    <p>
-      A report on our recent Correctness and Debugging workshop series is now available on the
-      <a href="/events/202511-correctness-workshop/">event's site</a>.
-    </p>
-  </div>
-</div>
-     <!-- COPY AND PASTE THIS TEMPLATE -->
-    
-         
-       <div class="news-card">
-  <div class="news-content">
-    <span class="news-date">November 2025</span>
-        <h3>Performance Assessment Webinar</h3>
-        <p>In early November SHAREing organised an online seminar dedicated to performance assessments with talks given by representatives from Durham University, Barcelona Supercomputing Centre, Cardiff University and DiRAC. Please see  <a href="/events/202511-performance-webinar/">here</a></p>
-      </div>
-    </div>
-    
-       <div class="news-card">
-  <div class="news-content">
-    <span class="news-date">October 2025</span>
-        <h3>HPC–AI Conference Presentation</h3>
-        <p>At the HPC–AI Conference, Tobias Weinzierl introduced SHAREing in a dedicated talk highlighting its mission to strengthen the UK’s Digital Research Infrastructure (DRI) landscape. The presentation covered SHAREing’s goals, structure, and upcoming activities, emphasising its role in connecting the UK’s DRI community and advancing performance assessment and training initiatives. Please watch the recording <a href="https://durham.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5a91c0b6-acc9-4a3c-9c00-b39200b39edd">here</a></p>
-      </div>
-    </div>
-    
-       <div class="news-card">
-  <div class="news-content">
-    <span class="news-date">October 2025</span>
-        <h3>Second round of call for projects</h3>
-        <p>SHAREing’s second round of call for projects has been launched. This is a consortium-internal call only. For details on SHAREing’s internal organisation, please consult the  <a href="https://shareing-dri.github.io/about/organisation">description of SHAREing’s internal organisation.</a></p>
-      </div>
-    </div>
-    
-    <div class="news-grid past-news-grid">
+  <details class="past-news">
+<summary>2025 news</summary>
 
 
       <div class="news-card">
-        <span class="news-date">August 2025</span>
-        <h3>First round of call for projects</h3>
-        <p>
-          SHAREing’s first round of call for projects has been launched. For details on SHAREing’s internal organisation, please consult the  <a href="https://shareing-dri.github.io/about/organisation">description of SHAREing’s internal organisation.</a>
-        </p>
-      </div>
+<div class="news-content">
+  <span class="news-date">December 2025</span>
+  <h3>CIUK 2025</h3>
+  <p>
+    Muitple members of SHAREing attended CIUK 2025 in December, including talks from SHAREing's Martyn Guest and Eva Fernandez Amez. An overview of these talks can be found
+    <a href="/events/202512-CIUK25/">here</a>.
+  </p>
+</div>
+</div>
 
+  
+      <!-- COPY AND PASTE THIS TEMPLATE -->
+  
       <div class="news-card">
-        <span class="news-date">July 2025</span>
-        <h3>Workpackage scoping meetings</h3>
-        <p>
-          The first workpackage scoping meetings have kicked off. Details can be found in the sections on
-          <a href="/assessment/">performance assessment</a>.
-        </p>
-      </div>
-
+<div class="news-content">
+  <span class="news-date">December 2025</span>
+  <h3>Correctness and Debugging Workshop</h3>
+  <p>
+    A report on our recent Correctness and Debugging workshop series is now available on the
+    <a href="/events/202511-correctness-workshop/">event's site</a>.
+  </p>
+</div>
+</div>
+    <!-- COPY AND PASTE THIS TEMPLATE -->
+  
+        
+      <div class="news-card">
+<div class="news-content">
+  <span class="news-date">November 2025</span>
+      <h3>Performance Assessment Webinar</h3>
+      <p>In early November SHAREing organised an online seminar dedicated to performance assessments with talks given by representatives from Durham University, Barcelona Supercomputing Centre, Cardiff University and DiRAC. Please see  <a href="/events/202511-performance-webinar/">here</a></p>
     </div>
+  </div>
+  
+      <div class="news-card">
+<div class="news-content">
+  <span class="news-date">October 2025</span>
+      <h3>HPC–AI Conference Presentation</h3>
+      <p>At the HPC–AI Conference, Tobias Weinzierl introduced SHAREing in a dedicated talk highlighting its mission to strengthen the UK’s Digital Research Infrastructure (DRI) landscape. The presentation covered SHAREing’s goals, structure, and upcoming activities, emphasising its role in connecting the UK’s DRI community and advancing performance assessment and training initiatives. Please watch the recording <a href="https://durham.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5a91c0b6-acc9-4a3c-9c00-b39200b39edd">here</a></p>
+    </div>
+  </div>
+  
+      <div class="news-card">
+<div class="news-content">
+  <span class="news-date">October 2025</span>
+      <h3>Second round of call for projects</h3>
+      <p>SHAREing’s second round of call for projects has been launched. This is a consortium-internal call only. For details on SHAREing’s internal organisation, please consult the  <a href="https://shareing-dri.github.io/about/organisation">description of SHAREing’s internal organisation.</a></p>
+    </div>
+  </div>
+  
+  <div class="news-grid past-news-grid">
+
+
+  <div class="news-card">
+    <span class="news-date">August 2025</span>
+    <h3>First round of call for projects</h3>
+    <p>
+      SHAREing’s first round of call for projects has been launched. For details on SHAREing’s internal organisation, please consult the  <a href="https://shareing-dri.github.io/about/organisation">description of SHAREing’s internal organisation.</a>
+    </p>
+  </div>
+
+  <div class="news-card">
+    <span class="news-date">July 2025</span>
+    <h3>Workpackage scoping meetings</h3>
+    <p>
+      The first workpackage scoping meetings have kicked off. Details can be found in the sections on
+      <a href="/assessment/">performance assessment</a>.
+    </p>
+  </div>
+
+  </div>
+
+
   </details>
+</details>
 
 
 
