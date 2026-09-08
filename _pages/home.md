@@ -40,7 +40,7 @@ header:
       <strong>Submit your suggestion by 22 September 2026</strong> to have it considered
       for the next funding call, which will open on <strong>2 October</strong> and close on
       <strong>20 November 2026</strong>. Find out more and
-      <a href="/about/suggest-a-task">suggest a new task here</a>.
+      <a href="/about/suggest-a-task/">suggest a new task here</a>.
     </p>
 
   </div>
