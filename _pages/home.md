@@ -13,7 +13,20 @@ header:
   <h4>Latest News</h4>
   
   <div class="news-grid">
+
+<div class="news-card">
+  <div class="news-content">
   
+    <span class="news-date">September 2026</span>
+    <h3>Our latest technical blog: getting started with benchmarking</h3>
+    
+    <p>
+      Following from his experiences as one of the RSEs setting up SHAREing's performance assessment service, Thomas Flynn has written a blog to help developers get started with effective code benchmarking. See Thomas' blog in full 
+      <a href="/blogpost/benchmarking-practice/">here</a>.
+    </p>
+
+  </div>
+</div> 
 
 <div class="news-card">
   <div class="news-content">
@@ -27,7 +40,7 @@ header:
       <strong>Submit your suggestion by 22 September 2026</strong> to have it considered
       for the next funding call, which will open on <strong>2 October</strong> and close on
       <strong>20 November 2026</strong>. Find out more and
-      <a href="/about/suggest-a-task/">suggest a new task here</a>.
+      <a href="/about/suggest-a-task">suggest a new task here</a>.
     </p>
 
   </div>
