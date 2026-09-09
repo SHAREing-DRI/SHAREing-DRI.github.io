@@ -167,11 +167,16 @@ a.btn--secondary:active {
       <p>
        This work package defines and improves SHAREing’s performance assessment framework by selecting relevant codes and systems, analysing assessment results to identify wider sector trends, and shaping a comprehensive methodology that can be applied across UK compute centres. It evaluates existing assessment practices, commissions studies to address methodological gaps, collaborates with training work packages on needed skills, and reviews the status of UK testbeds to establish best practices, consolidate essential information, and recommend future testbed developments that will best support progress in the community.
       </p>
-      
+
+
+     
+
      <div class="wp-actions">
      <a class="btn--primary" href="/workpackages/workpackage-1">Visit subgroups and tasks</a>
+
+<!-- Needs fixing!  
      <a class="btn--primary" href="/webinars/webinar-wp-1">Webinars</a>
-    
+    --> 
     </div>
     
     
@@ -189,9 +194,9 @@ a.btn--secondary:active {
       </p>
       <div class="wp-actions">
       <a class="btn--primary" href="/workpackages/workpackage-2">Visit subgroups and tasks</a>
-      <a class="btn--primary" href="/webinars/webinar-wp-2">Webinars</a>
-        
-    
+<!-- Needs fixing!  
+     <a class="btn--primary" href="/webinars/webinar-wp-1">Webinars</a>
+    --> 
     </div>
   </div>
 </section>
@@ -206,9 +211,9 @@ a.btn--secondary:active {
       </p>
       <div class="wp-actions">
        <a class="btn--primary" href="/workpackages/workpackage-3">Visit subgroups and tasks</a>
-      <a class="btn--primary" href="/webinars/webinar-wp-3">Webinars</a>
-       
-            
+<!-- Needs fixing!  
+     <a class="btn--primary" href="/webinars/webinar-wp-1">Webinars</a>
+    --> 
     </div>
   </div>
   </section>
@@ -223,9 +228,9 @@ By embedding SHAREing’s outputs in existing networks, it helps ensure lasting 
       </p>
       <div class="wp-actions">
        <a class="btn--primary" href="/workpackages/workpackage-4">Visit subgroups and tasks</a>
-      <a class="btn--primary" href="/webinars/webinar-wp-4">Webinars</a>
-       
-            
+<!-- Needs fixing!  
+     <a class="btn--primary" href="/webinars/webinar-wp-1">Webinars</a>
+    --> 
     </div>
   </div>
   
