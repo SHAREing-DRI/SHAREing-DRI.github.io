@@ -7,290 +7,585 @@ layout: splash
 
 {% assign suggest_url = page.apply | default: site.data.propose_links.default %}
 
-
 <style>
-/* WORKPACKAGE BASE STYLES*/
-.wp-section {
-  background: #f7f9fc;
-  border-left: 4px solid #005a9c;
-  border-radius: 8px;
-  padding: 1.5rem 2rem;
-  margin-bottom: 3rem;
+
+
+:root {
+  --shareing-purple: #B906B9;
+  --shareing-purple-dark: #740574;
+  --shareing-purple-mid: #940594;
+  --shareing-dark: #002A41;
+
+  --text-main: #3f4a54;
+  --text-muted: #68737d;
+
+  --background: #f7f9fc;
+  --background-soft: #f1f4f7;
+  --border: #e1e6eb;
+  --white: #ffffff;
 }
 
-.wp-header {
-  display: flex;
+
+.wp-hero {
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 3rem 3.25rem;
+
+  background: linear-gradient(
+    135deg,
+    #f8fafd 0%,
+    #eef2f6 100%
+  );
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  overflow: hidden;
+}
+
+
+/* Purple accent */
+
+.wp-hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 7px;
+
+  background: linear-gradient(
+    to bottom,
+    var(--shareing-purple),
+    var(--shareing-purple-dark)
+  );
+}
+
+
+.wp-hero::after {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  right: -180px;
+  top: -210px;
+  border-radius: 50%;
+  background: rgba(185, 6, 185, 0.055);
+}
+
+
+.wp-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+}
+
+
+
+.wp-eyebrow {
+  margin: 0 0 0.6rem !important;
+  color: var(--shareing-purple) !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+
+
+.wp-hero-title {
+  margin: 0 !important;
+  color: var(--shareing-dark) !important;
+  font-size: clamp(2.3rem, 5vw, 3.5rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.02em;
+}
+
+
+.wp-hero-subtitle {
+  max-width: 1200px;
+  margin: 1rem 0 1.5rem !important;
+  color: var(--text-main) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+}
+
+
+.wp-lead {
+  display: inline-flex;
   align-items: center;
+  gap: 0.8rem;
+  margin: 0 !important;
+  padding: 0.45rem 1rem 0.45rem 0.5rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--shareing-purple);
+  border-radius: 9px;
+  color: var(--shareing-dark) !important;
+  font-size: 0.9rem !important;
+  font-weight: 600;
+  box-shadow:
+    0 2px 8px rgba(0, 42, 65, 0.05);
+}
+
+
+.wp-lead-photo {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  box-shadow:
+    0 1px 5px rgba(0, 42, 65, 0.15);
+}
+
+
+.wp-lead-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+
+.wp-lead-label {
+  margin-bottom: 0.15rem;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+.wp-introduction {
+  margin: 0 0 2.5rem;
+  padding: 1.6rem 1.8rem;
+  background: none;
+  border-radius: 12px;
+
+}
+
+
+.wp-introduction-label {
+  margin: 0 0 0.5rem !important;
+  color: var(--shareing-purple) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+
+.wp-introduction p {
+  margin: 0 !important;
+  color: var(--text-main);
+  font-size: 0.98rem !important;
+  line-height: 1.7 !important;
+}
+
+
+
+.wp-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
-.wp-header img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  border: 2px solid #005a9c;
-  object-fit: cover;
+
+.wp-action-card {
+  position: relative;
+  padding: 1.4rem 1.5rem 1.45rem 1.6rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.workpackages-header {
-  text-align: center;
-  margin: 1.5rem 0 2rem 0;
-  font-size: 1rem;
+
+.wp-action-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: var(--shareing-purple);
 }
 
-.wp-title {
-  font-size: 1.4rem !important;
-  font-weight: 800 !important;
-  color: #002A41 !important;
-  margin: 0 !important;
-  line-height: 1.1;
-}
 
-.wp-lead {
-  font-size: 1rem !important;
-  color: #555;
-  margin-top: 0.2rem;
-}
-
-.wp-content {
-  font-size: 0.75rem !important;
-  color: #555;
-  margin-bottom: 0.01rem; !important;
-}
-
-.wp-purpose {
-  font-size: 0.75rem;
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-/* TASK CARDS  */
-.task-card {
-  background: #ffffff;
-  border: 1px solid #e4e4e4;
-  border-radius: 8px;
-  padding: 0.5rem 0.75rem;
-  margin-bottom: 0.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: box-shadow 0.2s;
-}
-
-.task-card:hover {
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-}
-
-.apply-btn {
-  padding: 0.25rem 0.5rem;
-  background: #005a9c;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: 600;
-}
-
-.apply-btn:hover {
+.wp-action-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    color: #ffffff;
+  box-shadow:
+    0 6px 20px rgba(0, 42, 65, 0.08);
 }
 
 
-/* ACCORDION */
-.accordion-btn {
-  width: 100%;
-  background: #f4f6f9;
-  border: #002A41;
-  padding: 14px;
-  font-weight: bold;
-  font-size: 0.75rem;
-  text-align: left;
-  cursor: pointer;
-  border-top: 1px solid #d9dee6;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
-}
-
-.accordion-btn.active {
-  background: #e9edf3;
-}
-
-.accordion-panel {
-  display: none;
-  padding: 10px 0 5px;
-}
-
-.arrow {
-  font-size: 14px;
+.wp-action-card h3 {
+  margin: 0 0 0.55rem !important;
+  color: var(--shareing-dark) !important;
+  font-size: 1.15rem !important;
+  font-weight: 750 !important;
 }
 
 
-/* TAB COLOURS BY TYPE */
-
-.open-tab {
-  background-color: #D7DEE9;
-  border-left: 20px solid #B906B9;
-}
-.open-tab.active {
-  background-color: #D7DEE9;
-}
-.open-task .apply-btn {
-  background-color: #B906B9;
-}
-
-.open-task    { border-left: 5px solid #B906B9; }
-
-
-
-
-/* Propose */
-.propose-tab {
-  background-color: #D7DEE9;
-  border-left: 20px solid #B906B9;
-}
-
-.propose-tab.active {
-  background-color: #D7DEE9;
-}
-.propose-task .apply-btn {
-  background-color: #B906B9;
-}
-.propose-task    {  border-left: 5px solid #B906B9;  }
-
-
-
-/* Ongoing */
-.progress-tab {
-  background-color: #D7DEE9;
-  border-left: 20px solid #940594;
-}
-
-.progress-tab.active {
-  background-color: #D7DEE9;
-}
-.progress-task .apply-btn {
-  background-color: #940594;
-  color: #000;
-}
-.progress-task { border-left: 5px solid #940594; }
-
-
-
-/* Past */
-.completed-tab {
-  background-color: #D7DEE9;
-  border-left: 20px solid #490349
-}
-
-.completed-tab.active {
-  background-color: #D7DEE9;
-}.completed-task .apply-btn {
-  background-color: #490349;
-}
-.completed-task    { border-left: 5px solid #490349; }
-
-
-.task-card div {
-  font-size: 0.75rem; 
-}
-
-.task-card .apply-btn {
-  font-size: 0.75rem;
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 520px) {
-  .task-card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .apply-btn {
-    margin-top: 0.5rem;
-  }
-}
-
-
-.open-task .apply-btn,
-.propose-task .apply-btn,
-.progress-task .apply-btn,
-.completed-task .apply-btn {
-  color: white !important;
-}
-
-/* Fix ongoing text being black */
-.progress-task .apply-btn {
-  color: white !important;
-}
-
-/* Fix completed */
-.completed-task .apply-btn {
-  background-color: #490349 !important;
-}
-
-.close-all {
-  margin: 0.5rem 0 1rem;
-  padding: 6px 12px;
-  background: #002A41;
-  border: none;
-  border-radius: 6px;
-  font-weight: 400;
-  cursor: pointer;
-  font-size: 0.9rem;
-  float: right;
-  color: white;
-}
-
-.close-all:hover {
-  background: #ccc;
+.wp-action-card p {
+  margin: 0 !important;
+  color: var(--text-main);
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
 }
 
 
 .eligibility-box {
- 
-  font-size: 0.875rem !important;      
-  color: #333 !important;               
-  line-height: 1.4 !important;
-  margin: 1rem 0 !important;         
-  display: block !important;            
+  margin: 0 0 2.8rem !important;
+  padding: 0.75rem 1rem;
+  background: #f7f8fa;
+  border-radius: 7px;
+  color: var(--text-muted) !important;
+  font-size: 0.82rem !important;
+  line-height: 1.5 !important;
 }
+
+
 .eligibility-box strong {
-  font-weight: 600 !important;
+  color: var(--shareing-dark);
+  font-weight: 650 !important;
+}
+
+
+.wp-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem 1.6rem 1.6rem;
+  background: var(--white);
+  border-left: 4px solid #005a9c;
+  border-radius: 12px;
+  box-shadow:
+    0 2px 10px rgba(0, 42, 65, 0.035);
+}
+
+
+.wp-header {
+  display: block;
+  margin: 0 0 1rem;
+}
+
+
+.wp-title {
+  margin: 0 0 0.35rem !important;
+  color: var(--shareing-dark) !important;
+  font-size: 1.35rem !important;
+  font-weight: 750 !important;
+  line-height: 1.2 !important;
+}
+
+
+.wp-content {
+  margin: 0 !important;
+  color: var(--text-muted) !important;
+  font-size: 0.88rem !important;
+  line-height: 1.55 !important;
+}
+
+
+.wp-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin: -0.2rem 0 0.8rem;
+}
+
+
+.close-all {
+  float: none;
+  margin: 0;
+  padding: 0.35rem 0.7rem;
+  background: transparent;
+  border: 1px solid #d7dde3;
+  border-radius: 5px;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.close-all:hover {
+  background: #f4f6f8;
+  border-color: #c5ccd3;
+  color: var(--shareing-dark);
+  box-shadow: none;
+}
+
+.accordion-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.45rem;
+  padding: 0.85rem 1rem;
+  background: #f7f9fb;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--shareing-purple);
+  border-radius: 7px;
+  color: var(--shareing-dark);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.accordion-btn:hover {
+  background: #f1f4f7;
+}
+
+
+.accordion-btn.active {
+  background: #f1f4f7;
+}
+
+
+.accordion-panel {
+  display: none;
+  padding: 0.35rem 0 0.7rem;
+}
+
+
+.arrow {
+  font-size: 0.7rem;
+
+  color: var(--text-muted);
+}
+
+
+
+.open-tab {
+  border-left-color: var(--shareing-purple);
+}
+
+.open-task {
+  border-left: 4px solid var(--shareing-purple);
+}
+
+.open-task .apply-btn {
+  background: var(--shareing-purple);
+}
+
+
+
+.propose-tab {
+  border-left-color: var(--shareing-purple);
+}
+
+.propose-task {
+  border-left: 4px solid var(--shareing-purple);
+}
+
+.propose-task .apply-btn {
+  background: var(--shareing-purple);
+}
+
+
+
+.progress-tab {
+  border-left-color: var(--shareing-purple-mid);
+}
+
+.progress-task {
+  border-left: 4px solid var(--shareing-purple-mid);
+}
+
+.progress-task .apply-btn {
+  background: var(--shareing-purple-mid);
+}
+
+
+.completed-tab {
+  border-left-color: var(--shareing-purple-dark);
+}
+
+.completed-task {
+  border-left: 4px solid var(--shareing-purple-dark);
+}
+
+.completed-task .apply-btn {
+  background: var(--shareing-purple-dark);
+}
+
+
+.task-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.45rem;
+  padding: 0.7rem 0.8rem;
+  background: var(--white);
+  border: 1px solid #e4e8ec;
+  border-radius: 6px;
+  color: var(--text-main);
+  font-size: 0.82rem;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.task-card:hover {
+  transform: translateX(2px);
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+.task-card div {
+  font-size: 0.82rem;
+}
+
+
+.task-card .apply-btn {
+  flex-shrink: 0;
+  padding: 0.35rem 0.65rem;
+  border-radius: 5px;
+  color: #ffffff !important;
+  font-size: 0.72rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.task-card .apply-btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.15);
+  color: #ffffff !important;
+}
+
+
+.task-card.empty {
+  display: block;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+
+
+@media (max-width: 700px) {
+  .wp-hero {
+    padding: 2rem 1.5rem;
+  }
+
+  .wp-hero-title {
+    font-size: 2.25rem !important;
+  }
+
+  .wp-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .wp-section {
+    padding: 1.2rem;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .wp-hero {
+    padding: 1.8rem 1.2rem;
+  }
+
+  .wp-hero-title {
+    font-size: 2rem !important;
+  }
+
+  .wp-hero-subtitle {
+    font-size: 0.92rem !important;
+  }
+
+  .wp-lead {
+    width: auto;
+    max-width: 100%;
+  }
+
+  .task-card {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .task-card .apply-btn {
+    align-self: flex-start;
+  }
+
 }
 
 </style>
 
 
 <script>
+
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ACCORDION TOGGLE */
-  document.querySelectorAll('.accordion-btn').forEach(btn => {
+
+  document.querySelectorAll(".accordion-btn").forEach(btn => {
 
     const panelId = btn.getAttribute("data-target");
+
     const panel = document.getElementById(panelId);
+
     const arrow = btn.querySelector(".arrow");
 
     if (!panel) return;
+
 
     btn.addEventListener("click", () => {
 
       const isOpen = panel.classList.contains("open");
 
+
       if (isOpen) {
+
         panel.style.display = "none";
+
         panel.classList.remove("open");
+
         btn.classList.remove("active");
-        if (arrow) arrow.textContent = "►";
+
+        if (arrow) {
+          arrow.textContent = "►";
+        }
+
       } else {
+
         panel.style.display = "block";
+
         panel.classList.add("open");
+
         btn.classList.add("active");
-        if (arrow) arrow.textContent = "▼";
+
+        if (arrow) {
+          arrow.textContent = "▼";
+        }
+
       }
 
     });
@@ -298,201 +593,403 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  /* AUTO OPEN DEFAULT */
-  document.querySelectorAll('.accordion-btn[data-open="true"]').forEach(btn => {
-    const panel = document.getElementById(btn.getAttribute("data-target"));
-    const arrow = btn.querySelector(".arrow");
+  document
+    .querySelectorAll('.accordion-btn[data-open="true"]')
+    .forEach(btn => {
 
-    if (!panel) return;
+      const panel = document.getElementById(
+        btn.getAttribute("data-target")
+      );
 
-    panel.style.display = "block";
-    panel.classList.add("open");
-    btn.classList.add("active");
-    if (arrow) arrow.textContent = "▼";
-  });
+      const arrow = btn.querySelector(".arrow");
+
+      if (!panel) return;
+
+      panel.style.display = "block";
+
+      panel.classList.add("open");
+
+      btn.classList.add("active");
+
+      if (arrow) {
+        arrow.textContent = "▼";
+      }
+
+    });
 
 
- 
-  document.querySelectorAll('.close-all').forEach(btn => {
+  document.querySelectorAll(".close-all").forEach(btn => {
 
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener("click", (e) => {
 
-      e.preventDefault();  // prevent page jump
+      e.preventDefault();
 
-      const wp = btn.getAttribute('data-wp');
+      const wp = btn.getAttribute("data-wp");
 
-      document.querySelectorAll(`[data-target^="${wp}"]`).forEach(tab => {
 
-        const panel = document.getElementById(tab.getAttribute("data-target"));
-        const arrow = tab.querySelector(".arrow");
+      document
+        .querySelectorAll(`[data-target^="${wp}"]`)
+        .forEach(tab => {
 
-        if (!panel) return;
+          const panel = document.getElementById(
+            tab.getAttribute("data-target")
+          );
 
-        panel.style.display = "none";
-        panel.classList.remove("open");
-        tab.classList.remove("active");
-        if (arrow) arrow.textContent = "►";
+          const arrow = tab.querySelector(".arrow");
 
-      });
+          if (!panel) return;
+
+
+          panel.style.display = "none";
+
+          panel.classList.remove("open");
+
+          tab.classList.remove("active");
+
+          if (arrow) {
+            arrow.textContent = "►";
+          }
+
+        });
 
     });
 
   });
 
 });
+
 </script>
 
-<div class="workpackages-header" style= "font-size: 1.2rem">
-  <h1>Work package 4: Outreach, stakeholder engagement and capacity building</h1>
-  <p></p>
-</div>
-<p style="font-size:1rem; margin:0.5rem 0.5rem;">
-This group focuses on outreach, stakeholder engagement and capacity building to maximise SHAREing's long-term impact. It connects researchers, infrstructure providers, industry and policymakers through sustained, two-wat collaboration. It aims to supports skills development, knowledge exchange and community growth across the DRI ecosystem.
-By embedding SHAREing’s outputs in existing networks, it helps ensure lasting benefit beyond the project’s lifetime.
+
+<div class="wp-hero">
+
+  <div class="wp-hero-content">
+
+
+<p class="wp-eyebrow">
+  Work Package 04
 </p>
 
-<div class="wp-content" style="display:flex; flex-direction:column; gap:0.5rem;">
+<h1 class="wp-hero-title">
+  Outreach, stakeholder engagement and capacity building
+</h1>
 
-  <!-- Open Tasks Card -->
-  <div style="background:#f7f9fc; border-left:12px solid #B906B9; padding:1rem 1.25rem; border-radius:8px;">
-    <h3 style="margin-top:0; color:#002A41; font-size:22px;">Open Tasks</h3>
-    <p style="margin-bottom:0rem; line-height:1.6; font-size:16px;">
-      These are tasks already defined by the SHAREing Working Groups (WPs).
-      They are published and ready for applications. Applicants interested <strong> can apply to take them on </strong>. Open Tasks are like mini-projects with clear goals and scope — your role is to help deliver them according to the WP plan.
-    </p>
-  </div>
 
-  <!-- Propose a Task Card -->
-  <div style="background:#f7f9fc; border-left:12px solid #B906B9; padding:1rem 1.25rem; border-radius:8px; ">
-    <h3 style="margin-top:0; color:#002A41; font-size:22px;">Suggest a New Task</h3>
-    <p style="margin-bottom:0rem; line-height:1.6; font-size:16px;">
-     Have an idea that could benefit SHAREing? Use this option to submit a task proposal. Focus on <strong>what</strong>. you want to do and <strong>why</strong>. it matters for SHAREing and the WPs.
-     <br>
-      Your proposal will be reviewed by the relevant WP. If approved, it will become an Open Task listed on the website, open for anyone to apply. At this stage, there’s no need to include costings or detailed plans — just provide a clear description and show how the task aligns with SHAREing’s goals. The detailed “how” and all necessary paperwork will be part of the formal bid later.
-    </p>
+<p class="wp-hero-subtitle">
+This group focuses on outreach, stakeholder engagement and capacity building to maximise SHAREing's long-term impact. It connects researchers, infrstructure providers, industry and policymakers through sustained, two-wat collaboration. It aims to supports skills development, knowledge exchange and community growth across the DRI ecosystem. By embedding SHAREing’s outputs in existing networks, it helps ensure lasting benefit beyond the project’s lifetime.
+</p>
+
+
+<!-- Lead -->
+
+<div class="wp-lead">
+
+  <img
+    class="wp-lead-photo"
+    src="https://shareing-dri.github.io/assets/profilepics/generic.jpg"
+    alt="Chris Howel"
+  >
+
+  <div class="wp-lead-info">
+
+    <span class="wp-lead-label">
+      Work package lead
+    </span>
+
+    Chris Howel
   </div>
 
 </div>
+
+
+  </div>
+
+</div>
+
+
+
 
 
 <div class="eligibility-box">
-  <strong>Eligibility:</strong> SHAREing tasks are open to <strong> all contributors based at UK universities or other organisations eligible for UKRI funding </strong>
+
+<strong>Eligibility:</strong>
+
+SHAREing tasks are open to all contributors based at UK universities or other organisations eligible for UKRI funding
+
 </div>
-
-
 
 {% assign wp_list = "wp4.1,wp4.3" | split: "," %}
+
 {% assign team_leads = site.data.workpackages-4-team-lead %}
+
 {% for wp in wp_list %}
-  
-{% assign open = site.tasks | where:"workpackage",wp | where:"status","open" %}
-{% assign progress = site.tasks | where:"workpackage",wp | where:"status","progress" %}
-{% assign propose = site.tasks | where:"workpackage",wp | where:"status","propose" %}
-{% assign completed = site.tasks | where:"workpackage",wp | where:"status","completed" %}
 
-<div class="wp-section">
+{% assign open = site.tasks
+| where:"workpackage",wp
+| where:"status","open"
+%}
 
- {% assign lead = team_leads[wp] %}
+{% assign progress = site.tasks
+| where:"workpackage",wp
+| where:"status","progress"
+%}
+
+{% assign propose = site.tasks
+| where:"workpackage",wp
+| where:"status","propose"
+%}
+
+{% assign completed = site.tasks
+| where:"workpackage",wp
+| where:"status","completed"
+%}
+
+{% assign lead = team_leads[wp] %}
+
+  <div class="wp-section">
+
+<!-- Sub-WP heading -->
 
 <div class="wp-header">
-  <img src="{{ lead.lead_photo | default: '/assets/profilepics/generic.jpg' }}">
-  <div>
-    <p class="wp-title">{{ lead.title | default: "Untitled workpackage" | remove: wp }}
-    </p>
-    <div class="wp-lead">
-      Lead: {{ lead.lead | default: "TBA" }}
-    </div>
-    <div class="wp-content">
-      {{ lead.summary | default: "TBA" }}
-    </div>
+
+  <p class="wp-title">
+    {{ lead.title
+      | default: "Untitled workpackage"
+      | remove: wp
+    }}
+  </p>
+
+  <div class="wp-content">
+    {{ lead.summary  }}
   </div>
+
 </div>
+
+
+<!-- Controls -->
 
 <div class="wp-controls">
-  <button class="close-all" data-wp="{{ wp }}">Close all tabs</button>
+
+  <button
+    class="close-all"
+    data-wp="{{ wp }}"
+  >
+    Close all tabs
+  </button>
+
 </div>
 
-  <!-- OPEN -->
-  <button class="accordion-btn open-tab" data-target="{{ wp }}-open" data-open="true">
-   Current Open Tasks <span class="arrow">▼</span>
-  </button>
-  <div id="{{ wp }}-open" class="accordion-panel">
+
+<button
+  class="accordion-btn open-tab"
+  data-target="{{ wp }}-open"
+  data-open="true"
+>
+
+  <span>
+    Current Open Tasks
+  </span>
+
+  <span class="arrow">
+    ▼
+  </span>
+
+</button>
+
+
+<div
+  id="{{ wp }}-open"
+  class="accordion-panel"
+>
 
   {% if open.size == 0 %}
-     <div class="task-card" style="font-size: 0.75rem">No open tasks.</div>
+
+    <div class="task-card empty">
+      No open tasks.
+    </div>
+
   {% endif %}
+
 
   {% for task in open %}
+
     <div class="task-card open-task">
-      <div>{{ task.title }}</div>
-      <a class="apply-btn" href="{{ task.url }}">Propose a Solution</a>
+
+      <div>
+        {{ task.title }}
+      </div>
+
+      <a
+        class="apply-btn"
+        href="{{ task.url }}"
+      >
+          See Details & Apply
+      </a>
+
     </div>
+
   {% endfor %}
-  
-  </div>
-
-
-
-  <!-- PROPOSE -->
-  <button class="accordion-btn propose-tab" data-target="{{ wp }}-propose">
-   Suggest New Task <span class="arrow">►</span>
-  </button>
-  <div id="{{ wp }}-propose" class="accordion-panel">
-
-  {% if propose.size == 0 %}
-     <div class="task-card" style="font-size: 0.75rem">No proposals.</div>
-  {% endif %}
-
-  {% for task in propose %}
-    <div class="task-card propose-task">
-      <div>{{ task.title }}</div>
-      <a class="apply-btn" href="{{ suggest_url }}" target="_blank" rel="noopener noreferrer">Suggest</a>
-    </div>
-  {% endfor %}
-
-  </div>
-  
-  
-  
-  <!-- PROGRESS -->
-  <button class="accordion-btn progress-tab" data-target="{{ wp }}-progress">
-   Ongoing Tasks <span class="arrow">►</span>
-  </button>
-  <div id="{{ wp }}-progress" class="accordion-panel">
-
-  {% if progress.size == 0 %}
-     <div class="task-card" style="font-size: 0.75rem">No tasks in progress.</div>
-  {% endif %}
-
-  {% for task in progress %}
-    <div class="task-card progress-task">
-      <div>{{ task.title }}</div>
-      <a class="apply-btn" href="{{ task.url }}">View</a>
-    </div>
-  {% endfor %}
-
-  </div>
-
-
-  <!-- COMPLETED -->
-  <button class="accordion-btn completed-tab" data-target="{{ wp }}-completed">
-   Completed Tasks <span class="arrow">►</span>
-  </button>
-  <div id="{{ wp }}-completed" class="accordion-panel">
-
-  {% if completed.size == 0 %}
-    <div class="task-card" style="font-size: 0.75rem">o completed tasks.</div>
-  {% endif %}
-
-  {% for task in completed %}
-    <div class="task-card completed-task">
-      <div>{{ task.title }}</div>
-      <a class="apply-btn" href="{{ task.url }}">Results</a>
-    </div>
-  {% endfor %}
-
-  </div>
 
 </div>
+
+
+
+<button
+  class="accordion-btn propose-tab"
+  data-target="{{ wp }}-propose"
+>
+
+  <span>
+    Suggest New Task
+  </span>
+
+  <span class="arrow">
+    ►
+  </span>
+
+</button>
+
+
+<div
+  id="{{ wp }}-propose"
+  class="accordion-panel"
+>
+
+  {% if propose.size == 0 %}
+
+    <div class="task-card empty">
+      No proposals.
+    </div>
+
+  {% endif %}
+
+
+  {% for task in propose %}
+
+    <div class="task-card propose-task">
+
+      <div>
+        {{ task.title }}
+      </div>
+
+      <a
+        class="apply-btn"
+        href="{{ suggest_url }}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Suggest
+      </a>
+
+    </div>
+
+  {% endfor %}
+
+</div>
+
+<button
+  class="accordion-btn progress-tab"
+  data-target="{{ wp }}-progress"
+>
+
+  <span>
+    Ongoing Tasks
+  </span>
+
+  <span class="arrow">
+    ►
+  </span>
+
+</button>
+
+
+<div
+  id="{{ wp }}-progress"
+  class="accordion-panel"
+>
+
+  {% if progress.size == 0 %}
+
+    <div class="task-card empty">
+      No tasks in progress.
+    </div>
+
+  {% endif %}
+
+
+  {% for task in progress %}
+
+    <div class="task-card progress-task">
+
+      <div>
+        {{ task.title }}
+      </div>
+
+      <a
+        class="apply-btn"
+        href="{{ task.url }}"
+      >
+        View
+      </a>
+
+    </div>
+
+  {% endfor %}
+
+</div>
+
+
+<button
+  class="accordion-btn completed-tab"
+  data-target="{{ wp }}-completed"
+>
+
+  <span>
+    Completed Tasks
+  </span>
+
+  <span class="arrow">
+    ►
+  </span>
+
+</button>
+
+
+<div
+  id="{{ wp }}-completed"
+  class="accordion-panel"
+>
+
+  {% if completed.size == 0 %}
+
+    <div class="task-card empty">
+      No completed tasks.
+    </div>
+
+  {% endif %}
+
+
+  {% for task in completed %}
+
+    <div class="task-card completed-task">
+
+      <div>
+        {{ task.title }}
+      </div>
+
+      <a
+        class="apply-btn"
+        href="{{ task.url }}"
+      >
+        Results
+      </a>
+
+    </div>
+
+  {% endfor %}
+
+</div>
+
+  </div>
 
 {% endfor %}
