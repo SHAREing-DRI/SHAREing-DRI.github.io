@@ -253,3 +253,98 @@ In summary we can see that the I/O performance is extremely good, as the benchma
 </div>
 
 Following this high-level assessment, it is recommended that both the core and intranode performance are investigated in depth. Similarly, the GPU version of HemeLB must be analysed to study more compute rate that this benchmark can extract on a GPU. Finally, a internode analysis in the near future would be very interesting as HemeLB appears to focus on beyond single node scaling.
+
+# Trace analysis of HemeLB benchmark
+
+Following from the high-level analysis we found a low intra-node metric and we want to dig into the parallelism of a node-level job. Here we have produced an instrumented binary with Score-P and then produced an automated trace analysis via Scalasca, using the Cube GUI for data visualisation and further analyses.
+
+## Time
+First, we look at the break down of runtime (see table below) and find that the majority of time is in computation, though the MPI time is not insignificant.
+
+| | s (%) | 
+| -------- | - |
+| Computation | 2.22e4 (72.45%) |
+| MPI | 8444.54 (27.55%) |
+
+### Computation
+
+We use Cube to expand the call tree to mark the functions that constitute the largest proportions of runtime. We list below the functions that contribute most of the computation time.
+
+| Name | s (%) | 
+| -------- | - |
+| `void PreReceive()` | 1.62e4 (72.97%) |
+| `void PreSend()` | 3620.19 (16.30%) |
+| `void PostReceive()` | 1110.57 (5.00%) |
+
+Here `void PreReceive()` is by far the largest contributor to computation time. The functions appear close together in the call tree. With these functions in mind, we next turn to the MPI time.
+
+### MPI
+
+Using Cube to expand the call tree again we find that the MPI time is dominated by a `MPI_Waitall` which is called for 7576.80s (89.72% of the MPI time).  After this `MPI_Waitall` the next largest MPI routine is `void Initialise()` though in comparison this is only called for 433.50s (5.13% of the MPI time).
+
+We can break this down further as of the 8444.54s of MPI routines, 7887.31s are spent in communication, in particular 7821.67s in point-to-point communcations, with 98.48% of this from the `MPI_Waitall`. In fact we find that 475.49s are due to **Late Senders** with the majority (85.60%) of these late senders resulting from this `MPI_Waitall` so this really seems to imply an issue causing excessive waiting times.
+
+## Delay costs
+
+Moving to our next metric: **delay costs**, which highlights time spent from wait states. For this application the time spent is 548.52s which are further broken down in the table below.
+
+| Name | s (%) |
+| ------- | - |
+| `SimulationMaster(...)` | 172.19s (31.39%) |
+| `void PreReceive()` | 149.81s (27.31%) |
+| `MPI_Waitall` | 135.53 (24.71%) |
+| `void PreSend()` | 58.16s (10.60%) |
+| `PostReceive()` | 17.74s (3.23%) |
+
+All of these functions showed up in the initial runtime metrics above, except for `SimulationMaster(...)`, so these other routines are definitely causing excessive time from wait states. However, the `SimulationMaster(...)` only contributes 2.41% of runtime which is extremely small so we neglect this for now. 
+
+All of these delay costs are the result of MPI here and again overwhelmingly from point-to-point communications (91.96%), with late senders once again showing up as the main culprit at 475.27s (86.65%) of these delay costs. It seems that these main receive and send functions, along side the `MPI_Waitall`, are contributing the most to waiting.
+
+## Critical path
+
+Our final review of the impact of these functions is on the critical path, which specifies the path through the runtime with no wait states, or in other words, represents the limitations on the total benchmark runtime. Here the critical path is 239.64s with same culprits appearing again
+
+| Name | s (%) |
+| ------- | - |
+| `void PreReceive()` | 140.20s (58.50%) |
+| `MPI_Waitall` | 41.07 (17.14%) |
+| `void PreSend()` | 33.30s (13.90%) |
+| `PostReceive()` | 7.32s (3.05%) |
+
+With 9.28% of this attributed to imbalance, again largely concentrated in `void PreReceive()` and `void PreSend()`.
+
+
+## Time imbalances across ranks
+
+The figures below show the distribution of the computation time across the 128 ranks for `PreReceive()` (top left), `PreSend()` (top right), `MPI_Waitall` (bottom left) and `PostReceive()` (bottom right). Across all four figures we do see evidence of imbalance.
+<div align="center">
+  <img src='/assets/report-figs/hemelb/prereceive-time.png' width=600 />
+  <img src='/assets/report-figs/hemelb/presend-time.png' width=600 />
+</div>
+
+<div align="center">
+  <img src='/assets/report-figs/hemelb/mpi-waitall-time.png' width=600 />
+  <img src='/assets/report-figs/hemelb/postreceive-time.png' width=600 />
+</div>
+
+### Computational imbalance
+
+If we focus on `PreReceive` as the main culprit of computational imbalance, we can see how much of this computational is due to computational underload (left figure below) and overleaf (right figure below). At first glance that does seem to be evidence of some ranks being computationally overloaded.
+
+<div align="center">
+  <img src='/assets/report-figs/hemelb/underload-prereceive.png' width=600 />
+  <img src='/assets/report-figs/hemelb/overload-prereceive.png' width=600 />
+</div>
+
+
+
+## Performance impact
+
+We have found that there is evidence of imbalance in compute kernels. These kernels appear to precede the `MPI_Waitall()`. We find that 90.24% of performance impact is from functions on the critical path. Of these `void PreReceive()` contributed 59.20%. Hence, including this and the `MPI_Waitall`, contributes 77.56% to performance impact on the critical path. These are routines in which optimisations could effect the critical path and hence the programs runtime.
+
+## Summary
+There is evidence of load imbalance in three kernels which appears to contribute to MPI late senders, which in turn are causing excessive wait times at an `MPI_Waitall`. Having quickly reviewed the source code for these kernels, it is clear they are responsible for Lattice Boltzmann steps around the MPI communications for lattice sites.
+
+Two future steps could be taken:
+1. Repeat similar analyses as part of a scaling run to see how this imbalancing varies with process count, though it should be noted that this is resource intensive.
+2. Return to code owners to discuss the observed load imbalance to discuss how the work is divided across MPI ranks as this might direct subsequent analyses.
