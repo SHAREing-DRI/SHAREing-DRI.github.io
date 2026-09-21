@@ -46,29 +46,39 @@ layout: default
     <div class="event-information-inner">
 
       <!-- Date -->
-      {% if page.date %}
 
-        <div class="event-information-item">
 
-          <span class="event-information-icon" aria-hidden="true">
-            📅
-          </span>
+            {% if page.date %}
 
-          <div class="event-information-content">
+              <div class="event-information-item">
 
-            <span class="event-information-label">
-              Date
-            </span>
+                <span class="event-information-icon" aria-hidden="true">
+                  📅
+                </span>
 
-            <span class="event-information-value">
-              {{ page.date | date: "%A, %e %B %Y" }}
-            </span>
+                <div class="event-information-content">
 
-          </div>
+                  <span class="event-information-label">
+                    Date
+                  </span>
 
-        </div>
+                  <span class="event-information-value">
 
-      {% endif %}
+                    {% if page.start_date %}
+                      {{ page.start_date | date: "%A, %e %B %Y" }} - <br>
+                      {{ page.date | date: "%A, %e %B %Y" }}
+                    {% else %}
+                      {{ page.date | date: "%A, %e %B %Y" }}
+                    {% endif %}
+
+                  </span>
+
+                </div>
+
+              </div>
+
+            {% endif %}
+
 
 
       <!-- Location -->
@@ -159,3 +169,10 @@ layout: default
 
 
 </main>
+
+
+<style>
+  .event-information-value {
+  font-size: 0.85rem;
+}
+</style>
