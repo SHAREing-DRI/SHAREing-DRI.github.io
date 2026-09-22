@@ -1,0 +1,276 @@
+name: Process training course suggestions
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  process-training-suggestion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Extract training course information
+        id: extract
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          python <<'PY'
+          import os
+          import re
+
+          body = os.environ["ISSUE_BODY"]
+
+          fields = {}
+
+          patterns = {
+              "title": r"\*\*Course title:\*\*\s*(.+)",
+              "organisation": r"\*\*Organisation:\*\*\s*(.+)",
+              "format": r"\*\*Format:\*\*\s*(.+)",
+              "tags": r"\*\*Topics / tags:\*\*\s*(.+)",
+              "dates": r"\*\*Dates:\*\*\s*(.+)",
+              "location": r"\*\*Location:\*\*\s*(.+)",
+              "url": r"\*\*Course URL:\*\*\s*(.+)",
+          }
+
+          for field, pattern in patterns.items():
+              match = re.search(pattern, body)
+              if match:
+                  fields[field] = match.group(1).strip()
+              else:
+                  fields[field] = ""
+
+          # Write values to GitHub Actions outputs
+          for field, value in fields.items():
+              with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+                  f.write(f"{field}<<EOF\n{value}\nEOF\n")
+
+          print("Extracted fields:")
+          for field, value in fields.items():
+              print(f"{field}: {value}")
+          PY
+
+      - name: Validate submission
+        env:
+          TITLE: ${{ steps.extract.outputs.title }}
+          ORGANISATION: ${{ steps.extract.outputs.organisation }}
+          FORMAT: ${{ steps.extract.outputs.format }}
+          TAGS: ${{ steps.extract.outputs.tags }}
+          DATES: ${{ steps.extract.outputs.dates }}
+          LOCATION: ${{ steps.extract.outputs.location }}
+          URL: ${{ steps.extract.outputs.url }}
+        run: |
+          python <<'PY'
+          import os
+          import sys
+          from urllib.parse import urlparse
+
+          fields = {
+              "Course title": os.environ["TITLE"],
+              "Organisation": os.environ["ORGANISATION"],
+              "Format": os.environ["FORMAT"],
+              "Topics / tags": os.environ["TAGS"],
+              "Dates": os.environ["DATES"],
+              "Location": os.environ["LOCATION"],
+              "Course URL": os.environ["URL"],
+          }
+
+          missing = [
+              name for name, value in fields.items()
+              if not value.strip()
+          ]
+
+          if missing:
+              print("ERROR: The following required fields are missing:")
+              for field in missing:
+                  print(f"  - {field}")
+              sys.exit(1)
+
+          parsed = urlparse(os.environ["URL"])
+
+          if parsed.scheme not in ("http", "https") or not parsed.netloc:
+              print(f"ERROR: Invalid course URL: {os.environ['URL']}")
+              sys.exit(1)
+
+          print("Submission validation passed.")
+          PY
+
+      - name: Check for duplicate course
+        id: duplicate
+        env:
+          TITLE: ${{ steps.extract.outputs.title }}
+          URL: ${{ steps.extract.outputs.url }}
+        run: |
+          python <<'PY'
+          import csv
+          import os
+          import sys
+
+          title = os.environ["TITLE"].strip().lower()
+          url = os.environ["URL"].strip().lower()
+
+          csv_file = "_data/external-training.csv"
+
+          if not os.path.exists(csv_file):
+              print(f"ERROR: {csv_file} does not exist.")
+              sys.exit(1)
+
+          with open(csv_file, newline="", encoding="utf-8") as f:
+              reader = csv.DictReader(f)
+
+              for row in reader:
+                  existing_title = (row.get("title") or "").strip().lower()
+                  existing_url = (row.get("url") or "").strip().lower()
+
+                  if existing_title == title or (
+                      url and existing_url == url
+                  ):
+                      print("ERROR: This course already appears to exist in the catalogue.")
+                      print(f"Existing title: {row.get('title', '')}")
+                      print(f"Existing URL: {row.get('url', '')}")
+                      sys.exit(1)
+
+          print("No duplicate course found.")
+          PY
+
+      - name: Create branch
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          BRANCH_NAME="training-course/${ISSUE_NUMBER}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git checkout -b "$BRANCH_NAME"
+
+          echo "BRANCH_NAME=$BRANCH_NAME" >> "$GITHUB_ENV"
+
+      - name: Add course to CSV
+        env:
+          TITLE: ${{ steps.extract.outputs.title }}
+          ORGANISATION: ${{ steps.extract.outputs.organisation }}
+          FORMAT: ${{ steps.extract.outputs.format }}
+          TAGS: ${{ steps.extract.outputs.tags }}
+          DATES: ${{ steps.extract.outputs.dates }}
+          LOCATION: ${{ steps.extract.outputs.location }}
+          URL: ${{ steps.extract.outputs.url }}
+        run: |
+          python <<'PY'
+          import csv
+          import os
+          import tempfile
+
+          csv_file = "_data/external-training.csv"
+
+          new_course = {
+              "title": os.environ["TITLE"].strip(),
+              "organisation": os.environ["ORGANISATION"].strip(),
+              "format": os.environ["FORMAT"].strip(),
+              "tags": os.environ["TAGS"].strip(),
+              "dates": os.environ["DATES"].strip(),
+              "location": os.environ["LOCATION"].strip(),
+              "url": os.environ["URL"].strip(),
+          }
+
+          # Read the existing CSV
+          with open(csv_file, newline="", encoding="utf-8") as f:
+              reader = csv.DictReader(f)
+
+              fieldnames = reader.fieldnames
+
+              if fieldnames != [
+                  "title",
+                  "organisation",
+                  "format",
+                  "tags",
+                  "dates",
+                  "location",
+                  "url",
+              ]:
+                  raise ValueError(
+                      f"Unexpected CSV columns: {fieldnames}"
+                  )
+
+              rows = list(reader)
+
+          # Add the new course
+          rows.append(new_course)
+
+          # Write the CSV back using Python's CSV writer.
+          # This ensures tags containing commas are quoted correctly.
+          with open(csv_file, "w", newline="", encoding="utf-8") as f:
+              writer = csv.DictWriter(
+                  f,
+                  fieldnames=fieldnames,
+                  lineterminator="\n",
+              )
+
+              writer.writeheader()
+              writer.writerows(rows)
+
+          print(f"Added course: {new_course['title']}")
+          PY
+
+      - name: Commit changes
+        env:
+          TITLE: ${{ steps.extract.outputs.title }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          git add _data/external-training.csv
+
+          git commit \
+            -m "Add training course: ${TITLE}" \
+            -m "Closes #${ISSUE_NUMBER}"
+
+      - name: Push branch
+        run: |
+          git push origin "$BRANCH_NAME"
+
+      - name: Create pull request
+        id: create_pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TITLE: ${{ steps.extract.outputs.title }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          BRANCH_NAME: ${{ env.BRANCH_NAME }}
+        run: |
+          PR_URL=$(gh pr create \
+            --base main \
+            --head "$BRANCH_NAME" \
+            --title "Add training course: ${TITLE}" \
+            --body "## Training course suggestion
+
+          This pull request adds the training course suggested in #${ISSUE_NUMBER}.
+
+          **Course:** ${TITLE}
+
+          This PR was automatically generated from the training course suggestion issue.
+
+          Please review the information before merging.")
+
+          echo "PR_URL=$PR_URL" >> "$GITHUB_OUTPUT"
+
+      - name: Comment on issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          PR_URL: ${{ steps.create_pr.outputs.PR_URL }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" \
+            --body "Thanks for suggesting a training course! :tada:
+
+          I've created a pull request with your suggestion:
+
+          ${PR_URL}
+
+          The course will be added to the External Training Catalogue once the pull request has been reviewed and merged."
