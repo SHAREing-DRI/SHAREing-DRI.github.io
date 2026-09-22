@@ -64,6 +64,8 @@ main:
   - title: "Training & Resources"
     url: /training/
     sublinks:
+      - title: "External Training Catalogue"
+        url: /training/external-training-menu
       - title: "Training"
         url: /training/
       - title: "Resources"

@@ -14,17 +14,16 @@ Node-Level Performance Engineering,NHR@FAU,Scheduled (online),GPU,1-3 December 2
 High-Performance Scientific Computing in C++ ,JSC,Scheduled (online),C++,12-15 October 2026,Online,https://www.fz-juelich.de/en/jsc/news/events/training-courses/training-courses-2026/hpc-cplusplus
 Parallel I/O and Portable Data Formats,JSC,Scheduled (online),"Parallelism, I/O",26-28 October 2026,Online,https://www.fz-juelich.de/en/jsc/news/events/training-courses/training-courses-2026/parallel-io
 Directive-based GPU Programming with OpenACC,JSC,Scheduled (online),"Parallelism, GPU, OpenACC",3-5 November 2026,Online,https://www.fz-juelich.de/en/jsc/news/events/training-courses/training-courses-2026/gpu-openacc
-How to write a good application,UKRI,Online (self-service),Professional Skills,https://www.ukri.org/councils/esrc/guidance-for-applicants/how-to-write-a-good-application/,,
-Programming with Python,Software Carpentry,Online (self-service),Python,https://swcarpentry.github.io/python-novice-inflammation/,,
-Plotting and Programming in Python,Software Carpentry,Online (self-service),Python,http://swcarpentry.github.io/python-novice-gapminder,,
-Image Processing with Python,Software Carpentry,Online (self-service),Python,https://datacarpentry.org/image-processing/,,
-The Unix Shell,Library Carpentry,Online (self-service),Unix,https://librarycarpentry.org/lc-shell/,,
+How to write a good application,UKRI,Online (self-service),Professional Skills,Self-paced,Online,https://www.ukri.org/councils/esrc/guidance-for-applicants/how-to-write-a-good-application/
+Programming with Python,Software Carpentry,Online (self-service),Python,Self-paced,Online,https://swcarpentry.github.io/python-novice-inflammation/
+Plotting and Programming in Python,Software Carpentry,Online (self-service),Python,Self-paced,Online,http://swcarpentry.github.io/python-novice-gapminder
+Image Processing with Python,Software Carpentry,Online (self-service),Python,Self-paced,Online,https://datacarpentry.org/image-processing/
+The Unix Shell,Library Carpentry,Online (self-service),Unix,Self-paced,Online,https://librarycarpentry.org/lc-shell/
 Message Passing programming with MPI,EPCC/ARCHER2,Scheduled (in-person),MPI,9-10 September 2026,Durham,https://www.archer2.ac.uk/training/courses/260909-mpi/
 Running GeoChemFoam on HPC: From Micro-CT Images to Remote Visualisation,EPCC/ARCHER2,Scheduled (online),Other,16 September 2026,Online,https://www.archer2.ac.uk/training/courses/260916-geochemfoam-vt/
-Message-Passing with MPI,EPCC/ARCHER2,Online (self-service),"Parallelism, MPI",https://www.archer2.ac.uk/training/courses/210000-mpi-self-service/,,
-Hands-on Introduction to HPC,EPCC/ARCHER2,Online (self-service),Intro to HPC,https://www.archer2.ac.uk/training/courses/240000-intro-hpc-self-service/,,
-Shared Memory Programming with OpenMP,EPCC/ARCHER2,Online (self-service),OpenMP,https://www.archer2.ac.uk/training/courses/210000-openmp-self-service/,,
-BSC Training Course: It's the memory stupid!,BSC,Scheduled (hybrid),Performance,24 February 2027,Barcelona,https://www.bsc.es/education/training/bsc-training/bsc-training-course-its-the-memory-stupid-0
+Message-Passing with MPI,EPCC/ARCHER2,Online (self-service),"Parallelism, MPI",Self-paced,Online,https://www.archer2.ac.uk/training/courses/210000-mpi-self-service/
+Hands-on Introduction to HPC,EPCC/ARCHER2,Online (self-service),"Intro to HPC",Self-paced,Online,https://www.archer2.ac.uk/training/courses/240000-intro-hpc-self-service/
+Shared Memory Programming with OpenMP,EPCC/ARCHER2,Online (self-service),OpenMP,Self-paced,Online,https://www.archer2.ac.uk/training/courses/210000-openmp-self-service/
 Green software use on HPC,EPCC,Scheduled (in-person),Other,2 October 2026,University of Cambridge,https://www.archer2.ac.uk/training/courses/261002-green-computing/
 Cirrus NCR: transition information for ARCHER2 users and projects,ARCHER2,Scheduled (online),,Wednesday 23rd September 2026 15:00 - 16:00,Online,https://www.archer2.ac.uk/training/courses/260923-cirrus-transition-vt/
 Data Analysis and Visualisation in Python,ARCHER2,Scheduled (online),Python,28 - 29 September 2026 09:30 - 16:30,Online,https://www.archer2.ac.uk/training/courses/260928-analysis-visualisation-python/
