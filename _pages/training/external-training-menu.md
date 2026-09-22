@@ -4,6 +4,7 @@ permalink: /training/external-training-menu
 classes: wide
 ---
 
+
 <section class="page-intro">
     <h1>External Training Catalogue</h1>
 
@@ -22,7 +23,7 @@ classes: wide
         <span class="submit-course-icon">＋</span>
 
         <div>
-            <strong>Suggest a new course</strong>
+            <strong>Add your Own Course</strong>
             <p>Know of a useful training opportunity? Add it to the catalogue.</p>
    </div>
  </div>
@@ -36,6 +37,7 @@ classes: wide
 </button>
 
 </div>
+
 
 <!-- =========================================================
      TRAINING CALENDAR
@@ -138,8 +140,86 @@ classes: wide
 
 
 
+<div class="pilot-notice">
+    <span class="pilot-icon">🛠️</span>
+    <div>
+        <strong>We’re still working on it!</strong>
+        <p>
+            This catalogue is currently a pilot, so the user experience and workflow
+            are still being developed. If you come across any problems or have
+            suggestions for how we could improve it, please get in touch - we’d love
+            your feedback.
+        </p>
+    </div>
+</div>
+
 
 <style>
+
+
+
+/* =========================================================
+   PILOT NOTICE
+========================================================= */
+
+.pilot-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    margin-top: 0.8rem;
+    padding: 0.8rem 1rem;
+
+    background: #eef4f8;
+    border: 1px solid #cbdde8;
+    border-left: 4px solid #245f80;
+    border-radius: 10px;
+
+    color: #334155;
+}
+
+.pilot-icon {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+    background: #dcebf3;
+
+    font-size: 0.85rem;
+}
+
+.pilot-notice strong {
+    display: block;
+
+    margin-bottom: 0.2rem;
+
+    color: #0f2a3a;
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+.pilot-notice p {
+    margin: 0;
+
+    color: #475569;
+    font-size: 0.58rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .pilot-notice {
+        padding: 0.75rem;
+    }
+}
+
+
+
 /* =========================================================
    SUGGEST A COURSE
 ========================================================= */
@@ -639,7 +719,7 @@ body.modal-open {
 .sidebar-header h3 {
     margin: 0 0 .75rem;
     color: #0f2a3a;
-    font-size:0.6rem;
+    font-size:0.8rem;
 }
 
 .sidebar-action {
@@ -839,7 +919,7 @@ body.modal-open {
     background: #fff;
     border: 1px solid #e5e7eb;
     border-radius: 18px;
-    padding: 1.25rem;
+    padding: 1rem;
     margin-top: 1rem;
     box-shadow: 0 4px 12px rgba(0,0,0,.05);
 }
@@ -914,16 +994,17 @@ body.modal-open {
 
 
 #topic-sidebar details {
-    margin-bottom: .4rem;
+    margin-bottom: .2rem;
 }
 
 #topic-sidebar summary {
     cursor: pointer;
     font-weight: 700;
     color: #0f2a3a;
-    padding: 0.1rem;
+    padding: 0.05rem;
     list-style: none;
-    font-size: 0.8rem;
+    font-size: 0.65rem;
+    margin-bottom: 0rem !important;
 }
 
 #topic-sidebar summary::-webkit-details-marker {
@@ -949,20 +1030,20 @@ body.modal-open {
 
 .topic-sublist {
     list-style: none;
-    margin: .3rem 0 0;
+    margin: .1rem 0 0;
     padding-left: 1rem;
 }
 
 .topic-sublist li {
-    margin: .2rem 0;
+    margin: 0;
 }
 
 .topic-link {
     display: inline-block;
-    padding: .15rem 0;
+    padding: .08rem 0;
     color: #4b5563;
     text-decoration: none;
-    font-size: .8rem;
+    font-size: .6rem;
     font-weight: 500;
     transition: color .2s ease;
 }

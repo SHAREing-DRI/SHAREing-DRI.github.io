@@ -7,6 +7,25 @@ header:
   overlay_image: /assets/images/banner-big.png
 ---
 
+<section class="training-launch">
+  <div class="training-launch-content">
+    <span class="training-launch-label">NEW RESOURCE</span>
+
+    <h2>External Training Catalogue</h2>
+
+    <p>
+      Looking for training in HPC, AI, research software engineering,
+      programming or performance optimisation? Explore our new
+      <strong>external training catalogue</strong>, bringing together
+      publicly available training opportunities in one searchable place.
+    </p>
+
+    <a href="/training/external-training-menu" class="training-launch-button">
+      Explore the catalogue →
+    </a>
+  </div>
+</section>
+
 
 
 <section class="section-wide section-muted">
@@ -67,17 +86,7 @@ header:
 
 
   
-  <div class="news-card">
-  <div class="news-content">
-  
-    <span class="news-date">June 2026</span>
-    <h3>Durham HPC Days 2026</h3>
-    
-    <p>
-   This year's Durham HPC Days received great support from SHAREing. Eva Fernandez Amez takes us behind the scenes <a href="/blogpost/hpcdays-2026/">in this blog post</a>, offering a sneak peek into what goes into organising a conference, how it can best serve the community, and how it helps strengthen the projects that bring us together.
-</p>
-  </div>
-</div>  
+
 
 
 
@@ -93,6 +102,19 @@ header:
     
    <details class="past-news">
     <summary>Past news</summary>
+
+
+      <div class="news-card">
+  <div class="news-content">
+  
+    <span class="news-date">June 2026</span>
+    <h3>Durham HPC Days 2026</h3>
+    
+    <p>
+   This year's Durham HPC Days received great support from SHAREing. Eva Fernandez Amez takes us behind the scenes <a href="/blogpost/hpcdays-2026/">in this blog post</a>, offering a sneak peek into what goes into organising a conference, how it can best serve the community, and how it helps strengthen the projects that bring us together.
+</p>
+  </div>
+</div>  
 
        <div class="news-card">
   <div class="news-content">
@@ -344,6 +366,102 @@ Some of our team members had the opportunity to attend the DRI Retreat in Manche
 
 <style>
 
+
+/* =========================================================
+   EXTERNAL TRAINING LAUNCH
+========================================================= */
+
+.training-launch {
+  width: 100%;
+  margin: 0 0 3rem 0;
+  padding: 2rem 2.5rem;
+  margin-top: 2rem;
+  background: linear-gradient(
+    135deg,
+    #f3e8f5 0%,
+    #eef4f8 100%
+  );
+
+  border: 1px solid #dfcbe3;
+  border-left: 6px solid #68246d;
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+.training-launch-content {
+
+}
+
+.training-launch-label {
+  display: inline-block;
+
+  margin-bottom: 0.6rem;
+  padding: 0.3rem 0.7rem;
+
+  background: #68246d;
+  color: white;
+
+  border-radius: 999px;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.training-launch h2 {
+  margin: 0 0 0.7rem;
+
+  color: #0f2a3a;
+  font-size: clamp(1rem, 3vw, 1.7rem);
+}
+
+.training-launch p {
+  max-width: 1200px;
+
+  margin: 0 0 1.2rem;
+
+  color: #475569;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.training-launch-button {
+  display: inline-block;
+
+  padding: 0.7rem 1.3rem;
+
+  background: #68246d;
+  color: white !important;
+
+  border-radius: 10px;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none !important;
+
+  transition: all 0.2s ease;
+}
+
+.training-launch-button:hover {
+  background: #8b3a92;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 600px) {
+  .training-launch {
+    padding: 1.5rem;
+  }
+
+  .training-launch h2 {
+    font-size: 1.5rem;
+  }
+
+  .training-launch p {
+    font-size: 0.9rem;
+  }
+}
 
 
 @keyframes fadeUp {
