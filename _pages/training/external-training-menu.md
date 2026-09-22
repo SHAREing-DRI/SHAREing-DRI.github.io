@@ -1,6 +1,6 @@
 ---
 layout: splash
-permalink: /training/external-training-test
+permalink: /training/external-training-menu
 classes: wide
 ---
 
