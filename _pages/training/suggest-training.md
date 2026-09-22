@@ -1976,7 +1976,7 @@ Thank you for suggesting a training course for the SHAREing External Training Ca
 
 
       const githubUrl =
-        "https://github.com/mzhc13/SHAREing-DRI.github.io/issues/new" +
+        "https://github.com/SHAREing-DRI/SHAREing-DRI.github.io/issues/new" +
         "?title=" +
         encodeURIComponent(issueTitle) +
         "&body=" +
