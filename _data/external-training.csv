@@ -22,7 +22,7 @@ The Unix Shell,Library Carpentry,Online (self-service),Unix,Self-paced,Online,ht
 Message Passing programming with MPI,EPCC/ARCHER2,Scheduled (in-person),MPI,9-10 September 2026,Durham,https://www.archer2.ac.uk/training/courses/260909-mpi/
 Running GeoChemFoam on HPC: From Micro-CT Images to Remote Visualisation,EPCC/ARCHER2,Scheduled (online),Other,16 September 2026,Online,https://www.archer2.ac.uk/training/courses/260916-geochemfoam-vt/
 Message-Passing with MPI,EPCC/ARCHER2,Online (self-service),"Parallelism, MPI",Self-paced,Online,https://www.archer2.ac.uk/training/courses/210000-mpi-self-service/
-Hands-on Introduction to HPC,EPCC/ARCHER2,Online (self-service),"Intro to HPC",Self-paced,Online,https://www.archer2.ac.uk/training/courses/240000-intro-hpc-self-service/
+Hands-on Introduction to HPC,EPCC/ARCHER2,Online (self-service),Intro to HPC,Self-paced,Online,https://www.archer2.ac.uk/training/courses/240000-intro-hpc-self-service/
 Shared Memory Programming with OpenMP,EPCC/ARCHER2,Online (self-service),OpenMP,Self-paced,Online,https://www.archer2.ac.uk/training/courses/210000-openmp-self-service/
 Green software use on HPC,EPCC,Scheduled (in-person),Other,2 October 2026,University of Cambridge,https://www.archer2.ac.uk/training/courses/261002-green-computing/
 Cirrus NCR: transition information for ARCHER2 users and projects,ARCHER2,Scheduled (online),,Wednesday 23rd September 2026 15:00 - 16:00,Online,https://www.archer2.ac.uk/training/courses/260923-cirrus-transition-vt/
@@ -33,3 +33,4 @@ Transferring data from ARCHER2,ARCHER2,Scheduled (online),,Wednesday 7th October
 Containers for Reproducible Research: Introduction to Podman and Apptainer,ARCHER2,Scheduled (in person),Containers,7 October 2026 09:30 - 16:00,"SALC 10, Level 5, Sherfield Building, Imperial College London",https://www.archer2.ac.uk/training/courses/261007-containers/
 Modern C++ for Computational Scientists,ARCHER2,Scheduled (online),C++,14 - 16 October 2026 09:30 - 16:30,Online,https://www.archer2.ac.uk/training/courses/261014-modern-c/
 High-Performance Computing Concepts Introduction,Durham University,Online (self-service),Other,Self-paced,Online,https://shareing-dri.github.io/hpc-concepts-course/
+Introduction to Scientific Software Programming in C and C++,Durham University and DiRAC,Online (self-service),C/C++,Self-paced,Online,https://training-academy.dirac.ac.uk/enrol/index.php?id=23
