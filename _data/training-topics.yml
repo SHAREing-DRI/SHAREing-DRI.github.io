@@ -1,21 +1,22 @@
 Languages 💬:
   - Fortran
-  - C++
   - C/C++
   - Julia
   - Python
+  - Other Languages
 
 Parallelism 🔀:
-  - Parallelism
   - OpenMP
   - MPI
+  - I/O
+  - Hybrid
 
 GPU 🎮:
-  - GPU
   - OpenMP offload
   - OpenACC
   - CUDA
   - HIP
+  - Other GPU
 
 Performance 📊:
   - Performance Engineering
@@ -35,3 +36,6 @@ Other 📦:
 Community 🎉:
   - Seminar
   - Community
+
+Getting started 👣:
+  - Intro to HPC
