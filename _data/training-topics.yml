@@ -6,10 +6,10 @@ Languages 💬:
   - Other Languages
 
 Parallelism 🔀:
-  - Parallelism
   - OpenMP
   - MPI
   - I/O
+  - Hybrid
 
 GPU 🎮:
   - OpenMP offload
