@@ -163,6 +163,12 @@ classes: wide
      LEARNING PATHWAY PANEL
 ============================================================ -->
 
+<div
+    id="pathway-backdrop"
+    class="pathway-backdrop"
+    aria-hidden="true"
+></div>
+
 <aside
     id="pathway-panel"
     class="pathway-panel"
@@ -237,14 +243,54 @@ classes: wide
                 0 courses
             </strong>
 
-            <span>
+            <span id="pathway-summary-hint">
                 Drag courses to change their order.
             </span>
 
         </div>
 
 
-        <div class="pathway-canvas-controls">
+        <div class="pathway-view-toggle" role="tablist" aria-label="Pathway view">
+
+            <button
+                type="button"
+                id="pathway-view-list-btn"
+                class="pathway-view-btn active"
+                data-view="list"
+                role="tab"
+                aria-selected="true"
+            >
+                📋 List view
+            </button>
+
+            <button
+                type="button"
+                id="pathway-view-map-btn"
+                class="pathway-view-btn"
+                data-view="map"
+                role="tab"
+                aria-selected="false"
+            >
+                🗺️ Map view
+            </button>
+
+        </div>
+
+
+        <p
+            id="pathway-map-hint"
+            class="pathway-map-hint"
+            style="display:none;"
+        >
+            Drag cards to arrange them, and drag from the dots on a card's edge to connect steps.
+        </p>
+
+
+        <div
+            id="pathway-canvas-controls"
+            class="pathway-canvas-controls"
+            style="display:none;"
+        >
 
     <button
         type="button"
@@ -362,65 +408,88 @@ document.addEventListener("DOMContentLoaded", function () {
        DATA
        ============================================================ */
 
-    const courses =
-        {{ site.data["external-training"] | jsonify }};
+const allCourses = {{ site.data["external-training"] | jsonify }};
+
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+const courses = allCourses.filter(course => {
+    const dates = course.dates.trim();
+
+    
+    if (
+        dates.toLowerCase() === "self-paced" ||
+        dates.toLowerCase() === "rolling basis"
+    ) {
+        return true;
+    }
+
+    
+    const yearMatch = dates.match(/\b(20\d{2})\b/);
+    if (!yearMatch) {
+        return true;
+    }
+
+    const year = parseInt(yearMatch[1], 10);
+
+    
+    const monthMatch = dates.match(
+        /\b(January|February|March|April|May|June|July|August|September|October|November|December)\b/i
+    );
+
+    if (!monthMatch) {
+        return true;
+    }
+
+    const monthNames = [
+        "January", "February", "March", "April",
+        "May", "June", "July", "August",
+        "September", "October", "November", "December"
+    ];
+
+    const month = monthNames.findIndex(
+        m => m.toLowerCase() === monthMatch[1].toLowerCase()
+    );
+
+    
+    const beforeMonth = dates.substring(0, monthMatch.index);
+
+    
+    const dayMatches = beforeMonth.match(/\d+/g);
+
+    if (!dayMatches) {
+        return true;
+    }
+
+    
+    const endDay = parseInt(dayMatches[dayMatches.length - 1], 10);
+
+    const courseEndDate = new Date(year, month, endDay);
+    courseEndDate.setHours(0, 0, 0, 0);
+
+    return courseEndDate >= today;
+});
 
 
-    const topicGroups = {
+const trainingTopics =
+    {{ site.data["training-topics"] | jsonify }};
 
-        "Languages": {
-            icon: "💬",
-            topics: ["Fortran", "C++", "Julia", "Python"]
-        },
+const topicGroups = {};
 
-        "Parallelism": {
-            icon: "🔀",
-            topics: [
-                "MPI",
-                "OpenMP",
-                "Parallel Programming",
-                "Parallel Computing"
-            ]
-        },
+Object.entries(trainingTopics).forEach(
+    ([groupName, topics]) => {
 
-        "GPU": {
-            icon: "🎮",
-            topics: ["GPU", "CUDA", "HIP", "OpenACC"]
-        },
+        const parts = groupName.trim().split(/\s+/);
+        const icon = parts.pop();
+        const name = parts.join(" ");
 
-        "Performance": {
-            icon: "📈",
-            topics: [
-                "Performance",
-                "Performance Analysis",
-                "Benchmarking",
-                "Optimisation",
-                "Profiling"
-            ]
-        },
+        topicGroups[name] = {
+            icon: icon,
+            topics: topics
+        };
 
-        "Other": {
-            icon: "📦",
-            topics: [
-                "Containers",
-                "I/O",
-                "Tools",
-                "Software Engineering",
-                "Research Software Engineering"
-            ]
-        },
-
-        "Community": {
-            icon: "🌍",
-            topics: [
-                "Seminar",
-                "Community",
-                "Career Development",
-                "Professional Skills"
-            ]
-        }
-
-    };
+    }
+);
 
 
     /* ============================================================
@@ -466,6 +535,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const pathwayPanel =
         document.getElementById("pathway-panel");
 
+    const pathwayBackdrop =
+        document.getElementById("pathway-backdrop");
+
     const openPathwayButton =
         document.getElementById("open-pathway");
 
@@ -498,6 +570,21 @@ const pathwayZoomIndicator =
 
     const pathwaySummaryCount =
         document.getElementById("pathway-summary-count");
+
+    const pathwaySummaryHint =
+        document.getElementById("pathway-summary-hint");
+
+    const pathwayViewListBtn =
+        document.getElementById("pathway-view-list-btn");
+
+    const pathwayViewMapBtn =
+        document.getElementById("pathway-view-map-btn");
+
+    const pathwayCanvasControls =
+        document.getElementById("pathway-canvas-controls");
+
+    const pathwayMapHint =
+        document.getElementById("pathway-map-hint");
 
     const clearPathwayButton =
         document.getElementById("clear-pathway");
@@ -536,6 +623,9 @@ const pathwayZoomIndicator =
     const layoutStorageKey =
         "shareing-training-pathway-layout";
 
+    const viewModeStorageKey =
+        "shareing-training-pathway-view";
+
 
     let pathwayIds = [];
 
@@ -543,6 +633,10 @@ const pathwayZoomIndicator =
         positions: {},
         connections: []
     };
+
+    let pathwayViewMode = "list";
+
+    let draggedPathwayId = null;
 
 
     try {
@@ -604,6 +698,28 @@ const pathwayZoomIndicator =
             positions: {},
             connections: []
         };
+
+    }
+
+
+    try {
+
+        const savedView =
+            localStorage.getItem(
+                viewModeStorageKey
+            );
+
+        if (
+            savedView === "list" ||
+            savedView === "map"
+        ) {
+            pathwayViewMode = savedView;
+        }
+
+    }
+    catch (error) {
+
+        pathwayViewMode = "list";
 
     }
 
@@ -879,7 +995,512 @@ const pathwayZoomIndicator =
 
 
     /* ============================================================
-       PATHWAY CANVAS
+       PATHWAY VIEW SWITCHING
+       ============================================================ */
+
+    function applyViewModeUI() {
+
+        const isMap =
+            pathwayViewMode === "map";
+
+        pathwayViewListBtn.classList.toggle(
+            "active",
+            !isMap
+        );
+
+        pathwayViewListBtn.setAttribute(
+            "aria-selected",
+            String(!isMap)
+        );
+
+        pathwayViewMapBtn.classList.toggle(
+            "active",
+            isMap
+        );
+
+        pathwayViewMapBtn.setAttribute(
+            "aria-selected",
+            String(isMap)
+        );
+
+        pathwayCanvasControls.style.display =
+            isMap ? "flex" : "none";
+
+        pathwayMapHint.style.display =
+            isMap ? "block" : "none";
+
+        pathwaySummaryHint.textContent =
+            isMap
+                ? "Drag cards to arrange them, and drag from a card's dots to connect steps."
+                : "Drag a card, or use ↑ / ↓, to reorder.";
+
+        if (downloadPathwayButton) {
+
+            downloadPathwayButton.textContent =
+                isMap
+                    ? "↓ Download pathway map"
+                    : "↓ Download my learning pathway";
+
+        }
+
+    }
+
+
+    function switchPathwayView(view) {
+
+        if (
+            view !== "list" &&
+            view !== "map"
+        ) {
+            return;
+        }
+
+        if (pathwayViewMode === view) {
+            return;
+        }
+
+        pathwayViewMode = view;
+
+        try {
+
+            localStorage.setItem(
+                viewModeStorageKey,
+                view
+            );
+
+        }
+        catch (error) {}
+
+        applyViewModeUI();
+
+        renderActiveView();
+
+    }
+
+
+    function renderActiveView() {
+
+        if (pathwayViewMode === "map") {
+
+            renderPathway();
+
+        }
+        else {
+
+            renderPathwayListView();
+
+        }
+
+    }
+
+
+    pathwayViewListBtn.addEventListener(
+        "click",
+        function () {
+            switchPathwayView("list");
+        }
+    );
+
+    pathwayViewMapBtn.addEventListener(
+        "click",
+        function () {
+            switchPathwayView("map");
+        }
+    );
+
+
+    /* ============================================================
+       PATHWAY LIST VIEW (default, roadmap-style)
+       ============================================================ */
+
+    function renderPathwayListView() {
+
+        if (!pathwayList) {
+            return;
+        }
+
+        pathwayList.className =
+            "pathway-list";
+
+        pathwayList.innerHTML =
+            "";
+
+        pathwayIds.forEach(
+            (id, index) => {
+
+                const course =
+                    courseLookup[id];
+
+                if (!course) {
+                    return;
+                }
+
+                pathwayList.appendChild(
+                    createPathwayListItem(
+                        course,
+                        id,
+                        index
+                    )
+                );
+
+            }
+        );
+
+    }
+
+
+    function createPathwayListItem(course, id, index) {
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "pathway-item";
+
+        item.draggable =
+            true;
+
+        item.dataset.courseId =
+            id;
+
+        const topic =
+            getPrimaryTopic(course);
+
+        const metaParts = [
+            topic,
+            course.format
+                ? formatLabel(course.format)
+                : null
+        ].filter(Boolean);
+
+        item.innerHTML = `
+
+            <div class="pathway-number">
+                ${index + 1}
+            </div>
+
+            <div class="pathway-item-content">
+
+                <div class="pathway-item-title">
+                    ${escapeHtml(
+                        course.title ||
+                        "Untitled course"
+                    )}
+                </div>
+
+                ${
+                    course.organisation
+                        ? `
+                            <div class="pathway-item-organisation">
+                                ${escapeHtml(
+                                    course.organisation
+                                )}
+                            </div>
+                        `
+                        : ""
+                }
+
+                <div class="pathway-item-meta">
+                    ${escapeHtml(
+                        metaParts.join(" • ")
+                    )}
+                </div>
+
+                <div
+                    class="pathway-item-actions"
+                    draggable="false"
+                >
+
+                    <button
+                        type="button"
+                        class="pathway-move-button"
+                        data-dir="up"
+                        title="Move up"
+                        aria-label="Move up"
+                        ${index === 0 ? "disabled" : ""}
+                    >
+                        ↑
+                    </button>
+
+                    <button
+                        type="button"
+                        class="pathway-move-button"
+                        data-dir="down"
+                        title="Move down"
+                        aria-label="Move down"
+                        ${index === pathwayIds.length - 1 ? "disabled" : ""}
+                    >
+                        ↓
+                    </button>
+
+                    ${
+                        course.url
+                            ? `
+                                <a
+                                    class="pathway-view-button"
+                                    href="${escapeHtml(course.url)}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    View →
+                                </a>
+                            `
+                            : ""
+                    }
+
+                    <button
+                        type="button"
+                        class="pathway-remove-button"
+                    >
+                        Remove
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        item.querySelectorAll(
+            ".pathway-move-button"
+        ).forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        movePathwayItem(
+                            id,
+                            this.dataset.dir
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        item.querySelector(
+            ".pathway-remove-button"
+        ).addEventListener(
+            "click",
+            function () {
+
+                removeFromPathway(
+                    course
+                );
+
+            }
+        );
+
+
+        item.addEventListener(
+            "dragstart",
+            function (event) {
+
+                draggedPathwayId = id;
+
+                item.classList.add(
+                    "dragging"
+                );
+
+                try {
+
+                    event.dataTransfer.effectAllowed =
+                        "move";
+
+                    event.dataTransfer.setData(
+                        "text/plain",
+                        id
+                    );
+
+                }
+                catch (error) {}
+
+            }
+        );
+
+
+        item.addEventListener(
+            "dragend",
+            function () {
+
+                draggedPathwayId = null;
+
+                item.classList.remove(
+                    "dragging"
+                );
+
+                pathwayList
+                    .querySelectorAll(
+                        ".pathway-item"
+                    )
+                    .forEach(
+                        element =>
+                            element.classList.remove(
+                                "drag-over"
+                            )
+                    );
+
+            }
+        );
+
+
+        item.addEventListener(
+            "dragover",
+            function (event) {
+
+                if (
+                    !draggedPathwayId ||
+                    draggedPathwayId === id
+                ) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                item.classList.add(
+                    "drag-over"
+                );
+
+            }
+        );
+
+
+        item.addEventListener(
+            "dragleave",
+            function () {
+
+                item.classList.remove(
+                    "drag-over"
+                );
+
+            }
+        );
+
+
+        item.addEventListener(
+            "drop",
+            function (event) {
+
+                event.preventDefault();
+
+                item.classList.remove(
+                    "drag-over"
+                );
+
+                if (
+                    !draggedPathwayId ||
+                    draggedPathwayId === id
+                ) {
+                    return;
+                }
+
+                const rect =
+                    item.getBoundingClientRect();
+
+                const insertBefore =
+                    (event.clientY - rect.top) <
+                    rect.height / 2;
+
+                reorderPathway(
+                    draggedPathwayId,
+                    id,
+                    insertBefore
+                );
+
+                draggedPathwayId = null;
+
+            }
+        );
+
+
+        return item;
+
+    }
+
+
+    function movePathwayItem(id, direction) {
+
+        const index =
+            pathwayIds.indexOf(id);
+
+        if (index === -1) {
+            return;
+        }
+
+        const targetIndex =
+            direction === "up"
+                ? index - 1
+                : index + 1;
+
+        if (
+            targetIndex < 0 ||
+            targetIndex >= pathwayIds.length
+        ) {
+            return;
+        }
+
+        const temp =
+            pathwayIds[index];
+
+        pathwayIds[index] =
+            pathwayIds[targetIndex];
+
+        pathwayIds[targetIndex] =
+            temp;
+
+        savePathway();
+
+        renderPathwayListView();
+
+    }
+
+
+    function reorderPathway(draggedId, targetId, insertBefore) {
+
+        const fromIndex =
+            pathwayIds.indexOf(draggedId);
+
+        if (fromIndex === -1) {
+            return;
+        }
+
+        pathwayIds.splice(
+            fromIndex,
+            1
+        );
+
+        let targetIndex =
+            pathwayIds.indexOf(targetId);
+
+        if (targetIndex === -1) {
+            targetIndex =
+                pathwayIds.length;
+        }
+
+        if (!insertBefore) {
+            targetIndex += 1;
+        }
+
+        pathwayIds.splice(
+            targetIndex,
+            0,
+            draggedId
+        );
+
+        savePathway();
+
+        renderPathwayListView();
+
+    }
+
+
+    /* ============================================================
+       PATHWAY CANVAS (optional map view)
        ============================================================ */
 
         let pathwayCanvas = null;
@@ -2414,7 +3035,9 @@ hitArea.addEventListener(
             pathwayContent.style.display =
                 "block";
 
-            renderPathway();
+            applyViewModeUI();
+
+            renderActiveView();
 
         }
 
@@ -2884,6 +3507,19 @@ hitArea.addEventListener(
             "false"
         );
 
+        pathwayBackdrop.classList.add(
+            "open"
+        );
+
+        pathwayBackdrop.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.classList.add(
+            "pathway-scroll-lock"
+        );
+
         updatePathwayUI();
 
     }
@@ -2900,7 +3536,26 @@ hitArea.addEventListener(
             "true"
         );
 
+        pathwayBackdrop.classList.remove(
+            "open"
+        );
+
+        pathwayBackdrop.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.classList.remove(
+            "pathway-scroll-lock"
+        );
+
     }
+
+
+    pathwayBackdrop.addEventListener(
+        "click",
+        closePathwayPanel
+    );
 
 
     openPathwayButton.addEventListener(
@@ -3679,6 +4334,100 @@ pathwayResetButton.addEventListener(
         }
 
 
+        let html = null;
+
+        let filename =
+            "my-shareing-learning-pathway.html";
+
+
+        if (pathwayViewMode === "map") {
+
+            html =
+                buildMapDownloadHtml();
+
+            filename =
+                "my-shareing-learning-pathway-map.html";
+
+        }
+
+
+        /*
+         * Fall back to the list export if the map export
+         * could not be built (e.g. the canvas was not
+         * rendered for some reason).
+         */
+
+        if (!html) {
+
+            html =
+                buildListDownloadHtml();
+
+            filename =
+                "my-shareing-learning-pathway.html";
+
+        }
+
+
+        triggerHtmlDownload(
+            html,
+            filename
+        );
+
+    }
+
+
+    function triggerHtmlDownload(html, filename) {
+
+        const blob =
+            new Blob(
+                [html],
+                {
+                    type:
+                        "text/html;charset=utf-8"
+                }
+            );
+
+
+        const url =
+            URL.createObjectURL(
+                blob
+            );
+
+
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        link.href =
+            url;
+
+        link.download =
+            filename;
+
+
+        document.body.appendChild(
+            link
+        );
+
+        link.click();
+
+        link.remove();
+
+        URL.revokeObjectURL(
+            url
+        );
+
+    }
+
+
+    /* ------------------------------------------------------------
+       LIST EXPORT
+       ------------------------------------------------------------ */
+
+    function buildListDownloadHtml() {
+
         const rows =
             pathwayIds
                 .map(
@@ -3747,7 +4496,7 @@ pathwayResetButton.addEventListener(
                 .join("");
 
 
-        const html = `
+        return `
 
             <!DOCTYPE html>
 
@@ -3842,47 +4591,350 @@ pathwayResetButton.addEventListener(
 
         `;
 
+    }
 
-        const blob =
-            new Blob(
-                [html],
-                {
-                    type:
-                        "text/html;charset=utf-8"
+
+    /* ------------------------------------------------------------
+       MAP EXPORT
+       Snapshots the cards at their current dragged positions and
+       the connector lines exactly as drawn on screen, by reading
+       the live map DOM (same geometry helpers the on-screen map
+       already uses: handlePoint / getConnectionPoints / bezier).
+       ------------------------------------------------------------ */
+
+    function buildMapDownloadHtml() {
+
+        if (!pathwayNodes) {
+            return null;
+        }
+
+        const nodeElements =
+            Array.from(
+                pathwayNodes.querySelectorAll(
+                    ".pathway-node"
+                )
+            );
+
+        if (!nodeElements.length) {
+            return null;
+        }
+
+
+        let minX = Infinity;
+        let minY = Infinity;
+        let maxX = -Infinity;
+        let maxY = -Infinity;
+
+        const nodeData =
+            nodeElements.map(
+                element => {
+
+                    const x =
+                        parseFloat(element.style.left) || 0;
+
+                    const y =
+                        parseFloat(element.style.top) || 0;
+
+                    const w =
+                        element.offsetWidth;
+
+                    const h =
+                        element.offsetHeight;
+
+                    minX = Math.min(minX, x);
+                    minY = Math.min(minY, y);
+                    maxX = Math.max(maxX, x + w);
+                    maxY = Math.max(maxY, y + h);
+
+                    return {
+                        id: element.dataset.courseId,
+                        x: x,
+                        y: y,
+                        w: w,
+                        h: h
+                    };
+
                 }
             );
 
 
-        const url =
-            URL.createObjectURL(
-                blob
+        const padding = 40;
+
+        const offsetX =
+            padding - minX;
+
+        const offsetY =
+            padding - minY;
+
+        const canvasWidth =
+            (maxX - minX) + padding * 2;
+
+        const canvasHeight =
+            (maxY - minY) + padding * 2;
+
+
+        const validConnections =
+            pathwayLayout.connections.filter(
+                connection =>
+                    pathwayIds.includes(connection.from) &&
+                    pathwayIds.includes(connection.to)
             );
 
+        const pathsSvg =
+            validConnections
+                .map(
+                    connection => {
 
-        const link =
-            document.createElement(
-                "a"
-            );
+                        const source =
+                            pathwayNodes.querySelector(
+                                `[data-course-id="${CSS.escape(connection.from)}"]`
+                            );
+
+                        const target =
+                            pathwayNodes.querySelector(
+                                `[data-course-id="${CSS.escape(connection.to)}"]`
+                            );
+
+                        if (!source || !target) {
+                            return "";
+                        }
+
+                        const points =
+                            getConnectionPoints(
+                                source,
+                                target
+                            );
+
+                        const d =
+                            bezier(
+                                points.start.x + offsetX,
+                                points.start.y + offsetY,
+                                points.end.x + offsetX,
+                                points.end.y + offsetY
+                            );
+
+                        return `<path d="${d}" fill="none" stroke="#940594" stroke-width="2.5" opacity="0.75" />`;
+
+                    }
+                )
+                .join("");
 
 
-        link.href =
-            url;
+        const cardsHtml =
+            nodeData
+                .map(
+                    data => {
 
-        link.download =
-            "my-shareing-learning-pathway.html";
+                        const course =
+                            courseLookup[data.id];
+
+                        if (!course) {
+                            return "";
+                        }
+
+                        const topic =
+                            getPrimaryTopic(course);
+
+                        const metaParts = [
+                            topic,
+                            course.format
+                                ? formatLabel(course.format)
+                                : null
+                        ].filter(Boolean);
+
+                        return `
+
+                            <div
+                                class="map-card"
+                                style="left:${data.x + offsetX}px; top:${data.y + offsetY}px; width:${data.w}px;"
+                            >
+
+                                <div class="map-card-title">
+                                    ${
+                                        course.url
+                                            ? `
+                                                <a href="${escapeHtml(course.url)}">
+                                                    ${escapeHtml(
+                                                        course.title ||
+                                                        "Untitled course"
+                                                    )}
+                                                </a>
+                                              `
+                                            :
+                                            escapeHtml(
+                                                course.title ||
+                                                "Untitled course"
+                                            )
+                                    }
+                                </div>
+
+                                ${
+                                    course.organisation
+                                        ? `
+                                            <div class="map-card-org">
+                                                ${escapeHtml(
+                                                    course.organisation
+                                                )}
+                                            </div>
+                                          `
+                                        : ""
+                                }
+
+                                <div class="map-card-meta">
+                                    ${escapeHtml(
+                                        metaParts.join(" • ")
+                                    )}
+                                </div>
+
+                            </div>
+
+                        `;
+
+                    }
+                )
+                .join("");
 
 
-        document.body.appendChild(
-            link
-        );
+        return `
 
-        link.click();
+            <!DOCTYPE html>
 
-        link.remove();
+            <html lang="en">
 
-        URL.revokeObjectURL(
-            url
-        );
+            <head>
+
+                <meta charset="UTF-8">
+
+                <title>
+                    My SHAREing Learning Pathway – Map
+                </title>
+
+                <style>
+
+                    body {
+                        font-family:
+                            Arial,
+                            sans-serif;
+
+                        margin: 40px;
+
+                        color: #334155;
+
+                        background: #f8fafc;
+                    }
+
+                    h1 {
+                        color: #002a41;
+                    }
+
+                    .map-wrap {
+                        position: relative;
+
+                        width: ${canvasWidth}px;
+                        height: ${canvasHeight}px;
+
+                        margin-top: 20px;
+
+                        overflow: auto;
+                    }
+
+                    .map-wrap svg {
+                        position: absolute;
+
+                        left: 0;
+                        top: 0;
+
+                        overflow: visible;
+
+                        pointer-events: none;
+                    }
+
+                    .map-card {
+                        position: absolute;
+
+                        box-sizing: border-box;
+
+                        padding: 14px 16px;
+
+                        border:
+                            1px solid #d8dee6;
+
+                        border-radius: 12px;
+
+                        background: #ffffff;
+
+                        box-shadow:
+                            0 4px 12px rgba(15, 23, 42, .08);
+                    }
+
+                    .map-card-title {
+                        font-weight: 700;
+
+                        font-size: .85rem;
+
+                        color: #002a41;
+
+                        line-height: 1.35;
+                    }
+
+                    .map-card-title a {
+                        color: inherit;
+
+                        text-decoration: none;
+                    }
+
+                    .map-card-title a:hover {
+                        text-decoration: underline;
+                    }
+
+                    .map-card-org {
+                        margin-top: 6px;
+
+                        font-size: .65rem;
+
+                        font-weight: 700;
+
+                        text-transform: uppercase;
+
+                        color: #940594;
+                    }
+
+                    .map-card-meta {
+                        margin-top: 6px;
+
+                        font-size: .68rem;
+
+                        color: #64748b;
+                    }
+
+                </style>
+
+            </head>
+
+            <body>
+
+                <h1>
+                    My Learning Pathway – Map
+                </h1>
+
+                <div class="map-wrap">
+
+                    <svg
+                        width="${canvasWidth}"
+                        height="${canvasHeight}"
+                    >
+                        ${pathsSvg}
+                    </svg>
+
+                    ${cardsHtml}
+
+                </div>
+
+            </body>
+
+            </html>
+
+        `;
 
     }
 
@@ -5483,21 +6535,74 @@ body.scrolled .map-info-panel {
 
 
 /* ==============================================================
+   SCROLL LOCK (while the pathway panel is open)
+============================================================== */
+
+body.pathway-scroll-lock {
+
+    overflow: hidden;
+
+}
+
+
+/* ==============================================================
+   PATHWAY BACKDROP
+   Sits above the site's own header/nav (whatever z-index the
+   theme uses) so the panel never mixes visually with it, and
+   dims + blocks the rest of the page while the panel is open.
+============================================================== */
+
+.pathway-backdrop {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999998;
+
+    background:
+        rgba(15, 23, 42, 0.55);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+
+}
+
+
+.pathway-backdrop.open {
+
+    opacity: 1;
+    visibility: visible;
+
+}
+
+
+/* ==============================================================
    LEARNING PATHWAY PANEL
 ============================================================== */
 .pathway-panel {
     position: fixed;
-    z-index: 99999;
+    z-index: 999999;
 
-    top: 50%;
-    left: 50%;
+    /*
+     * inset + margin:auto centers the panel inside a box
+     * that is always 1rem smaller than the viewport on every
+     * side, so the panel can never be pushed off-screen or
+     * clipped, regardless of window height or page scroll.
+     */
+    inset: 1rem;
+    margin: auto;
 
     width: min(1000px, 90vw);
-    height: min(750px, 85vh);
+    height: min(750px, calc(100vh - 2rem));
+    max-height: calc(100vh - 2rem);
+
     box-sizing: border-box;
     padding: 2rem;
-
-    margin-top: 5rem;
 
     overflow-y: auto;
 
@@ -5510,7 +6615,6 @@ body.scrolled .map-info-panel {
         0 20px 60px rgba(15, 23, 42, 0.25);
 
     transform:
-        translate(-50%, -50%)
         scale(0.95);
 
     opacity: 0;
@@ -5524,7 +6628,6 @@ body.scrolled .map-info-panel {
 
 .pathway-panel.open {
     transform:
-        translate(-50%, -50%)
         scale(1);
 
     opacity: 1;
@@ -5733,6 +6836,90 @@ body.scrolled .map-info-panel {
     font-size: 0.7rem;
 
 }
+
+
+/* ==============================================================
+   PATHWAY VIEW TOGGLE
+============================================================== */
+
+.pathway-view-toggle {
+
+    display: flex;
+
+    gap: 0.4rem;
+
+    margin-bottom: 0.8rem;
+
+}
+
+
+.pathway-view-btn {
+
+    flex: 1;
+
+    padding: 0.55rem 0.7rem;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #64748b;
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.15s ease,
+        background 0.15s ease,
+        color 0.15s ease;
+
+}
+
+
+.pathway-view-btn:hover {
+
+    border-color: #c084c0;
+
+    color: #940594;
+
+}
+
+
+.pathway-view-btn.active {
+
+    border-color: #940594;
+
+    background: #940594;
+
+    color: #ffffff;
+
+}
+
+
+.pathway-map-hint {
+
+    margin: 0 0 0.8rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 7px;
+    background: #faf5fa;
+    color: #740574;
+    font-size: 0.6rem !important;
+    line-height: 1.4;
+
+}
+
+
+.pathway-map-hint p {
+
+    font-size: 0.6rem !important;
+ 
+}
+
 
 
 /* ==============================================================
