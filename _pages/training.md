@@ -84,12 +84,7 @@ classes: wide
   margin-top: 1rem;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  margin: 3rem auto;
-}
+
 
 .about-card {
   background: #ffffff;
@@ -110,7 +105,7 @@ classes: wide
 }
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin: 3rem 0;
 }
@@ -131,7 +126,7 @@ classes: wide
 }
 
 .about-card img {
-  height: 180px;
+  height: 230px;
   margin-bottom: 1rem;
 }
 
@@ -167,6 +162,13 @@ classes: wide
 
 <section class="about-grid">
 
+  <div class="about-card">
+  <img src="/assets/images/external-training.png" alt="Signpost">
+  <h3>External Training Catalogue</h3>
+  <p>Discover external training opportunities in HPC, AI, research software engineering, programming, performance optimisation, and related topics.</p>
+  <a href="/training/external-training-menu" class="about-button">Explore the Catalogue</a>
+  </div>
+
 
   <div class="about-card">
     <img src="/assets/logos/SwanseaUniversity.svg" alt="Swansea University">
@@ -196,4 +198,8 @@ classes: wide
     <p>A map of the space of knowledge one can obtain around how to program for GPUs, and links to where to learn more about each topic.</p>
     <a href="/training/gpu-programming-roadmap" class="about-button">Explore the map</a>
   </div>
+
+
+
+
 </section>
