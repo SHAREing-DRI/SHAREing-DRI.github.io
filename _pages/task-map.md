@@ -927,7 +927,7 @@ body.filter-completed .progress-col {
 
     <div class="column-title green">
       <div class="icon-circle">💡</div>
-      SUGGEST A NEW TASK – Call currently open
+      SUGGEST A NEW TASK – This call closed on 22 September.
     </div>
 
     <div class="flow-card green-card">
@@ -936,7 +936,7 @@ body.filter-completed .progress-col {
         <a href="https://shareing-dri.github.io/about/suggest-a-task">
           Submit your idea for a new task
         </a>
-        that matches one of the Work Package themes <strong> by 22 September </strong>
+        that matches one of the Work Package themes <strong> by 22 September 2026 (now closed) </strong>
       </p>
     </div>
 
