@@ -287,6 +287,134 @@ classes: wide
   line-height: 1.45;
 }
 
+
+
+/* =========================================================
+   DATE OPTIONS
+========================================================= */
+
+.date-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .15rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  padding: .35rem;
+  background: #fff;
+}
+
+.date-option {
+  display: flex !important;
+  align-items: center;
+  gap: .55rem;
+  padding: .6rem .65rem;
+  margin: 0 !important;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #334155;
+  font-size: .9rem;
+  font-weight: 400 !important;
+  transition: background .12s ease;
+}
+
+.date-option:hover {
+  background: #faf3fa;
+}
+
+/* Override the general .training-form input width:100% rule */
+.date-option input[type="radio"] {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  margin: 0;
+  padding: 0;
+  accent-color: #b906b9;
+}
+
+.date-option:has(input:checked) {
+  background: #faf3fa;
+}
+
+
+/* =========================================================
+   DATE FIELDS
+========================================================= */
+
+.date-fields {
+  margin-top: 1rem;
+}
+
+.date-fields > label,
+.date-range label,
+.time-range label {
+  display: block;
+  margin-bottom: .4rem;
+  color: #334155;
+  font-size: .88rem;
+  font-weight: 600;
+}
+
+.date-fields input[type="date"],
+.date-fields input[type="time"] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* Two date fields side by side on larger screens */
+
+.date-range {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* Optional time range, shown under the date(s) */
+
+.time-range {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #e2e8f0;
+}
+
+.time-range-label {
+  grid-column: 1 / -1;
+  margin: 0 0 -.2rem;
+  color: #64748b;
+  font-size: .82rem;
+}
+
+
+/* Validation */
+
+.field.invalid .date-options {
+  border-color: #c0392b !important;
+}
+
+.field.invalid .date-fields input {
+  border-color: #c0392b !important;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .date-options {
+    grid-template-columns: 1fr;
+  }
+
+  .date-range,
+  .time-range {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
 /* =========================================================
    VALIDATION
 ========================================================= */
@@ -434,7 +562,7 @@ classes: wide
   background: #faf3fa;
 }
 
-.tag-option input[type="checkbox"] {
+.tag-option input[type="radio"] {
   width: 17px;
   height: 17px;
   flex: 0 0 17px;
@@ -719,6 +847,7 @@ classes: wide
   .submit-helper {
     text-align: center;
   }
+}
 </style>
 
 <div class="training-form">
@@ -889,12 +1018,12 @@ SHAREing support has been used to curate, organise, and present publicly availab
 <label for="course-title">
 <h2 class="form-section-title">
   <span class="section-number">4</span>
-  Topics<span class="required">*</span>
+  Main Topic<span class="required">*</span>
 </h2>
 </label>
 
         <div class="help-text" style="margin-top:-.2rem;margin-bottom:.6rem;">
-          Select all topics that apply.
+          Select a topic
         </div>
 
 
@@ -937,7 +1066,7 @@ SHAREing support has been used to curate, organise, and present publicly availab
                     <label class="tag-option">
 
                       <input
-                        type="checkbox"
+                        type="radio"
                         name="tags"
                         value="{{ topic }}"
                       >
@@ -971,29 +1100,21 @@ SHAREing support has been used to curate, organise, and present publicly availab
         <div class="selected-tags" id="selected-tags"></div>
 
 
-        <div class="tags-footer">
+<div class="tags-footer">
 
-          <span
-            class="tags-count"
-            id="tags-count"
-            aria-live="polite"
-          >
-            No topics selected
-          </span>
+  <span class="tags-count" id="tags-count" aria-live="polite">
+    No topic selected
+  </span>
 
-          <button
-            type="button"
-            class="clear-tags"
-            id="clear-tags"
-          >
-            Clear all
-          </button>
+  <button type="button" class="clear-tags" id="clear-tags">
+    Clear
+  </button>
 
-        </div>
+</div>
 
 
         <span class="field-error">
-          Please select at least one topic.
+         Please select a topic.
         </span>
 
       </div>
@@ -1004,32 +1125,133 @@ SHAREing support has been used to curate, organise, and present publicly availab
     <!-- SCHEDULE -->
 
     <section class="form-section">
-     <div class="field" data-field="dates">
 
-<label for="course-title">
-<h2 class="form-section-title">
-  <span class="section-number">5</span>
-  Dates<span class="required">*</span>
-</h2>
-</label>
+
+
+<div class="field" data-field="dates">
+
+  <h2 class="form-section-title">
+    <span class="section-number">5</span>
+    Dates<span class="required">*</span>
+  </h2>
+
+  <div class="date-options">
+
+    <label class="date-option">
+      <input type="radio" name="date-type" value="self-paced">
+      <span>Self-paced (always available)</span>
+    </label>
+
+    <label class="date-option">
+      <input type="radio" name="date-type" value="one-day">
+      <span>One day course</span>
+    </label>
+
+    <label class="date-option">
+      <input type="radio" name="date-type" value="several-days">
+      <span>Several days</span>
+    </label>
+
+    <label class="date-option">
+      <input type="radio" name="date-type" value="tbd">
+      <span>Date yet to be determined</span>
+    </label>
+
+  </div>
+
+  <div
+    class="date-fields"
+    id="one-day-fields"
+    style="display: none;"
+  >
+    <label for="course-date">Course date</label>
+
+    <input
+      type="date"
+      id="course-date"
+      name="course-date"
+    >
+
+    <div class="time-range">
+
+      <div class="time-range-label">
+        Time (optional)
+      </div>
+
+      <div>
+        <label for="one-day-start-time">Start time</label>
+        <input type="time" id="one-day-start-time" name="one-day-start-time">
+      </div>
+
+      <div>
+        <label for="one-day-end-time">End time</label>
+        <input type="time" id="one-day-end-time" name="one-day-end-time">
+      </div>
+
+    </div>
+
+  </div>
+
+  <div
+    class="date-fields"
+    id="several-days-fields"
+    style="display: none;"
+  >
+    <div class="date-range">
+
+      <div>
+        <label for="start-date">Begin date</label>
 
         <input
-          type="text"
-          id="dates"
-          name="dates"
-          placeholder="e.g. 17–18 September 2026"
-          required
+          type="date"
+          id="start-date"
+          name="start-date"
         >
-
-        <span class="help-text">
-          No fixed dates? Use "Rolling basis", "Self-paced", etc.
-        </span>
-
-        <span class="field-error">
-          Please enter the course dates or indicate that it is ongoing/self-paced.
-        </span>
-
       </div>
+
+      <div>
+        <label for="end-date">Final date</label>
+
+        <input
+          type="date"
+          id="end-date"
+          name="end-date"
+        >
+      </div>
+
+    </div>
+
+    <div class="time-range">
+
+      <div class="time-range-label">
+        Time (optional, if the same each day)
+      </div>
+
+      <div>
+        <label for="several-days-start-time">Start time</label>
+        <input type="time" id="several-days-start-time" name="several-days-start-time">
+      </div>
+
+      <div>
+        <label for="several-days-end-time">End time</label>
+        <input type="time" id="several-days-end-time" name="several-days-end-time">
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <span class="help-text">
+    Choose the option that best describes when the training is available.
+    Times are optional and only used for scheduled courses.
+  </span>
+
+  <span class="field-error">
+    Please select a date option and provide the required date(s).
+  </span>
+
+</div>
 
 
       <div class="field" data-field="location">
@@ -1186,34 +1408,123 @@ SHAREing support has been used to curate, organise, and present publicly availab
 
   const DRAFT_KEY = "shareing-training-suggestion-draft";
 
-  const form = document.getElementById("training-suggestion-form");
-  const submitButton = document.getElementById("submit-button");
-  const submitLabel = document.getElementById("submit-button-label");
+  const MONTH_NAMES = [
+    "January", "February", "March", "April",
+    "May", "June", "July", "August",
+    "September", "October", "November", "December"
+  ];
 
-  const successBanner = document.getElementById("success-banner");
+  const form =
+    document.getElementById("training-suggestion-form");
 
-  const errorSummary = document.getElementById("form-error-summary");
-  const errorList = document.getElementById("form-error-list");
+  const submitButton =
+    document.getElementById("submit-button");
 
-  const progressFill = document.getElementById("progress-fill");
-  const progressCount = document.getElementById("progress-count");
-  const progressLabel = document.getElementById("progress-label");
+  const submitLabel =
+    document.getElementById("submit-button-label");
 
-  const draftStatus = document.getElementById("draft-status");
-  const draftStatusText = document.getElementById("draft-status-text");
+  const successBanner =
+    document.getElementById("success-banner");
 
-  const titleInput = document.getElementById("course-title");
-  const organisationInput = document.getElementById("organisation");
-  const formatSelect = document.getElementById("format");
-  const datesInput = document.getElementById("dates");
-  const locationInput = document.getElementById("location");
-  const urlInput = document.getElementById("course-url");
+  const errorSummary =
+    document.getElementById("form-error-summary");
 
-  const tagSearch = document.getElementById("tags-search");
-  const tagEmptyState = document.getElementById("tag-empty-state");
+  const errorList =
+    document.getElementById("form-error-list");
 
-  const tagCheckboxes = Array.from(
-    document.querySelectorAll('.tag-option input[type="checkbox"]')
+  const progressFill =
+    document.getElementById("progress-fill");
+
+  const progressCount =
+    document.getElementById("progress-count");
+
+  const progressLabel =
+    document.getElementById("progress-label");
+
+  const draftStatus =
+    document.getElementById("draft-status");
+
+  const draftStatusText =
+    document.getElementById("draft-status-text");
+
+
+  /* =========================================================
+     COURSE DETAILS
+  ========================================================= */
+
+  const titleInput =
+    document.getElementById("course-title");
+
+  const organisationInput =
+    document.getElementById("organisation");
+
+  const formatSelect =
+    document.getElementById("format");
+
+
+  /* =========================================================
+     DATES
+  ========================================================= */
+
+  const dateTypeInputs = Array.from(
+    document.querySelectorAll(
+      'input[name="date-type"]'
+    )
+  );
+
+  const oneDayFields =
+    document.getElementById("one-day-fields");
+
+  const severalDaysFields =
+    document.getElementById("several-days-fields");
+
+  const courseDateInput =
+    document.getElementById("course-date");
+
+  const startDateInput =
+    document.getElementById("start-date");
+
+  const endDateInput =
+    document.getElementById("end-date");
+
+  const oneDayStartTime =
+    document.getElementById("one-day-start-time");
+
+  const oneDayEndTime =
+    document.getElementById("one-day-end-time");
+
+  const severalDaysStartTime =
+    document.getElementById("several-days-start-time");
+
+  const severalDaysEndTime =
+    document.getElementById("several-days-end-time");
+
+
+  /* =========================================================
+     LOCATION & URL
+  ========================================================= */
+
+  const locationInput =
+    document.getElementById("location");
+
+  const urlInput =
+    document.getElementById("course-url");
+
+
+  /* =========================================================
+     TOPICS
+  ========================================================= */
+
+  const tagSearch =
+    document.getElementById("tags-search");
+
+  const tagEmptyState =
+    document.getElementById("tag-empty-state");
+
+  const tagInputs = Array.from(
+    document.querySelectorAll(
+      '.tag-option input[type="radio"]'
+    )
   );
 
   const selectedTagsContainer =
@@ -1225,14 +1536,13 @@ SHAREing support has been used to curate, organise, and present publicly availab
   const clearTagsButton =
     document.getElementById("clear-tags");
 
-
   /* =========================================================
      TAGS
   ========================================================= */
 
   function getSelectedTags() {
 
-    return tagCheckboxes
+    return tagInputs
       .filter(cb => cb.checked)
       .map(cb => cb.value);
 
@@ -1266,7 +1576,7 @@ SHAREing support has been used to curate, organise, and present publicly availab
       removeButton.addEventListener("click", () => {
 
         const checkbox =
-          tagCheckboxes.find(cb => cb.value === value);
+          tagInputs.find(cb => cb.value === value);
 
         if (checkbox) {
           checkbox.checked = false;
@@ -1287,41 +1597,35 @@ SHAREing support has been used to curate, organise, and present publicly availab
 
 
     if (selected.length === 0) {
-
-      tagsCountLabel.textContent =
-        "No topics selected";
-
+      tagsCountLabel.textContent = "No topic selected";
       clearTagsButton.classList.remove("show");
-
     } else {
-
-      tagsCountLabel.textContent =
-        selected.length === 1
-          ? "1 topic selected"
-          : `${selected.length} topics selected`;
-
+      tagsCountLabel.textContent = "1 topic selected";
       clearTagsButton.classList.add("show");
-
     }
 
   }
 
 
-  clearTagsButton.addEventListener("click", () => {
+  if (clearTagsButton) {
 
-    tagCheckboxes.forEach(cb => {
-      cb.checked = false;
+    clearTagsButton.addEventListener("click", () => {
+
+      tagInputs.forEach(cb => {
+        cb.checked = false;
+      });
+
+      renderSelectedTags();
+      saveDraft();
+      clearFieldError("tags");
+      updateProgress();
+
     });
 
-    renderSelectedTags();
-    saveDraft();
-    clearFieldError("tags");
-    updateProgress();
-
-  });
+  }
 
 
-  tagCheckboxes.forEach(cb => {
+  tagInputs.forEach(cb => {
 
     cb.addEventListener("change", () => {
 
@@ -1397,6 +1701,274 @@ SHAREing support has been used to curate, organise, and present publicly availab
 
 
   /* =========================================================
+     DATES
+  ========================================================= */
+
+  function getSelectedDateType() {
+
+    const selected =
+      dateTypeInputs.find(
+        input => input.checked
+      );
+
+    return selected
+      ? selected.value
+      : "";
+
+  }
+
+
+  /* Parse a YYYY-MM-DD string (from <input type="date">)
+     without timezone shifting. */
+
+  function parseISODate(value) {
+
+    if (!value) return null;
+
+    const [y, m, d] = value.split("-").map(Number);
+
+    if (!y || !m || !d) return null;
+
+    return { year: y, month: m, day: d };
+
+  }
+
+
+  function formatFullDate(parts) {
+    return `${parts.day} ${MONTH_NAMES[parts.month - 1]} ${parts.year}`;
+  }
+
+
+  function formatTimeSuffix(startTime, endTime) {
+
+    if (startTime && endTime) {
+      return ` ${startTime} - ${endTime}`;
+    }
+
+    return "";
+
+  }
+
+
+  function formatDateRange(startParts, endParts) {
+
+    if (
+      startParts.year === endParts.year &&
+      startParts.month === endParts.month
+    ) {
+
+      return (
+        `${startParts.day}-${endParts.day} ` +
+        `${MONTH_NAMES[startParts.month - 1]} ${startParts.year}`
+      );
+
+    }
+
+    if (startParts.year === endParts.year) {
+
+      return (
+        `${startParts.day} ${MONTH_NAMES[startParts.month - 1]} - ` +
+        `${endParts.day} ${MONTH_NAMES[endParts.month - 1]} ${startParts.year}`
+      );
+
+    }
+
+    return (
+      `${formatFullDate(startParts)} - ${formatFullDate(endParts)}`
+    );
+
+  }
+
+
+  function getDateValue() {
+
+    const dateType =
+      getSelectedDateType();
+
+    if (dateType === "self-paced") {
+      return "Self-paced (always available)";
+    }
+
+    if (dateType === "tbd") {
+      return "Date yet to be determined";
+    }
+
+    if (dateType === "one-day") {
+
+      const parts =
+        parseISODate(courseDateInput.value);
+
+      if (!parts) return "";
+
+      return (
+        formatFullDate(parts) +
+        formatTimeSuffix(
+          oneDayStartTime.value,
+          oneDayEndTime.value
+        )
+      );
+
+    }
+
+    if (dateType === "several-days") {
+
+      const startParts =
+        parseISODate(startDateInput.value);
+
+      const endParts =
+        parseISODate(endDateInput.value);
+
+      if (!startParts || !endParts) return "";
+
+      return (
+        formatDateRange(startParts, endParts) +
+        formatTimeSuffix(
+          severalDaysStartTime.value,
+          severalDaysEndTime.value
+        )
+      );
+
+    }
+
+    return "";
+
+  }
+
+
+  function updateDateFields() {
+
+    const selectedType =
+      getSelectedDateType();
+
+
+    /* Hide both date sections */
+
+    oneDayFields.style.display = "none";
+    severalDaysFields.style.display = "none";
+
+
+    /* Show the relevant date section */
+
+    if (selectedType === "one-day") {
+
+      oneDayFields.style.display = "block";
+
+    }
+
+    if (selectedType === "several-days") {
+
+      severalDaysFields.style.display = "block";
+
+    }
+
+
+    /* Required fields */
+
+    courseDateInput.required =
+      selectedType === "one-day";
+
+    startDateInput.required =
+      selectedType === "several-days";
+
+    endDateInput.required =
+      selectedType === "several-days";
+
+
+    /* Prevent end date being before start date */
+
+    if (startDateInput.value) {
+
+      endDateInput.min =
+        startDateInput.value;
+
+    } else {
+
+      endDateInput.removeAttribute("min");
+
+    }
+
+  }
+
+
+  /* Date option changes */
+
+  dateTypeInputs.forEach(input => {
+
+    input.addEventListener(
+      "change",
+      () => {
+
+        updateDateFields();
+
+        clearFieldError("dates");
+
+        saveDraft();
+        updateProgress();
+
+      }
+    );
+
+  });
+
+
+  /* Date / time changes */
+
+  [
+    courseDateInput,
+    oneDayStartTime,
+    oneDayEndTime,
+    severalDaysStartTime,
+    severalDaysEndTime
+  ].forEach(input => {
+
+    input.addEventListener(
+      "change",
+      () => {
+
+        clearFieldError("dates");
+
+        saveDraft();
+        updateProgress();
+
+      }
+    );
+
+  });
+
+
+  startDateInput.addEventListener(
+    "change",
+    () => {
+
+      updateDateFields();
+
+      clearFieldError("dates");
+
+      saveDraft();
+      updateProgress();
+
+    }
+  );
+
+
+  endDateInput.addEventListener(
+    "change",
+    () => {
+
+      clearFieldError("dates");
+
+      saveDraft();
+      updateProgress();
+
+    }
+  );
+
+
+  /* Initialise */
+
+  updateDateFields();
+
+  /* =========================================================
      VALIDATION
   ========================================================= */
 
@@ -1453,6 +2025,14 @@ SHAREing support has been used to curate, organise, and present publicly availab
 
     const errors = [];
 
+    const dateType = getSelectedDateType();
+
+    const endBeforeStart =
+      dateType === "several-days" &&
+      startDateInput.value &&
+      endDateInput.value &&
+      endDateInput.value < startDateInput.value;
+
     const checks = [
 
       {
@@ -1490,9 +2070,13 @@ SHAREing support has been used to curate, organise, and present publicly availab
       {
         field: "dates",
         valid:
-          datesInput.value.trim().length > 0,
+          dateType.length > 0 &&
+          getDateValue().length > 0 &&
+          !endBeforeStart,
         message:
-          "Dates are required."
+          endBeforeStart
+            ? "The end date must be after the start date."
+            : "Please select a date option and provide the required date(s)."
       },
 
       {
@@ -1540,7 +2124,6 @@ SHAREing support has been used to curate, organise, and present publicly availab
   const textInputs = [
     titleInput,
     organisationInput,
-    datesInput,
     locationInput,
     urlInput
   ];
@@ -1555,8 +2138,6 @@ SHAREing support has been used to curate, organise, and present publicly availab
           ? "title"
           : input === organisationInput
           ? "organisation"
-          : input === datesInput
-          ? "dates"
           : input === locationInput
           ? "location"
           : "url";
@@ -1633,7 +2214,7 @@ SHAREing support has been used to curate, organise, and present publicly availab
 
       getSelectedTags().length > 0,
 
-      datesInput.value.trim().length > 0,
+      getDateValue().length > 0,
 
       locationInput.value.trim().length > 0,
 
@@ -1647,13 +2228,18 @@ SHAREing support has been used to curate, organise, and present publicly availab
     const percentage =
       (completed / total) * 100;
 
+    if (progressFill) {
+      progressFill.style.width =
+        `${percentage}%`;
+    }
 
-    progressFill.style.width =
-      `${percentage}%`;
+    if (progressCount) {
+      progressCount.textContent =
+        `${completed} of ${total} completed`;
+    }
 
-    progressCount.textContent =
-      `${completed} of ${total} completed`;
 
+    if (!progressLabel) return;
 
     if (completed < 2) {
 
@@ -1738,12 +2324,45 @@ SHAREing support has been used to curate, organise, and present publicly availab
       const draft = {
 
         title: titleInput.value,
-        organisation: organisationInput.value,
-        format: formatSelect.value,
-        dates: datesInput.value,
-        location: locationInput.value,
-        url: urlInput.value,
-        tags: getSelectedTags()
+
+        organisation:
+          organisationInput.value,
+
+        format:
+          formatSelect.value,
+
+        dateType:
+          getSelectedDateType(),
+
+        courseDate:
+          courseDateInput.value,
+
+        startDate:
+          startDateInput.value,
+
+        endDate:
+          endDateInput.value,
+
+        oneDayStartTime:
+          oneDayStartTime.value,
+
+        oneDayEndTime:
+          oneDayEndTime.value,
+
+        severalDaysStartTime:
+          severalDaysStartTime.value,
+
+        severalDaysEndTime:
+          severalDaysEndTime.value,
+
+        location:
+          locationInput.value,
+
+        url:
+          urlInput.value,
+
+        tags:
+          getSelectedTags()
 
       };
 
@@ -1806,8 +2425,37 @@ SHAREing support has been used to curate, organise, and present publicly availab
     formatSelect.value =
       draft.format || "";
 
-    datesInput.value =
-      draft.dates || "";
+
+    dateTypeInputs.forEach(input => {
+
+      input.checked =
+        input.value === draft.dateType;
+
+    });
+
+    courseDateInput.value =
+      draft.courseDate || "";
+
+    startDateInput.value =
+      draft.startDate || "";
+
+    endDateInput.value =
+      draft.endDate || "";
+
+    oneDayStartTime.value =
+      draft.oneDayStartTime || "";
+
+    oneDayEndTime.value =
+      draft.oneDayEndTime || "";
+
+    severalDaysStartTime.value =
+      draft.severalDaysStartTime || "";
+
+    severalDaysEndTime.value =
+      draft.severalDaysEndTime || "";
+
+    updateDateFields();
+
 
     locationInput.value =
       draft.location || "";
@@ -1818,13 +2466,13 @@ SHAREing support has been used to curate, organise, and present publicly availab
 
     (draft.tags || []).forEach(value => {
 
-      const checkbox =
-        tagCheckboxes.find(
-          cb => cb.value === value
+      const radio =
+        tagInputs.find(
+          input => input.value === value
         );
 
-      if (checkbox) {
-        checkbox.checked = true;
+      if (radio) {
+        radio.checked = true;
       }
 
     });
@@ -1938,7 +2586,7 @@ SHAREing support has been used to curate, organise, and present publicly availab
         getSelectedTags().join(", ");
 
       const dates =
-        datesInput.value.trim();
+        getDateValue();
 
       const location =
         locationInput.value.trim();
