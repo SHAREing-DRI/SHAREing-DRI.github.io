@@ -6,6 +6,7 @@ start_date: 2026-12-15
 date: 2026-12-17
 location: Durham, UK
 project-type: Bootcamp
+web-page: https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlNBYKfhK2-NFm7I71VR_yNBUMTBWQURLSVI3N0VJRUE4U1A5Nkk0OFBaTS4u
 
 ---
 
@@ -21,6 +22,12 @@ The bootcamp will be delivered by expert facilitators (Helen Cramman and Lorrain
 If you have any questions about the Bootcamp, please contact Helen Cramman at researcher.development@durham.ac.uk.   
 
 
+# Register for the Bootcamp
+
+Spaces are limited to 20 participants to enable the interactive nature of the sessions. We ask that participants aim to attend all three days of the Bootcamp as this is required to get the most from the programme.
+
+
+[Register here](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlNBYKfhK2-NFm7I71VR_yNBUMTBWQURLSVI3N0VJRUE4U1A5Nkk0OFBaTS4u){: .btn .btn--event .btn--large}
 
 
 # What previous participants have said about the programme
@@ -35,12 +42,6 @@ If you have any questions about the Bootcamp, please contact Helen Cramman at re
 
 <i>I feel so much more confident embedding evaluation into my activities now, and I really enjoyed how accessible the entire programme was as it didn't make the process or aspects feel too academic/intimidating.</i>
 
-# Register for the Bootcamp
-
-Spaces are limited to 20 participants to enable the interactive nature of the sessions. We ask that participants aim to attend all three days of the Bootcamp as this is required to get the most from the programme.
-
-
-[Registration form coming soon](){: .btn .btn--event .btn--large}
 
 
 # Dates, times and location
