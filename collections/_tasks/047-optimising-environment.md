@@ -2,13 +2,13 @@
 title: "Optimising an HPC developer's environment - Task 047"
 layout: tasks
 image: assets/images/logo.png
-workpackage: "wp1.2"
+workpackage: "wp1.3"
 status: open
 ---
 
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda behind [WP 1.2](/workpackages/workpackage-1/).
+This task has been identified by the working groups as part of the agenda behind [WP 1.3](/workpackages/workpackage-1/).
 
 The task number is 047.
 
