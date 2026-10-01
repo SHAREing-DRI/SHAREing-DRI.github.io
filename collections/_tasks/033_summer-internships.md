@@ -5,7 +5,7 @@ layout: tasks
 image: assets/images/logo.png
 summary: 
 workpackage: "wp4.1"
-status: blocked
+status: open
 ---
 
 
