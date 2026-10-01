@@ -6,155 +6,612 @@ layout: default
 
 <style>
 
+:root {
+  --shareing-purple: #B906B9;
+  --shareing-purple-dark: #740574;
+  --shareing-dark: #002A41;
 
+  --text-main: #3f4a54;
+  --text-muted: #68737d;
 
-.page-header {
-  border-bottom: 1px solid #e5e7eb;
-  margin-bottom: 30px;
-  padding-bottom: 18px;
+  --border: #e1e6eb;
+  --white: #ffffff;
 }
 
-.page__title {
-  font-size: 2.3rem;
-  font-weight: 600;
-  color: #0f172a;
+
+/* =========================
+   HERO
+   ========================= */
+
+.task-hero {
+  position: relative;
+
+  max-width: 1050px;
+  margin: 1rem auto 2.2rem;
+  padding: 2.5rem 3rem;
+
+  background: linear-gradient(
+    135deg,
+    #f8fafd 0%,
+    #eef2f6 100%
+  );
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  overflow: hidden;
 }
 
-.task-lead,
-.task-wp,
+.task-hero::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 7px;
+
+  background: linear-gradient(
+    to bottom,
+    var(--shareing-purple),
+    var(--shareing-purple-dark)
+  );
+}
+
+.task-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Purple accent */
+
+.task-hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 7px;
+
+  background: linear-gradient(
+    to bottom,
+    var(--shareing-purple),
+    var(--shareing-purple-dark)
+  );
+}
+
+
+/* Soft decorative circle */
+
+.task-hero::after {
+  content: "";
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  right: -180px;
+  top: -210px;
+
+  border-radius: 50%;
+
+  background: rgba(185, 6, 185, 0.055);
+}
+
+
+.task-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+
+.task-eyebrow {
+  margin: 0 0 0.5rem !important;
+
+  color: var(--shareing-purple) !important;
+
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+
+.task-title {
+  margin: 0 !important;
+
+  color: var(--shareing-dark) !important;
+
+  font-size: clamp(2.1rem, 5vw, 2rem) !important;
+  font-weight: 800 !important;
+
+  line-height: 1.1 !important;
+}
+
+
+/* =========================
+   HERO META
+   ========================= */
+
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  gap: 0.6rem;
+
+  margin-top: 1.2rem;
+}
+
+
+.task-meta-item {
+  padding: 0.4rem 0.8rem;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+  border-radius: 6px;
+
+  color: var(--text-main);
+
+  font-size: 0.8rem;
+}
+
+
+.task-meta-label {
+  margin-right: 0.3rem;
+
+  color: var(--text-muted);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   STATUS
+   ========================= */
+
 .task-status {
-  font-size: 0.9rem;
-  margin-top: 6px;
-  color: #475569;
-}
+  padding: 0.4rem 0.8rem;
 
-/* Status badge style */
-.task-status {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 4px 10px;
   border-radius: 999px;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
-.status-open       { background:#dcfce7; color:#15803d; }
-.status-progress   { background:#ffedd5; color:#c2410c; }
-.status-completed  { background:#f1f5f9; color:#475569; }
-.status-propose    { background:#e0e7ff; color:#3730a3; }
-
-
-.apply-container {
-  margin-top: 70px;
-  padding-top: 40px;
-  border-top: 1px solid #e5e7eb;
-  text-align: left;  
+.status-open {
+  background: #e8f8ef;
+  color: #168044;
 }
 
-.apply-btn-main {
+.status-progress {
+  background: #fff1e5;
+  color: #c05a0a;
+}
+
+.status-completed {
+  background: #edf0f3;
+  color: #5f6b75;
+}
+
+.status-propose {
+  background: #eee8fb;
+  color: #603c9e;
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.apply-btn {
   display: inline-block;
-  background: #0E2841;
-  color: white !important;
-  padding: 0.7rem 1.4rem;
+
+  padding: 0.5rem 0.9rem;
+
+  background: var(--shareing-purple);
+
   border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: background 0.25s ease, color 0.25s ease;
-  box-shadow: none !important;
-}
 
-.apply-btn-main:hover {
-  background: #CDA3CD !important;
   color: #ffffff !important;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  text-decoration: none !important;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
-
-
-
-.apply-sidebar {
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid #e5e7eb;
-}
-
-.apply-btn-side {
-  display: block;
-  background: #0E2841;
-  color: white !important;
-  padding: 0.7rem 1.4rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  text-align: center;
-  transition: background 0.25s ease, color 0.25s ease;
-  box-shadow: none !important;
-}
-
-.apply-btn-side:hover {
-  background: #CDA3CD !important;
+.apply-btn:hover {
+  background: var(--shareing-purple-dark) !important;
   color: #ffffff !important;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   CONTENT
+   ========================= */
+
+.task-content {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   FIT TO PROGRAMME
+   ========================= */
+
+/*
+   Keep the heading and all its text together.
+   The JavaScript below treats this as one
+   introductory section.
+*/
+
+.task-introduction {
+  margin-bottom: 2.5rem;
+  padding-left: 1.2rem;
+
+  border-left: 4px solid var(--shareing-purple-dark);
+}
+
+
+.task-introduction h2 {
+  margin: 0 0 0.65rem !important;
+
+  color: var(--shareing-purple-dark) !important;
+
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+
+.task-introduction p {
+  margin: 0 0 0.6rem !important;
+
+  color: var(--text-main);
+
+  font-size: 0.92rem !important;
+  line-height: 1 !important;
+}
+
+.task-introduction p:last-child {
+  margin-bottom: 0 !important;
+}
+
+
+/* =========================
+   NORMAL CONTENT
+   ========================= */
+
+.task-section {
+  margin-bottom: 2rem;
+}
+
+
+.task-section h2 {
+  margin: 0 0 0.65rem !important;
+
+  color: var(--shareing-purple-dark) !important;
+
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+
+.task-section p {
+  margin-bottom: 1rem;
+
+  color: var(--text-main);
+
+  font-size: 0.92rem !important;
+  line-height: 1.7 !important;
+}
+
+
+.task-section ul,
+.task-section ol {
+  color: var(--text-main);
+
+  font-size: 0.92rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   FINAL CTA
+   ========================= */
+
+.task-cta {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1.5rem;
+
+  margin-top: 2.8rem;
+  padding: 1.3rem 1.5rem;
+
+  background: #f7f9fb;
+
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--shareing-purple);
+
+  border-radius: 10px;
+}
+
+
+.task-cta-title {
+  margin: 0 0 0.2rem !important;
+
+  color: var(--shareing-dark) !important;
+
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+}
+
+
+.task-cta-text {
+  margin: 0 !important;
+
+  color: var(--text-muted);
+
+  font-size: 0.82rem !important;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+  .task-hero {
+    padding: 2rem 1.5rem;
+  }
+
+  .task-title {
+    font-size: 2.2rem !important;
+  }
+
+  .task-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .task-cta .apply-btn {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
 }
 
 </style>
 
 
-<main id="main" class="main-content layout--single wide" aria-label="Content">
+<main id="main" class="layout--single wide" aria-label="Content">
 
-  <!-- SIDEBAR -->
-  <aside class="task-sidebar-open">
-
-    {% include task-sidebar-open.html %}
+  <div class="task-page">
 
 
+    <!-- =========================
+         HERO
+         ========================= -->
 
-  </aside>
+    <section class="task-hero">
 
-  <!-- PAGE -->
-  <article class="page">
+      <div class="task-hero-content">
 
-    <div class="page__inner-wrap">
-
-      <header class="page-header">
+        <p class="task-eyebrow">
+          SHAREing Task
+        </p>
 
         {% assign clean_title = page.title | markdownify | strip_html %}
-        <h1 id="page-title" class="page__title">{{ clean_title }}</h1>
 
-        {% if page.lead %}
-        <div class="task-lead"><b>Lead:</b> {{ page.lead }}</div>
-        {% endif %}
+        <h1 id="page-title" class="task-title">
+          {{ clean_title }}
+        </h1>
 
-        {% if page.workpackage %}
-        <div class="task-wp"><b>Work Package:</b> {{ page.workpackage }}</div>
-        {% endif %}
 
-        {% if page.status %}
-        <div class="task-status status-{{ page.status }}">
-          {{ page.status | capitalize }}
-        </div>
-        {% endif %}
+        <div class="task-meta">
 
-      </header>
+          {% if page.workpackage %}
+  <div class="task-meta-item">
+    <span class="task-meta-label">Work package</span>
+     {{ page.workpackage | remove: "wp" }}
+  </div>
+          {% endif %}
 
-      <div class="page__content">
-        <div class="e-content">
 
-          {{ content }}
+          {% if page.status %}
+            <div class="task-status status-{{ page.status }}">
+              {{ page.status | capitalize }}
+            </div>
+          {% endif %}
 
-          <!-- APPLY BUTTON (BOTTOM) -->
+
           {% if apply_url and page.status == "open" %}
-          <div class="apply-container">
-            <a href="{{ apply_url }}" class="apply-btn-main" target="_blank" rel="noopener">
+            <a
+              href="{{ apply_url }}"
+              class="apply-btn"
+              target="_blank"
+              rel="noopener"
+            >
               Propose a Solution
             </a>
-          </div>
           {% endif %}
 
         </div>
+
       </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTENT
+         ========================= -->
+
+    <div class="task-content">
+
+      {{ content }}
+
+
+      <!-- =========================
+           FINAL CTA
+           ========================= -->
+
+      {% if apply_url and page.status == "open" %}
+
+        <div class="task-cta">
+
+          <div>
+            <p class="task-cta-title">
+              Interested in this task?
+            </p>
+
+            <p class="task-cta-text">
+              Submit a proposal to deliver this work.
+            </p>
+          </div>
+
+          <a
+            href="{{ apply_url }}"
+            class="apply-btn"
+            target="_blank"
+            rel="noopener"
+          >
+            Propose a Solution
+          </a>
+
+        </div>
+
+      {% endif %}
 
     </div>
 
-  </article>
+  </div>
 
 </main>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const content = document.querySelector(".task-content");
+
+  if (!content) return;
+
+  const headings = Array.from(
+    content.querySelectorAll(":scope > h2")
+  );
+
+  if (!headings.length) return;
+
+
+  /*
+   * FIT TO PROGRAMME
+   *
+   * Keep the heading and all content belonging to it
+   * together in one simple introduction section.
+   */
+
+  const firstHeading = headings[0];
+
+  const introduction = document.createElement("section");
+
+  introduction.className = "task-introduction";
+
+  content.insertBefore(introduction, firstHeading);
+
+  let current = firstHeading;
+
+  while (current) {
+
+    const next = current.nextElementSibling;
+
+    introduction.appendChild(current);
+
+    if (
+      !next ||
+      next.tagName.toLowerCase() === "h2"
+    ) {
+      break;
+    }
+
+    current = next;
+
+  }
+
+
+  /*
+   * SUMMARY / METHODOLOGY / OUTCOMES
+   *
+   * Keep these as normal text sections.
+   * No cards or boxes.
+   */
+
+  const remainingHeadings = Array.from(
+    content.querySelectorAll(":scope > h2")
+  );
+
+  remainingHeadings.forEach(function (heading) {
+
+    const section = document.createElement("section");
+
+    section.className = "task-section";
+
+    content.insertBefore(section, heading);
+
+    let current = heading;
+
+    while (current) {
+
+      const next = current.nextElementSibling;
+
+      section.appendChild(current);
+
+      if (
+        !next ||
+        next.tagName.toLowerCase() === "h2"
+      ) {
+        break;
+      }
+
+      current = next;
+
+    }
+
+  });
+
+});
+
+</script>
 
