@@ -141,10 +141,9 @@ layout: default
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  gap: 1rem;
+  margin-top:0.8rem;
 
-  gap: 0.6rem;
-
-  margin-top: 1.2rem;
 }
 
 
@@ -164,16 +163,12 @@ layout: default
 
 .task-meta-label {
   margin-right: 0.3rem;
-
   color: var(--text-muted);
-
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 700;
-
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-
 
 /* =========================
    STATUS
@@ -427,10 +422,14 @@ layout: default
     <section class="task-hero">
 
       <div class="task-hero-content">
+        <div class="task-meta">
 
-        <p class="task-eyebrow">
-          SHAREing Task
-        </p>
+                    {% if page.status %}
+            <div class="task-status status-{{ page.status }}">
+              {{ page.status | capitalize }}
+            </div>
+          {% endif %}
+        </div>
 
         {% assign clean_title = page.title | markdownify | strip_html %}
 
@@ -441,21 +440,14 @@ layout: default
 
         <div class="task-meta">
 
-          {% if page.workpackage %}
-  <div class="task-meta-item">
-    <span class="task-meta-label">Work package</span>
-     {{ page.workpackage | remove: "wp" }}
+{% if page.workpackage %}
+  <div class="task-meta-label">
+    <span>Work package</span>
+    {{ page.workpackage | remove: "wp" }}
   </div>
-          {% endif %}
-
-
-          {% if page.status %}
-            <div class="task-status status-{{ page.status }}">
-              {{ page.status | capitalize }}
-            </div>
-          {% endif %}
-
-
+{% endif %}
+</div>
+ <div class="task-meta">
           {% if apply_url and page.status == "open" %}
             <a
               href="{{ apply_url }}"
@@ -466,7 +458,7 @@ layout: default
               Propose a Solution
             </a>
           {% endif %}
-
+</div>
         </div>
 
       </div>
