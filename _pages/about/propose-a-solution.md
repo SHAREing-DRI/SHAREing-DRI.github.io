@@ -269,9 +269,8 @@ layout: splash
 
 <strong>📅 Application deadline</strong><br>
 
-The next call to propose solutions for open tasks will open on <strong>2 October 2026</strong> and close on <strong>20 November 2026</strong>.<br>
-
-If you have an idea for a new task that could be funded in this round, please <a href="https://shareing-dri.github.io/about/suggest-a-task">suggest your task</a> by <strong>22 September 2026</strong>.
+   The latest call for proposals to address open tasks opened on 2 October 2026 and <strong> closes on 20 November 2026 at 23:59 (UK time)</strong>.
+   This call features approved tasks that were suggested before 22 September 2026.
 
 </section>
 
@@ -304,8 +303,11 @@ If you have an idea for a new task that could be funded in this round, please <a
     </div>
     
      <div class="notice-box">
+
+
     <strong>📅 Application Deadlines</strong><br>
-   The next call to propose solutions for open tasks will open on <strong>2 October 2026</strong> and close on <strong>20 November 2026</strong>. If you have an idea for a new task that could be funded in this round, please <a href="https://shareing-dri.github.io/about/suggest-a-task">suggest your task</a> by <strong>22 September 2026</strong>.
+   The latest call for proposals to address open tasks opened on 2 October 2026 and <strong> closes on 20 November 2026 at 23:59 (UK time)</strong>.
+  
      </div>
 
     <div class="notice-box">
@@ -398,13 +400,13 @@ If you have an idea for a new task that could be funded in this round, please <a
     </a>
     </div>
 <div class="cta-buttons">
-    <a href="/assets/documents/task-application-form-pdf.pdf"
+    <a href="/assets/documents/propose-solution-form.pdf"
        class="cta-secondary">
        Download Application Template (PDF)
     </a></div>
     
       <div class="cta-buttons">
-      <a href="/assets/documents/task-application-form-word-document.docx"
+      <a href="/assets/documents/propose-solution-form.docx"
        class="cta-secondary">
        Download Application Template (Word Document)
     </a>

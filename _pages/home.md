@@ -33,6 +33,19 @@ header:
   
   <div class="news-grid">
 
+
+  
+     <div class="news-card">
+  <div class="news-content">
+    <span class="news-date">May 2026</span>
+    <h3>Next round of SHAREing's Flexible Funds is Now Open</h3>
+    <p>
+    The next round to Propose a solution to a current Open Task is now open! Check out the current <a href="https://shareing-dri.github.io/task-map/">open tasks</a>. The current deadline to <a href="/about/propose-a-solution">propose a solution to an open task</a> is <strong> 20 November 2026 at 23:59 (UK time) </strong> </p>
+  </div>
+</div>  
+
+
+
 <div class="news-card">
   <div class="news-content">
   
@@ -46,6 +59,31 @@ header:
 
   </div>
 </div> 
+
+<div class="news-card">
+  <div class="news-content">
+
+    <span class="news-date">September 2026</span>
+    <h3>SHAREing receives a Poster Prize at RSECon26!</h3>
+
+    <p>
+      We are delighted to share that SHAREing has won one of the poster prizes at RSECon26! Congratulations to the whole SHAREing team on this fantastic achievement, and a big thank you to the RSECon26 organising team for putting together such a great conference! <a href="https://zenodo.org/records/22129792">See the poster here</a>.
+    </p>
+
+  </div>
+</div>
+
+
+
+     
+
+     
+
+      
+    
+   <details class="past-news">
+    <summary>Past news</summary>
+
 
 <div class="news-card">
   <div class="news-content">
@@ -83,25 +121,6 @@ header:
 
   </div>
 </div>
-
-
-  
-
-
-
-
-
-
-
-
-     
-
-     
-
-      
-    
-   <details class="past-news">
-    <summary>Past news</summary>
 
 
       <div class="news-card">

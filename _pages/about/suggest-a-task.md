@@ -14,6 +14,43 @@ layout: splash
   --brand-blue: #002A41;
 }
 
+
+.funding-banner {
+  background: linear-gradient(90deg, #68246d, #940594);
+  color: white;
+  text-align: center;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.funding-banner a {
+  color: white;
+  font-weight: 700;
+  margin-left: 10px;
+  text-decoration: underline;
+  font-size: 0.7rem;
+}
+
+.funding-banner a:hover {
+  opacity: 0.85;
+}
+
+.parallax-hero-funding {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .parallax-hero {
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -257,6 +294,13 @@ layout: splash
     <h1>Suggest a New Task</h1>
   </div>
 </section>
+
+<section class="parallax-hero-funding">
+<div class="funding-banner">
+  ⏰ This call closed on <strong>22 September 2026</strong>. The approved tasks are now available on the<a href="https://shareing-dri.github.io/task-map/">Task Map →</a> A new call for task suggestions is planned for early 2027.
+</div>
+</section>
+
 
 <br>
 
