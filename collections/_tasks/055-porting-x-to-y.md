@@ -2,13 +2,13 @@
 title: "Porting from “X to Y” workshops -> Migrating between toolchains - Task 055"
 layout: tasks
 image: assets/images/logo.png
-workpackage: "wp2.3"
+workpackage: "wp2.4"
 status: open
 ---
 
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda behind [WP 2.3](/workpackages/workpackage-2/).
+This task has been identified by the working groups as part of the agenda behind [WP 2.4](/workpackages/workpackage-2/).
 
 The task number is 055.
 
