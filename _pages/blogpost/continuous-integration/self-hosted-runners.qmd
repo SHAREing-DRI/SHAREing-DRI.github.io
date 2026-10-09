@@ -21,20 +21,21 @@ We've previously talked about the [benefits of continuous integration](continuou
 >  - The testing system can be set up to automatically pull from a repository, meaning that anyone with write access can execute code on the test device. Managing permissions of the test user, and limiting access to resources may be required, in addition to controlling write access to the repository or branches with automated testing.
     - In shared environments (like most HPC clusters), denial of resources is possible with incorrect or malicious jobs. For instance, an incorrectly set partition could result in a series of tests overwhelming a specific hardware resource. Testing timeouts may be necessary.
 
-This blogpost contains ideas and concepts from a variety of sources, including but not limited to:
- - The User Manuals for [Jenkins](https://www.jenkins.io/doc/), [Singularity](https://singularityhub.github.io/), [Github Actions](https://docs.github.com/en/actions), [Gitlab CI/CD](https://docs.gitlab.com/ci/), [Spack](https://spack.io/), [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-container-toolkit), [Docker](https://www.docker.com/), [Slurm Workload manager](https://slurm.schedmd.com/overview.html)
- - Open Access articles including [Continuous Integration and Delivery for HPC: Using Singularity and Jenkins, Zebula Sampedro](https://dl.acm.org/doi/10.1145/3219104.3219147)
- - Event presentations, including [Building an efficient Continuous Integration workflow on HPC systems, RSECon 2024 - Tobias Ribizel](https://zenodo.org/records/14290374)
- - Blog Articles from the wider software engineering community, including those by [Martin Fowler](https://martinfowler.com/articles/continuousIntegration.html#StylesOfIntegration)
- - 
-
+> [!note]
+> This blogpost contains ideas and concepts from a variety of sources, including but not limited to:
+>  - The User Manuals for [Jenkins](https://www.jenkins.io/doc/), [Singularity](https://singularityhub.github.io/), [Github Actions](https://docs.github.com/en/actions), [Gitlab CI/CD](https://docs.gitlab.com/ci/), [Spack](https://spack.io/), [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-container-toolkit), [Docker](https://www.docker.com/), [Slurm Workload manager](https://slurm.schedmd.com/overview.html)
+>  - Open Access articles including [Continuous Integration and Delivery for HPC: Using Singularity and Jenkins, Zebula Sampedro](https://dl.acm.org/doi/10.1145/3219104.3219147)
+>  - Event presentations, including [Building an efficient Continuous Integration workflow on HPC systems, RSECon 2024 - Tobias Ribizel](https://zenodo.org/records/14290374)
+>  - Blog Articles from the wider software engineering community, including those by [Martin Fowler](https://martinfowler.com/articles/continuousIntegration.html#StylesOfIntegration)
+>  - 
 
 ## Self hosted vs off premises hosting
 The two options for hosting automated CI workflows are hosting a server, and paying someone to host a server for you. While it would appear that self hosting is the cheaper option, it is important that any funding streams, such as grant applications, take into account additional workload for System Administrators, additional hardware usage or procurement, and the possibility of downtime.
-Reasons to self host:
+
+#### Reasons to self host:
   - Hardware resources or software environments can't be fulfilled by major hosting companies offerings. With special reference to High Performance Computing applications, the requirements to fully test a program, or a parallelisation strategy, may require substantially more compute than can feasibly be purchased from major providers such as Gitlab and Github. In addition, the heterogeneous nature of the compute required can prevent a particular configuration from being requested at all·
   - More customisable, customisation must be documented.
-Reasons use off premises hosting:
+##### Reasons use off premises hosting:
   - Fast to set up
   - Documentation available, customisation must be documented
   - Relatively fixed costs
