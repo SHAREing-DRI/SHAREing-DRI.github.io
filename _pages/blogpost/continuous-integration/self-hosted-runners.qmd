@@ -1,0 +1,78 @@
+---
+title: "Continuous Integration - Self Hosted"
+date: 2026-9-8
+id: 20260908173315
+author: Andrew Naden
+---
+# Continuous Integration - Self Hosted
+8th Sep 2026 - Andrew Naden
+
+#continuous-integration
+<!--toc:start-->
+- [Continuous Integration - Self Hosted](#continuous-integration-self-hosted)
+  - [Introduction](#introduction)
+<!--toc:end-->
+Continued from last week's blog article: [Continuous Integration](continuous-integration.qmd)
+## Introduction 
+We've previously talked about the [benefits of continuous integration](continuous-integration.qmd) and [test matrices development](test-matrix.qmd). This blog article focuses on setting up continuous integration of high performance resources locally, instead of using a paid hosting option such as Github's or Gitlab's "runners".
+
+>[!caution]
+>Before implementing automated testing, it is important to acknowledge that there are security implications whenever new and untrusted or unverified code is executed locally. 
+>  - The testing system can be set up to automatically pull from a repository, meaning that anyone with write access can execute code on the test device. Managing permissions of the test user, and limiting access to resources may be required, in addition to controlling write access to the repository or branches with automated testing.
+    - In shared environments (like most HPC clusters), denial of resources is possible with incorrect or malicious jobs. For instance, an incorrectly set partition could result in a series of tests overwhelming a specific hardware resource. Testing timeouts may be necessary.
+
+
+
+## Self hosted vs off premises hosting
+The two options for hosting automated CI workflows are hosting a server, and paying someone to host a server for you. While it would appear that self hosting is the cheaper option, it is important that any funding streams, such as grant applications, take into account additional workload for System Administrators, additional hardware usage or procurement, and the possibility of downtime.
+Reasons to self host:
+  - Hardware resources or software environments can't be fulfilled by major hosting companies offerings. With special reference to High Performance Computing applications, the requirements to fully test a program, or a parallelisation strategy, may require substantially more compute than can feasibly be purchased from major providers such as Gitlab and Github. In addition, the heterogeneous nature of the compute required can prevent a particular configuration from being requested at all·
+  - More customisable, customisation must be documented.
+Reasons use off premises hosting:
+  - Fast to set up
+  - Documentation available, customisation must be documented
+  - Relatively fixed costs
+  - Separate pool of resources for compute vs testing
+  - Reduced security implications from poorly formulated program versions.
+  - Available from anywhere with an internet connection.
+
+  ## Automated test servers
+  ### Jenkins
+  ## Containers - reproducible build environments
+  ### Docker
+  ### Linux containers
+  ## Test matrix automation
+  ## Reproducible build systems
+  ### Spack
+  ### Singularity
+  [^1]
+
+## Walkthrough
+### SHAREing internal
+The structure of SHAREing's development at Durham is centralised on Github. Github organises continuous integration into Continuous Integration and Continuous Delivery (CI/CD). 
+The Github hosted build and test schema is called Github Actions. These are user defined or community maintained configurations which instruct a Github-hosted "Runner" ( a lightweight Linux, MacOS or Windows instance as detailed in the [Github Documentation](https://docs.github.com/en/actions/reference/runners/github-hosted-runners#supported-runners-and-hardware-resources) ). These configurations are defined in a Github flavoured dialect of YAML and are stored in a ` .github/workflows ` directory. These actions allow for the specification of a build and test matrix which can be triggered on certain Github events, such as pushes to a particular branch, or as part of pull requests. The matrix defines every combination of build condition and test, such that any particular build of a commit is tested completely. For example, a build stage may toggle support of the Message Passing Interface Standard, so it is important that the test suite tests both the version of the build with this capability, and the one without.
+
+
+
+
+
+[^1]: ```
+[Continuous Integration and Delivery for HPC: Using Singularity and Jenkins](https://doi.org/10.1145/3219104.3219147})
+<!-- @inproceedings{10.1145/3219104.3219147,
+author = {Sampedro, Zebula and Holt, Aaron and Hauser, Thomas},
+title = {Continuous Integration and Delivery for HPC: Using Singularity and Jenkins},
+year = {2018},
+isbn = {9781450364461},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3219104.3219147},
+doi = {10.1145/3219104.3219147},
+abstract = {Continuous integration, delivery, and deployment (CICD) is widely used in DevOps communities, as it allows for teams of all sizes to deploy rapidly-changing hardware and software resources quickly and confidently. In this paper, we will describe how University of Colorado Boulder Research Computing has adopted these practices on the RMACC Summit supercomputer [17] to allow system engineers and researchers alike to capitalize on the benefits of CICD-centric development workflows. We will introduce the topic of CICD at a high level and describe how such practices can ease common software management challenges for High-Performance Computing (HPC) resources. We will then document the infrastructure deployed for Summit, and explain how software such as Jenkins and Singularity enabled adaptation for an HPC environment. We will conclude with two case studies discussing the use of our CICD infrastructure: one case study from the perspective of a system engineer maintaining user-facing resources, and the other case study from the perspective of a researcher developing, maintaining, and using the MFiX-Exa codebase.},
+booktitle = {Proceedings of the Practice and Experience on Advanced Research Computing: Seamless Creativity},
+articleno = {6},
+numpages = {6},
+keywords = {MFIX-Exa, Singularity, containers, continuous delivery, continuous deployment, continuous integration, software automation, software builds},
+location = {Pittsburgh, PA, USA},
+series = {PEARC '18}
+}  -->
+```
