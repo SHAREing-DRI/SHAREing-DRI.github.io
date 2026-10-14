@@ -46,7 +46,7 @@ champions_pathway:
     <h1>HPC Champions: Performance Analysis</h1>
     <p>Join the first cohort of dRTPs building expertise in performance analysis, with travel and accommodation funding to attend the VI-HPS workshop in Durham.</p>
     <div class="hero-actions">
-      <a class="hc-btn hc-btn-light" href="[application link]">Apply now</a>
+      <a class="hc-btn hc-btn-light" href="[application link]">Applications will open soon</a>
       <a class="hc-btn hc-btn-ghost" href="#journey">See the learning journey</a>
     </div>
   </div>
@@ -93,9 +93,10 @@ champions_pathway:
     </div>
     <p class="path-desc">A curated route from the command line to the VI-HPS workshop in Durham. Start wherever suits your experience.</p>
     <p class="path-stats">{{ step_count }} steps{% if optional_count > 0 %}, {{ optional_count }} optional{% endif %}</p>
+        <!--
     <div class="path-actions">
       <a class="path-btn" href="{{ site.baseurl }}/training/external-training-menu">Open in the catalogue</a>
-    </div>
+    </div>-->
 
 <ol class="path-steps">
 {%- for step in steps %}
@@ -189,7 +190,7 @@ champions_pathway:
   <ul class="hc-checks">
     <li>You are a dRTP interested in performance analysis and optimisation of research software.</li>
     <li>You work with, or are preparing to work with, HPC systems.</li>
-    <li>You can attend the VI-HPS workshop in Durham, 17-19 May 2027.</li>
+    <li>You can attend the VI-HPS workshop in Durham, 17-20 May 2027.</li>
     <li>You want to engage with, and contribute to, a cohort of peers.</li>
   </ul>
 </section>
@@ -207,9 +208,9 @@ champions_pathway:
   <div class="hc-cta">
     <div>
       <h3>Ready to become a Champion?</h3>
-      <p>Applications close <strong>[closing date]</strong>.</p>
+      <p>Applications close <strong>23 November</strong>.</p>
     </div>
-    <a class="hc-btn hc-btn-light" href="[application link]">Apply now</a>
+    <a class="hc-btn hc-btn-light" href="[application link]">Applications will open soon</a>
   </div>
 </section>
 
@@ -328,10 +329,11 @@ champions_pathway:
     background: var(--blue-back); color: var(--ink);
 }
 .hc .hc-callout strong { color: var(--blue); }
-.hc .hc-checks { max-width: 820px; }
+.hc .hc-checks { max-width: 820px; margin-left: auto; margin-right: auto;}
 .hc .hc-checks li {
     position: relative; margin-bottom: 10px; padding: 12px 16px 12px 46px;
     border: 1px solid var(--line); border-radius: 10px; background: #fff;
+   
 }
 .hc .hc-checks li::before {
     content: "✓"; position: absolute; left: 14px; top: 11px; display: flex; align-items: center; justify-content: center;
