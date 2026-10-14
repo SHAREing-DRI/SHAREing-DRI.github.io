@@ -1,0 +1,111 @@
+# _data/training-pathways.yml
+#
+# Curated learning pathways for the External Training Catalogue.
+# Each pathway is shown as ONE continuous line of numbered steps, with
+# optional "spin-offs" hanging off a step as side branches.
+#
+# Each pathway has:
+#   id           unique short name (for your own reference)
+#   title        shown on the card (required)
+#   icon         a single emoji
+#   audience     short "who is this for" line
+#   description  one or two sentences
+#   courses      the main line, in order. Each step is either:
+#                  - a plain URL, or
+#                  - a mapping with:
+#                      url        (required)
+#                      note       (optional short hint shown under the step)
+#                      spinoffs   (optional list of side branches; each is
+#                                  a URL or a mapping with url + note)
+#
+# "Use pathway" / "+ Add to mine" load the main line only. Spin-offs are
+# optional extras that can be added one by one.
+#
+# Every `url` must match the `url` column in _data/external-training.csv
+# EXACTLY (including http/https and any trailing slash).
+#
+# Steps whose course has expired (or been removed from the CSV) are skipped
+# automatically, and the card shows "X of Y courses currently available".
+# Note: if a main step is skipped, its spin-offs are skipped with it.
+
+
+- id: performance-track
+  title: "Performance Assessment"
+  icon: "🚀"
+  audience: "Developers who want faster, more efficient code"
+  description: "Core-level, node-level and GPU performance engineering, plus tool-based tuning."
+  courses:
+    - url: "https://librarycarpentry.org/lc-shell/"
+    - url: "https://www.archer2.ac.uk/training/courses/240000-intro-hpc-self-service/"
+    - url: "https://shareing-dri.github.io/hpc-concepts-course/"
+    - url: "https://training-academy.dirac.ac.uk/enrol/index.php?id=23"
+    - url: "https://www.archer2.ac.uk/training/courses/210000-mpi-self-service/"
+    - url: "https://www.archer2.ac.uk/training/courses/210000-openmp-self-service/"
+    - url: "https://www.vi-hps.org/training/tws/tuning-workshop-series.html"
+
+- id: hpc-track
+  title: "HPC Track"
+  icon: "⚡"
+  audience: "Researchers new to high-performance computing"
+  description: "From the Unix shell to running parallel jobs on a cluster with OpenMP and MPI."
+  courses:
+    - url: "https://librarycarpentry.org/lc-shell/"
+      note: "Start here if you are not yet comfortable with the command line."
+    - url: "https://shareing-dri.github.io/hpc-concepts-course/"
+    - url: "https://www.archer2.ac.uk/training/courses/240000-intro-hpc-self-service/"
+    - url: "https://www.archer2.ac.uk/training/courses/261007-archer2-data-transfer-vt/"
+    - url: "https://www.archer2.ac.uk/training/courses/210000-openmp-self-service/"
+      spinoffs:
+        - url: "https://www.archer2.ac.uk/training/courses/261006-gpu-openmp/"
+    - url: "https://www.archer2.ac.uk/training/courses/210000-mpi-self-service/"
+      spinoffs:
+        - url: "https://www.fz-juelich.de/en/jsc/news/events/training-courses/training-courses-2026/parallel-io"
+        - url: "https://www.archer2.ac.uk/training/courses/261002-green-computing/"
+
+- id: rse-track
+  title: "Research Software Engineering"
+  icon: "🧑‍💻"
+  audience: "Researchers and developers writing research code"
+  description: "Python, version control and reproducibility."
+  courses:
+    - url: "https://swcarpentry.github.io/python-novice-inflammation/"
+    - url: "http://swcarpentry.github.io/python-novice-gapminder"
+    - url: "https://www.archer2.ac.uk/training/courses/260928-analysis-visualisation-python/"
+      spinoffs:
+        - url: "https://datacarpentry.org/image-processing/"
+          note: "Applied image analysis in Python."
+    - url: "https://hpc.fau.de/teaching/tutorials-and-courses/software-engineering/git-beginner/"
+    - url: "https://hpc.fau.de/teaching/tutorials-and-courses/software-engineering/git-advanced/"
+    - url: "https://www.archer2.ac.uk/training/courses/261007-containers/"
+      spinoffs:
+        - url: "https://www.archer2.ac.uk/training/courses/261002-green-computing/"
+
+- id: cpp-track
+  title: "C/C++ for Scientific Computing"
+  icon: "🔧"
+  audience: "Developers moving to compiled languages for performance"
+  description: "From C/C++ fundamentals to modern C++ design and high-performance scientific codes."
+  courses:
+    - url: "https://training-academy.dirac.ac.uk/enrol/index.php?id=23"
+    - url: "https://hpc.fau.de/teaching/tutorials-and-courses/software-engineering/cpp-beginner/"
+    - url: "https://hpc.fau.de/teaching/tutorials-and-courses/software-engineering/cpp-sw-design/"
+    - url: "https://www.archer2.ac.uk/training/courses/261014-modern-c/"
+    - url: "https://www.fz-juelich.de/en/jsc/news/events/training-courses/training-courses-2026/hpc-cplusplus"
+      spinoffs:
+        - url: "https://hpc.fau.de/teaching/tutorials-and-courses/performance-engineering/clpe/"
+
+- id: gpu-track
+  title: "GPU Programming"
+  icon: "🎮"
+  audience: "Developers who want to accelerate their codes on GPUs"
+  description: "CUDA first, then a look at the alternatives and GPU performance engineering."
+  courses:
+    - url: "https://hpc.fau.de/teaching/tutorials-and-courses/gpu-programming/cuda/"
+    - url: "https://hpc.fau.de/teaching/tutorials-and-courses/gpu-programming/dli-modern-cuda/"
+    - url: "https://hpc.fau.de/teaching/tutorials-and-courses/gpu-programming/scaling-cuda/"
+    - url: "https://hpc.fau.de/teaching/tutorials-and-courses/gpu-programming/gpu-approaches/"
+      spinoffs:
+        - url: "https://www.archer2.ac.uk/training/courses/261006-gpu-openmp/"
+        - url: "https://www.fz-juelich.de/en/jsc/news/events/training-courses/training-courses-2026/gpu-openacc"
+    - url: "https://hpc.fau.de/teaching/tutorials-and-courses/gpu-programming/gpu-performance-engineering/"
+
