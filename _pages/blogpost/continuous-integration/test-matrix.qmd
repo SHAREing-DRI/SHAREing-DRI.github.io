@@ -1,0 +1,108 @@
+---
+title: Continuous Integration - The Test Matrix
+date: 2026-10-05
+id: 20261005030121
+author: Andrew Naden
+---
+# Continuous Integration - The Test Matrix
+8 Sep 2026 - Andrew Naden
+#continuous-integration
+
+[[continuous-integration|Continuous integration]]
+
+<!--toc:start-->
+- [Continuous Integration - The Test Matrix](#continuous-integration-the-test-matrix)
+  - [Introduction](#introduction)
+<!--toc:end-->
+
+[//]: # (Continued from last week's blog article: [Continuous Integration](continuous-integration.qmd))
+
+## Introduction 
+
+A test matrix is a method of describing a collection of tests to be performed by a testing suite. The matrix is formed by enumerating through all the possible combinations of a given parameter set. 
+
+
+For example a test matrix for building a program with 2 supported operating system, with 2 different versions of gcc, and one version of clang yields 6 permutations.
+
+- linux-gcc11
+- linux-gcc12
+- linux-clang5
+- docker-gcc11
+- docker-gcc12
+- docker-clang5
+
+It is important to evaluate the set of tests that should be run at build time, before pushing to the version control system, after pushing, and before release. Each of these build configurations may need to run a series of tests to confirm correctness after they are built, rapidly increasing the number of tests.
+
+
+Given this, it may be important to stagger your testing protocol in order to only perform more expensive tests when necessary. For instance, the test system could look like:
+
+1. Attempt to commit code to repository -> pre-commit hook checks for lint errors and checks that code builds locally. 
+2. Attempt to push code to develop branch of remote repository
+3. Post push runner builds and runs test matrix confirming the program builds on supported systems, with the correct selection of libraries for various hardware options.
+4. Post push runner enumerates test matrix for short tests to confirm the program operates as expected.
+5. Attempt to merge to main -> Pre merge runner runs more in depth test that may be more computationally expensive
+6. Post merge, the resulting binary/website is deployed. 
+
+
+Different build and test systems describe the test matrix in different ways, but a common pattern is using a YAML configuration file which lists the various valid paramater settings for each parameter set. The matrix is then formed by the CI system to enumerate the combinations. 
+
+For example, a Github runner configuration could have the section:
+
+```yaml
+jobs:
+  test_matrix:
+    strategy:
+      matrix:
+        version: [1,2,3]
+        os: [ubuntu-latest, windows-latest]
+
+# yielding
+# -->
+# {version: 1, os: ubuntu-latest}
+# {version: 2, os: ubuntu-latest}
+# {version: 3, os: ubuntu-latest}
+# {version: 1, os: windows-latest}
+# {version: 2, os: windows-latest}
+# {version: 3, os: windows-latest}
+```
+
+
+
+Here, the variables version and os are defined for each enumeration of the matrix. [^1]
+
+Similar test suites, such as CMake's CTest, can allow manual creation of each enumeration in the test matrix. For instance, using the add_test() command: [^2]
+
+```cmake
+cmake_minimum_required(VERSION 3.18)
+
+project(hello-ctest LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_library(sum_integers sum_integers.cpp)
+
+add_executable(sum_up main.cpp)
+target_link_libraries(sum_up PRIVATE sum_integers)
+
+
+add_executable(cpp_test test.cpp)
+target_link_libraries(cpp_test PRIVATE sum_integers)
+
+enable_testing()
+
+add_test(
+  NAME cpp_test
+  COMMAND $<TARGET_FILE:cpp_test>
+)
+
+# test properties can allow for tests to be separated into different groups, for example, only running "short" length tests on each push.
+set_tests_properties(cpp_test PROPERTIES length short) 
+```
+
+or can implement a foreach loop to iterate through parameter options.
+
+
+[^1]: note that there is a hard limit of 256 enumerations per matrix, for both self and github hosted runners
+[^2]: [CTest documentation](https://cmake.org/cmake/help/latest/guide/tutorial/Testing%20and%20CTest.html)
