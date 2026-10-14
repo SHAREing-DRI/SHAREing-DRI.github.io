@@ -8,9 +8,7 @@ date: 2025-10-01
 summary: Define the minimal valuable information that a system specification has to provide.
 wp: 1.1
 workpackage: "wp1.1"
-status: progress
-lead: "Gokmen Kilic"
-status: progress
+status: completed
 person:
   name: Alastair Basden
   role: Director of COSMA
