@@ -457,7 +457,6 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
 </nav>
 </header>
 
-
 <div class="tl-main">
 
 <header class="tl-header">
