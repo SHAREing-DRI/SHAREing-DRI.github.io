@@ -380,6 +380,23 @@ classes: wide
 .cat .step-optional .mini-btn { margin-top: 6px; }
 .cat .mini-btn.added:hover { color: #fff;}
 
+
+/* ---------- Curated stages: topic, parallel, optional, final ---------- */
+.cat .step-head { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+.cat .step-topic { color: var(--b-light-font); font-size: 14px; font-weight: 700; }
+.cat .step-flag { padding: 1px 9px; border-radius: 10px; background: var(--tint-2); color: var(--brand-dark); font-size: 11px; font-weight: 700; }
+.cat .step-note-top { margin: 0 0 8px; }
+.cat .step-parallel-label { margin-bottom: 6px; color: var(--mut); font-size: 12px; font-weight: 600; }
+.cat .step-group { display: grid; gap: 8px; }
+.cat .step-group.is-parallel { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); padding-left: 10px; }
+.cat .cur-step.is-optional .step-course { border-style: dashed; background: #fff; }
+.cat .cur-step.is-optional .step-dot { border-style: dashed; font-size: 10px; }
+.cat .cur-step.is-final .step-dot { border-color: var(--brand); color: var(--brand); }
+.cat .cur-step.is-final.in-pathway .step-dot { background: var(--brand); color: #fff; }
+.cat .pathway-node.is-optional { border-style: dashed; }
+.cat .pathway-node-tag { display: inline-block; margin-top: 8px; padding: 1px 9px; border-radius: 10px; background: var(--tint-2); color: var(--brand-dark); font-size: 11px; font-weight: 700; }
+
+
 /* ---------- Sidebar ---------- */
 .cat .pathway-side {
     position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow-y: auto;
@@ -562,7 +579,7 @@ classes: wide
 .cat .pathway-item-actions { flex-wrap: wrap; }
 
 /* ---------- Misc ---------- */
-.cat .toast { position: fixed; left: 50%; bottom: 20px; z-index: 1000000; max-width: 90vw; padding: 10px 16px; border-radius: 8px; background: #1f2937; color: var(--ink); font-size: 14px; opacity: 0; transform: translate(-50%, 10px); pointer-events: none; transition: opacity .2s, transform .2s; }
+.cat .toast { position: fixed; left: 50%; bottom: 20px; z-index: 1000000; max-width: 90vw; padding: 10px 16px; border-radius: 8px; background: #1f2937; color: #fff; font-size: 14px; opacity: 0; transform: translate(-50%, 10px); pointer-events: none; transition: opacity .2s, transform .2s; }
 .cat .toast.show { opacity: 1; transform: translate(-50%, 0); }
 .cat .pathway-fab { display: none; }
 .cat .cat-disclaimer { margin-top: 40px; padding: 14px 16px; border-left: 4px solid var(--deep); border-radius: 6px; background: #f8f9fb; color: var(--mut); font-size: 13px; line-height: 1.55; }
@@ -579,7 +596,8 @@ classes: wide
 .cat .fmt-inperson { --fc: #d9925f; --fb: #fbe9dc; --ft: #7a3e17; }
 .cat .fmt-other    { --fc: #94a3b8; --fb: #eef1f5; --ft: #475569; }
 
-.cat .cal-modal { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.cat .cal-modal { position: fixed; inset: 0; z-index: 100000; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.cat.cat-portal { margin: 0; }
 .cat .cal-backdrop { position: absolute; inset: 0; background: rgba(36,56,85,.55); }
 .cat .cal-panel {
     position: relative; display: flex; flex-direction: column;
@@ -856,6 +874,8 @@ function normaliseLayout(value) {
         notes: l.notes && typeof l.notes === "object"
             ? l.notes
             : {},
+        
+        stages: l.stages && typeof l.stages === "object" ? l.stages : {},
 
         textBoxes: Array.isArray(l.textBoxes)
             ? l.textBoxes
@@ -928,6 +948,12 @@ function slugify(value) {
     return String(value).toLowerCase().trim().replace(/\s+/g, "-").replace(/[^\w-]/g, "");
 }
 function courseIndex(course) { return slugify(course.url || course.title || "course"); }
+
+
+function courseIdFromOccurrence(id) { return String(id).split("::")[0]; }
+function courseForPathwayId(id) { return courseLookup[courseIdFromOccurrence(id)] || null; }
+const pathwayBaseIds = () => new Set(pathwayIds.map(courseIdFromOccurrence));
+
 function splitTags(course) {
     return course.tags ? String(course.tags).split(",").map(t => t.trim()).filter(Boolean) : [];
 }
@@ -937,10 +963,10 @@ courses.forEach(course => {
     splitTags(course).forEach(topic => { (coursesByTopic[topic] = coursesByTopic[topic] || []).push(course); });
 });
 
-/* Drop anything that no longer exists (expired / removed courses) */
-pathwayIds = pathwayIds.filter(id => courseLookup[id]);
-pathwayLayout.connections = pathwayLayout.connections.filter(c => courseLookup[c.from] && courseLookup[c.to]);
+pathwayIds = pathwayIds.filter(id => courseForPathwayId(id));
+pathwayLayout.connections = pathwayLayout.connections.filter(c => courseForPathwayId(c.from) && courseForPathwayId(c.to));
 Object.keys(pathwayLayout.notes).forEach(id => { if (!pathwayIds.includes(id)) { delete pathwayLayout.notes[id]; } });
+Object.keys(pathwayLayout.stages).forEach(id => { if (!pathwayIds.includes(id)) { delete pathwayLayout.stages[id]; } });
 savePathway();
 
 function escapeHtml(value) {
@@ -961,7 +987,7 @@ const formatLabel = f => (FORMATS[f] || {}).label || f;
 const formatClass = f => (FORMATS[f] || {}).cls || "b-other";
 const getPrimaryTopic = course => splitTags(course)[0] || "Training";
 const courseTitle = course => course.title || "Untitled course";
-const isCourseInPathway = course => pathwayIds.includes(courseIndex(course));
+const isCourseInPathway = course => pathwayBaseIds().has(courseIndex(course));
 const showDates = course => course.dates && course.format !== "Online (self-service)";
 const showLocation = course => course.location && !/^online$/i.test(course.location);
 
@@ -1008,19 +1034,44 @@ function addToPathway(course, note, parentId) {
 
 function removeFromPathway(course) {
 
-    const id = courseIndex(course);
-    if (!pathwayIds.includes(id)) { return; }
+    const base = courseIndex(course);
+    const doomed = pathwayIds.filter(id => courseIdFromOccurrence(id) === base);
+    if (!doomed.length) { return; }
 
     pushHistory();
-    pathwayIds = pathwayIds.filter(item => item !== id);
-    delete pathwayLayout.positions[id];
-    delete pathwayLayout.notes[id];
-    pathwayLayout.connections = pathwayLayout.connections.filter(c => c.from !== id && c.to !== id);
+    pathwayIds = pathwayIds.filter(id => !doomed.includes(id));
+    doomed.forEach(id => {
+        delete pathwayLayout.positions[id];
+        delete pathwayLayout.notes[id];
+        delete pathwayLayout.stages[id];
+    });
+    pathwayLayout.connections = pathwayLayout.connections.filter(c => !doomed.includes(c.from) && !doomed.includes(c.to));
 
     savePathway();
     refreshPathwayViews();
 
 }
+
+
+function removePathwayOccurrence(id) {
+    if (!pathwayIds.includes(id)) return;
+
+    pushHistory();
+
+    pathwayIds = pathwayIds.filter(item => item !== id);
+
+    delete pathwayLayout.positions[id];
+    delete pathwayLayout.notes[id];
+    delete pathwayLayout.stages[id];
+
+    pathwayLayout.connections = pathwayLayout.connections.filter(
+        c => c.from !== id && c.to !== id
+    );
+
+    savePathway();
+    refreshPathwayViews();
+}
+
 
 function toggleCourse(course) {
     if (isCourseInPathway(course)) {
@@ -1060,24 +1111,43 @@ function resolveStep(step) {
 function resolveCurated(pathway) {
 
     const raw = Array.isArray(pathway.courses) ? pathway.courses : [];
+    const stages = [];
+    let total = 0;
 
-    const steps = raw.map(step => {
-        const resolved = resolveStep(step);
-        resolved.spinoffs = (step && Array.isArray(step.spinoffs) ? step.spinoffs : [])
-            .map(resolveStep)
-            .filter(s => s.course);
-        return resolved;
+    raw.forEach(step => {
+
+        const isObj = step && typeof step === "object";
+        const urls = isObj ? [].concat(step.urls || step.url || []) : [step];
+        const entries = urls.map(u => resolveStep({ url: u, note: isObj ? step.note : "" }));
+        total += entries.length;
+
+        const items = entries.filter(e => e.course);
+        if (!items.length) { return; }          // nothing available: skip the step and its spin-offs
+
+        stages.push({
+            topic: (isObj && step.topic) || "",
+            note: (isObj && step.note) || "",
+            kind: isObj && (step.kind === "optional" || step.kind === "final") ? step.kind : "required",
+            items: items,
+            spinoffs: (isObj && Array.isArray(step.spinoffs) ? step.spinoffs : []).map(resolveStep).filter(s => s.course)
+        });
     });
 
-    return { total: steps.length, available: steps.filter(s => s.course) };
+    return {
+        stages: stages,
+        total: total,
+        courseCount: stages.reduce((n, s) => n + s.items.length, 0),
+        stepCount: stages.filter(s => s.kind !== "optional").length,
+        optionalCount: stages.filter(s => s.kind === "optional").length + stages.reduce((n, s) => n + s.spinoffs.length, 0)
+    };
 
 }
 
 function loadCuratedPathway(pathway, replace) {
 
-    const resolved = resolveCurated(pathway);
+    const r = resolveCurated(pathway);
 
-    if (!resolved.available.length) {
+    if (!r.courseCount) {
         toast("None of the courses in this pathway are currently available.");
         return;
     }
@@ -1089,31 +1159,70 @@ function loadCuratedPathway(pathway, replace) {
         pathwayLayout = normaliseLayout(null);
     }
 
-    const ids = [];
+    /* 1st use of a course = its normal id, 2nd = id::2, and so on (reused if already present) */
+    const seen = {};
+    const occId = slug => { seen[slug] = (seen[slug] || 0) + 1; return seen[slug] === 1 ? slug : slug + "::" + seen[slug]; };
 
-    resolved.available.forEach(step => {
-        ids.push(step.id);
-        if (!pathwayIds.includes(step.id)) { pathwayIds.push(step.id); }
-        if (step.note) { pathwayLayout.notes[step.id] = step.note; }
-    });
+    const link = (from, to, dashed) => {
+        if (from === to || pathwayLayout.connections.some(c => c.from === from && c.to === to)) { return; }
+        pathwayLayout.connections.push(dashed
+            ? { from: from, to: to, type: "spinoff", style: "dashed" }
+            : { from: from, to: to, style: "solid" });
+    };
 
-    for (let i = 1; i < ids.length; i++) {
-        if (!pathwayLayout.connections.some(c => c.from === ids[i - 1] && c.to === ids[i])) {
-            pathwayLayout.connections.push({ from: ids[i - 1], to: ids[i], style: "solid" });
+    const addId = (id, note) => {
+        if (!pathwayIds.includes(id)) { pathwayIds.push(id); }
+        if (note) { pathwayLayout.notes[id] = note; }
+    };
+
+    let col = replace ? 0 : pathwayIds.length;
+    let spine = [];
+    let pending = [];
+
+    r.stages.forEach((stage, idx) => {
+
+        const items = stage.items.map(i => ({ oid: occId(i.id), note: i.note }));
+        const ids = items.map(i => i.oid);
+        const n = ids.length;
+        const optional = stage.kind === "optional";
+        let baseRow = 0;
+
+        if (optional) {
+            const next = r.stages.slice(idx + 1).find(s => s.kind !== "optional");
+            baseRow = (Math.max(spine.length, next ? next.items.length : 1, 1) - 1) / 2 + 1;
         }
-    }
 
-    resolved.available.forEach(step => {
-        step.spinoffs.forEach(spinoff => {
-
-            if (!pathwayIds.includes(spinoff.id)) { pathwayIds.push(spinoff.id); }
-            if (spinoff.note) { pathwayLayout.notes[spinoff.id] = spinoff.note; }
-
-            if (!pathwayLayout.connections.some(c => c.from === step.id && c.to === spinoff.id)) {
-                pathwayLayout.connections.push({ from: step.id, to: spinoff.id, type: "spinoff", style: "dashed" });
+        items.forEach((item, k) => {
+            addId(item.oid, item.note);
+            if (!pathwayLayout.stages[item.oid]) {
+                pathwayLayout.stages[item.oid] = { col: col, row: optional ? baseRow + k : k - (n - 1) / 2, topic: stage.topic, kind: stage.kind };
             }
-
         });
+
+        if (optional) {
+            spine.forEach(from => ids.forEach(to => link(from, to, true)));
+            pending = pending.concat(ids);
+        }
+        else {
+            spine.forEach(from => ids.forEach(to => link(from, to, false)));
+            pending.forEach(from => ids.forEach(to => link(from, to, true)));
+            pending = [];
+            spine = ids;
+        }
+
+        const below = optional ? baseRow + n : (n - 1) / 2 + 1;
+
+        stage.spinoffs.forEach((sp, s) => {
+            const oid = occId(sp.id);
+            addId(oid, sp.note);
+            if (!pathwayLayout.stages[oid]) {
+                pathwayLayout.stages[oid] = { col: col, row: below + s, topic: "", kind: "optional" };
+            }
+            link(ids[n - 1], oid, true);
+        });
+
+        col++;
+
     });
 
     savePathway();
@@ -1124,62 +1233,74 @@ function loadCuratedPathway(pathway, replace) {
 
 }
 
-function createCuratedStep(step, number) {
+function createCuratedStage(stage, number) {
 
-    const course = step.course;
+    const optional = stage.kind === "optional", final = stage.kind === "final";
+    const parallel = stage.items.length > 1;
+    const parent = stage.items[stage.items.length - 1];
+    const metaOf = c => escapeHtml([c.organisation, plainMeta(c)].filter(Boolean).join(" · "));
+
     const li = document.createElement("li");
-    li.className = "cur-step";
-    li.dataset.courseId = step.id;
+    li.className = "cur-step" + (optional ? " is-optional" : final ? " is-final" : "");
+    li.dataset.courseId = stage.items.map(i => i.id).join("|");
+
+    const box = item => `
+        <div class="step-course">
+            ${titleHtml(item.course, "step-title")}
+            <div class="step-sub">${metaOf(item.course)}</div>
+            ${!stage.topic && item.note ? `<div class="step-note">${escapeHtml(item.note)}</div>` : ""}
+            <button type="button" class="mini-btn" data-course-id="${escapeHtml(item.id)}">+ Add</button>
+        </div>`;
 
     li.innerHTML = `
-        <span class="step-dot">${number}</span>
+        <span class="step-dot">${optional ? "opt" : number}</span>
         <div class="step-body">
-            <div class="step-course">
-                ${titleHtml(course, "step-title")}
-                <div class="step-sub">${escapeHtml([course.organisation, plainMeta(course)].filter(Boolean).join(" · "))}</div>
-                ${step.note ? `<div class="step-note">${escapeHtml(step.note)}</div>` : ""}
-                <button type="button" class="mini-btn" data-course-id="${escapeHtml(step.id)}">+ Add</button>
-            </div>
+            ${stage.topic || optional || final ? `
+                <div class="step-head">
+                    ${stage.topic ? `<span class="step-topic">${escapeHtml(stage.topic)}</span>` : ""}
+                    ${optional ? `<span class="step-flag">Optional</span>` : final ? `<span class="step-flag">Final step</span>` : ""}
+                </div>` : ""}
+            ${stage.topic && stage.note ? `<div class="step-note step-note-top">${escapeHtml(stage.note)}</div>` : ""}
+            ${parallel ? `<div class="step-parallel-label">You can take these in parallel</div>` : ""}
+            <div class="step-group${parallel ? " is-parallel" : ""}">${stage.items.map(box).join("")}</div>
         </div>
     `;
 
-    li.querySelector(".mini-btn").addEventListener("click", function () {
-        if (isCourseInPathway(course)) {
-            removeFromPathway(course);
-        }
-        else {
-            addToPathway(course, step.note);
-        }
+    li.querySelectorAll(".step-group .mini-btn").forEach((btn, i) => {
+        btn.addEventListener("click", function () {
+            const item = stage.items[i];
+            if (isCourseInPathway(item.course)) { removeFromPathway(item.course); }
+            else { addToPathway(item.course, item.note); }
+        });
     });
 
-    step.spinoffs.forEach(spinoff => {
+    stage.spinoffs.forEach(spinoff => {
 
-        const box = document.createElement("div");
-        box.className = "step-course step-optional";
+        const sb = document.createElement("div");
+        sb.className = "step-course step-optional";
 
-        box.innerHTML = `
+        sb.innerHTML = `
             <div class="step-optional-label">Optional</div>
             ${titleHtml(spinoff.course, "step-title")}
-            <div class="step-sub">${escapeHtml([spinoff.course.organisation, plainMeta(spinoff.course)].filter(Boolean).join(" · "))}</div>
+            <div class="step-sub">${metaOf(spinoff.course)}</div>
             ${spinoff.note ? `<div class="step-note">${escapeHtml(spinoff.note)}</div>` : ""}
             <button type="button" class="mini-btn" data-course-id="${escapeHtml(spinoff.id)}">+ Add</button>
         `;
 
-        box.querySelector("button").addEventListener("click", function () {
-            if (isCourseInPathway(spinoff.course)) {
-                removeFromPathway(spinoff.course);
-            }
+        sb.querySelector("button").addEventListener("click", function () {
+            if (isCourseInPathway(spinoff.course)) { removeFromPathway(spinoff.course); }
             else {
-                if (!isCourseInPathway(step.course)) { addToPathway(step.course, step.note); }
-                addToPathway(spinoff.course, spinoff.note, step.id);
+                if (!isCourseInPathway(parent.course)) { addToPathway(parent.course, parent.note); }
+                addToPathway(spinoff.course, spinoff.note, parent.id);
             }
         });
 
-        li.querySelector(".step-body").appendChild(box);
+        li.querySelector(".step-body").appendChild(sb);
 
     });
 
     return li;
+
 }
 
 function renderCuratedPathways() {
@@ -1193,12 +1314,11 @@ function renderCuratedPathways() {
     valid.forEach(pathway => {
 
         const resolved = resolveCurated(pathway);
-        const count = resolved.available.length;
-        const optional = resolved.available.reduce((n, s) => n + s.spinoffs.length, 0);
+        const available = resolved.courseCount;
 
         const card = document.createElement("article");
         card.className = "cur-card";
-        card.dataset.ids = resolved.available.map(s => s.id).join("|");
+        card.dataset.ids = resolved.stages.flatMap(s => s.items.map(i => i.id)).join("|");
 
         card.innerHTML = `
             <div class="cur-head">
@@ -1210,13 +1330,13 @@ function renderCuratedPathways() {
             </div>
             ${pathway.description ? `<p class="cur-desc">${escapeHtml(pathway.description)}</p>` : ""}
             <p class="cur-stats">
-                ${count} ${count === 1 ? "step" : "steps"}${optional ? `, ${optional} optional` : ""}
-                ${count < resolved.total ? ` · <span class="partial">${count} of ${resolved.total} courses currently available</span>` : ""}
+                ${resolved.stepCount} ${resolved.stepCount === 1 ? "step" : "steps"}${resolved.optionalCount ? `, ${resolved.optionalCount} optional` : ""}
+                ${available < resolved.total ? ` · <span class="partial">${available} of ${resolved.total} courses currently available</span>` : ""}
                 <span class="cur-loaded"> · ✓ In your pathway</span>
             </p>
             <div class="cur-actions">
-                <button type="button" class="cat-btn cat-btn-secondary cur-use" ${count ? "" : "disabled"}>Use pathway</button>
-                <button type="button" class="cat-btn cat-btn-third cur-add" ${count ? "" : "disabled"}>Add to mine</button>
+                <button type="button" class="cat-btn cat-btn-secondary cur-use" ${available ? "" : "disabled"}>Use pathway</button>
+                <button type="button" class="cat-btn cat-btn-third cur-add" ${available ? "" : "disabled"}>Add to mine</button>
             </div>
             <details class="cur-route">
                 <summary>View the route</summary>
@@ -1225,8 +1345,14 @@ function renderCuratedPathways() {
         `;
 
         const list = card.querySelector(".cur-steps");
+        let n = 0;
 
-        if (count) { resolved.available.forEach((step, i) => list.appendChild(createCuratedStep(step, i + 1))); }
+        if (available) {
+            resolved.stages.forEach(stage => {
+                if (stage.kind !== "optional") { n++; }
+                list.appendChild(createCuratedStage(stage, n));
+            });
+        }
         else { list.innerHTML = `<li class="step-sub">No courses in this pathway are currently available.</li>`; }
 
         card.querySelector(".cur-use").addEventListener("click", function () {
@@ -1241,6 +1367,7 @@ function renderCuratedPathways() {
     });
 
 }
+    
 
 
 /* ============================================================
@@ -1483,9 +1610,11 @@ board.addEventListener("click", function (event) {
 
 function updateCourseStates() {
 
+    const inSet = pathwayBaseIds();
+
     board.querySelectorAll(".row").forEach(row => {
 
-        const inPath = pathwayIds.includes(row.dataset.courseId);
+        const inPath = inSet.has(row.dataset.courseId);
         const btn = row.querySelector(".add-btn");
 
         row.classList.toggle("in-pathway", inPath);
@@ -1496,20 +1625,22 @@ function updateCourseStates() {
     });
 
     curatedGrid.querySelectorAll(".cur-step").forEach(step => {
-        step.classList.toggle("in-pathway", pathwayIds.includes(step.dataset.courseId));
+        const ids = (step.dataset.courseId || "").split("|");
+        step.classList.toggle("in-pathway", ids.every(id => inSet.has(id)));
     });
 
     curatedGrid.querySelectorAll(".step-course .mini-btn, .step-body > .mini-btn").forEach(button => {
-        const added = pathwayIds.includes(button.dataset.courseId);
+        const added = inSet.has(button.dataset.courseId);
         button.classList.toggle("added", added);
         button.textContent = added ? "✓ In pathway" : "+ Add";
     });
 
     curatedGrid.querySelectorAll(".cur-card").forEach(card => {
         const ids = card.dataset.ids ? card.dataset.ids.split("|") : [];
-        card.classList.toggle("is-loaded", ids.length > 0 && ids.every(id => pathwayIds.includes(id)));
+        card.classList.toggle("is-loaded", ids.length > 0 && ids.every(id => inSet.has(id)));
     });
-        if (calOpen) { renderCal(); }
+
+    if (calOpen) { renderCal(); }
 
 }
 
@@ -1580,7 +1711,9 @@ function renderPathwayList() {
     pathwayList.innerHTML = "";
 
     pathwayIds.forEach((id, index) => {
-        const course = courseLookup[id];
+        
+const course = courseForPathwayId(id);
+
         if (course) { pathwayList.appendChild(createPathwayListItem(course, id, index)); }
     });
 
@@ -1592,7 +1725,8 @@ function createPathwayListItem(course, id, index) {
     item.className = "pathway-item";
     const opt = isOptional(id);
     const canToggle = opt || pathwayLayout.connections.some(c => c.to === id) || pathwayIds.slice(0, index).some(i => !isOptional(i));
-    const number = opt ? null : pathwayIds.slice(0, index + 1).filter(i => !isOptional(i)).length;
+    const stageKey = i => pathwayLayout.stages[i] ? "c" + pathwayLayout.stages[i].col : "i" + i;
+    const number = opt ? null : new Set(pathwayIds.slice(0, index + 1).filter(i => !isOptional(i)).map(stageKey)).size;
     if (opt) { item.classList.add("is-optional"); }
     item.draggable = true;
     item.dataset.courseId = id;
@@ -1615,7 +1749,7 @@ function createPathwayListItem(course, id, index) {
     `;
 
     item.querySelectorAll("[data-dir]").forEach(b => b.addEventListener("click", () => movePathwayItem(id, b.dataset.dir)));
-    item.querySelector(".remove").addEventListener("click", () => removeFromPathway(course));
+    item.querySelector(".remove").addEventListener("click", () => removePathwayOccurrence(id));
     item.querySelector("[data-toggle-opt]").addEventListener("click", () => setOptional(id, !opt));
 
     item.addEventListener("dragstart", function (event) {
@@ -1749,7 +1883,7 @@ Object.keys(TABS).forEach(key => TABS[key].tab.addEventListener("click", () => s
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 const SVG_EXTENT = 16000;
-const NODE_W = 230, NODE_H = 120;
+const NODE_W = 230, NODE_H = 120, STAGE_GAP = 80, ROW_UNIT = 190;
 
 const ARROW_DEFS = `
     <defs>
@@ -1954,6 +2088,10 @@ function defaultPosition(index) {
     const id = pathwayIds[index];
     const gapX = 45, gapY = 45;
 
+    /* Curated pathways: column = step, rows stack the parallel courses */
+    const stage = pathwayLayout.stages[id];
+    if (stage) { return { x: stage.col * (NODE_W + STAGE_GAP), y: stage.row * ROW_UNIT }; }
+
     const spin = pathwayLayout.connections.find(c => c.type === "spinoff" && c.to === id);
 
     if (spin) {
@@ -1974,7 +2112,11 @@ function defaultPosition(index) {
 
     }
 
-    return { x: index * (NODE_W + gapX), y: 0 };
+    /* Hand-picked courses go in a row below any curated pathway */
+    const rows = Object.values(pathwayLayout.stages).map(s => s.row);
+    const y = rows.length ? (Math.max.apply(null, rows) + 1.5) * ROW_UNIT : 0;
+
+    return { x: index * (NODE_W + gapX), y: y };
 
 }
 
@@ -2039,9 +2181,11 @@ function renderMap() {
         return;
     }
 
+
 pathwayIds.forEach((id, index) => {
-    if (courseLookup[id]) {
-        createNode(courseLookup[id], index);
+    const course = courseForPathwayId(id);
+    if (course) {
+        createNode(course, index, id);
     }
 });
 
@@ -2058,12 +2202,17 @@ savePathway();
 
 }
 
-function createNode(course, index) {
-
-    const id = courseIndex(course);
+function createNode(course, index, occurrenceId) {
+    const id = occurrenceId || courseIndex(course);
     const node = document.createElement("div");
+
     node.className = "pathway-node";
     node.dataset.courseId = id;
+
+    const st = pathwayLayout.stages[id];
+    if (isOptional(id)) {
+        node.classList.add("is-optional");
+    }
 
     const pos = getPosition(id, index);
     node.style.left = pos.x + "px";
@@ -2077,16 +2226,16 @@ function createNode(course, index) {
         <div class="pathway-handle left" data-side="left"></div>
         <div class="pathway-node-title">${titleHtml(course, "node-link")}</div>
         ${course.organisation ? `<div class="pathway-node-org">${escapeHtml(course.organisation)}</div>` : ""}
-        <div class="pathway-node-meta">${escapeHtml(getPrimaryTopic(course))}${course.format ? `<br>${escapeHtml(formatLabel(course.format))}` : ""}</div>
+               <div class="pathway-node-meta">${escapeHtml((st && st.topic) || getPrimaryTopic(course))}${course.format ? `<br>${escapeHtml(formatLabel(course.format))}` : ""}</div>
+        ${st && st.kind === "final" ? `<div class="pathway-node-tag">Final step</div>` : ""}
     `;
 
     pNodes.appendChild(node);
 
-    node.querySelector(".pathway-node-remove").addEventListener("click", function (event) {
-        event.stopPropagation();
-        removeFromPathway(course);
-    });
-
+        node.querySelector(".pathway-node-remove").addEventListener("click", function (event) {
+            event.stopPropagation();
+            removePathwayOccurrence(id);
+        });
     node.querySelectorAll(".pathway-handle").forEach(handle => {
         handle.addEventListener("pointerdown", function (event) {
             event.preventDefault();
@@ -2565,8 +2714,10 @@ function drawConnections() {
 
         pSvg.appendChild(hit);
         pSvg.appendChild(line);
+        
 
     });
+        pNodes.querySelectorAll(".pathway-node").forEach(n => n.classList.toggle("is-optional", isOptional(n.dataset.courseId)));
 
 }
 
@@ -2616,10 +2767,10 @@ function buildListDownloadHtml() {
 
     let optN = 0;
     const rows = pathwayIds
-        .filter(id => courseLookup[id])
+        .filter(id => courseForPathwayId(id))
         .map((id, index) => {
 
-            const course = courseLookup[id];
+            const course = courseForPathwayId(id);
             const note = pathwayLayout.notes[id];
 
             return `
@@ -2651,7 +2802,7 @@ p{margin:0 0 4px;color:#940594;font-size:.85rem}small{color:#5b6472}.note{margin
 
 function buildMapDownloadHtml() {
 
-    const ids = pathwayIds.filter(id => courseLookup[id]);
+        const ids = pathwayIds.filter(id => courseForPathwayId(id));
     ids.forEach(id => getPosition(id, pathwayIds.indexOf(id)));
 
     const rects = ids.map(id => Object.assign({ id: id }, rectOf(id)));
@@ -2676,7 +2827,7 @@ function buildMapDownloadHtml() {
         }).join("");
 
     const cards = rects.map(r => {
-        const course = courseLookup[r.id];
+        const course = courseForPathwayId(r.id);
         return `<div class="card" style="left:${r.x + ox}px;top:${r.y + oy}px;width:${r.w}px">
             <div class="t">${course.url ? `<a href="${escapeHtml(course.url)}">${escapeHtml(courseTitle(course))}</a>` : escapeHtml(courseTitle(course))}</div>
             ${course.organisation ? `<div class="o">${escapeHtml(course.organisation)}</div>` : ""}
@@ -2800,6 +2951,11 @@ const calModal  = $("cal-modal");
 const calMain   = $("cal-main");
 const calDetail = $("cal-detail");
 const calLegend = $("cal-legend");
+const portal = document.createElement("div");
+portal.className = "cat cat-portal";
+document.body.appendChild(portal);
+portal.appendChild(calModal);
+portal.appendChild(toastEl);
 
 let calOpen = false;
 let calMonth = new Date(today.getFullYear(), today.getMonth(), 1);
@@ -2810,7 +2966,7 @@ const calHidden = new Set();
 
 function calCard(e) {
 
-    const c = e.course, inPath = pathwayIds.includes(e.id);
+    const c = e.course, inPath = pathwayBaseIds().has(e.id);
     const meta = [c.organisation, showLocation(c) ? c.location : ""].filter(Boolean).join(" · ");
 
     return `
