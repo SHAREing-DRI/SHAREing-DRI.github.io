@@ -332,7 +332,7 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
   max-width: 56ch;
   margin: 0;
   color: #f5e6f5;
-  font-size: .92rem;
+  font-size: .7rem;
 }
 .tl-catalogue-button {
   display: inline-block;
@@ -428,8 +428,6 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
 </style>
 
 
-
-
 <div class="tl-page">
 
 <header class="tl-header">
@@ -462,6 +460,7 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
 </header>
 
 <div class="tl-main">
+
 
 
 
