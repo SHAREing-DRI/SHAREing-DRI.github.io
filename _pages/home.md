@@ -11,16 +11,13 @@ header:
   <div class="training-launch-content">
     <span class="training-launch-label">NEW RESOURCE</span>
 
-    <h2>External Training Catalogue</h2>
+    <h2>Learning Pathway Builder</h2>
 
     <p>
-      Looking for training in HPC, AI, research software engineering,
-      programming or performance optimisation? Explore our new
-      <strong>external training catalogue</strong>, bringing together
-      publicly available training opportunities in one searchable place.
+      Discover external training opportunities in HPC, AI, research software engineering, programming and performance optimisation. Browse the catalogue, check upcoming dates in the calendar, and build your own learning pathway or start from a curated one.
     </p>
 
-    <a href="/training/external-training-menu" class="training-launch-button">
+    <a href="/training/external-training-board" class="training-launch-button">
       Explore the catalogue →
     </a>
   </div>

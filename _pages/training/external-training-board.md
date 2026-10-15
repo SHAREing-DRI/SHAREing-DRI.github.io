@@ -6,13 +6,18 @@ classes: wide
 
 <div class="cat" id="cat" markdown="0">
 <header class="cat-hero">
-<div class="hero-text">
-<h1>External Training Catalogue</h1>
+    <div class="hero-text">
+        <h1>Learning Pathway Builder</h1>
+        <p>Discover external training opportunities in HPC, AI, research software engineering, programming and performance optimisation. Browse the catalogue, check upcoming dates in the calendar, and build your own learning pathway or start from a curated one.</p>
+    </div>
+    <ul class="hero-stats" id="hero-stats"></ul>
 
-
-<p>Discover external training opportunities in HPC, AI, research software engineering, programming, performance optimisation, and related topics. Add courses to build your own learning pathway, or start from a curated one.</p>
-</div>
-<ul class="hero-stats" id="hero-stats"></ul>
+    <div class="hero-disclaimer" role="note">
+        <span class="hero-disclaimer-icon" aria-hidden="true">i</span>
+        <div>
+            <strong>Disclaimer:</strong> This page is a signposting resource created by the SHAREing project. SHAREing support has been used to curate, organise, and present publicly available training opportunities in a searchable format. The courses listed here are provided by third-party organisations and are not funded, delivered, or maintained by SHAREing unless explicitly stated. Course content, availability, schedules, and registration are the responsibility of the individual providers.
+        </div>
+    </div>
 </header>
 <div class="cat-layout" id="cat-layout">
 <div class="cat-main">
@@ -23,7 +28,11 @@ classes: wide
 <button type="button" id="tab-curated" class="cat-tab" role="tab" aria-selected="false" style="display:none;">Curated pathways</button>
 <button type="button" id="tab-map" class="cat-tab" role="tab" aria-selected="false">Pathway map</button>
 </div>
-<button type="button" id="pathway-toggle" class="cat-btn cat-btn-primary" aria-expanded="true" aria-controls="pathway-side">My pathway <span id="pathway-count" class="cat-badge">0</span></button>
+<div class="toolbar-actions">
+    <button type="button" id="calendar-open" class="cat-btn cat-btn-secondary" aria-haspopup="dialog">📅 Calendar <span id="cal-count" class="cat-badge">0</span></button>
+    <button type="button" id="add-course" class="cat-btn cat-btn-secondary" aria-haspopup="dialog" onclick="window.location.href='https://shareing-dri.github.io/training/suggest-training'"> Add your Course!</button>
+    <button type="button" id="pathway-toggle" class="cat-btn cat-btn-secondary" aria-expanded="true" aria-controls="pathway-side">My pathway <span id="pathway-count" class="cat-badge">0</span></button>
+</div>
 </div>
 <div id="filter-rows" class="filter-rows">
 <input type="search" id="cat-search" class="cat-search" placeholder="Search by course, provider or topic" aria-label="Search by course, provider or topic">
@@ -96,6 +105,36 @@ classes: wide
 </aside>
 </div>
 <button type="button" id="pathway-fab" class="pathway-fab" aria-controls="pathway-side">My pathway <span id="pathway-fab-count" class="cat-badge">0</span></button>
+<div id="cal-modal" class="cal-modal" role="dialog" aria-modal="true" aria-labelledby="cal-title" hidden>
+    <div class="cal-backdrop" id="cal-backdrop"></div>
+    <div class="cal-panel">
+        <header class="cal-head">
+            <div class="cal-nav">
+                <button type="button" id="cal-prev" class="cat-btn cat-btn-icon" aria-label="Previous month">‹</button>
+                <button type="button" id="cal-next" class="cat-btn cat-btn-icon" aria-label="Next month">›</button>
+                <h2 id="cal-title"></h2>
+            </div>
+            <div class="cal-head-actions">
+                <button type="button" id="cal-today" class="cat-btn">Today</button>
+                <div class="cal-seg" role="group" aria-label="Calendar view">
+                    <button type="button" data-cal-view="month" aria-pressed="true">Month</button>
+                    <button type="button" data-cal-view="list" aria-pressed="false">List</button>
+                </div>
+                <button type="button" id="cal-close" class="cat-btn" aria-label="Close calendar">✕</button>
+            </div>
+        </header>
+        <div id="cal-legend" class="cal-legend"></div>
+        <div id="cal-body" class="cal-body">
+            <div id="cal-main" class="cal-main"></div>
+            <aside id="cal-detail" class="cal-detail" aria-live="polite"></aside>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <p class="cat-disclaimer"><strong>Disclaimer:</strong> This page is a signposting resource created by the SHAREing project. SHAREing support has been used to curate, organise, and present publicly available training opportunities in a searchable format. The courses listed here are provided by third-party organisations and are not funded, delivered, or maintained by SHAREing unless explicitly stated. Course content, availability, schedules, and registration are the responsibility of the individual providers.</p>
 </div>
@@ -122,13 +161,19 @@ classes: wide
     margin: 0 0 32px;
     text-align: left;
 }
+
+.disclaimer { margin-top: 40px; padding: 14px 16px; border-left: 4px solid var(--deep); border-radius: 6px; color: var(--mut); font-size:0.6rem; }
+
+
 .cat, .cat * { box-sizing: border-box; }
 .cat h1, .cat h2, .cat h3, .cat h4, .cat p, .cat ul, .cat ol, .cat li, .cat summary {
     margin: 0; padding: 0; border: 0; font-family: inherit; text-indent: 0; text-transform: none; letter-spacing: normal;
 }
 .cat ul, .cat ol { list-style: none; }
 .cat p { font-size: 15px; line-height: 1.5; }
-.cat button { font-family: inherit; }
+.cat button {
+    color: var(--ink);
+}
 .cat a { text-decoration: none; }
 .cat [hidden] { display: none !important; }
 .cat :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
@@ -156,6 +201,22 @@ classes: wide
     display: block;
     font-size: 20px;
     color: #d9c0e6;
+}
+
+.cat .hero-disclaimer {
+    flex: 1 1 100%;
+    display: flex; align-items: flex-start; gap: 12px;
+    margin-top: 4px; padding: 14px 16px;
+    border: 1px solid rgba(255,255,255,.16); border-radius: 10px;
+    background: rgba(255,255,255,.07);
+    color: #e6d3ee; font-size: 13px; line-height: 1.6;
+}
+.cat .hero-disclaimer strong { color: #fff; }
+.cat .hero-disclaimer-icon {
+    flex: 0 0 22px; display: flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; margin-top: 1px;
+    border: 1.5px solid #d9c0e6; border-radius: 50%;
+    color: #fff; font-size: 13px; font-weight: 700; font-style: italic; font-family: Georgia, serif;
 }
 
 /* ---------- Buttons ---------- */
@@ -501,13 +562,111 @@ classes: wide
 .cat .pathway-item-actions { flex-wrap: wrap; }
 
 /* ---------- Misc ---------- */
-.cat .toast { position: fixed; left: 50%; bottom: 20px; z-index: 1000000; max-width: 90vw; padding: 10px 16px; border-radius: 8px; background: #1f2937; color: #fff; font-size: 14px; opacity: 0; transform: translate(-50%, 10px); pointer-events: none; transition: opacity .2s, transform .2s; }
+.cat .toast { position: fixed; left: 50%; bottom: 20px; z-index: 1000000; max-width: 90vw; padding: 10px 16px; border-radius: 8px; background: #1f2937; color: var(--ink); font-size: 14px; opacity: 0; transform: translate(-50%, 10px); pointer-events: none; transition: opacity .2s, transform .2s; }
 .cat .toast.show { opacity: 1; transform: translate(-50%, 0); }
 .cat .pathway-fab { display: none; }
 .cat .cat-disclaimer { margin-top: 40px; padding: 14px 16px; border-left: 4px solid var(--deep); border-radius: 6px; background: #f8f9fb; color: var(--mut); font-size: 13px; line-height: 1.55; }
 .cat .cat-disclaimer strong { color: var(--ink); }
 
-@media (prefers-reduced-motion: reduce) { .cat * { transition: none !important; } }
+
+/* ---------- Calendar ---------- */
+.cat .toolbar-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.cat .b-hybrid { background: #dcf3ef; color: #1d5a53; }
+
+/* --fc acento · --fb fondo suave · --ft texto oscuro */
+.cat .fmt-online   { --fc: #6f8fd0; --fb: #e3ebfa; --ft: #27407a; }
+.cat .fmt-hybrid   { --fc: #5fb3a8; --fb: #dcf3ef; --ft: #1d5a53; }
+.cat .fmt-inperson { --fc: #d9925f; --fb: #fbe9dc; --ft: #7a3e17; }
+.cat .fmt-other    { --fc: #94a3b8; --fb: #eef1f5; --ft: #475569; }
+
+.cat .cal-modal { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.cat .cal-backdrop { position: absolute; inset: 0; background: rgba(36,56,85,.55); }
+.cat .cal-panel {
+    position: relative; display: flex; flex-direction: column;
+    width: min(1200px, 100%); height: min(860px, 100%);
+    background: #fff; border-radius: 14px; box-shadow: 0 24px 60px rgba(0,0,0,.35); overflow: hidden;
+}
+.cat .cal-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.cat .cal-nav, .cat .cal-head-actions { display: flex; align-items: center; gap: 8px; }
+.cat .cal-nav h2 { min-width: 180px; margin-left: 6px; font-size: 21px; line-height: 1.2; font-weight: 700; color: var(--deep); }
+.cat .cal-seg { display: inline-flex; border: 1px solid #cfd4dc; border-radius: 8px; overflow: hidden; }
+.cat .cal-seg button { height: 36px; padding: 0 14px; border: 0; background: #fff; color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; }
+.cat .cal-seg button:hover:not(.active) { background: var(--soft); }
+.cat .cal-seg button.active { background: var(--tint-2); color: var(--brand-dark); font-weight: 700; }
+
+.cat .cal-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 18px; border-bottom: 1px solid var(--line); }
+.cat .cal-chip {
+    display: inline-flex; align-items: center; gap: 7px; height: 30px; padding: 0 12px;
+    border: 1px solid var(--fc); border-radius: 15px; background: var(--fb); color: var(--ft);
+    font-size: 13px; font-weight: 600; cursor: pointer; transition: background .15s, border-color .15s;
+}
+.cat .cal-chip:hover { border-color: var(--ft); }
+.cat .cal-chip.off { background: #fff; border-color: var(--line); color: var(--mut); text-decoration: line-through; }
+.cat .cal-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--fc); }
+.cat .cal-chip.off .cal-dot { background: #cbd5e1; }
+.cat .cal-legend-hint { margin-left: auto; color: var(--mut); font-size: 12px; }
+
+.cat .cal-body { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 310px; }
+.cat .cal-body.is-list { grid-template-columns: minmax(0, 1fr); }
+.cat .cal-body.is-list .cal-detail { display: none; }
+.cat .cal-main { overflow: auto; padding: 14px 18px; }
+.cat .cal-detail { overflow: auto; padding: 16px; border-left: 1px solid var(--line); background: #fafafb; }
+.cat .cal-detail h3 { font-size: 16px; font-weight: 700; color: var(--deep); }
+.cat .cal-detail-sub, .cat .cal-hint p { color: var(--mut); font-size: 13px; }
+.cat .cal-hint strong { display: block; margin-bottom: 4px; color: var(--ink); }
+
+.cat .cal-banner { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; padding: 10px 14px; border-radius: 8px; background: var(--tint); color: var(--deep); font-size: 14px; }
+
+.cat .cal-dow { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); padding: 4px 0; color: var(--mut); font-size: 12px; font-weight: 700; text-transform: uppercase; text-align: center; }
+.cat .cal-grid { border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.cat .cal-week { position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); grid-template-rows: 30px repeat(3, 24px) 22px; }
+.cat .cal-day {
+    grid-row: 1 / -1; display: block; padding: 6px 8px; border: 0; border-radius: 0;
+    border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    background: #fff; text-align: left; cursor: pointer;
+}
+.cat .cal-day:hover { background: var(--tint); }
+.cat .cal-day.other { background: #fafafb; }
+.cat .cal-day.selected { box-shadow: inset 0 0 0 2px var(--brand); }
+.cat .cal-daynum { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; border-radius: 11px; color: var(--ink); font-size: 13px; font-weight: 600; }
+.cat .cal-day.other .cal-daynum { color: #9aa3af; }
+.cat .cal-day.today .cal-daynum { background: var(--brand); color: #fff; }
+
+/* Eventos: fondo pastel + franja de acento + texto oscuro */
+.cat .cal-ev {
+    position: relative; z-index: 2; align-self: center; height: 20px; margin: 0 3px; padding: 0 8px;
+    border: 0; border-left: 4px solid var(--fc); border-radius: 5px;
+    background: var(--fb); color: var(--ft);
+    font-size: 12px; font-weight: 600; line-height: 20px; text-align: left;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;
+    transition: background .15s, box-shadow .15s;
+}
+.cat .cal-ev:hover { box-shadow: inset 0 0 0 1px var(--fc); }
+.cat .cal-ev.cont-l { margin-left: 0; border-left: 0; padding-left: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.cat .cal-ev.cont-r { margin-right: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.cat .cal-ev.active { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--fc); }
+.cat .cal-more { position: relative; z-index: 2; align-self: center; justify-self: start; margin-left: 8px; padding: 0; border: 0; background: none; color: var(--mut); font-size: 12px; font-weight: 700; cursor: pointer; }
+.cat .cal-more:hover { color: var(--brand); text-decoration: underline; }
+
+.cat .cal-card { margin-top: 10px; padding: 12px 14px; border: 1px solid var(--line); border-left: 5px solid var(--fc); border-radius: 8px; background: #fff; }
+.cat .cal-card-fmt { display: inline-block; padding: 1px 9px; border-radius: 10px; background: var(--fb); color: var(--ft); font-size: 12px; font-weight: 700; }
+.cat .cal-card-title { display: block; margin-top: 6px; color: var(--ink); font-size: 15px; font-weight: 600; line-height: 1.35; }
+.cat a.cal-card-title:hover { color: var(--brand); text-decoration: underline; }
+.cat .cal-card-meta { margin-top: 2px; color: var(--mut); font-size: 13px; }
+.cat .cal-card .cat-btn { margin-top: 10px; }
+.cat .cal-list .cal-card:first-child { margin-top: 0; }
+
+@media (max-width: 720px) {
+    .cat .cal-modal { padding: 0; }
+    .cat .cal-panel { height: 100%; border-radius: 0; }
+    .cat .cal-nav h2 { min-width: 0; font-size: 17px; }
+    .cat .cal-body, .cat .cal-body.is-list { display: block; overflow: auto; }
+    .cat .cal-main { overflow: visible; padding: 12px; }
+    .cat .cal-detail { border-left: 0; border-top: 1px solid var(--line); }
+    .cat .cal-ev { padding: 0 4px; font-size: 10px; }
+    .cat .cal-day { padding: 4px; }
+    .cat .cal-legend-hint { display: none; }
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1000px) {
@@ -792,7 +951,7 @@ function escapeHtml(value) {
 const FORMATS = {
     "Online (self-service)": { label: "On-demand",             cls: "b-demand" },
     "Scheduled (online)":    { label: "Scheduled (online)",    cls: "b-online" },
-    "Scheduled (hybrid)":    { label: "Scheduled (hybrid)",    cls: "b-person" },
+    "Scheduled (hybrid)":    { label: "Scheduled (hybrid)",    cls: "b-hybrid" },
     "Scheduled (in-person)": { label: "Scheduled (in-person)", cls: "b-person" },
     "Upcoming":              { label: "Upcoming",              cls: "b-other" },
     "Other":                 { label: "Other",                 cls: "b-other" }
@@ -1350,6 +1509,7 @@ function updateCourseStates() {
         const ids = card.dataset.ids ? card.dataset.ids.split("|") : [];
         card.classList.toggle("is-loaded", ids.length > 0 && ids.every(id => pathwayIds.includes(id)));
     });
+        if (calOpen) { renderCal(); }
 
 }
 
@@ -2557,6 +2717,357 @@ $("download-map").addEventListener("click", function () {
     triggerHtmlDownload(buildMapDownloadHtml(), "my-shareing-learning-pathway-map.html");
 });
 
+/* ============================================================
+   CALENDAR
+   ============================================================ */
+
+const DAY_MS = 86400000;
+const CAL_LANES = 3;
+const CAL_FORMATS = [
+    { key: "online",   label: "Scheduled (online)" },
+    { key: "hybrid",   label: "Scheduled (hybrid)" },
+    { key: "inperson", label: "Scheduled (in-person)" },
+    { key: "other",    label: "Upcoming / other" }
+];
+
+const calFmtKey = f =>
+    f === "Scheduled (online)" ? "online" :
+    f === "Scheduled (hybrid)" ? "hybrid" :
+    f === "Scheduled (in-person)" ? "inperson" : "other";
+
+/* Start + end of a free-text date ("12-14 March 2026", "28 Feb - 2 March 2026") */
+function parseDateRange(text) {
+
+    const dates = String(text || "").trim();
+    if (!dates || /self[- ]?paced|rolling|on[- ]?demand/i.test(dates)) { return null; }
+
+    const end = parseEndDate(dates);
+    if (!end) { return null; }
+
+    const years = dates.match(/\b20\d{2}\b/g);
+    const re = new RegExp(MONTH_RE.source, "gi");
+    const first = re.exec(dates);
+    if (!first || !years) { return null; }
+
+    const month  = MONTHS.indexOf(first[1].slice(0, 3).toLowerCase());
+    const before = dates.slice(0, first.index);
+    const after  = dates.slice(first.index + first[0].length);
+
+    let year = parseInt(years[0], 10);
+    if (years.length === 1 && month > end.getMonth()) { year -= 1; }   // "28 Dec - 3 Jan 2026"
+
+    let day = null;
+    const b = before.match(/\b(\d{1,2})(?:st|nd|rd|th)?(?:\s*(?:-|–|—|to|&|,|and)\s*\d{1,2}(?:st|nd|rd|th)?)*\s*(?:of\s+)?$/i);
+    if (b) { day = parseInt(b[1], 10); }
+    else {
+        const a = after.match(/^\s*(\d{1,2})(?!\d)/);
+        if (a) { day = parseInt(a[1], 10); }
+    }
+
+    let start = new Date(year, month, day || 1);
+    if (start > end) { start = new Date(end.getFullYear(), end.getMonth(), end.getDate()); }
+
+    return { start: start, end: end };
+
+}
+
+const calEvents = courses
+    .filter(c => c.format !== "Online (self-service)")
+    .map(c => {
+        const r = parseDateRange(c.dates);
+        return r ? { id: courseIndex(c), course: c, title: courseTitle(c), start: r.start, end: r.end, fmt: calFmtKey(c.format) } : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.start - b.start || b.end - a.end || a.title.localeCompare(b.title));
+
+const calById = {};
+calEvents.forEach(e => { calById[e.id] = e; });
+
+const startOfDay  = d => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+const addDays     = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+const daysBetween = (a, b) => Math.round((startOfDay(b) - startOfDay(a)) / DAY_MS);
+const dayKey      = d => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+const keyToDate   = k => { const p = k.split("-").map(Number); return new Date(p[0], p[1] - 1, p[2]); };
+const fmtDay      = (d, opts) => d.toLocaleDateString("en-GB", opts);
+
+function rangeLabel(e) {
+    const full = { day: "numeric", month: "short", year: "numeric" };
+    if (daysBetween(e.start, e.end) === 0) { return fmtDay(e.start, full); }
+    return fmtDay(e.start, { day: "numeric", month: "short" }) + " – " + fmtDay(e.end, full);
+}
+
+const calModal  = $("cal-modal");
+const calMain   = $("cal-main");
+const calDetail = $("cal-detail");
+const calLegend = $("cal-legend");
+
+let calOpen = false;
+let calMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+let calView = window.matchMedia("(max-width: 720px)").matches ? "list" : "month";
+let calSel = null;
+let calLastFocus = null;
+const calHidden = new Set();
+
+function calCard(e) {
+
+    const c = e.course, inPath = pathwayIds.includes(e.id);
+    const meta = [c.organisation, showLocation(c) ? c.location : ""].filter(Boolean).join(" · ");
+
+    return `
+        <article class="cal-card fmt-${e.fmt}">
+            <span class="cal-card-fmt">${escapeHtml(formatLabel(c.format) || "Other")}</span>
+            ${titleHtml(c, "cal-card-title")}
+            ${meta ? `<div class="cal-card-meta">${escapeHtml(meta)}</div>` : ""}
+            <div class="cal-card-meta">📅 ${escapeHtml(rangeLabel(e))}</div>
+            <button type="button" class="cat-btn cat-btn-small${inPath ? " cat-btn-secondary" : ""}" data-cal-add="${escapeHtml(e.id)}">${inPath ? "✓ In my pathway" : "+ Add to my pathway"}</button>
+        </article>`;
+
+}
+
+function renderCalLegend(mStart, mEnd) {
+
+    const counts = {}, present = new Set();
+    calEvents.forEach(e => {
+        present.add(e.fmt);
+        if (e.start <= mEnd && e.end >= mStart) { counts[e.fmt] = (counts[e.fmt] || 0) + 1; }
+    });
+
+    calLegend.innerHTML = CAL_FORMATS.filter(f => present.has(f.key)).map(f => `
+        <button type="button" class="cal-chip fmt-${f.key}${calHidden.has(f.key) ? " off" : ""}" data-cal-fmt="${f.key}" aria-pressed="${!calHidden.has(f.key)}">
+            <i class="cal-dot"></i>${f.label} <span class="chip-n">${counts[f.key] || 0}</span>
+        </button>`).join("") + `<span class="cal-legend-hint">Click a colour to show / hide it</span>`;
+
+}
+
+function buildMonthGrid(mStart, mEnd, visible) {
+
+    const lead = (mStart.getDay() + 6) % 7;              // Monday first
+    const gridStart = addDays(mStart, -lead);
+    const weeks = Math.ceil((lead + mEnd.getDate()) / 7);
+    const names = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+    let html = `<div class="cal-dow" aria-hidden="true">${names.map(n => `<span>${n}</span>`).join("")}</div><div class="cal-grid">`;
+
+    for (let w = 0; w < weeks; w++) {
+
+        const ws = addDays(gridStart, w * 7), we = addDays(ws, 6);
+
+        const segs = visible
+            .filter(e => e.start <= we && e.end >= ws)
+            .map(e => ({ e: e, s: Math.max(0, daysBetween(ws, e.start)), t: Math.min(6, daysBetween(ws, e.end)), cl: e.start < ws, cr: e.end > we }))
+            .sort((a, b) => a.s - b.s || (b.t - b.s) - (a.t - a.s) || a.e.title.localeCompare(b.e.title));
+
+        const lanes = [];
+        segs.forEach(sg => {
+            let i = lanes.findIndex(last => last < sg.s);
+            if (i === -1) { i = lanes.length; }
+            lanes[i] = sg.t;
+            sg.lane = i;
+        });
+
+        const hiddenN = [0, 0, 0, 0, 0, 0, 0];
+        segs.forEach(sg => { if (sg.lane >= CAL_LANES) { for (let d = sg.s; d <= sg.t; d++) { hiddenN[d]++; } } });
+
+        html += `<div class="cal-week">`;
+
+        for (let d = 0; d < 7; d++) {
+
+            const day = addDays(ws, d), key = dayKey(day);
+            const n = segs.filter(sg => sg.s <= d && sg.t >= d).length;
+            const cls = [
+                day.getMonth() !== mStart.getMonth() ? "other" : "",
+                daysBetween(today, day) === 0 ? "today" : "",
+                calSel && calSel.type === "day" && calSel.key === key ? "selected" : ""
+            ].filter(Boolean).join(" ");
+
+            html += `<button type="button" class="cal-day ${cls}" style="grid-column:${d + 1}" data-cal-day="${key}"
+                        aria-label="${escapeHtml(fmtDay(day, { weekday: "long", day: "numeric", month: "long" }))}, ${n} ${n === 1 ? "event" : "events"}">
+                        <span class="cal-daynum">${day.getDate()}</span></button>`;
+
+        }
+
+        segs.forEach(sg => {
+            if (sg.lane >= CAL_LANES) { return; }
+            const active = calSel && calSel.type === "event" && calSel.id === sg.e.id ? " active" : "";
+            const org = sg.e.course.organisation ? " — " + sg.e.course.organisation : "";
+            html += `<button type="button" class="cal-ev fmt-${sg.e.fmt}${sg.cl ? " cont-l" : ""}${sg.cr ? " cont-r" : ""}${active}"
+                        style="grid-column:${sg.s + 1} / span ${sg.t - sg.s + 1};grid-row:${sg.lane + 2}"
+                        data-cal-ev="${escapeHtml(sg.e.id)}" title="${escapeHtml(sg.e.title + org + " (" + rangeLabel(sg.e) + ")")}">${escapeHtml(sg.e.title)}</button>`;
+        });
+
+        for (let d = 0; d < 7; d++) {
+            if (hiddenN[d] > 0) {
+                html += `<button type="button" class="cal-more" style="grid-column:${d + 1};grid-row:${CAL_LANES + 2}" data-cal-day="${dayKey(addDays(ws, d))}">+${hiddenN[d]} more</button>`;
+            }
+        }
+
+        html += `</div>`;
+
+    }
+
+    return html + `</div>`;
+
+}
+
+function renderCalDetail() {
+
+    if (calView === "list") { calDetail.innerHTML = ""; return; }
+
+    if (!calSel) {
+        calDetail.innerHTML = `<div class="cal-hint"><strong>Select a day or an event</strong><p>Click any event bar or day to see the details and add it to your pathway.</p></div>`;
+        return;
+    }
+
+    let evs, heading;
+
+    if (calSel.type === "event") {
+        const e = calById[calSel.id];
+        evs = e ? [e] : [];
+        heading = "Event details";
+    }
+    else {
+        const day = keyToDate(calSel.key);
+        evs = calEvents.filter(e => !calHidden.has(e.fmt) && e.start <= day && e.end >= day);
+        heading = fmtDay(day, { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+    }
+
+    calDetail.innerHTML = `<h3>${escapeHtml(heading)}</h3>` +
+        (calSel.type === "day" ? `<p class="cal-detail-sub">${evs.length} ${evs.length === 1 ? "event" : "events"}</p>` : "") +
+        (evs.length ? evs.map(calCard).join("") : `<p class="cal-detail-sub" style="margin-top:10px">No events on this day.</p>`);
+
+}
+
+function renderCal() {
+
+    const mStart = calMonth, mEnd = new Date(mStart.getFullYear(), mStart.getMonth() + 1, 0);
+
+    $("cal-title").textContent = fmtDay(mStart, { month: "long", year: "numeric" });
+
+    document.querySelectorAll("[data-cal-view]").forEach(b => {
+        const on = b.dataset.calView === calView;
+        b.classList.toggle("active", on);
+        b.setAttribute("aria-pressed", String(on));
+    });
+
+    $("cal-body").classList.toggle("is-list", calView === "list");
+    renderCalLegend(mStart, mEnd);
+
+    const visible = calEvents.filter(e => !calHidden.has(e.fmt) && e.start <= mEnd && e.end >= mStart);
+    const next = visible.length ? null : calEvents.find(e => !calHidden.has(e.fmt) && e.start > mEnd);
+
+    const banner = visible.length ? "" : `
+        <div class="cal-banner"><span>No events this month.</span>
+        ${next ? `<button type="button" class="cat-btn cat-btn-small" data-cal-jump="${dayKey(next.start)}">Jump to next event →</button>` : ""}</div>`;
+
+    calMain.innerHTML = banner + (calView === "month"
+        ? buildMonthGrid(mStart, mEnd, visible)
+        : (visible.length ? `<div class="cal-list">${visible.map(calCard).join("")}</div>` : ""));
+
+    renderCalDetail();
+
+}
+
+function calRefocus(selector) {
+    const el = calModal.querySelector(selector);
+    if (el) { el.focus(); }
+}
+
+function openCal() {
+    calLastFocus = document.activeElement;
+    calOpen = true;
+    calModal.hidden = false;
+    document.body.style.overflow = "hidden";
+    renderCal();
+    $("cal-close").focus();
+}
+
+function closeCal() {
+    calOpen = false;
+    calModal.hidden = true;
+    document.body.style.overflow = "";
+    if (calLastFocus && calLastFocus.focus) { calLastFocus.focus(); }
+}
+
+function shiftMonth(n) {
+    calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() + n, 1);
+    renderCal();
+}
+
+$("calendar-open").addEventListener("click", openCal);
+$("cal-close").addEventListener("click", closeCal);
+$("cal-backdrop").addEventListener("click", closeCal);
+$("cal-prev").addEventListener("click", () => shiftMonth(-1));
+$("cal-next").addEventListener("click", () => shiftMonth(1));
+$("cal-today").addEventListener("click", function () {
+    calMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    renderCal();
+});
+
+calModal.addEventListener("click", function (event) {
+
+    const t = event.target;
+    let el;
+
+    if ((el = t.closest("[data-cal-view]"))) { calView = el.dataset.calView; renderCal(); return; }
+
+    if ((el = t.closest("[data-cal-fmt]"))) {
+        const k = el.dataset.calFmt;
+        if (calHidden.has(k)) { calHidden.delete(k); } else { calHidden.add(k); }
+        renderCal();
+        calRefocus(`[data-cal-fmt="${k}"]`);
+        return;
+    }
+
+    if ((el = t.closest("[data-cal-ev]"))) {
+        const id = el.dataset.calEv;
+        calSel = { type: "event", id: id };
+        renderCal();
+        calRefocus(`[data-cal-ev="${CSS.escape(id)}"]`);
+        if (isMobile()) { calDetail.scrollIntoView({ behavior: "smooth", block: "nearest" }); }
+        return;
+    }
+
+    if ((el = t.closest("[data-cal-day]"))) {
+        const k = el.dataset.calDay;
+        calSel = { type: "day", key: k };
+        renderCal();
+        calRefocus(`[data-cal-day="${k}"]`);
+        if (isMobile()) { calDetail.scrollIntoView({ behavior: "smooth", block: "nearest" }); }
+        return;
+    }
+
+    if ((el = t.closest("[data-cal-jump]"))) {
+        const d = keyToDate(el.dataset.calJump);
+        calMonth = new Date(d.getFullYear(), d.getMonth(), 1);
+        renderCal();
+        return;
+    }
+
+    if ((el = t.closest("[data-cal-add]"))) {
+        const id = el.dataset.calAdd, course = courseLookup[id];
+        if (course) { toggleCourse(course); }
+        calRefocus(`[data-cal-add="${CSS.escape(id)}"]`);
+    }
+
+});
+
+/* Esc closes, Tab stays inside the dialog */
+calModal.addEventListener("keydown", function (event) {
+
+    if (event.key === "Escape") { event.stopPropagation(); closeCal(); return; }
+
+    if (event.key === "Tab") {
+        const f = [...calModal.querySelectorAll("button, a[href]")].filter(el => el.offsetParent !== null);
+        if (!f.length) { return; }
+        const first = f[0], last = f[f.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
+
+});
+
+$("cal-count").textContent = calEvents.length;
+if (!calEvents.length) { $("calendar-open").style.display = "none"; }
 
 /* ============================================================
    INITIALISE

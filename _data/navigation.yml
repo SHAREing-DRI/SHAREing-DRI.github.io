@@ -64,6 +64,8 @@ main:
   - title: "Training & Resources"
     url: /training/
     sublinks:
+      - title: "Learning Pathway Builder"
+        url: /training/external-training-board
       - title: "External Training Catalogue"
         url: /training/external-training-menu
       - title: "Training"
