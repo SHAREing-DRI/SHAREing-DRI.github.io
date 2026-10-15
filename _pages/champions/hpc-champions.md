@@ -41,41 +41,72 @@ champions_pathway:
 
 <!-- ================= HERO ================= -->
 <header class="hc-hero">
-  <div class="hero-text">
+  <div class="hero-main">
     <span class="hero-kicker">Call for applications</span>
     <h1>HPC Champions: Performance Analysis</h1>
-    <p>Join the first cohort of dRTPs building expertise in performance analysis, with travel and accommodation funding to attend the VI-HPS workshop in Durham.</p>
+    <p>Join the first cohort of dRTPs building expertise in performance analysis. Travel and accommodation are funded for the VI-HPS workshop in Durham.</p>
     <div class="hero-actions">
-      <a class="hc-btn hc-btn-light" href="[application link]">Applications will open soon</a>
+      <a class="hc-btn hc-btn-light" href="">Applications open 2 November</a>
       <a class="hc-btn hc-btn-ghost" href="#journey">See the learning journey</a>
     </div>
   </div>
-  <ul class="hero-facts">
-<li><strong>Apply by 23 November</strong><span>2026</span></li>
-<li><strong>Your learning pathway</strong><span>Follow our curated route or build your own, with SHAREing support</span></li>
-<li><strong>Funded workshop</strong><span>VI-HPS travel &amp; accommodation covered</span></li>
-  </ul>
+  <dl class="hero-facts">
+    <div><dt>Apply by</dt><dd>23 Nov 2026</dd></div>
+    <div><dt>Workshop</dt><dd>17-20 May 2027</dd></div>
+    <div><dt>Where</dt><dd>Durham</dd></div>
+    <div><dt>Funding</dt><dd>Travel and accommodation</dd></div>
+  </dl>
 </header>
 
-<p class="hc-deadline">⏰ <strong>Applications</strong> open Monday 2 November 2026 and <strong> close Monday 23 November 2026 at 23:59 (UK time).</strong> Successful applicants will be notified by Monday 14 December 2026.</p>
+<nav class="hc-nav" aria-label="On this page">
+  <a href="#about">About</a>
+  <a href="#journey">Learning journey</a>
+  <a href="#included">What's included</a>
+  <a href="#apply">Apply</a>
+</nav>
 
 <!-- ================= ABOUT ================= -->
-<section class="hc-section">
+<section class="hc-section" id="about">
   <h2>About HPC Champions</h2>
-  <p class="hc-lead">HPC Champions is a SHAREing initiative for digital Research Technical Professionals (dRTPs) who want to build their skills in <strong>performance analysis</strong> of research software on HPC systems. We provide a curated learning pathway that takes you from foundations to the <a href="https://www.vi-hps.org/" target="_blank" rel="noopener noreferrer">VI-HPS</a> workshop in Durham, and the SHAREing team will support you in shaping it into a personalised journey that fits your starting point. As a Champion, your travel and accommodation for the workshop are covered.</p>
+  <p class="hc-lead">HPC Champions is Durham’s HAI-End initiative for digital Research Technical Professionals (dRTPs) who want to build deep skills and expertise in one particular area.</p>
 
-  <div class="hc-grid hc-grid-4">
-    <div class="hc-card"><div class="hc-icon">🧭</div><h3>A curated pathway</h3><p>A guided route from foundations to the workshop, so you arrive prepared and get the most from it.</p></div>
-    <div class="hc-card"><div class="hc-icon">🗺️</div><h3>Made personal</h3><p>Mentoring from the SHAREing team to adapt the pathway to your experience, skipping what you know and adding what you need.</p></div>
-    <div class="hc-card"><div class="hc-icon">🎟️</div><h3>Funded workshop</h3><p>Travel and accommodation covered for a hands-on, expert-led performance engineering workshop in Durham.</p></div>
-    <div class="hc-card"><div class="hc-icon">🤝</div><h3>A peer community</h3><p>Connect with other dRTPs focused on performance, share your work and widen your view of the performance analysis landscape.</p></div>
+  <div class="hc-steps">
+    <div><span>1</span><h3>Check the skills graph</h3><p>See which skills the workshop builds on.</p></div>
+    <div><span>2</span><h3>Fill your gaps</h3><p>Study what you are missing before the workshop.</p></div>
+    <div><span>3</span><h3>Attend, funded</h3><p>Arrive prepared. We cover your travel.</p></div>
   </div>
+
+  <details class="hc-acc" open>
+    <summary>What does this mean?</summary>
+    <div class="hc-acc-body">
+      <p>Traditionally, PhD students, postdocs, RSEs and academics from across the UK attend individual courses to gain the knowledge they need for their particular project. How much they get out of a workshop depends not only on its content but also on what they already know. This poses a challenge for instructors, who never know what skills participants will bring. It also quickly leads to siloed expertise, unless participants use the workshop as a springboard to learn beyond the boundaries of their immediate problem.</p>
+      <p>With the HPC Champions concept, we move towards a more formal, structured approach to upskilling, without the heavy overhead of requiring people to complete full courses.</p>
+      <p>Each Champion flavour comes with a template skills graph. When we announce a workshop, we also publish the skills it builds on, which form its prerequisites, together with suggested preparatory courses. We expect attendees to work through this skills graph and identify which skills they already have. For any they don’t, we point them to resources where they can study the topic before the workshop.</p>
+      <p class="hc-key">The skills graph is a template, not a rulebook. Participants may find alternative courses or training that cover the required skills, or confirm that they already have them. What matters is that every successful applicant actively reflects on what they know and what they still need to learn before joining the workshop. This is what makes them true HPC Champions.</p>
+      <p>Because participants commit to some preparatory study, we get a more consistent audience. The skills graph also tells people what to expect from the workshop, which makes the sessions more productive for everyone. In return for this effort, we provide travel funding.</p>
+    </div>
+  </details>
+
+  <details class="hc-acc" open>
+    <summary>Champions come in different flavours</summary>
+    <div class="hc-acc-body">
+      <p>For HPC Champions in Performance Analysis, we offer a curated learning pathway that leads participants all the way to a VI-HPS workshop in Durham. Both this website and the HAI-End team will help participants shape the pathway into a personalised journey that fits their individual starting point.</p>
+      <p><strong>As a Champion, your travel and accommodation for the workshop are covered.</strong></p>
+    </div>
+  </details>
 </section>
 
 <!-- ================= JOURNEY ================= -->
 <section class="hc-section" id="journey">
   <h2>The learning journey</h2>
-  <p class="hc-lead">All material is free to follow and self-study, so join at the point that matches your experience. Completion is not formally assessed, but working through the steps will significantly increase the value you get from the VI-HPS workshop.</p>
+  <div class="hc-split">
+    <aside class="hc-side">
+      <p>All material is free to follow and self-study, so join at the point that matches your experience. Completion is not formally assessed, but working through the steps will significantly increase the value you get from the VI-HPS workshop.</p>
+      <div class="hc-callout">
+        <strong>Make it your own.</strong> The route is a suggestion. Load it in the <a href="{{ site.baseurl }}/training/external-training-board">Learning Pathway Builder</a> to reorder it, add courses and download your version. Mentoring sessions with the HAI-End team will help you plan it.
+      </div>
+      <a class="hc-btn hc-btn-outline" href="{{ site.baseurl }}/training/external-training-board">Open the pathway builder</a>
+    </aside>
 
   {%- assign catalogue = site.data["external-training"] %}
   {%- assign steps = page.champions_pathway %}
@@ -84,20 +115,7 @@ champions_pathway:
   {%- assign n = 0 %}
 
   <article class="hc-path">
-    <div class="path-head">
-      <div class="path-icon">🚀</div>
-      <div>
-        <h3 class="path-title">HPC Champions learning pathway</h3>
-        <div class="path-audience">For dRTPs building skills in performance analysis</div>
-      </div>
-    </div>
-    <p class="path-desc">A curated route from the command line to the VI-HPS workshop in Durham. Start wherever suits your experience.</p>
-    <p class="path-stats">{{ step_count }} steps{% if optional_count > 0 %}, {{ optional_count }} optional{% endif %}</p>
-        <!--
-    <div class="path-actions">
-      <a class="path-btn" href="{{ site.baseurl }}/training/external-training-menu">Open in the catalogue</a>
-    </div>-->
-
+    <p class="path-stats">{{ step_count }} steps{% if optional_count > 0 %}, {{ optional_count }} optional{% endif %} · start wherever suits your experience</p>
 <ol class="path-steps">
 {%- for step in steps %}
     {%- assign kind = step.kind | default: "required" %}
@@ -143,271 +161,203 @@ champions_pathway:
 {%- endfor %}
 </ol>
   </article>
-
-  <div class="hc-callout">
-    <strong>Build your own pathway.</strong> The route above is a suggestion. Everyone starts from a different place, so we encourage you to build a pathway that fits your experience, skipping what you already know and adding what you need. In the <a href="{{ site.baseurl }}/training/external-training-menu">External Training Catalogue</a> you can load this route, reorder it, add optional courses and download your own version. Mentoring sessions with the SHAREing team will be available to help you plan your pathway.
   </div>
 </section>
 
-
-<!-- ================= WORKSHOP ================= -->
-<section class="hc-section">
-  <h2>The VI-HPS workshop</h2>
-  <p class="hc-lead">Three days of hands-on training with leading performance analysis tools, alongside an introduction to the <strong>performance engineering cycle</strong>, a systematic approach to analysing and improving application performance.</p>
-
-  <div class="hc-grid hc-grid-3">
-    <div class="hc-card hc-card-blue"><h3>MAQAO</h3><p>Code analysis and optimisation tooling.</p></div>
-    <div class="hc-card hc-card-blue"><h3>Score-P, Scalasca &amp; Cube</h3><p>Instrumentation, measurement and analysis of parallel applications.</p></div>
-    <div class="hc-card hc-card-blue"><h3>Vampir</h3><p>Visual exploration of performance traces.</p></div>
-  </div>
-
-  <div class="hc-callout">
-    <strong>Bring your own code.</strong> The workshop ends with significant time to apply the tools to your own software. If you don't have a suitable code, we can supply some.
+<!-- ================= INCLUDED ================= -->
+<section class="hc-section" id="included">
+  <h2>What's included</h2>
+  <div class="hc-split hc-split-even">
+    <div class="hc-panel">
+      <h3>The VI-HPS workshop</h3>
+      <p>Three days of hands-on training with leading performance analysis tools, alongside an introduction to the <strong>performance engineering cycle</strong>, a systematic approach to analysing and improving application performance.</p>
+      <ul class="hc-chips">
+        <li>MAQAO</li><li>Score-P</li><li>Scalasca</li><li>Cube</li><li>Vampir</li>
+      </ul>
+      <p><strong>Bring your own code.</strong> The workshop ends with significant time to apply the tools to your own software. If you don't have a suitable code, we can supply some.</p>
+    </div>
+    <div class="hc-panel">
+      <h3>Support through the year</h3>
+      <p>Alongside the learning journey, we are developing activities to support Champions.</p>
+      <ul class="hc-list">
+        <li><strong>Online kickoff:</strong> an overview of the learning journey and an introduction to the cohort.</li>
+        <li><strong>Support to build your own pathway:</strong> sessions to design a personalised pathway.</li>
+        <li><strong>Assessment methodology session:</strong> an introduction to SHAREing's <a href="{{ site.baseurl }}/assessment/">performance assessment</a> approach.</li>
+        <li><strong>Early testbed access:</strong> explore novel hardware and tools ahead of the workshop.</li>
+        <li><strong>Cohort meet-ups:</strong> regular get-togethers to showcase and discuss your work.</li>
+        <li><strong>Workshop social:</strong> an evening get-together in Durham.</li>
+      </ul>
+      <p class="hc-note">Details will be confirmed to the cohort as plans are finalised.</p>
+    </div>
   </div>
 </section>
 
-<!-- ================= COHORT ================= -->
-<section class="hc-section">
-  <h2>What to expect from the cohort</h2>
-  <p class="hc-lead">Alongside the learning journey, we are developing activities to support Champions through the year.</p>
-
-  <div class="hc-grid hc-grid-3">
-  <div class="hc-card"><div class="hc-icon">💻</div><h3>Online kickoff</h3><p>An overview of the learning journey and an introduction to the cohort.</p></div>
-    <div class="hc-card hc-card-wide hc-card-accent"><div class="hc-icon">🗺️</div><h3>Support to build your own pathway</h3><p>Everyone starts from a different place. Mentoring sessions with the SHAREing team will be available to help you design a personalised learning pathway based on your starting point and goals.</p></div>
-    <div class="hc-card"><div class="hc-icon">📐</div><h3>Assessment methodology session</h3><p>An introduction to SHAREing's <a href="{{ site.baseurl }}/assessment/">performance assessment</a> approach, ahead of the more tool-focused workshop.</p></div>
-    <div class="hc-card"><div class="hc-icon">🧪</div><h3>Early testbed access</h3><p>Explore novel hardware and tools ahead of the workshop.</p></div>
-    <div class="hc-card"><div class="hc-icon">🎤</div><h3>Cohort meet-ups</h3><p>Regular get-togethers through the year to showcase and discuss your work.</p></div>
-    <div class="hc-card"><div class="hc-icon">🍻</div><h3>Workshop social</h3><p>An evening get-together in Durham during the workshop.</p></div>
+<!-- ================= APPLY ================= -->
+<section class="hc-section" id="apply">
+  <h2>Apply</h2>
+  <div class="hc-split hc-split-even-apply">
+    <div>
+      <h3 class="hc-h3">Who should apply?</h3>
+      <p class="hc-sub">You do not need to be an expert. The learning journey is designed to bring you up to speed.</p>
+      <ul class="hc-checks">
+        <li>You are a dRTP interested in performance analysis of research software.</li>
+        <li>You work with, or are preparing to work with, HPC systems.</li>
+        <li>You can attend the VI-HPS workshop in Durham, 17-20 May 2027.</li>
+        <li>You want to engage with, and contribute to, a cohort of peers.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="hc-h3">Key dates</h3>
+      <ol class="hc-timeline">
+        <li><span>Mon 2 Nov 2026</span><strong>Applications open</strong></li>
+        <li><span>Mon 23 Nov 2026, 23:59 UK</span><strong>Applications close</strong></li>
+        <li><span>By Mon 14 Dec 2026</span><strong>You hear from us</strong><em>Then join the online kickoff and begin the learning journey.</em></li>
+      </ol>
+    </div>
   </div>
-  <p class="hc-note"><em>Details will be confirmed to the cohort as plans are finalised.</em></p>
-</section>
-
-<!-- ================= WHO ================= -->
-<section class="hc-section">
-  <h2>Who should apply?</h2>
-  <p class="hc-lead">You do not need to be an expert. The learning journey is designed to bring you up to speed.</p>
-
-  <ul class="hc-checks">
-    <li>You are a dRTP interested in performance analysis and optimisation of research software.</li>
-    <li>You work with, or are preparing to work with, HPC systems.</li>
-    <li>You can attend the VI-HPS workshop in Durham, 17-20 May 2027.</li>
-    <li>You want to engage with, and contribute to, a cohort of peers.</li>
-  </ul>
-</section>
-
-<!-- ================= HOW TO APPLY ================= -->
-<section class="hc-section">
-  <h2>How to apply</h2>
-
-  <div class="hc-grid hc-grid-3">
-    <div class="hc-card hc-card-num"><span class="num">1</span><h3>Apply</h3><p>Complete the application form by <strong>23 November</strong>.</p></div>
-    <div class="hc-card hc-card-num"><span class="num">2</span><h3>Hear from us</h3><p>The SHAREing team reviews applications and notifies applicants by <strong>14 December</strong>.</p></div>
-    <div class="hc-card hc-card-num"><span class="num">3</span><h3>Get started</h3><p>Join the online kickoff event and begin the learning journey.</p></div>
-  </div>
-
   <div class="hc-cta">
     <div>
       <h3>Ready to become a Champion?</h3>
-      <p>Applications close <strong>23 November</strong>.</p>
+      <p>Know a colleague who would benefit? Please share this call. Questions? Visit our <a href="{{ site.baseurl }}/contact/">Contact</a> page.</p>
     </div>
-    <a class="hc-btn hc-btn-light" href="[application link]">Applications will open soon</a>
-  </div>
-</section>
-
-<!-- ================= SPREAD / CONTACT ================= -->
-<section class="hc-section hc-two">
-  <div>
-    <h2>Help us spread the word</h2>
-    <p>Know a colleague who would benefit? Please share this call through your networks!</p>
-  </div>
-  <div>
-    <h2>Questions?</h2>
-    <p>Get in touch via our <a href="{{ site.baseurl }}/contact/">Contact</a> page.</p>
+    <a class="hc-btn hc-btn-light" href="">Applications open 2 November</a>
   </div>
 </section>
 
 </div>
 
 <style>
-/* Scoped to .hc and sized in px, matching the External Training Catalogue
-   (Minimal Mistakes scales the root font size). */
+/* Scoped to .hc and sized in px (Minimal Mistakes scales the root font size). */
 .hc {
-    --brand: #940594; --brand-dark: #6f046f; --deep: #421456;
-    --tint: #f7eef7; --tint-2: #efdcef;
-    --ink: #243855; --mut: #636d7c; --line: #e5e7eb; --soft: #f3f4f6;
-    --blue: #31577a; --blue-back: #f1f6fb; --blue-line: #b9cde3;
-    font-size: 15px; line-height: 1.55; color: var(--ink);
-    margin: 0 0 32px; text-align: left;
+    --brand: #940594; --brand-dark: #6f046f; --deep: #421456; --tint: #f7eef7; --tint-2: #efdcef;
+    --ink: #243855; --mut: #636d7c; --line: #e5e7eb; --blue: #31577a; --blue-back: #f1f6fb; --blue-line: #b9cde3;
+    font-size: 15px; line-height: 1.6; color: var(--ink); margin: 0 0 32px; text-align: left; scroll-behavior: smooth;
 }
 .hc, .hc * { box-sizing: border-box; }
-.hc h1, .hc h2, .hc h3, .hc p, .hc ul, .hc ol, .hc li {
+.hc h1, .hc h2, .hc h3, .hc p, .hc ul, .hc ol, .hc li, .hc dl, .hc dd, .hc dt {
     margin: 0; padding: 0; border: 0; font-family: inherit; text-indent: 0; text-transform: none; letter-spacing: normal;
 }
 .hc ul, .hc ol { list-style: none; }
-.hc p { font-size: 15px; line-height: 1.55; }
+.hc p { font-size: 15px; line-height: 1.6; }
 .hc a { color: var(--brand); text-decoration: none; }
 .hc p a:hover { text-decoration: underline; }
 .hc :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
-.hc html { scroll-behavior: smooth; }
+.hc section[id] { scroll-margin-top: 64px; }
 
-/* ---------- Hero ---------- */
-.hc .hc-hero {
-    display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
-    margin: 24px 0 16px; padding: 40px 36px; border-radius: 14px;
-    background: var(--deep); color: #fff;
-    background-image: radial-gradient(circle at 90% 10%, rgba(148,5,148,.55), transparent 55%);
-}
-.hc .hero-text { flex: 1 1 440px; max-width: 700px; }
-.hc .hero-kicker {
-    display: inline-block; margin-bottom: 12px; padding: 4px 12px; border-radius: 14px;
-    background: rgba(255,255,255,.14); color: #f1dff7; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-}
-.hc .hc-hero h1 { font-size: 34px; line-height: 1.15; font-weight: 700; color: #fff; margin-bottom: 12px; }
-.hc .hc-hero p { color: #e6d3ee; font-size: 17px; line-height: 1.5; }
-.hc .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-.hc .hero-facts { display: flex; flex-direction: column; gap: 14px; min-width: 210px; }
-.hc .hero-facts li { padding: 14px 18px; border: 1px solid rgba(255,255,255,.18); border-radius: 12px; background: rgba(255,255,255,.08); }
-.hc .hero-facts strong { display: block; font-size: 22px; line-height: 1.2; font-weight: 700; color: #fff; }
-.hc .hero-facts span { display: block; font-size: 14px; color: #d9c0e6; }
+/* Hero */
+.hc .hc-hero { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 36px; align-items: center; margin: 24px 0 0; padding: 44px 40px; border-radius: 14px; background: var(--deep); color: #fff; }
+.hc .hero-kicker { display: inline-block; margin-bottom: 14px; padding: 4px 12px; border-radius: 14px; background: rgba(255,255,255,.14); color: #f1dff7; font-size: 13px; font-weight: 600; }
+.hc .hc-hero h1 { margin-bottom: 12px; font-size: 36px; line-height: 1.15; font-weight: 700; color: #fff; }
+.hc .hc-hero p { max-width: 600px; color: #e6d3ee; font-size: 17px; line-height: 1.5; }
+.hc .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.hc .hero-facts { display: grid; gap: 0; border-left: 1px solid rgba(255,255,255,.2); padding-left: 28px; }
+.hc .hero-facts div { padding: 10px 0; }
+.hc .hero-facts dt { font-size: 13px; color: #d9c0e6; }
+.hc .hero-facts dd { font-size: 17px; font-weight: 700; color: #fff; }
 
-/* ---------- Buttons ---------- */
-.hc .hc-btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    height: 42px; padding: 0 20px; border: 1px solid transparent; border-radius: 8px;
-    font-size: 15px; font-weight: 600; line-height: 1; white-space: nowrap; cursor: pointer;
-    transition: background .15s, border-color .15s, color .15s;
-}
+/* Buttons */
+.hc .hc-btn { display: inline-flex; align-items: center; justify-content: center; height: 42px; padding: 0 20px; border: 1px solid transparent; border-radius: 8px; font-size: 15px; font-weight: 600; line-height: 1; white-space: nowrap; cursor: pointer; transition: background .15s, border-color .15s; }
 .hc .hc-btn-light { background: #fff; color: var(--deep); }
 .hc .hc-btn-light:hover { background: var(--tint-2); }
-.hc .hc-btn-ghost { background: transparent; border-color: rgba(255,255,255,.45); color: #fff; }
+.hc .hc-btn-ghost { border-color: rgba(255,255,255,.45); color: #fff; }
 .hc .hc-btn-ghost:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+.hc .hc-btn-outline { border-color: var(--brand); background: #fff; color: var(--brand); }
+.hc .hc-btn-outline:hover { background: var(--tint-2); }
 
-.hc .hc-deadline {
-    margin: 0 0 8px; padding: 12px 16px; border-left: 4px solid var(--brand); border-radius: 6px;
-    background: var(--tint); color: var(--deep); font-size: 15px;
-}
+/* Sticky nav */
+.hc .hc-nav { position: flex; top: 0; z-index: 30; display: flex; gap: 6px; margin: 0; padding: 10px 0; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); overflow-x: auto; margin-top: 1rem; border-radius: 16px;}
+.hc .hc-nav a { padding: 6px 14px; border-radius: 16px; color: var(--mut); font-size: 14px; font-weight: 600; white-space: nowrap; }
+.hc .hc-nav a:hover { background: var(--tint); color: var(--brand); }
 
-/* ---------- Sections ---------- */
-.hc .hc-section { margin-top: 44px; }
-.hc .hc-section h2 {
-    display: block; margin-bottom: 14px; padding-bottom: 10px;
-    border-bottom: 2px solid var(--tint-2);
-    font-size: 24px; line-height: 1.25; font-weight: 700; color: var(--deep);
-}
-.hc .hc-lead { max-width: 1500px; margin-bottom: 14px; font-size: 16px; color: var(--ink); }
-.hc .hc-section > p + p { margin-top: 10px; }
-.hc .hc-note { margin-top: 18px; color: var(--mut); font-size: 14px; }
+/* Sections */
+.hc .hc-section { margin-top: 56px; }
+.hc .hc-section h2 { margin-bottom: 14px; font-size: 26px; line-height: 1.25; font-weight: 700; color: var(--deep); }
+.hc .hc-lead {margin-bottom: 20px; font-size: 17px; line-height: 1.55; }
+.hc .hc-h3 { margin-bottom: 4px; font-size: 18px; font-weight: 700; color: var(--deep); }
+.hc .hc-sub { margin-bottom: 12px; color: var(--mut); }
+.hc .hc-note { margin-top: 12px; color: var(--mut); font-size: 14px; font-style: italic; }
 
-/* ---------- Cards ---------- */
-.hc .hc-grid { display: grid; gap: 16px; margin-top: 22px; }
-.hc .hc-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.hc .hc-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.hc .hc-card {
-    padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: #fff;
-    transition: border-color .15s, box-shadow .15s, transform .15s;
-}
-.hc .hc-card:hover { border-color: #d8b5dc; box-shadow: 0 6px 18px rgba(66,20,86,.08); transform: translateY(-2px); }
-.hc .hc-icon {
-    display: flex; align-items: center; justify-content: center;
-    width: 42px; height: 42px; margin-bottom: 12px; border-radius: 10px; background: var(--tint); font-size: 21px;
-}
-.hc .hc-card h3 { margin-bottom: 6px; font-size: 17px; line-height: 1.3; font-weight: 700; color: var(--deep); }
-.hc .hc-card p { color: var(--mut); font-size: 14px; }
-.hc .hc-card-blue { border-color: var(--blue-line); background: var(--blue-back); }
-.hc .hc-card-blue h3 { color: var(--blue); }
-.hc .hc-card-blue:hover { border-color: var(--blue); box-shadow: 0 6px 18px rgba(49,87,122,.12); }
-.hc .hc-card-num { position: relative; padding-top: 26px; }
-.hc .hc-card-num .num {
-    position: absolute; top: -16px; left: 18px; display: flex; align-items: center; justify-content: center;
-    width: 32px; height: 32px; border-radius: 50%; background: var(--brand); color: #fff; font-size: 15px; font-weight: 700;
-}
+/* About: steps + accordions */
+.hc .hc-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
+.hc .hc-steps div { padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.hc .hc-steps span { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; margin-bottom: 8px; border-radius: 50%; background: var(--tint-2); color: var(--brand-dark); font-size: 13px; font-weight: 700; }
+.hc .hc-steps h3 { font-size: 16px; font-weight: 700; color: var(--deep); }
+.hc .hc-steps p { color: var(--mut); font-size: 14px; }
+.hc .hc-acc { margin-top: 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+.hc .hc-acc summary { padding: 14px 18px; color: var(--deep); font-size: 16px; font-weight: 700; cursor: pointer; list-style: none; }
+.hc .hc-acc summary::-webkit-details-marker { display: none; }
+.hc .hc-acc summary::after { content: "+"; float: right; color: var(--brand); font-size: 20px; line-height: 1; }
+.hc .hc-acc[open] summary::after { content: "−"; }
+.hc .hc-acc summary:hover { background: var(--tint); border-radius: 10px; }
+.hc .hc-acc-body {  padding: 0.25rem 2rem 1rem 2rem; }
+.hc .hc-acc-body p + p { margin-top: 12px; }
+.hc .hc-key { padding: 14px 18px; border-left: 4px solid var(--brand); border-radius: 10px; background: var(--tint); color: var(--deep); }
 
-
-/* ---------- Callout / checks / CTA ---------- */
-.hc .hc-callout {
-    margin-top: 22px; padding: 16px 20px; border-left: 4px solid var(--blue); border-radius: 8px;
-    background: var(--blue-back); color: var(--ink);
-}
+/* Split layouts */
+.hc .hc-split { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 40px; align-items: start; }
+.hc .hc-split-even { grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 24px; }
+.hc .hc-split-even-apply { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.hc .hc-side { position: sticky; top: 76px; display: grid; gap: 16px; justify-items: start; }
+.hc .hc-callout { padding: 14px 18px; border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0; background: var(--blue-back); font-size: 14px; }
 .hc .hc-callout strong { color: var(--blue); }
-.hc .hc-checks { max-width: 820px; margin-left: auto; margin-right: auto;}
-.hc .hc-checks li {
-    position: relative; margin-bottom: 10px; padding: 12px 16px 12px 46px;
-    border: 1px solid var(--line); border-radius: 10px; background: #fff;
-   
-}
-.hc .hc-checks li::before {
-    content: "✓"; position: absolute; left: 14px; top: 11px; display: flex; align-items: center; justify-content: center;
-    width: 22px; height: 22px; border-radius: 50%; background: var(--brand); color: #fff; font-size: 13px; font-weight: 700;
-}
-.hc .hc-cta {
-    display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
-    margin-top: 28px; padding: 26px 30px; border-radius: 14px; background: var(--deep); color: #fff;
-    background-image: radial-gradient(circle at 95% 0%, rgba(148,5,148,.55), transparent 55%);
-}
-.hc .hc-cta h3 { margin-bottom: 4px; font-size: 21px; line-height: 1.25; font-weight: 700; color: #fff; }
-.hc .hc-cta p { color: #e6d3ee; }
-.hc .hc-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
-.hc .hc-two h2 { font-size: 20px; }
+.hc .hc-panel { padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.hc .hc-panel h3 { margin-bottom: 8px; font-size: 18px; font-weight: 700; color: var(--deep); }
+.hc .hc-panel p + p, .hc .hc-panel .hc-chips + p { margin-top: 12px; }
+.hc .hc-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.hc .hc-chips li { padding: 4px 12px; border: 1px solid var(--blue-line); border-radius: 14px; background: var(--blue-back); color: var(--blue); font-size: 13px; font-weight: 600; }
+.hc .hc-list { margin-top: 10px; }
+.hc .hc-list li { padding: 9px 0; border-top: 1px solid var(--line); font-size: 14px; color: var(--mut); }
+.hc .hc-list strong { color: var(--ink); }
 
+/* Apply */
+.hc .hc-checks li { position: relative; padding: 9px 0 9px 34px; border-top: 1px solid var(--line); }
+.hc .hc-checks li:last-child { border-bottom: 1px solid var(--line); }
+.hc .hc-checks li::before { content: "✓"; position: absolute; left: 2px; top: 10px; display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: var(--tint-2); color: var(--brand-dark); font-size: 13px; font-weight: 700; }
+.hc .hc-timeline { margin-top: 12px; border-left: 2px solid var(--tint-2); }
+.hc .hc-timeline li { position: relative; padding: 0 0 18px 22px; }
+.hc .hc-timeline li::before { content: ""; position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--brand); }
+.hc .hc-timeline span { display: block; color: var(--brand); font-size: 13px; font-weight: 700; }
+.hc .hc-timeline strong { display: block; color: var(--deep); font-size: 16px; }
+.hc .hc-timeline em { display: block; color: var(--mut); font-size: 14px; font-style: normal; }
+.hc .hc-cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 32px; padding: 26px 30px; border-radius: 14px; background: var(--deep); color: #fff; }
+.hc .hc-cta h3 { margin-bottom: 4px; font-size: 21px; font-weight: 700; color: #fff; }
+.hc .hc-cta p { max-width: 560px; color: #e6d3ee; }
+.hc .hc-cta p a { color: #fff; text-decoration: underline; }
 
-.hc .step-card h3 a { color: inherit; }
-.hc .step-card h3 a:hover { color: var(--brand); text-decoration: underline; }
-.hc .step-provider { margin-top: 4px; color: var(--brand); font-size: 12px; font-weight: 600; }
-.hc .step-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-.hc .step-links a {
-    padding: 4px 12px; border: 1px solid var(--blue-line); border-radius: 14px;
-    background: var(--blue-back); color: var(--blue); font-size: 13px; font-weight: 600;
-}
-.hc .step-links a:hover { border-color: var(--blue); text-decoration: none; }
-
-/* ---------- Learning pathway card (matches catalogue curated pathways) ---------- */
-.hc .hc-path { --b-back: #f1f6fb; --b-line: #31577a; --b-dark: #31577a; --b-dark-hover: #24415c;
-    display: flex; flex-direction: column; gap: 10px; margin: 22px auto 0; padding: 18px;
-    border: none; border-radius: 12px; background:none ; max-width: 500px; }
-.hc .path-head { display: flex; align-items: center; gap: 12px; }
-.hc .path-icon { display: flex; flex: 0 0 40px; align-items: center; justify-content: center; width: 40px; height: 40px;
-    border: 1px solid var(--b-dark); border-radius: 10px; background: #fff; font-size: 20px; }
-.hc .path-title { font-size: 17px; line-height: 1.3; font-weight: 700; color: var(--b-line); }
-.hc .path-audience { margin-top: 2px; color: var(--mut); font-size: 13px; }
-.hc .path-desc { color: var(--ink); font-size: 14px; }
-.hc .path-stats { color: var(--mut); font-size: 13px; }
-.hc .path-actions { display: flex; flex-wrap: wrap; gap: 8px; }
-.hc .path-btn { display: inline-flex; align-items: center; justify-content: center; height: 38px; padding: 0 14px;
-    border: 1px solid var(--b-dark); border-radius: 8px; background: var(--b-dark); color: #fff;
-    font-size: 14px; font-weight: 600; line-height: 1; text-decoration: none; transition: background .15s; }
-.hc .path-btn:hover { background: var(--b-dark-hover); text-decoration: none; }
-
-.hc .path-steps { max-width: 560px; margin: 8px auto 0; padding-top: 14px;; }
-.hc .path-step { position: relative; padding: 0 0 14px 34px; }
-.hc .path-step::before { content: ""; position: absolute; left: 11px; top: 26px; bottom: 0; border-left: 2px solid var(--tint-2); }
+/* Learning pathway */
+.hc .hc-path { --b: #31577a; min-width: 0; }
+.hc .path-stats { margin-bottom: 14px; color: var(--mut); font-size: 14px; }
+.hc .path-step { position: relative; padding: 0 0 14px 38px; }
+.hc .path-step::before { content: ""; position: absolute; left: 13px; top: 28px; bottom: 0; border-left: 2px solid var(--tint-2); }
 .hc .path-step:last-child { padding-bottom: 0; }
 .hc .path-step:last-child::before { display: none; }
-.hc .path-dot { position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center;
-    width: 24px; height: 24px; border: 2px solid var(--b-dark); border-radius: 50%; background: #fff;
-    color: var(--b-dark); font-size: 12px; font-weight: 700; }
-.hc .path-box { padding: 10px 12px; border: 1px solid var(--b-line); border-radius: 8px; background: var(--b-back); }
-.hc .path-topic { margin-bottom: 4px; color: var(--b-line); font-size: 12px; font-weight: 700; letter-spacing: .02em; }
-.hc .path-link { display: block; color: var(--ink); font-size: 14px; font-weight: 600; line-height: 1.35; }
+.hc .path-dot { position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 2px solid var(--b); border-radius: 50%; background: #fff; color: var(--b); font-size: 13px; font-weight: 700; }
+.hc .path-box { padding: 12px 16px; border: 1px solid var(--blue-line); border-radius: 10px; background: #fff; transition: border-color .15s, background .15s; }
+.hc .path-box:hover { border-color: var(--b); background: var(--blue-back); }
+.hc .path-topic { margin-bottom: 4px; color: var(--b); font-size: 13px; font-weight: 700; }
+.hc .path-link { display: block; color: var(--ink); font-size: 15px; font-weight: 600; line-height: 1.35; }
 .hc .path-link:hover { color: var(--brand); text-decoration: underline; }
 .hc .path-sub { color: var(--mut); font-size: 13px; }
-.hc .path-course + .path-course { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #b9cde3; }
+.hc .path-course + .path-course { margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--blue-line); }
 .hc .path-note { margin-top: 4px; color: #475569; font-size: 13px; font-style: italic; }
 .hc .path-label { margin-bottom: 2px; color: var(--mut); font-size: 12px; font-weight: 600; }
-
-.hc .path-step.is-optional .path-box { border-style: dashed; background: #fff; }
+.hc .path-step.is-optional .path-box { border-style: dashed; }
 .hc .path-step.is-optional .path-dot { border-style: dashed; font-size: 10px; }
-.hc .path-step.is-final .path-dot { background: var(--b-dark); color: #fff; }
-/* ---------- Responsive ---------- */
-@media (max-width: 1000px) {
-    .hc .hc-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.hc .path-step.is-final .path-dot { background: var(--b); color: #fff; }
+.hc .path-step.is-final .path-box { border-color: var(--b); background: var(--blue-back); }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hc .hc-hero { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .hc .hero-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); border-left: 0; padding: 18px 0 0; border-top: 1px solid rgba(255,255,255,.2); }
+    .hc .hc-split, .hc .hc-split-even, .hc .hc-steps { grid-template-columns: minmax(0, 1fr); }
+    .hc .hc-side { position: static; }
 }
 @media (max-width: 720px) {
-    .hc .hc-hero { padding: 26px 20px; }
-    .hc .hc-hero h1 { font-size: 27px; }
-    .hc .hero-facts { flex-direction: row; flex-wrap: wrap; min-width: 0; width: 100%; }
-    .hc .hero-facts li { flex: 1 1 140px; }
-    .hc .hc-grid-3, .hc .hc-grid-4, .hc .hc-two { grid-template-columns: minmax(0, 1fr); }
+    .hc .hc-hero { padding: 28px 20px; }
+    .hc .hc-hero h1 { font-size: 28px; }
+    .hc .hc-section { margin-top: 44px; }
     .hc .hc-cta { padding: 22px 20px; }
 }
-@media (prefers-reduced-motion: reduce) { .hc * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { .hc * { transition: none !important; } .hc { scroll-behavior: auto; } }
 </style>
