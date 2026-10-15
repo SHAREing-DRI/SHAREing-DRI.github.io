@@ -442,9 +442,9 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
 <div class="tl-catalogue">
 <div>
 <h2>Build your own learning pathway!</h2>
-<p>Discover external training opportunities in HPC, AI, research software engineering, programming and performance optimisation. Browse the catalogue, check upcoming dates in the calendar, and build your own learning pathway or start from a curated one.</p>
+        <p>Discover external training opportunities in HPC, AI, research software engineering, programming and performance optimisation. Browse the catalogue, check upcoming dates in the calendar, and build your own learning pathway or start from a curated one.</p>
 </div>
-<a href="/training/external-training-menu" class="tl-catalogue-button">Browse the catalogue</a>
+<a href="/training/external-training-board" class="tl-catalogue-button">Create your own learning pathway</a>
 </div>
 </section>
 
