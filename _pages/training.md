@@ -332,7 +332,7 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
   max-width: 56ch;
   margin: 0;
   color: #f5e6f5;
-  font-size: .7rem;
+  font-size: .92rem;
 }
 .tl-catalogue-button {
   display: inline-block;
@@ -441,14 +441,12 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
 <section id="catalogue">
 <div class="tl-catalogue">
 <div>
-<h2>Build your own learning pathway!</h2>
-<p>Discover external training opportunities in HPC, AI, research software engineering, programming and performance optimisation. Browse the catalogue, check upcoming dates in the calendar, and build your own learning pathway or start from a curated one.</p>
+<h2>Looking for training?</h2>
+<p>Browse our external training catalogue of courses in HPC, AI, research software engineering, programming, performance optimisation and related topics.</p>
 </div>
 <a href="/training/external-training-menu" class="tl-catalogue-button">Browse the catalogue</a>
 </div>
 </section>
-
-
 
 
 <header class="tl-header">
@@ -462,6 +460,13 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
 
 <div class="tl-main">
 
+<header class="tl-header">
+<nav class="tl-nav" aria-label="On this page">
+<a href="#upcoming-events">Upcoming training</a>
+<a href="#resources">Learning resources</a>
+<a href="#reports">Past event reports</a>
+</nav>
+</header>
 
 
 

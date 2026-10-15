@@ -979,7 +979,7 @@ body.filter-completed .progress-col {
 
     <div class="column-title blue">
       <div class="icon-circle">📋</div>
-      PROPOSE A SOLUTION TO AN EXISTING OPEN TASK – Will open on 2 October
+      PROPOSE A SOLUTION TO AN EXISTING OPEN TASK – open until 20 November 2026 at 23:59 (UK time).
     </div>
 
     <div class="flow-card blue-card">
@@ -1003,12 +1003,12 @@ body.filter-completed .progress-col {
       </p>
     </div>
 
-    <div class="deadline-card">
-      <h3>Proposal deadline</h3>
-      <p>
-        This call will open on 2 October and close on 20 November 2026.
-      </p>
-    </div>
+<div class="deadline-card">
+  <h3>Proposal deadline</h3>
+  <p>
+    The call is <strong> open </strong> until 20 November 2026 at 23:59 (UK time).
+  </p>
+</div>
 
   </div>
 
