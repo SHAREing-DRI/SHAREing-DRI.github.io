@@ -132,11 +132,22 @@ classes: wide
 </div>
 
 
-
+<div class="pilot-notice">
+    <span class="pilot-icon">🛠️</span>
+    <div>
+        <strong>We’re still working on it!</strong>
+        <p>
+            This catalogue is currently a pilot, so the user experience and workflow
+            are still being developed. If you come across any problems or have
+            suggestions for how we could improve it, please get in touch with our community manager, Eva, at eva.fernandez-amez@durham.ac.uk - we’d love to hear your feedback!
+        </p>
+    </div>
+</div>
 
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
-<p class="cat-disclaimer"><strong>Disclaimer:</strong> This page is a signposting resource created by the SHAREing project. SHAREing support has been used to curate, organise, and present publicly available training opportunities in a searchable format. The courses listed here are provided by third-party organisations and are not funded, delivered, or maintained by SHAREing unless explicitly stated. Course content, availability, schedules, and registration are the responsibility of the individual providers.</p>
+
+
 </div>
 
 <style>
@@ -673,6 +684,15 @@ classes: wide
 .cat .cal-card-meta { margin-top: 2px; color: var(--mut); font-size: 13px; }
 .cat .cal-card .cat-btn { margin-top: 10px; }
 .cat .cal-list .cal-card:first-child { margin-top: 0; }
+
+
+.pilot-notice {display: flex; align-items: flex-start; gap: 0.75rem;margin-top: 0.8rem;padding: 0.8rem 1rem; background: #eef4f8;border: 1px solid #cbdde8; border-left: 4px solid #245f80; border-radius: 10px; color: #334155;}
+.pilot-icon {flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #dcebf3;    font-size: 0.85rem;}
+.pilot-notice strong {display: block; margin-bottom: 0.2rem; color: #0f2a3a; font-size: 0.65rem; font-weight: 700;}
+.pilot-notice p {margin: 0; color: #475569; font-size: 0.58rem; line-height: 1.5;}
+
+@media (max-width: 600px) {.pilot-notice {padding: 0.75rem;}}
+
 
 @media (max-width: 720px) {
     .cat .cal-modal { padding: 0; }
@@ -2720,6 +2740,7 @@ function drawConnections() {
         pNodes.querySelectorAll(".pathway-node").forEach(n => n.classList.toggle("is-optional", isOptional(n.dataset.courseId)));
 
 }
+
 
 
 /* ============================================================
