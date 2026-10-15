@@ -460,6 +460,13 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
 
 <div class="tl-main">
 
+<header class="tl-header">
+<nav class="tl-nav" aria-label="On this page">
+<a href="#upcoming-events">Upcoming training</a>
+<a href="#resources">Learning resources</a>
+<a href="#reports">Past event reports</a>
+</nav>
+</header>
 
 
 
