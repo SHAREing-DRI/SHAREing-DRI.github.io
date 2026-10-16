@@ -17,6 +17,7 @@ This page provides a checklist of information to be provided, where possible, su
 
 When writing documentation for a hardware testbed, use the checklist as a guide.
 All items should be added if possible, items in bold are considered essential.
+See [here](https://shareing-dri.github.io/hpc-testbeds/) for a list of UK HPC Testbeds.
 
 ## Checklist
 
