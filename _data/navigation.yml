@@ -73,9 +73,11 @@ main:
       - title: "Resources"
         url: /resources/
 
-  - title: "Network"
+  - title: "Community"
     url: /network/
     sublinks:
+      - title: "HPC Champions"
+        url: /champions/hpc-champions
       - title: "Supporters"
         url: /network/supporters
       - title: "Industry"
