@@ -43,16 +43,31 @@ The two options for hosting automated CI workflows are hosting a server, and pay
   - Reduced security implications from poorly formulated program versions.
   - Available from anywhere with an internet connection.
 
-  ## Automated test servers
-  ### Jenkins
+## Automated test servers
+### Jenkins
   This blogpost is not designed to replace documentation for any of the tools listed here ([the Jenkins user handbook alone is over 45 pages](https://www.jenkins.io/doc/)).
-  ## Containers - reproducible build environments
+## Containers - reproducible build environments
+   In order to effectively test new code, it is generally advisable to maintain a deterministic and therefore reproducible build environment. This means that every time a particular snapshot of your software is built, it would build the same way, under the same conditions, with the same set of options. 
+> [!note]
+> Keep an eye out for a future article about code coverage in testing suites.
+> 
+   One effective way of managing these build environments is using a container. These containers are isolated environments kept somewhat separate from your usual development or compute environment. The amount of isolation varies between platforms, required resources, and software implementations. 
+
+
+|  Tool type |  Tool name |  Usage |
+|---|---|---|
+|   |   |   |
+|   |   |   |
+
+
+   
   ### Docker
+  ### Singularity
   ### Linux containers
   ## Test matrix automation
   ## Reproducible build systems
+  ## Package managers
   ### Spack
-  ### Singularity
   [^1]
 
 ## Walkthrough
