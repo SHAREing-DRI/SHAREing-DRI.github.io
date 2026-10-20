@@ -1,14 +1,28 @@
 ---
-title: Continuous Integration - The Test Matrix
+layout: blog
+permalink: /blogpost/continuous-integration/test-matrix
+title: "Continuous Integration - The Test Matrix"
+category: Tutorial
+subtitle: ""
+author: "Andrew Naden"
+author_image: ""
+hero_image: "" 
 date: 2026-10-05
+social_links:
+  - title: LinkedIn
+    url: "https://www.linkedin.com/company/shareing/"
+  - title: Bluesky
+    url: "https://bsky.app/profile/shareing.bsky.social"
+  - title: Email
+    url: "mailto:shareing@durham.ac.uk"
 id: 20261005030121
-author: Andrew Naden
+tags:
+ - continuous-integration
 ---
-# Continuous Integration - The Test Matrix
-8 Sep 2026 - Andrew Naden
-#continuous-integration
 
-[[continuous-integration|Continuous integration]]
+# Continuous Integration - The Test Matrix
+
+<!-- [[continuous-integration|Continuous integration]] -->
 
 <!--toc:start-->
 - [Continuous Integration - The Test Matrix](#continuous-integration-the-test-matrix)
@@ -18,7 +32,6 @@ author: Andrew Naden
 [//]: # (Continued from last week's blog article: [Continuous Integration](continuous-integration.qmd))
 
 ## Introduction 
-
 A test matrix is a method of describing a collection of tests to be performed by a testing suite. The matrix is formed by enumerating through all the possible combinations of a given parameter set. 
 
 

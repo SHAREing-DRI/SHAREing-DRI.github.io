@@ -1,17 +1,48 @@
 ---
+layout: blog
+permalink: /blogpost/continuous-integration/self-hosted-runners
 title: "Continuous Integration - Self Hosted"
+category: Tutorial
+subtitle: ""
+author: "Andrew Naden"
+author_image: ""
+hero_image: "" 
 date: 2026-9-8
+social_links:
+  - title: LinkedIn
+    url: "https://www.linkedin.com/company/shareing/"
+  - title: Bluesky
+    url: "https://bsky.app/profile/shareing.bsky.social"
+  - title: Email
+    url: "mailto:shareing@durham.ac.uk"
 id: 20260908173315
-author: Andrew Naden
+tags:
+ - continuous-integration
+---
 ---
 # Continuous Integration - Self Hosted
-8th Sep 2026 - Andrew Naden
 
-#continuous-integration
 <!--toc:start-->
 - [Continuous Integration - Self Hosted](#continuous-integration-self-hosted)
   - [Introduction](#introduction)
+  - [Self hosted vs off premises hosting](#self-hosted-vs-off-premises-hosting)
+      - [Reasons to self host:](#reasons-to-self-host)
+        - [Reasons use off premises hosting:](#reasons-use-off-premises-hosting)
+  - [Automated test servers](#automated-test-servers)
+    - [Jenkins](#jenkins)
+  - [Containers - reproducible build environments](#containers-reproducible-build-environments)
+    - [Docker](#docker)
+    - [Singularity](#singularity)
+    - [Linux containers](#linux-containers)
+  - [Test matrix automation](#test-matrix-automation)
+  - [Reproducible build systems](#reproducible-build-systems)
+  - [Package managers](#package-managers)
+    - [Spack](#spack)
+  - [Walkthrough](#walkthrough)
+    - [SHAREing internal](#shareing-internal)
 <!--toc:end-->
+
+
 Continued from last week's blog article: [Continuous Integration](continuous-integration.qmd)
 ## Introduction 
 We've previously talked about the [benefits of continuous integration](continuous-integration.qmd) and [test matrices development](test-matrix.qmd). This blog article focuses on setting up continuous integration of high performance resources locally, instead of using a paid hosting option such as Github's or Gitlab's "runners".

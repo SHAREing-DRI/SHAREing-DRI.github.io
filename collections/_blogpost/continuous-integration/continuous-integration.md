@@ -1,13 +1,26 @@
 ---
-title: Continuous integration
+layout: blog
+permalink: /blogpost/continuous-integration/continuous-integration
+title: "Continuous integration"
+category: Tutorial
+subtitle: ""
+author: "Andrew Naden"
+author_image: ""
+hero_image: "" 
 date: 2026-09-16
+social_links:
+  - title: LinkedIn
+    url: "https://www.linkedin.com/company/shareing/"
+  - title: Bluesky
+    url: "https://bsky.app/profile/shareing.bsky.social"
+  - title: Email
+    url: "mailto:shareing@durham.ac.uk"
 id: 20260916140349
-author: Andrew Naden
+tags:
+ - continuous-integration
 ---
 
 # Continuous integration
-16th Sep 2026 - Andrew Naden
-#continuous-integration
 
 <!--toc:start-->
 - [Continuous integration](#continuous-integration)
@@ -26,8 +39,7 @@ author: Andrew Naden
     - [Scientific Software](#scientific-software)
   - [Structural concerns](#structural-concerns)
   - [Flowchart](#flowchart)
-  - [Walkthrough](#walkthrough)
-    - [SHAREing internal](#shareing-internal)
+  - [Self hosted runners](#self-hosted-runners)
 <!--toc:end-->
 
 
