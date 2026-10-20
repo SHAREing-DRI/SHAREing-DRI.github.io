@@ -46,7 +46,7 @@ champions_pathway:
     <h1>HPC Champions: Performance Analysis</h1>
     <p>Join the first cohort of dRTPs building expertise in performance analysis. Travel and accommodation are funded for the VI-HPS workshop in Durham.</p>
     <div class="hero-actions">
-      <a class="hc-btn hc-btn-light" href="">Applications open 2 November</a>
+      <a class="hc-btn hc-btn-light" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUNzlGU1lFNVRGV0JDMjBNTzkyTzg4T1dLUy4u">Apply now</a>
       <a class="hc-btn hc-btn-ghost" href="#journey">See the learning journey</a>
     </div>
   </div>
@@ -209,7 +209,7 @@ champions_pathway:
     <div>
       <h3 class="hc-h3">Key dates</h3>
       <ol class="hc-timeline">
-        <li><span>Mon 2 Nov 2026</span><strong>Applications open</strong></li>
+        <li><span>Tue 20 Oct 2026</span><strong>Applications open</strong></li>
         <li><span>Mon 23 Nov 2026, 23:59 UK</span><strong>Applications close</strong></li>
         <li><span>By Mon 14 Dec 2026</span><strong>You hear from us</strong><em>Then join the online kickoff and begin the learning journey.</em></li>
       </ol>
@@ -220,7 +220,7 @@ champions_pathway:
       <h3>Ready to become a Champion?</h3>
       <p>Know a colleague who would benefit? Please share this call. Questions? Visit our <a href="{{ site.baseurl }}/contact/">Contact</a> page.</p>
     </div>
-    <a class="hc-btn hc-btn-light" href="">Applications open 2 November</a>
+    <a class="hc-btn hc-btn-light" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUNzlGU1lFNVRGV0JDMjBNTzkyTzg4T1dLUy4u">Apply now</a>
   </div>
 </section>
 
