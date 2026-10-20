@@ -169,7 +169,7 @@ classes: wide
 <div class="tl-tag">People</div>
 <h3>HPC Champions</h3>
 <p>Join the first cohort of dRTPs building expertise in performance analysis. Travel and accommodation are funded for the VI-HPS workshop in Durham.</p>
-<a href="/network/hpc-champions" class="tl-link">Become a HPC Champions</a>
+<a href="/champions/hpc-champions" class="tl-link">Become a HPC Champions</a>
 </div>
 </article>
 
