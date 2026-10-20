@@ -7,11 +7,6 @@ header:
   overlay_image: /assets/images/banner-big.png
 ---
 <style>
-/* =========================================================
-   HOME PAGE
-   Everything is scoped to .home and sized relative to it,
-   so changing the font-size below rescales the whole page.
-========================================================= */
 .home {
   --purple: #68246d;
   --purple-light: #8b3a92;
@@ -257,7 +252,7 @@ header:
 <h2>Become a SHAREing HPC Champion</h2>
 <p>We are launching the HPC Champions programme, and applications will open on <strong>2 November 2026</strong>. Find out what it involves and how to get ready to apply.</p>
 </div>
-<a href="/network/hpc-champions" class="banner-button">Find out more</a>
+<a href="/champions/hpc-champions" class="banner-button">Find out more</a>
 </section>
 <section class="banner banner--pathway">
 <div class="banner-text">
