@@ -536,7 +536,6 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
 <section id="resources">
 <div class="tl-section-head">
 <h2>Other training opportunities</h2>
-<p>Standalone material you can use at any time.</p>
 </div>
 <div class="tl-grid">
 
