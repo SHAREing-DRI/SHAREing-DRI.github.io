@@ -262,7 +262,7 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
 }
 .tl-resource:hover,
 .tl-resource:focus-within { border-color: var(--tl-purple); }
-.tl-resource-media {
+.tl-resource-media-small {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -271,10 +271,25 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
   border-bottom: 1px solid var(--tl-border);
   background: var(--tl-bg);
 }
-.tl-resource-media img {
+.tl-resource-media-small img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+}
+
+.tl-resource-media {
+  height: 160px;              
+  padding: 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--tl-border);
+  background: var(--tl-bg);
+}
+.tl-resource-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
 }
 .tl-resource-body {
   display: flex;
@@ -421,6 +436,8 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
   .tl-report { grid-template-columns: 56px minmax(0, 1fr); }
   .tl-report-media { width: 56px; height: 48px; }
   .tl-report-link { grid-column: 2; justify-self: start; }
+
+  
 }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
@@ -466,7 +483,7 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
 
 <section id="upcoming-events">
   <div class="tl-section-head">
-    <h2>Upcoming events</h2>
+    <h2>Upcoming training events</h2>
     <p>Register for our upcoming training sessions and workshops.</p>
   </div>
 
@@ -516,6 +533,25 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
 
 
 
+<section id="resources">
+<div class="tl-section-head">
+<h2>Other training opportunities</h2>
+</div>
+<div class="tl-grid">
+
+<article class="tl-resource">
+<div class="tl-resource-media"><img src="/assets/images/isc26/pic1.jpeg" alt="" loading="lazy"></div>
+<div class="tl-resource-body">
+<div class="tl-tag">Funding</div>
+<h3>Become a HPC Champions</h3>
+<p>Our new initiative helps digital Research Technical Professionals build deeper expertise through structured, personalised learning. First up: Performance Analysis, with a VI-HPS workshop in Durham, 17-20 May 2027. </p>
+<a href="/champions/hpc-champions" class="tl-link">Find out more and apply</a>
+</div>
+</article>
+
+</div>
+</section>
+
 
 
 <section id="resources">
@@ -549,7 +585,7 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
 </article>
 
 <article class="tl-resource">
-<div class="tl-resource-media"><img src="/assets/images/signpost.svg" alt="" loading="lazy"></div>
+<div class="tl-resource-media-small"><img src="/assets/images/signpost.svg" alt="" loading="lazy"></div>
 <div class="tl-resource-body">
 <div class="tl-tag">Interactive map</div>
 <h3>GPU programming knowledge graph</h3>
