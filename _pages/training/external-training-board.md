@@ -4,7907 +4,3260 @@ permalink: /training/external-training-board
 classes: wide
 ---
 
-
-<section class="page-intro">
-    <h1>External Training Catalogue</h1>
-
-    <p>
-        Discover external training opportunities in HPC, AI, research software engineering, programming, performance optimisation, and related topics.
-    </p>
-
-    <div class="disclaimer">
-        <strong>Disclaimer:</strong> This page is a signposting resource created by the SHAREing project. SHAREing support has been used to curate, organise, and present publicly available training opportunities in a searchable format. The courses listed here are provided by third-party organisations and are not funded, delivered, or maintained by SHAREing unless explicitly stated. Course content, availability, schedules, and registration are the responsibility of the individual providers.
+<div class="cat" id="cat" markdown="0">
+<header class="cat-hero">
+    <div class="hero-text">
+        <h1>Learning Pathway Builder</h1>
+        <p>Discover external training opportunities in HPC, AI, research software engineering, programming and performance optimisation. Browse the catalogue, check upcoming dates in the calendar, and build your own learning pathway or start from a curated one.</p>
     </div>
+    <ul class="hero-stats" id="hero-stats"></ul>
+
+    <div class="hero-disclaimer" role="note">
+        <span class="hero-disclaimer-icon" aria-hidden="true">i</span>
+        <div>
+            <strong>Disclaimer:</strong> This page is a signposting resource created by the SHAREing project. SHAREing support has been used to curate, organise, and present publicly available training opportunities in a searchable format. The courses listed here are provided by third-party organisations and are not funded, delivered, or maintained by SHAREing unless explicitly stated. Course content, availability, schedules, and registration are the responsibility of the individual providers.
+        </div>
+    </div>
+</header>
+<div class="cat-layout" id="cat-layout">
+<div class="cat-main">
+<div class="cat-toolbar">
+<div class="toolbar-row">
+<div class="cat-tabs" role="tablist" aria-label="Main view">
+<button type="button" id="tab-catalogue" class="cat-tab active" role="tab" aria-selected="true">Catalogue</button>
+<button type="button" id="tab-curated" class="cat-tab" role="tab" aria-selected="false" style="display:none;">Curated pathways</button>
+<button type="button" id="tab-map" class="cat-tab" role="tab" aria-selected="false">Pathway map</button>
+</div>
+<div class="toolbar-actions">
+    <button type="button" id="calendar-open" class="cat-btn cat-btn-secondary" aria-haspopup="dialog">📅 Calendar <span id="cal-count" class="cat-badge">0</span></button>
+    <button type="button" id="add-course" class="cat-btn cat-btn-secondary" aria-haspopup="dialog" onclick="window.location.href='https://shareing-dri.github.io/training/suggest-training'"> Add your Course!</button>
+    <button type="button" id="pathway-toggle" class="cat-btn cat-btn-secondary" aria-expanded="true" aria-controls="pathway-side">My pathway <span id="pathway-count" class="cat-badge">0</span></button>
+</div>
+</div>
+<div id="filter-rows" class="filter-rows">
+<input type="search" id="cat-search" class="cat-search" placeholder="Search by course, provider or topic" aria-label="Search by course, provider or topic">
+<div id="group-chips" class="chip-row" role="group" aria-label="Filter by training group"></div>
+<div id="format-chips" class="chip-row" role="group" aria-label="Filter by format"></div>
+</div>
+</div>
+<section id="view-catalogue" aria-label="Training catalogue">
+<div id="board-status" class="board-status" aria-live="polite"></div>
+<div id="board"></div>
+<div id="board-empty" class="board-empty" style="display:none;">
+<p class="empty-title">No courses match your search</p>
+<p>Try a shorter term, or clear the filters.</p>
+<button type="button" id="clear-filters" class="cat-btn">Clear search and filters</button>
+</div>
 </section>
+<section id="view-curated" aria-label="Curated pathways" hidden>
+<p class="view-intro">Ready-made routes designed by the SHAREing team. Load one into your pathway, then reorder it or add optional extras.</p>
+<div id="curated-grid" class="cur-grid"></div>
+</section>
+<section id="view-map" aria-label="Pathway map" hidden>
+<div class="map-bar">
 
-
-
-<p class="pathway-intro"> <strong>Create your own learning pathway:</strong> choose the courses you want to complete and build a personalised curriculum. </p>
-
-
-
-<!-- ============================================================
-     TOOLBAR
-============================================================ -->
-
-<div class="map-toolbar">
-
-    <div class="map-search-wrapper">
-
-        <input
-            type="search"
-            id="map-search"
-            class="map-search"
-            placeholder="🔍 Search topics or courses..."
-            aria-label="Search topics or courses"
-        >
-
-    </div>
-
-
-    <div class="map-controls">
-
-        <button
-            type="button"
-            id="open-pathway"
-            class="pathway-button"
-        >
-            <span>🧭</span>
-            <span>My pathway</span>
-            <span
-                id="pathway-count"
-                class="pathway-count"
-            >
-                0
-            </span>
-        </button>
-
-
-        <button
-            type="button"
-            id="zoom-in"
-            class="map-control-button"
-            title="Zoom in"
-            aria-label="Zoom in"
-        >
-            +
-        </button>
-
-        <button
-            type="button"
-            id="zoom-out"
-            class="map-control-button"
-            title="Zoom out"
-            aria-label="Zoom out"
-        >
-            −
-        </button>
-
-        <button
-            type="button"
-            id="reset-map"
-            class="map-control-button"
-        >
-            ↺ Reset view
-        </button>
-
-    </div>
-
+<div class="map-zoom">
+<button type="button" id="pathway-zoom-out" class="cat-btn cat-btn-icon" aria-label="Zoom out">−</button>
+<span id="pathway-zoom-indicator">100%</span>
+<button type="button" id="pathway-zoom-in" class="cat-btn cat-btn-icon" aria-label="Zoom in">+</button>
+<button type="button" id="pathway-reset-view" class="cat-btn">Fit to view</button>
+<button type="button" id="auto-arrange" class="cat-btn" title="Put all courses back in a single row">Auto-arrange</button>
+<button type="button" id="add-text" class="cat-btn" title="Add a text label">Text</button>
+<button type="button" id="add-note" class="cat-btn" title="Add a sticky note">Sticky note</button>
+<button type="button" id="add-circle" class="cat-btn" title="Add a circle to highlight things">Circle</button>
+<button type="button" id="undo-map" class="cat-btn" disabled title="Undo the most recent change">Undo</button>
 </div>
-
-
-<!-- ============================================================
-     BOARD
-============================================================ -->
-
-<div
-    id="training-board-wrapper"
-    class="training-board-wrapper"
->
-
-    <div
-        id="training-board"
-        class="training-board"
-    ></div>
-
-
-    <div
-        id="board-loading"
-        class="board-message"
-    >
-        Loading training map...
-    </div>
-
-
-    <div
-        id="board-empty"
-        class="board-message"
-        style="display:none;"
-    >
-        No matching topics or courses found.
-    </div>
-
-
-    <div
-        id="zoom-indicator"
-        class="zoom-indicator"
-    >
-        100%
-    </div>
-
-</div>
-
-
-<!-- ============================================================
-     INFORMATION PANEL
-============================================================ -->
-
-<aside
-    id="map-info-panel"
-    class="map-info-panel"
-    aria-hidden="true"
->
-
-    <button
-        type="button"
-        id="close-info-panel"
-        class="close-info-panel"
-        aria-label="Close information panel"
-    >
-        ×
-    </button>
-
-    <div id="map-info-content"></div>
-
-</aside>
-
-
-<!-- ============================================================
-     LEARNING PATHWAY PANEL
-============================================================ -->
-
-<div
-    id="pathway-backdrop"
-    class="pathway-backdrop"
-    aria-hidden="true"
-></div>
-
-<aside
-    id="pathway-panel"
-    class="pathway-panel"
-    aria-hidden="true"
->
-
-    <button
-        type="button"
-        id="close-pathway-panel"
-        class="close-pathway-panel"
-        aria-label="Close learning pathway"
-    >
-        ×
-    </button>
-
-
-    <div class="pathway-panel-header">
-
-        <div class="info-type">
-            Personal learning
-        </div>
-
-        <h2>
-            My Learning Pathway
-        </h2>
-
-        <p>
-            Select courses from the training map to create your own
-            curriculum. You can reorder or remove courses at any time.
-        </p>
-
-    </div>
-
-
-    <div
-        id="pathway-empty"
-        class="pathway-empty"
-    >
-
-        <div class="pathway-empty-icon">
-            🧭
-        </div>
-
-        <h3>
-            Your pathway is empty
-        </h3>
-
-        <p>
-            Explore the map and add courses that you would like
-            to include in your learning journey.
-        </p>
-
-        <button
-            type="button"
-            id="explore-training"
-            class="primary-pathway-button"
-        >
-            Explore training
-        </button>
-
-    </div>
-
-
-    <div
-        id="pathway-content"
-        style="display:none;"
-    >
-
-        <div class="pathway-summary">
-
-            <strong id="pathway-summary-count">
-                0 courses
-            </strong>
-
-            <span id="pathway-summary-hint">
-                Drag courses to change their order.
-            </span>
-
-        </div>
-
-
-        <div class="pathway-view-toggle" role="tablist" aria-label="Pathway view">
-
-            <button
-                type="button"
-                id="pathway-view-list-btn"
-                class="pathway-view-btn active"
-                data-view="list"
-                role="tab"
-                aria-selected="true"
-            >
-                📋 List view
-            </button>
-
-            <button
-                type="button"
-                id="pathway-view-map-btn"
-                class="pathway-view-btn"
-                data-view="map"
-                role="tab"
-                aria-selected="false"
-            >
-                🗺️ Map view
-            </button>
-
-        </div>
-
-
-        <p
-            id="pathway-map-hint"
-            class="pathway-map-hint"
-            style="display:none;"
-        >
-            Drag cards to arrange them, and drag from the dots on a card's edge to connect steps.
-        </p>
-
-
-        <div
-            id="pathway-canvas-controls"
-            class="pathway-canvas-controls"
-            style="display:none;"
-        >
-
-    <button
-        type="button"
-        id="pathway-zoom-out"
-        title="Zoom out"
-        aria-label="Zoom out"
-    >
-        −
-    </button>
-
-    <span id="pathway-zoom-indicator">
-        100%
-    </span>
-
-    <button
-        type="button"
-        id="pathway-zoom-in"
-        title="Zoom in"
-        aria-label="Zoom in"
-    >
-        +
-    </button>
-
-    <button
-        type="button"
-        id="pathway-reset-view"
-        title="Reset pathway view"
-        aria-label="Reset pathway view"
-    >
-        ↺
-    </button>
-
-</div>
-
-
-        <div
-            id="pathway-list"
-            class="pathway-list"
-        ></div>
-
-<div class="pathway-actions">
-
-    <button
-        type="button"
-        id="download-pathway"
-        class="download-pathway-button"
-    >
-        ↓ Download my learning pathway
-    </button>
-
-    <button
-        type="button"
-        id="clear-pathway"
-        class="clear-pathway-button"
-    >
-        Clear pathway
-    </button>
-
-</div>
-
-    </div>
-
-</aside>
-
-
-<!-- ============================================================
-     LEGEND
-============================================================ -->
 
 <div class="map-legend">
-
-    <div class="legend-item">
-
-        <span class="legend-node group-node"></span>
-
-        <span>Training group</span>
-
+<span><svg width="36" height="10" aria-hidden="true"><line x1="1" y1="5" x2="35" y2="5" stroke="#940594" stroke-width="2.5" stroke-linecap="round"/></svg>Required</span>
+<span><svg width="36" height="10" aria-hidden="true"><line x1="1" y1="5" x2="35" y2="5" stroke="#940594" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 5"/></svg>Optional</span>
+</div>
+</div>
+<p class="map-hint">
+    Drag cards to arrange them. Ctrl/Cmd-click to select several cards and move them together.
+    Drag from a card's dots to connect two courses. Click a connector to make it optional, and click again to remove it. Double-click text or notes to edit them; drag a circle by its ✥ grip and resize from the corner.
+</p>
+<div id="pathway-map" class="pathway-map"></div>
+</section>
+</div>
+<aside id="pathway-side" class="pathway-side" aria-label="My learning pathway">
+<div class="side-head">
+<h2>My learning pathway</h2>
+<div class="side-head-actions">
+<button type="button" id="undo-pathway" class="cat-btn cat-btn-small" disabled title="Undo the most recent change (Ctrl/⌘ + Z)">Undo</button>
+<button type="button" id="close-side" class="cat-btn cat-btn-small side-close" aria-label="Close pathway">Close</button>
+</div>
+</div>
+<div id="pathway-empty" class="pathway-empty">
+<p class="empty-title">Your pathway is empty</p>
+<p>Press <strong>+</strong> next to a course to add it here.</p>
+<button type="button" id="empty-browse-curated" class="cat-btn" style="display:none;">Browse curated pathways</button>
+</div>
+<div id="pathway-content" hidden>
+<p class="side-summary"><strong id="pathway-summary-count">0 courses</strong>Drag to reorder, or use the arrows.</p>
+<div id="pathway-list" class="pathway-list"></div>
+<div class="side-actions">
+<button type="button" id="download-list" class="cat-btn cat-btn-primary">Download pathway</button>
+<button type="button" id="download-map" class="cat-btn">Download map</button>
+<button type="button" id="clear-pathway" class="cat-btn cat-btn-danger">Clear</button>
+</div>
+</div>
+</aside>
+</div>
+<button type="button" id="pathway-fab" class="pathway-fab" aria-controls="pathway-side">My pathway <span id="pathway-fab-count" class="cat-badge">0</span></button>
+<div id="cal-modal" class="cal-modal" role="dialog" aria-modal="true" aria-labelledby="cal-title" hidden>
+    <div class="cal-backdrop" id="cal-backdrop"></div>
+    <div class="cal-panel">
+        <header class="cal-head">
+            <div class="cal-nav">
+                <button type="button" id="cal-prev" class="cat-btn cat-btn-icon" aria-label="Previous month">‹</button>
+                <button type="button" id="cal-next" class="cat-btn cat-btn-icon" aria-label="Next month">›</button>
+                <h2 id="cal-title"></h2>
+            </div>
+            <div class="cal-head-actions">
+                <button type="button" id="cal-today" class="cat-btn">Today</button>
+                <div class="cal-seg" role="group" aria-label="Calendar view">
+                    <button type="button" data-cal-view="month" aria-pressed="true">Month</button>
+                    <button type="button" data-cal-view="list" aria-pressed="false">List</button>
+                </div>
+                <button type="button" id="cal-close" class="cat-btn" aria-label="Close calendar">✕</button>
+            </div>
+        </header>
+        <div id="cal-legend" class="cal-legend"></div>
+        <div id="cal-body" class="cal-body">
+            <div id="cal-main" class="cal-main"></div>
+            <aside id="cal-detail" class="cal-detail" aria-live="polite"></aside>
+        </div>
     </div>
-
-
-    <div class="legend-item">
-
-        <span class="legend-node topic-node"></span>
-
-        <span>Topic</span>
-
-    </div>
-
-
-    <div class="legend-item">
-
-        <span class="legend-node course-node"></span>
-
-        <span>Course</span>
-
-    </div>
-
-
-    <div class="legend-item">
-
-        <span class="pathway-legend-icon">🧭</span>
-
-        <span>Your learning pathway</span>
-
-    </div>
-
 </div>
 
 
+<div class="pilot-notice">
+    <span class="pilot-icon">🛠️</span>
+    <div>
+        <strong>We’re still working on it!</strong>
+        <p>
+            This catalogue is currently a pilot, so the user experience and workflow
+            are still being developed. If you come across any problems or have
+            suggestions for how we could improve it, please get in touch with our community manager, Eva, at eva.fernandez-amez@durham.ac.uk - we’d love to hear your feedback!
+        </p>
+    </div>
+</div>
+
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+
+</div>
+
+<style>
+/* Everything is sized in px on purpose: Minimal Mistakes scales the root
+   font size (16px up to 22px), which made rem-based UI look oversized. */
+.cat {
+    --brand: #940594; --brand-dark: #6f046f; --deep: #421456;
+    --tint: #f7eef7; --tint-2: #efdcef;
+    --ink: #243855; --mut: #636d7c; --line: #e5e7eb; --soft: #f3f4f6;
+
+    /* ---------- Light blue---------- */
+
+    --b-light-back: #f1f6fb; --b-light-line:#31577a; --b-light-font: #31577a;
+    --b-light-back-hover: #e4eef7; --b-light-line-hover: #4b78a0;
+
+   /* ---------- Dark blue---------- */
+
+    --b-dark-back: #31577a; --b-dark-line: #31577a; --b-dark-font: #fff;
+    --b-dark-back-hover: #24415c; --b-dark-line-hover: #31577a;
+
+    font-size: 15px; line-height: 1.5; color: var(--ink);
+    margin: 0 0 32px;
+    text-align: left;
+}
+
+.disclaimer { margin-top: 40px; padding: 14px 16px; border-left: 4px solid var(--deep); border-radius: 6px; color: var(--mut); font-size:0.6rem; }
+
+
+.cat, .cat * { box-sizing: border-box; }
+.cat h1, .cat h2, .cat h3, .cat h4, .cat p, .cat ul, .cat ol, .cat li, .cat summary {
+    margin: 0; padding: 0; border: 0; font-family: inherit; text-indent: 0; text-transform: none; letter-spacing: normal;
+}
+.cat ul, .cat ol { list-style: none; }
+.cat p { font-size: 15px; line-height: 1.5; }
+.cat button {
+    color: var(--ink);
+}
+.cat a { text-decoration: none; }
+.cat [hidden] { display: none !important; }
+.cat :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+/* ---------- Hero ---------- */
+.cat .cat-hero {
+    display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    margin: 24px 0 20px; padding: 28px 32px;
+    border-radius: 14px; background: var(--deep); color: #fff;
+}
+.cat .hero-text { flex: 1 1 420px; max-width: 720px; }
+.cat .cat-hero h1 { font-size: 30px; line-height: 1.2; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.cat .cat-hero p { color: #e6d3ee; font-size: 16px; }
+.cat .hero-stats { display: flex; gap: 32px; }
+.cat .hero-stats li { text-align: center; }
+.cat .hero-stats strong {
+    display: block;
+    font-size: 40px;
+    line-height: 1.1;
+    font-weight: 700;
+    color: #fff;
+}
+
+.cat .hero-stats span {
+    display: block;
+    font-size: 20px;
+    color: #d9c0e6;
+}
+
+.cat .hero-disclaimer {
+    flex: 1 1 100%;
+    display: flex; align-items: flex-start; gap: 12px;
+    margin-top: 4px; padding: 14px 16px;
+    border: 1px solid rgba(255,255,255,.16); border-radius: 10px;
+    background: rgba(255,255,255,.07);
+    color: #e6d3ee; font-size: 13px; line-height: 1.6;
+}
+.cat .hero-disclaimer strong { color: #fff; }
+.cat .hero-disclaimer-icon {
+    flex: 0 0 22px; display: flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; margin-top: 1px;
+    border: 1.5px solid #d9c0e6; border-radius: 50%;
+    color: #fff; font-size: 13px; font-weight: 700; font-style: italic; font-family: Georgia, serif;
+}
+
+/* ---------- Buttons ---------- */
+.cat .cat-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    height: 38px; padding: 0 14px;
+    border: 1px solid #cfd4dc; border-radius: 8px; background: #fff; color: var(--ink);
+    font-size: 14px; font-weight: 600; line-height: 1; white-space: nowrap; cursor: pointer;
+    transition: background .15s, border-color .15s, color .15s;
+}
+.cat .cat-btn:hover:not(:disabled) { border-color: var(--brand); background: var(--tint); }
+.cat .cat-btn:disabled { opacity: .45; cursor: default; }
+
+.cat .cat-btn-primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+.cat .cat-btn-primary:hover:not(:disabled) { background: var(--brand-dark); border-color: var(--brand-dark); }
+
+.cat .cat-btn-secondary { background: var(--b-dark-back); border-color: var(--b-dark-line); color: #fff; }
+.cat .cat-btn-secondary:hover:not(:disabled) { background: var(--b-dark-back-hover); border-color: var(--dark-line-hover); }
+
+.cat .cat-btn-third { background: var(--b-light-back); border-color: var(--b-light-line); color: var(--b-light-font); }
+.cat .cat-btn-third:hover:not(:disabled) { background: var(--b-light-back-hover); border-color: var(--dark-light-hover); }
+
+.cat .cat-btn-danger { color: #b42318; }
+.cat .cat-btn-danger:hover:not(:disabled) { border-color: #f04438; background: #fef3f2; }
+.cat .cat-btn-small { height: 32px; padding: 0 12px; font-size: 13px; }
+.cat .cat-btn-icon { width: 38px; padding: 0; font-size: 18px; }
+.cat .cat-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 22px; height: 22px; padding: 0 6px; border-radius: 11px;
+    background: #fff; color: var(--brand); font-size: 12px; font-weight: 700;
+}
+
+/* ---------- Layout ---------- */
+.cat .cat-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 28px; align-items: start; }
+.cat .cat-layout.side-hidden { grid-template-columns: minmax(0, 1fr); }
+.cat .cat-layout.side-hidden .pathway-side { display: none; }
+.cat .cat-main { min-width: 0; }
+
+/* ---------- Toolbar ---------- */
+.cat .cat-toolbar { position: flex; top: 0; z-index: 20; padding: 0.5rem; background: #fff; border-bottom: 1px solid var(--line); border-radius: 8px;}
+.cat .toolbar-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.cat .cat-tabs { display: flex; gap: 4px; overflow-x: auto; }
+.cat .cat-tab {
+    padding: 10px 14px; border: 0; border-bottom: 3px solid transparent; background: none;
+    color: var(--mut); font-size: 15px; font-weight: 600; white-space: nowrap; cursor: pointer;
+}
+.cat .cat-tab:hover { color: var(--brand); }
+.cat .cat-tab.active { color: var(--brand); border-bottom-color: var(--brand); }
+.cat .filter-rows { padding: 1rem; }
+.cat .cat-search {
+    display: block; width: 100%; height: 42px; margin: 0 0 10px; padding: 0 14px;
+    border: 1px solid #cfd4dc; border-radius: 8px; background: #fff; color: var(--ink);
+    font-size: 15px; box-shadow: none;
+}
+.cat .cat-search:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px rgba(148,5,148,.15); }
+.cat .chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: thin; margin-bottom: 0.3rem; }
+.cat .chip-row:empty { display: none; }
+.cat .chip {
+    flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px;
+    border: 1px solid var(--line); border-radius: 15px; background: #fff; color: var(--ink);
+    font-size: 13px; font-weight: 600; cursor: pointer; transition: background .15s, border-color .15s;
+}
+.cat .chip:hover { border-color: var(--brand); }
+.cat .chip.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+.cat .chip-n { font-weight: 500; opacity: .75; }
+
+/* Topics */
+.cat #group-chips .chip { border-color: #d8b5dc; background: #f7eef7; color: #6f046f;}
+.cat #group-chips .chip:hover {border-color: #940594;background: #efdcef;}
+.cat #group-chips .chip.active { border-color: #940594;background: #940594; color: #fff;}
+/* Formats */
+.cat #format-chips {margin-top: 18px; padding-top: 18px;border-top: 1px solid var(--line);}
+.cat #format-chips .chip {border-color: #b9cde3; background: #f1f6fb; color: #31577a;}
+.cat #format-chips .chip:hover {border-color: #4b78a0; background: #e4eef7;}
+.cat #format-chips .chip.active {border-color: #31577a; background: #31577a; color: #fff;}
+
+/* ---------- Catalogue ---------- */
+.cat .board-status { margin: 16px 0 4px; color: var(--mut); font-size: 14px; min-height: 21px; }
+.cat .group-section { margin-top: 28px; }
+.cat .group-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--tint-2); }
+.cat .group-icon { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; background: var(--tint); font-size: 20px; }
+.cat .group-head h2 { font-size: 21px; line-height: 1.2; font-weight: 700; color: var(--deep); }
+.cat .group-head small { display: block; color: var(--mut); font-size: 13px; }
+.cat .topic { margin-bottom: 22px; }
+.cat .topic-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; }
+.cat .topic-head h3 { font-size: 16px; line-height: 1.3; font-weight: 700; color: var(--ink); }
+.cat .topic-count { color: var(--mut); font-size: 13px; }
+.cat .rows { border: 1px solid var(--line); border-radius: 10px; background: #fff; overflow: hidden; }
+.cat .row {
+    display: grid; grid-template-columns: minmax(0, 1fr) 200px 36px; gap: 6px 16px; align-items: center;
+    padding: 12px 14px; border-top: 1px solid #eef0f3; transition: background .15s;
+}
+.cat .row:first-child { border-top: 0; }
+.cat .row:hover { background: #fafafb; }
+.cat .row.in-pathway { background: var(--tint); }
+.cat .row-title { display: block; color: var(--ink); font-size: 15px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
+.cat a.row-title:hover { color: var(--brand); text-decoration: underline; }
+.cat .row-sub { margin-top: 2px; color: var(--mut); font-size: 13px; }
+.cat .row-when { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; font-size: 13px; color: var(--mut); }
+.cat .badge { display: inline-block; padding: 2px 9px; border-radius: 10px; font-size: 12px; font-weight: 600; line-height: 1.5; }
+.cat .b-demand { background: #e6f4ef; color: #0b6b4d; }
+.cat .b-online { background: #e8f0fe; color: #1d4ed8; }
+.cat .b-person { background: #fdf0e0; color: #9a5b00; }
+.cat .b-other  { background: var(--soft); color: #4b5563; }
+.cat .add-btn {
+    width: 34px; height: 34px; padding: 0; border: 1.5px solid var(--brand); border-radius: 50%;
+    background: #fff; color: var(--brand); font-size: 20px; font-weight: 600; line-height: 1; cursor: pointer;
+    transition: background .15s, color .15s, transform .1s;
+}
+.cat .add-btn:hover { background: var(--tint-2); }
+.cat .add-btn:active { transform: scale(.93); }
+.cat .row.in-pathway .add-btn { background: var(--brand); color: #fff; }
+.cat .more-btn {
+    display: block; width: 100%; padding: 10px; border: 0; border-top: 1px solid #eef0f3;
+    background: #fafafb; color: var(--brand); font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.cat .more-btn:hover { background: var(--tint); }
+.cat mark { padding: 0 1px; border-radius: 2px; background: #f6d5f6; color: inherit; }
+.cat .board-empty { padding: 56px 16px; text-align: center; color: var(--mut); }
+.cat .empty-title { margin-bottom: 4px; color: var(--ink); font-size: 16px; font-weight: 700; }
+.cat .board-empty .cat-btn { margin-top: 14px; }
+
+/* ---------- Curated pathways ---------- */
+.cat .view-intro { margin: 18px 0 16px; color: var(--mut); }
+.cat .cur-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); gap: 16px; align-items: start; }
+.cat .cur-card { display: flex; flex-direction: column; gap: 10px; padding: 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.cat .cur-card.is-loaded { border-color: var(--b-light-line); background: #fff; }
+.cat .cur-head { display: flex; align-items: flex-start; gap: 12px; }
+.cat .cur-icon { display: flex; flex: 0 0 40px; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; background: #fff; font-size: 20px; border: 1px solid var(--b-dark-line); }
+.cat .cur-title { font-size: 17px; line-height: 1.3; font-weight: 700; color: var(--b-light-font); }
+.cat .cur-audience { margin-top: 2px; color: var(--mut); font-size: 13px; }
+.cat .cur-desc { color: var(--ink); font-size: 14px; }
+.cat .cur-stats { color: var(--mut); font-size: 13px; }
+.cat .cur-stats .partial { color: #b45309; }
+.cat .cur-loaded { display: none; color: var(--b-light-font); font-weight: 700; }
+.cat .cur-card.is-loaded .cur-loaded { display: inline; }
+.cat .cur-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.cat .cur-route summary { cursor: pointer; color: var(--b-light-font); font-size: 14px; font-weight: 600; }
+.cat .cur-steps { margin-top: 12px; }
+.cat .cur-step { position: relative; padding: 0 0 14px 34px; }
+.cat .cur-step::before { content: ""; position: absolute; left: 11px; top: 26px; bottom: 0; border-left: 2px solid var(--tint-2); }
+.cat .cur-step:last-child { padding-bottom: 0; }
+.cat .cur-step:last-child::before { display: none; }
+.cat .step-dot { position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 2px solid var(--b-dark-line); border-radius: 50%; background: #fff; color: var(--b-dark-line); font-size: 12px; font-weight: 700; }
+.cat .cur-step.in-pathway .step-dot { background: var(--b-dark-back); color: #fff; }
+.cat .step-title { display: block; color: var(--ink); font-size: 14px; font-weight: 600; line-height: 1.35; }
+.cat a.step-title:hover { color: var(--brand); text-decoration: underline; }
+.cat .step-sub { color: var(--mut); font-size: 13px; }
+.cat .step-note { margin-top: 2px; color: #475569; font-size: 13px; font-style: italic; }
+.cat .step-course {padding: 10px 12px; border: 1px solid var(--b-light-line); border-radius: 8px; background: var(--b-light-back);}
+.cat .step-optional { margin-top: 8px; border-style: dashed; border-color: var(--b-light-line); background: #fff;}
+.cat .step-optional-label { color: var(--mut); font-size: 12px; font-weight: 600; }
+
+
+
+.cat .mini-btn { height: 26px; padding: 0 9px; border: 1px solid #cfd4dc; border-radius: 6px; background: #fff; color: #374151; font-size: 12px; font-weight: 600; cursor: pointer; }
+.cat .mini-btn:hover:disabled { border-color: var(--b-light-line-hover); color: #374151; }
+.cat .mini-btn:hover:not(:disabled) { border-color: var(--b-light-line-hover); color: #374151; }
+.cat .mini-btn:disabled { opacity: .35; cursor: default; }
+.cat .mini-btn.added { background: var(--b-dark-back); border-color: var(--b-dark-line); color: #fff; }
+.cat .step-optional .mini-btn { margin-top: 6px; }
+.cat .mini-btn.added:hover { color: #fff;}
+
+
+/* ---------- Curated stages: topic, parallel, optional, final ---------- */
+.cat .step-head { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+.cat .step-topic { color: var(--b-light-font); font-size: 14px; font-weight: 700; }
+.cat .step-flag { padding: 1px 9px; border-radius: 10px; background: var(--tint-2); color: var(--brand-dark); font-size: 11px; font-weight: 700; }
+.cat .step-note-top { margin: 0 0 8px; }
+.cat .step-parallel-label { margin-bottom: 6px; color: var(--mut); font-size: 12px; font-weight: 600; }
+.cat .step-group { display: grid; gap: 8px; }
+.cat .step-group.is-parallel { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); padding-left: 10px; }
+.cat .cur-step.is-optional .step-course { border-style: dashed; background: #fff; }
+.cat .cur-step.is-optional .step-dot { border-style: dashed; font-size: 10px; }
+.cat .cur-step.is-final .step-dot { border-color: var(--brand); color: var(--brand); }
+.cat .cur-step.is-final.in-pathway .step-dot { background: var(--brand); color: #fff; }
+.cat .pathway-node.is-optional { border-style: dashed; }
+.cat .pathway-node-tag { display: inline-block; margin-top: 8px; padding: 1px 9px; border-radius: 10px; background: var(--tint-2); color: var(--brand-dark); font-size: 11px; font-weight: 700; }
+
+
+/* ---------- Sidebar ---------- */
+.cat .pathway-side {
+    position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow-y: auto;
+    padding: 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff;
+    box-shadow: 0 2px 12px rgba(31,41,55,.06);
+}
+.cat .side-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.cat .side-head h2 { font-size: 17px; line-height: 1.3; font-weight: 700; color: var(--deep); }
+.cat .side-head-actions { display: flex; gap: 6px; }
+.cat .side-close { display: none; }
+.cat .pathway-empty { margin-top: 14px; padding: 22px 16px; border: 1px dashed #cfd4dc; border-radius: 10px; text-align: center; color: var(--mut); }
+.cat .pathway-empty .cat-btn { margin-top: 12px; }
+.cat .side-summary { margin: 14px 0 10px; color: var(--mut); font-size: 13px; }
+.cat .side-summary strong { display: block; color: var(--ink); font-size: 15px; }
+.cat .pathway-list { display: flex; flex-direction: column; gap: 8px; }
+.cat .pathway-item { display: flex; gap: 10px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff; cursor: grab; }
+.cat .pathway-item:hover { border-color: #c58bc5; }
+.cat .pathway-item.dragging { opacity: .4; }
+.cat .pathway-item.drag-over { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(148,5,148,.12); }
+.cat .pathway-number { flex: 0 0 26px; display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: var(--tint-2); color: var(--brand); font-size: 13px; font-weight: 700; }
+.cat .pathway-item-body { flex: 1; min-width: 0; }
+.cat .pathway-item-title { display: block; color: var(--ink); font-size: 14px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
+.cat a.pathway-item-title:hover { color: var(--brand); text-decoration: underline; }
+.cat .pathway-item-sub { color: var(--mut); font-size: 12px; }
+.cat .pathway-item-note { margin-top: 2px; color: #475569; font-size: 12px; font-style: italic; }
+.cat .pathway-item-actions { display: flex; gap: 4px; margin-top: 8px; }
+.cat .mini-btn.remove { margin-left: auto; color: #b42318; }
+.cat .mini-btn.remove:hover { border-color: #fda29b; background: #fef3f2; color: #b42318; }
+.cat .side-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+.cat .side-actions .cat-btn { flex: 1 1 auto; }
+
+/* ---------- Pathway map ---------- */
+.cat .map-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+.cat .map-zoom { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.cat .map-legend { display: flex; gap: 16px; color: var(--mut); font-size: 13px; }
+.cat .map-legend span { display: inline-flex; align-items: center; gap: 8px; }
+.cat #pathway-zoom-indicator { min-width: 44px; text-align: center; color: var(--mut); font-size: 13px; font-weight: 600; }
+.cat .map-hint { margin: 10px 0; color: var(--mut); font-size: 14px; }
+.cat .pathway-map {
+    position: relative; width: 100%; height: 68vh; min-height: 460px; overflow: hidden;
+    border: 1px solid var(--line); border-radius: 12px; background-color: #f8f9fb;
+    background-image: radial-gradient(#cfd4dc 0.8px, transparent 0.8px); background-size: 22px 22px;
+}
+.cat .pathway-viewport { position: absolute; inset: 0; overflow: hidden; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; }
+.cat .pathway-viewport.is-panning { cursor: grabbing; }
+.cat .pathway-world { position: absolute; left: 0; top: 0; width: 0; height: 0; transform-origin: 0 0; }
+.cat .pathway-svg { position: absolute; left: -8000px; top: -8000px; width: 16000px; height: 16000px; overflow: visible; pointer-events: none; z-index: 1; }
+.cat .pathway-nodes { position: absolute; left: 0; top: 0; width: 0; height: 0; z-index: 2; pointer-events: none; }
+.cat .pathway-line { fill: none; stroke: var(--brand); stroke-width: 2.5; opacity: .7; pointer-events: none; }
+.cat .pathway-line-dashed { stroke-dasharray: 8 6; }
+.cat .pathway-line-hit { fill: none; stroke: transparent; stroke-width: 24px; pointer-events: stroke; cursor: pointer; }
+.cat .pathway-line-hit:hover + .pathway-line { stroke-width: 4; opacity: 1; }
+.cat .pathway-temp-line { fill: none; stroke: var(--brand); stroke-width: 2; stroke-dasharray: 6 5; opacity: .55; pointer-events: none; }
+.cat .pathway-node { position: absolute; width: 230px; min-height: 110px; padding: 14px; border: 1px solid #d8dee6; border-radius: 12px; background: #fff; box-shadow: 0 3px 10px rgba(31,41,55,.08); cursor: grab; user-select: none; touch-action: none; pointer-events: auto; }
+.cat .pathway-node:hover { border-color: var(--brand); }
+.cat .pathway-node.dragging { cursor: grabbing; z-index: 100; box-shadow: 0 12px 25px rgba(31,41,55,.18); }
+.cat .pathway-node-title { margin-right: 24px; color: var(--ink); font-size: 14px; font-weight: 600; line-height: 1.35; }
+.cat .pathway-node-title a { color: inherit; }
+.cat .pathway-node-title a:hover { color: var(--brand); text-decoration: underline; }
+.cat .pathway-node-org { margin-top: 6px; color: var(--brand); font-size: 12px; font-weight: 600; }
+.cat .pathway-node-meta { margin-top: 6px; color: var(--mut); font-size: 12px; line-height: 1.4; }
+.cat .pathway-node-remove { position: absolute; top: 8px; right: 8px; width: 24px; height: 24px; padding: 0; border: 0; border-radius: 50%; background: #f1f5f9; color: var(--mut); font-size: 16px; cursor: pointer; }
+.cat .pathway-node-remove:hover { background: #fee4e2; color: #b42318; }
+.cat .pathway-handle { position: absolute; width: 12px; height: 12px; border: 2px solid var(--brand); border-radius: 50%; background: #fff; cursor: crosshair; z-index: 10; }
+.cat .pathway-handle:hover { background: var(--brand); }
+.cat .pathway-handle.top { top: -6px; left: calc(50% - 6px); }
+.cat .pathway-handle.right { top: calc(50% - 6px); right: -6px; }
+.cat .pathway-handle.bottom { bottom: -6px; left: calc(50% - 6px); }
+.cat .pathway-handle.left { top: calc(50% - 6px); left: -6px; }
+.cat .map-empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 16px; text-align: center; color: var(--mut); }
+
+
+.cat .pathway-text-box {
+    position: absolute;
+    width: 240px;
+    min-height: 70px;
+    padding: 14px 38px 14px 14px;
+    border: 1px solid #cfd4dc;
+    border-radius: 10px;
+    background: #fffdf5;
+    box-shadow: 0 3px 10px rgba(31,41,55,.08);
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+    pointer-events: auto;
+     z-index: 2;
+}
+
+.cat .pathway-text-box:hover {
+    border-color: var(--brand);
+}
+
+.cat .pathway-text-box.dragging {
+    cursor: grabbing;
+    box-shadow: 0 12px 25px rgba(31,41,55,.18);
+}
+
+.cat .pathway-text-box.selected {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(148,5,148,.15);
+}
+
+.cat .pathway-text-box-content {
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.45;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.cat .pathway-text-box-remove {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: var(--mut);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cat .pathway-text-box-remove:hover {
+    background: #fee4e2;
+    color: #b42318;
+}
+.cat .pathway-node.selected {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(148,5,148,.15);
+}
+/* ---------- Annotations + optional items ---------- */
+.cat .map-zoom .cat-btn { height: 34px; }
+.cat .pathway-text-box.is-text { background: transparent; border: 1px dashed transparent; box-shadow: none; min-height: 40px; }
+.cat .pathway-text-box.is-text:hover { border-color: var(--brand); }
+.cat .is-text .pathway-text-box-content { font-size: 16px; font-weight: 600; }
+.cat .pathway-text-box.is-note { border: 0; border-radius: 3px; box-shadow: 0 6px 14px rgba(31,41,55,.2); overflow: auto; }
+.cat .pathway-text-box.is-circle { background: transparent; border: 3px solid #d92d20; border-radius: 50%; box-shadow: none; padding: 0; pointer-events: auto;}
+.cat .is-circle .pathway-text-box-remove { top: -12px; right: -12px; pointer-events: auto; }
+.cat .ann-grip { position: absolute; top: -14px; left: calc(50% - 14px); width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border: 1px solid #cfd4dc; border-radius: 50%; background: #fff; color: var(--mut); font-size: 14px; cursor: grab; pointer-events: auto; }
+.cat .ann-resize { position: absolute; right: -6px; bottom: -6px; width: 14px; height: 14px; border-radius: 3px; background: var(--brand); cursor: nwse-resize; opacity: 0; pointer-events: auto; }
+.cat .pathway-text-box:hover .ann-resize, .cat .is-circle .ann-resize { opacity: 1; }
+.cat .pathway-item.is-optional { border-style: dashed; background: #fafafb; }
+.cat .pathway-item.is-optional .pathway-number { width: auto; min-width: 26px; padding: 0 6px; border-radius: 13px; font-size: 11px; background: #fff; border: 1px dashed var(--brand); }
+
+/* ---------- Annotation styling v2 ---------- */
+.cat .ann-tools { position: absolute; top: -40px; left: 50%; transform: translateX(-50%); display: none; align-items: center; gap: 5px; padding: 5px 8px; border: 1px solid #d8dee6; border-radius: 16px; background: #fff; box-shadow: 0 4px 12px rgba(31,41,55,.15); z-index: 20; pointer-events: auto; white-space: nowrap; }
+.cat .ann-tools::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 12px; }
+.cat .pathway-text-box:hover .ann-tools, .cat .pathway-text-box.selected .ann-tools, .cat .pathway-text-box:focus-within .ann-tools { display: flex; }
+.cat .ann-sw { width: 18px; height: 18px; padding: 0; border: 2px solid #fff; border-radius: 50%; box-shadow: 0 0 0 1px #cfd4dc; cursor: pointer; transition: transform .1s; }
+.cat .ann-sw:hover { transform: scale(1.18); }
+.cat .ann-sw.on { box-shadow: 0 0 0 2px var(--ink); }
+.cat .ann-tools .ann-grip { position: static; width: 22px; height: 22px; margin-right: 4px; border: 0; background: #f1f5f9; }
+.cat .pathway-text-box-content:empty::before { content: attr(data-placeholder); opacity: .45; }
+.cat .pathway-text-box-content:focus { outline: none; }
+.cat .is-note .pathway-text-box-remove, .cat .is-text .pathway-text-box-remove { opacity: 0; }
+.cat .is-note:hover .pathway-text-box-remove, .cat .is-text:hover .pathway-text-box-remove, .cat .is-note.selected .pathway-text-box-remove { opacity: 1; }
+
+/* sticky note */
+.cat .pathway-text-box.is-note {
+    --ann: #fff3a3; background-color: var(--ann);
+    background-image: linear-gradient(180deg, rgba(0,0,0,.10) 0, rgba(0,0,0,0) 22px);
+    border: 0; border-radius: 2px 2px 14px 2px; padding: 26px 14px 16px; overflow: visible;
+    transform: rotate(var(--rot, 0deg)); transition: transform .15s, box-shadow .15s;
+    box-shadow: 0 1px 1px rgba(0,0,0,.14), 0 10px 18px -8px rgba(0,0,0,.4);
+}
+.cat .pathway-text-box.is-note:hover, .cat .pathway-text-box.is-note:focus-within { transform: rotate(0deg) translateY(-2px); box-shadow: 0 1px 1px rgba(0,0,0,.14), 0 16px 24px -8px rgba(0,0,0,.45); }
+.cat .pathway-text-box.is-note.selected { box-shadow: 0 0 0 3px rgba(148,5,148,.3), 0 10px 18px -8px rgba(0,0,0,.4); }
+.cat .pathway-text-box.is-note::after { content: ""; position: absolute; right: 0; bottom: 0; width: 22px; height: 22px; border-radius: 0 0 14px 0; background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,.14) 50%, rgba(255,255,255,.5) 100%); pointer-events: none; }
+.cat .is-note .pathway-text-box-content { height: 100%; overflow: auto; color: #3a3320; font-size: 15px; line-height: 1.4; }
+
+/* text label + circle take their colour from --ann */
+.cat .pathway-text-box.is-text { --ann: #243855; }
+.cat .is-text .pathway-text-box-content { color: var(--ann); }
+.cat .pathway-text-box.is-circle { --ann: #d92d20; border-color: var(--ann); }
+
+/* sidebar */
+.cat .pathway-item-actions { flex-wrap: wrap; }
+
+/* ---------- Misc ---------- */
+.cat .toast { position: fixed; left: 50%; bottom: 20px; z-index: 1000000; max-width: 90vw; padding: 10px 16px; border-radius: 8px; background: #1f2937; color: #fff; font-size: 14px; opacity: 0; transform: translate(-50%, 10px); pointer-events: none; transition: opacity .2s, transform .2s; }
+.cat .toast.show { opacity: 1; transform: translate(-50%, 0); }
+.cat .pathway-fab { display: none; }
+.cat .cat-disclaimer { margin-top: 40px; padding: 14px 16px; border-left: 4px solid var(--deep); border-radius: 6px; background: #f8f9fb; color: var(--mut); font-size: 13px; line-height: 1.55; }
+.cat .cat-disclaimer strong { color: var(--ink); }
+
+
+/* ---------- Calendar ---------- */
+.cat .toolbar-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.cat .b-hybrid { background: #dcf3ef; color: #1d5a53; }
+
+/* --fc acento · --fb fondo suave · --ft texto oscuro */
+.cat .fmt-online   { --fc: #6f8fd0; --fb: #e3ebfa; --ft: #27407a; }
+.cat .fmt-hybrid   { --fc: #5fb3a8; --fb: #dcf3ef; --ft: #1d5a53; }
+.cat .fmt-inperson { --fc: #d9925f; --fb: #fbe9dc; --ft: #7a3e17; }
+.cat .fmt-other    { --fc: #94a3b8; --fb: #eef1f5; --ft: #475569; }
+
+.cat .cal-modal { position: fixed; inset: 0; z-index: 100000; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.cat.cat-portal { margin: 0; }
+.cat .cal-backdrop { position: absolute; inset: 0; background: rgba(36,56,85,.55); }
+.cat .cal-panel {
+    position: relative; display: flex; flex-direction: column;
+    width: min(1200px, 100%); height: min(860px, 100%);
+    background: #fff; border-radius: 14px; box-shadow: 0 24px 60px rgba(0,0,0,.35); overflow: hidden;
+}
+.cat .cal-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.cat .cal-nav, .cat .cal-head-actions { display: flex; align-items: center; gap: 8px; }
+.cat .cal-nav h2 { min-width: 180px; margin-left: 6px; font-size: 21px; line-height: 1.2; font-weight: 700; color: var(--deep); }
+.cat .cal-seg { display: inline-flex; border: 1px solid #cfd4dc; border-radius: 8px; overflow: hidden; }
+.cat .cal-seg button { height: 36px; padding: 0 14px; border: 0; background: #fff; color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; }
+.cat .cal-seg button:hover:not(.active) { background: var(--soft); }
+.cat .cal-seg button.active { background: var(--tint-2); color: var(--brand-dark); font-weight: 700; }
+
+.cat .cal-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 18px; border-bottom: 1px solid var(--line); }
+.cat .cal-chip {
+    display: inline-flex; align-items: center; gap: 7px; height: 30px; padding: 0 12px;
+    border: 1px solid var(--fc); border-radius: 15px; background: var(--fb); color: var(--ft);
+    font-size: 13px; font-weight: 600; cursor: pointer; transition: background .15s, border-color .15s;
+}
+.cat .cal-chip:hover { border-color: var(--ft); }
+.cat .cal-chip.off { background: #fff; border-color: var(--line); color: var(--mut); text-decoration: line-through; }
+.cat .cal-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--fc); }
+.cat .cal-chip.off .cal-dot { background: #cbd5e1; }
+.cat .cal-legend-hint { margin-left: auto; color: var(--mut); font-size: 12px; }
+
+.cat .cal-body { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 310px; }
+.cat .cal-body.is-list { grid-template-columns: minmax(0, 1fr); }
+.cat .cal-body.is-list .cal-detail { display: none; }
+.cat .cal-main { overflow: auto; padding: 14px 18px; }
+.cat .cal-detail { overflow: auto; padding: 16px; border-left: 1px solid var(--line); background: #fafafb; }
+.cat .cal-detail h3 { font-size: 16px; font-weight: 700; color: var(--deep); }
+.cat .cal-detail-sub, .cat .cal-hint p { color: var(--mut); font-size: 13px; }
+.cat .cal-hint strong { display: block; margin-bottom: 4px; color: var(--ink); }
+
+.cat .cal-banner { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; padding: 10px 14px; border-radius: 8px; background: var(--tint); color: var(--deep); font-size: 14px; }
+
+.cat .cal-dow { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); padding: 4px 0; color: var(--mut); font-size: 12px; font-weight: 700; text-transform: uppercase; text-align: center; }
+.cat .cal-grid { border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.cat .cal-week { position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); grid-template-rows: 30px repeat(3, 24px) 22px; }
+.cat .cal-day {
+    grid-row: 1 / -1; display: block; padding: 6px 8px; border: 0; border-radius: 0;
+    border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    background: #fff; text-align: left; cursor: pointer;
+}
+.cat .cal-day:hover { background: var(--tint); }
+.cat .cal-day.other { background: #fafafb; }
+.cat .cal-day.selected { box-shadow: inset 0 0 0 2px var(--brand); }
+.cat .cal-daynum { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; border-radius: 11px; color: var(--ink); font-size: 13px; font-weight: 600; }
+.cat .cal-day.other .cal-daynum { color: #9aa3af; }
+.cat .cal-day.today .cal-daynum { background: var(--brand); color: #fff; }
+
+/* Eventos: fondo pastel + franja de acento + texto oscuro */
+.cat .cal-ev {
+    position: relative; z-index: 2; align-self: center; height: 20px; margin: 0 3px; padding: 0 8px;
+    border: 0; border-left: 4px solid var(--fc); border-radius: 5px;
+    background: var(--fb); color: var(--ft);
+    font-size: 12px; font-weight: 600; line-height: 20px; text-align: left;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;
+    transition: background .15s, box-shadow .15s;
+}
+.cat .cal-ev:hover { box-shadow: inset 0 0 0 1px var(--fc); }
+.cat .cal-ev.cont-l { margin-left: 0; border-left: 0; padding-left: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.cat .cal-ev.cont-r { margin-right: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.cat .cal-ev.active { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--fc); }
+.cat .cal-more { position: relative; z-index: 2; align-self: center; justify-self: start; margin-left: 8px; padding: 0; border: 0; background: none; color: var(--mut); font-size: 12px; font-weight: 700; cursor: pointer; }
+.cat .cal-more:hover { color: var(--brand); text-decoration: underline; }
+
+.cat .cal-card { margin-top: 10px; padding: 12px 14px; border: 1px solid var(--line); border-left: 5px solid var(--fc); border-radius: 8px; background: #fff; }
+.cat .cal-card-fmt { display: inline-block; padding: 1px 9px; border-radius: 10px; background: var(--fb); color: var(--ft); font-size: 12px; font-weight: 700; }
+.cat .cal-card-title { display: block; margin-top: 6px; color: var(--ink); font-size: 15px; font-weight: 600; line-height: 1.35; }
+.cat a.cal-card-title:hover { color: var(--brand); text-decoration: underline; }
+.cat .cal-card-meta { margin-top: 2px; color: var(--mut); font-size: 13px; }
+.cat .cal-card .cat-btn { margin-top: 10px; }
+.cat .cal-list .cal-card:first-child { margin-top: 0; }
+
+
+.pilot-notice {display: flex; align-items: flex-start; gap: 0.75rem;margin-top: 0.8rem;padding: 0.8rem 1rem; background: #eef4f8;border: 1px solid #cbdde8; border-left: 4px solid #245f80; border-radius: 10px; color: #334155;}
+.pilot-icon {flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #dcebf3;    font-size: 0.85rem;}
+.pilot-notice strong {display: block; margin-bottom: 0.2rem; color: #0f2a3a; font-size: 0.65rem; font-weight: 700;}
+.pilot-notice p {margin: 0; color: #475569; font-size: 0.58rem; line-height: 1.5;}
+
+@media (max-width: 600px) {.pilot-notice {padding: 0.75rem;}}
+
+
+@media (max-width: 720px) {
+    .cat .cal-modal { padding: 0; }
+    .cat .cal-panel { height: 100%; border-radius: 0; }
+    .cat .cal-nav h2 { min-width: 0; font-size: 17px; }
+    .cat .cal-body, .cat .cal-body.is-list { display: block; overflow: auto; }
+    .cat .cal-main { overflow: visible; padding: 12px; }
+    .cat .cal-detail { border-left: 0; border-top: 1px solid var(--line); }
+    .cat .cal-ev { padding: 0 4px; font-size: 10px; }
+    .cat .cal-day { padding: 4px; }
+    .cat .cal-legend-hint { display: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+    .cat .cat-layout, .cat .cat-layout.side-hidden { grid-template-columns: minmax(0, 1fr); }
+    .cat #pathway-toggle { display: none; }
+    .cat .cat-layout.side-hidden .pathway-side { display: block; }
+    .cat .pathway-side {
+        position: fixed; z-index: 999; left: 0; right: 0; bottom: 0; top: auto; max-height: 80vh;
+        border-radius: 16px 16px 0 0; box-shadow: 0 -10px 40px rgba(31,41,55,.25);
+        transform: translateY(105%); visibility: hidden; transition: transform .25s ease, visibility .25s;
+    }
+    .cat .pathway-side.open { transform: translateY(0); visibility: visible; }
+    .cat .side-close { display: inline-flex; }
+    .cat .pathway-fab {
+        position: fixed; z-index: 998; right: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 8px;
+        height: 46px; padding: 0 18px; border: 0; border-radius: 23px; background: var(--brand); color: #fff;
+        font-size: 15px; font-weight: 700; box-shadow: 0 6px 20px rgba(148,5,148,.4); cursor: pointer;
+    }
+    .cat .pathway-fab.hide { display: none; }
+}
+@media (max-width: 720px) {
+    .cat .cat-hero { padding: 22px 20px; }
+    .cat .cat-hero h1 { font-size: 25px; }
+    .cat .hero-stats { gap: 24px; }
+    .cat .row { grid-template-columns: minmax(0, 1fr) 36px; }
+    .cat .row-when { grid-column: 1; grid-row: 2; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+    .cat .row .add-btn { grid-column: 2; grid-row: 1 / span 2; align-self: start; }
+}
+</style>
+
 <script>
-
 document.addEventListener("DOMContentLoaded", function () {
+"use strict";
 
-    /* ============================================================
-       DATA
-       ============================================================ */
+/* ============================================================
+   DATA  (Jekyll _data files)
+   - external-training.csv : courses (title, organisation, format, tags, dates, location, url)
+   - training-topics.yml   : groups -> topics
+   - training-pathways.yml : curated pathways (optional)
+   ============================================================ */
 
-const allCourses = {{ site.data["external-training"] | jsonify }};
+const allCourses      = {{ site.data["external-training"] | jsonify }} || [];
+const trainingTopics  = {{ site.data["training-topics"]   | jsonify }} || {};
+const curatedPathways = {{ site.data["training-pathways"] | jsonify }} || [];
 
 const today = new Date();
 today.setHours(0, 0, 0, 0);
 
-const courses = allCourses.filter(course => {
-    const dates = course.dates.trim();
+const MONTHS = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+const MONTH_RE = /\b(jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\b/gi;
 
-    
-    if (
-        dates.toLowerCase() === "self-paced" ||
-        dates.toLowerCase() === "rolling basis"
-    ) {
-        return true;
+/* Last day of a free-text date ("12-14 March 2026"). null = keep the course. */
+function parseEndDate(text) {
+
+    const dates = String(text || "").trim();
+
+    if (!dates || /self[- ]?paced|rolling|on[- ]?demand/i.test(dates)) { return null; }
+
+    const years = dates.match(/\b20\d{2}\b/g);
+    if (!years) { return null; }
+
+    const year = parseInt(years[years.length - 1], 10);
+
+    let last = null, match;
+    MONTH_RE.lastIndex = 0;
+    while ((match = MONTH_RE.exec(dates)) !== null) { last = match; }
+    if (!last) { return null; }
+
+    const month  = MONTHS.indexOf(last[1].slice(0, 3).toLowerCase());
+    const before = dates.slice(0, last.index);
+    const after  = dates.slice(last.index + last[0].length);
+
+    let day = null;
+    const b = before.match(/\b(\d{1,2})(?:st|nd|rd|th)?\s*(?:of\s+)?$/i);
+
+    if (b) { day = parseInt(b[1], 10); }
+    else {
+        const a = after.match(/^\s*(\d{1,2})(?!\d)(?:\s*(?:-|–|—|to|&|,|and)\s*(\d{1,2})(?!\d))*/i);
+        if (a) { day = parseInt(a[2] || a[1], 10); }
     }
 
-    
-    const yearMatch = dates.match(/\b(20\d{2})\b/);
-    if (!yearMatch) {
-        return true;
-    }
+    return day ? new Date(year, month, day) : new Date(year, month + 1, 0);
 
-    const year = parseInt(yearMatch[1], 10);
+}
 
-    
-    const monthMatch = dates.match(
-        /\b(January|February|March|April|May|June|July|August|September|October|November|December)\b/i
-    );
-
-    if (!monthMatch) {
-        return true;
-    }
-
-    const monthNames = [
-        "January", "February", "March", "April",
-        "May", "June", "July", "August",
-        "September", "October", "November", "December"
-    ];
-
-    const month = monthNames.findIndex(
-        m => m.toLowerCase() === monthMatch[1].toLowerCase()
-    );
-
-    
-    const beforeMonth = dates.substring(0, monthMatch.index);
-
-    
-    const dayMatches = beforeMonth.match(/\d+/g);
-
-    if (!dayMatches) {
-        return true;
-    }
-
-    
-    const endDay = parseInt(dayMatches[dayMatches.length - 1], 10);
-
-    const courseEndDate = new Date(year, month, endDay);
-    courseEndDate.setHours(0, 0, 0, 0);
-
-    return courseEndDate >= today;
-});
-
-
-const trainingTopics =
-    {{ site.data["training-topics"] | jsonify }};
+/* Trim stray whitespace from the CSV, then drop finished courses */
+const courses = allCourses
+    .map(c => {
+        const clean = {};
+        Object.keys(c).forEach(k => { clean[k] = typeof c[k] === "string" ? c[k].trim() : c[k]; });
+        return clean;
+    })
+    .filter(course => {
+        const end = parseEndDate(course.dates);
+        return !end || end >= today;
+    });
 
 const topicGroups = {};
 
-Object.entries(trainingTopics).forEach(
-    ([groupName, topics]) => {
-
-        const parts = groupName.trim().split(/\s+/);
-        const icon = parts.pop();
-        const name = parts.join(" ");
-
-        topicGroups[name] = {
-            icon: icon,
-            topics: topics
-        };
-
-    }
-);
+Object.entries(trainingTopics).forEach(([groupName, topics]) => {
+    const parts = groupName.trim().split(/\s+/);
+    const icon  = parts.length > 1 ? parts.pop() : "📚";
+    topicGroups[parts.join(" ")] = { icon: icon, topics: Array.isArray(topics) ? topics : [] };
+});
 
 
-    /* ============================================================
-       ELEMENTS
-       ============================================================ */
+/* ============================================================
+   ELEMENTS
+   ============================================================ */
 
-    const boardWrapper =
-        document.getElementById("training-board-wrapper");
+const $ = id => document.getElementById(id);
 
-    const board =
-        document.getElementById("training-board");
+const layout        = $("cat-layout");
+const board         = $("board");
+const boardStatus   = $("board-status");
+const boardEmpty    = $("board-empty");
+const searchInput   = $("cat-search");
+const groupChips    = $("group-chips");
+const formatChips   = $("format-chips");
+const filterRows    = $("filter-rows");
+const side          = $("pathway-side");
+const sideToggle    = $("pathway-toggle");
+const fab           = $("pathway-fab");
+const pathwayList   = $("pathway-list");
+const pathwayEmpty  = $("pathway-empty");
+const pathwayContent = $("pathway-content");
+const undoButton    = $("undo-pathway");
+const curatedGrid   = $("curated-grid");
+const mapHost       = $("pathway-map");
+const zoomIndicator = $("pathway-zoom-indicator");
+const toastEl       = $("toast");
 
-    const loadingMessage =
-        document.getElementById("board-loading");
+const TABS = {
+    catalogue: { tab: $("tab-catalogue"), view: $("view-catalogue") },
+    curated:   { tab: $("tab-curated"),   view: $("view-curated") },
+    map:       { tab: $("tab-map"),       view: $("view-map") }
+};
 
-    const emptyMessage =
-        document.getElementById("board-empty");
-
-    const infoPanel =
-        document.getElementById("map-info-panel");
-
-    const infoContent =
-        document.getElementById("map-info-content");
-
-    const closeInfoButton =
-        document.getElementById("close-info-panel");
-
-    const searchInput =
-        document.getElementById("map-search");
-
-    const zoomInButton =
-        document.getElementById("zoom-in");
-
-    const zoomOutButton =
-        document.getElementById("zoom-out");
-
-    const resetButton =
-        document.getElementById("reset-map");
-
-    const zoomIndicator =
-        document.getElementById("zoom-indicator");
-
-    const pathwayPanel =
-        document.getElementById("pathway-panel");
-
-    const pathwayBackdrop =
-        document.getElementById("pathway-backdrop");
-
-    const openPathwayButton =
-        document.getElementById("open-pathway");
-
-    const closePathwayButton =
-        document.getElementById("close-pathway-panel");
-
-    const pathwayCount =
-        document.getElementById("pathway-count");
-
-    const pathwayEmpty =
-        document.getElementById("pathway-empty");
-
-    const pathwayContent =
-        document.getElementById("pathway-content");
-
-    const pathwayList =
-        document.getElementById("pathway-list");
-
-        const pathwayZoomInButton =
-    document.getElementById("pathway-zoom-in");
-
-const pathwayZoomOutButton =
-    document.getElementById("pathway-zoom-out");
-
-const pathwayResetButton =
-    document.getElementById("pathway-reset-view");
-
-const pathwayZoomIndicator =
-    document.getElementById("pathway-zoom-indicator");
-
-    const pathwaySummaryCount =
-        document.getElementById("pathway-summary-count");
-
-    const pathwaySummaryHint =
-        document.getElementById("pathway-summary-hint");
-
-    const pathwayViewListBtn =
-        document.getElementById("pathway-view-list-btn");
-
-    const pathwayViewMapBtn =
-        document.getElementById("pathway-view-map-btn");
-
-    const pathwayCanvasControls =
-        document.getElementById("pathway-canvas-controls");
-
-    const pathwayMapHint =
-        document.getElementById("pathway-map-hint");
-
-    const clearPathwayButton =
-        document.getElementById("clear-pathway");
-
-    const downloadPathwayButton =
-        document.getElementById("download-pathway");
-
-    const exploreTrainingButton =
-        document.getElementById("explore-training");
+const isMobile = () => window.matchMedia("(max-width: 1000px)").matches;
 
 
-    /* ============================================================
-       CONFIG
-       ============================================================ */
+/* ============================================================
+   STORAGE
+   ============================================================ */
 
-    const config = {
+const KEYS = {
+    pathway: "shareing-training-pathway",
+    layout:  "shareing-training-pathway-layout",
+    tab:     "shareing-training-tab",
+    side:    "shareing-training-side"
+};
 
-        groupColumns: 3,
-        groupGap: 28,
+function readStorage(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+function writeStorage(key, value) { try { localStorage.setItem(key, value); } catch (e) { /* ignore */ } }
+function readJSON(key, fallback) {
+    try { const raw = readStorage(key); return raw ? JSON.parse(raw) : fallback; }
+    catch (e) { return fallback; }
+}
 
-        minZoom: 0.10,
-        maxZoom: 2.5,
-        zoomStep: 1.2,
-        initialZoom: 0.5
+/* "solid" = required, "dashed" = optional. Old layouts used type:"spinoff" for optional. */
+function connectionStyle(c) {
+    if (c.style === "solid" || c.style === "dashed") { return c.style; }
+    return c.type === "spinoff" ? "dashed" : "solid";
+}
 
+/* A course is optional when every connection leading to it is dashed */
+function isOptional(id) {
+    const incoming = pathwayLayout.connections.filter(c => c.to === id);
+    return incoming.length > 0 && incoming.every(c => connectionStyle(c) === "dashed");
+}
+
+function normaliseLayout(value) {
+    const l = value && typeof value === "object" ? value : {};
+    const connections = Array.isArray(l.connections) ? l.connections : [];
+
+    connections.forEach(c => {
+        c.style = connectionStyle(c);
+    });
+
+    return {
+        positions: l.positions && typeof l.positions === "object"
+            ? l.positions
+            : {},
+
+        connections: connections,
+
+        notes: l.notes && typeof l.notes === "object"
+            ? l.notes
+            : {},
+        
+        stages: l.stages && typeof l.stages === "object" ? l.stages : {},
+
+        textBoxes: Array.isArray(l.textBoxes)
+            ? l.textBoxes
+            : []
     };
+}
+
+let pathwayIds = readJSON(KEYS.pathway, []);
+if (!Array.isArray(pathwayIds)) { pathwayIds = []; }
+let pathwayLayout = normaliseLayout(readJSON(KEYS.layout, null));
+
+let draggedPathwayId = null;
+
+function savePathway() {
+    writeStorage(KEYS.pathway, JSON.stringify(pathwayIds));
+    writeStorage(KEYS.layout, JSON.stringify(pathwayLayout));
+}
+
+let toastTimer = null;
+function toast(message) {
+    toastEl.textContent = message;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2200);
+}
 
 
-    /* ============================================================
-       STORAGE
-       ============================================================ */
+/* ============================================================
+   UNDO HISTORY
+   ============================================================ */
 
-    const pathwayStorageKey =
-        "shareing-training-pathway";
+const HISTORY_LIMIT = 50;
+let history = [];
 
-    const layoutStorageKey =
-        "shareing-training-pathway-layout";
+function snapshotState() { return JSON.stringify({ ids: pathwayIds, layout: pathwayLayout }); }
 
-    const viewModeStorageKey =
-        "shareing-training-pathway-view";
+function pushHistory(snapshot) {
+    history.push(snapshot || snapshotState());
+    if (history.length > HISTORY_LIMIT) { history.shift(); }
+    updateUndoUI();
+}
+
+function updateUndoUI() {
+    undoButton.disabled = !history.length;
+    const um = $("undo-map"); if (um) { um.disabled = !history.length; }
+    undoButton.title = history.length ? "Undo the most recent change (Ctrl/⌘ + Z)" : "Nothing to undo";
+}
+
+function undoLastChange() {
+    if (!history.length) { return; }
+    const previous = JSON.parse(history.pop());
+    pathwayIds = Array.isArray(previous.ids) ? previous.ids : [];
+    pathwayLayout = normaliseLayout(previous.layout);
+    savePathway();
+    refreshPathwayViews();
+    updateUndoUI();
+}
+
+undoButton.addEventListener("click", undoLastChange);
 
 
-    let pathwayIds = [];
+/* ============================================================
+   COURSE LOOKUPS + HELPERS
+   ============================================================ */
 
-    let pathwayLayout = {
-        positions: {},
-        connections: []
-    };
+const coursesByTopic = {};
+const courseLookup = {};
 
-    let pathwayViewMode = "list";
+function slugify(value) {
+    return String(value).toLowerCase().trim().replace(/\s+/g, "-").replace(/[^\w-]/g, "");
+}
+function courseIndex(course) { return slugify(course.url || course.title || "course"); }
 
-    let draggedPathwayId = null;
+
+function courseIdFromOccurrence(id) { return String(id).split("::")[0]; }
+function courseForPathwayId(id) { return courseLookup[courseIdFromOccurrence(id)] || null; }
+const pathwayBaseIds = () => new Set(pathwayIds.map(courseIdFromOccurrence));
+
+function splitTags(course) {
+    return course.tags ? String(course.tags).split(",").map(t => t.trim()).filter(Boolean) : [];
+}
+
+courses.forEach(course => {
+    courseLookup[courseIndex(course)] = course;
+    splitTags(course).forEach(topic => { (coursesByTopic[topic] = coursesByTopic[topic] || []).push(course); });
+});
+
+pathwayIds = pathwayIds.filter(id => courseForPathwayId(id));
+pathwayLayout.connections = pathwayLayout.connections.filter(c => courseForPathwayId(c.from) && courseForPathwayId(c.to));
+Object.keys(pathwayLayout.notes).forEach(id => { if (!pathwayIds.includes(id)) { delete pathwayLayout.notes[id]; } });
+Object.keys(pathwayLayout.stages).forEach(id => { if (!pathwayIds.includes(id)) { delete pathwayLayout.stages[id]; } });
+savePathway();
+
+function escapeHtml(value) {
+    if (value === null || value === undefined) { return ""; }
+    return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+}
+
+const FORMATS = {
+    "Online (self-service)": { label: "On-demand",             cls: "b-demand" },
+    "Scheduled (online)":    { label: "Scheduled (online)",    cls: "b-online" },
+    "Scheduled (hybrid)":    { label: "Scheduled (hybrid)",    cls: "b-hybrid" },
+    "Scheduled (in-person)": { label: "Scheduled (in-person)", cls: "b-person" },
+    "Upcoming":              { label: "Upcoming",              cls: "b-other" },
+    "Other":                 { label: "Other",                 cls: "b-other" }
+};
+
+const formatLabel = f => (FORMATS[f] || {}).label || f;
+const formatClass = f => (FORMATS[f] || {}).cls || "b-other";
+const getPrimaryTopic = course => splitTags(course)[0] || "Training";
+const courseTitle = course => course.title || "Untitled course";
+const isCourseInPathway = course => pathwayBaseIds().has(courseIndex(course));
+const showDates = course => course.dates && course.format !== "Online (self-service)";
+const showLocation = course => course.location && !/^online$/i.test(course.location);
+
+function plainMeta(course) {
+    const parts = [];
+    if (course.format) { parts.push(formatLabel(course.format)); }
+    if (showDates(course)) { parts.push(course.dates); }
+    return parts.join(" · ");
+}
+
+function titleHtml(course, className) {
+    return course.url
+        ? `<a class="${className}" href="${escapeHtml(course.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(courseTitle(course))}</a>`
+        : `<span class="${className}">${escapeHtml(courseTitle(course))}</span>`;
+}
 
 
-    try {
+/* ============================================================
+   PATHWAY STATE
+   ============================================================ */
 
-        const saved =
-            localStorage.getItem(
-                pathwayStorageKey
-            );
+function refreshPathwayViews() {
+    updatePathwayUI();
+    updateCourseStates();
+}
 
-        if (saved) {
+function addToPathway(course, note, parentId) {
 
-            const parsed =
-                JSON.parse(saved);
+    const id = courseIndex(course);
+    if (pathwayIds.includes(id)) { return; }
 
-            if (Array.isArray(parsed)) {
-                pathwayIds = parsed;
-            }
+    pushHistory();
+    pathwayIds.push(id);
+    if (note) { pathwayLayout.notes[id] = note; }
 
-        }
-
+    if (parentId && pathwayIds.includes(parentId)) {
+        pathwayLayout.connections.push({ from: parentId, to: id, type: "spinoff", style: "dashed" });
     }
-    catch (error) {
-
-        pathwayIds = [];
-
-    }
-
-
-    try {
-
-        const saved =
-            localStorage.getItem(
-                layoutStorageKey
-            );
-
-        if (saved) {
-
-            const parsed =
-                JSON.parse(saved);
-
-            if (parsed) {
-
-                pathwayLayout.positions =
-                    parsed.positions || {};
-
-                pathwayLayout.connections =
-                    Array.isArray(parsed.connections)
-                        ? parsed.connections
-                        : [];
-
-            }
-
-        }
-
-    }
-    catch (error) {
-
-        pathwayLayout = {
-            positions: {},
-            connections: []
-        };
-
-    }
-
-
-    try {
-
-        const savedView =
-            localStorage.getItem(
-                viewModeStorageKey
-            );
-
-        if (
-            savedView === "list" ||
-            savedView === "map"
-        ) {
-            pathwayViewMode = savedView;
-        }
-
-    }
-    catch (error) {
-
-        pathwayViewMode = "list";
-
-    }
-
-
-    function savePathway() {
-
-        localStorage.setItem(
-            pathwayStorageKey,
-            JSON.stringify(pathwayIds)
-        );
-
-        localStorage.setItem(
-            layoutStorageKey,
-            JSON.stringify(pathwayLayout)
-        );
-
-    }
-
-
-    /* ============================================================
-       COURSE DATA
-       ============================================================ */
-
-    const coursesByTopic = {};
-    const courseLookup = {};
-    const knownTopics = new Set();
-
-
-    Object.values(topicGroups).forEach(
-        group => {
-
-            group.topics.forEach(
-                topic =>
-                    knownTopics.add(topic)
-            );
-
-        }
-    );
-
-
-    function slugify(value) {
-
-        return String(value)
-            .toLowerCase()
-            .trim()
-            .replace(/\s+/g, "-")
-            .replace(/[^\w-]/g, "");
-
-    }
-
-
-    function courseIndex(course) {
-
-        return slugify(
-            course.url ||
-            course.title ||
-            "course"
-        );
-
-    }
-
-
-    courses.forEach(
-        course => {
-
-            const id =
-                courseIndex(course);
-
-            courseLookup[id] =
-                course;
-
-            if (!course.tags) {
-                return;
-            }
-
-            String(course.tags)
-                .split(",")
-                .map(tag => tag.trim())
-                .filter(Boolean)
-                .forEach(topic => {
-
-                    if (!coursesByTopic[topic]) {
-                        coursesByTopic[topic] = [];
-                    }
-
-                    coursesByTopic[topic].push(
-                        course
-                    );
-
-                });
-
-        }
-    );
-
-
-    pathwayIds =
-        pathwayIds.filter(
-            id => courseLookup[id]
-        );
-
-
-    pathwayLayout.connections =
-        pathwayLayout.connections.filter(
-            connection =>
-                courseLookup[connection.from] &&
-                courseLookup[connection.to]
-        );
-
 
     savePathway();
+    refreshPathwayViews();
 
+}
 
-    /* ============================================================
-       HELPERS
-       ============================================================ */
+function removeFromPathway(course) {
 
-    function escapeHtml(value) {
+    const base = courseIndex(course);
+    const doomed = pathwayIds.filter(id => courseIdFromOccurrence(id) === base);
+    if (!doomed.length) { return; }
 
-        if (
-            value === null ||
-            value === undefined
-        ) {
-            return "";
-        }
-
-        return String(value)
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-
-    }
-
-
-    function formatIcon(format) {
-
-        const icons = {
-
-            "Online (self-service)": "📚",
-            "Scheduled (online)": "📅",
-            "Scheduled (hybrid)": "📅",
-            "Scheduled (in-person)": "📅",
-            "Upcoming": "⏳",
-            "Other": "🎉"
-
-        };
-
-        return icons[format] || "📚";
-
-    }
-
-
-    function formatLabel(format) {
-
-        const labels = {
-
-            "Online (self-service)": "On-demand",
-            "Scheduled (online)": "Scheduled (Online)",
-            "Scheduled (hybrid)": "Scheduled (Hybrid)",
-            "Scheduled (in-person)": "Scheduled (In-person)",
-            "Upcoming": "Upcoming",
-            "Other": "Other"
-
-        };
-
-        return labels[format] || format;
-
-    }
-
-
-    function getPrimaryTopic(course) {
-
-        if (!course.tags) {
-            return "Training";
-        }
-
-        return String(course.tags)
-            .split(",")
-            .map(tag => tag.trim())
-            .filter(Boolean)[0] ||
-            "Training";
-
-    }
-
-
-    function isCourseInPathway(course) {
-
-        return pathwayIds.includes(
-            courseIndex(course)
-        );
-
-    }
-
-
-    /* ============================================================
-       PATHWAY
-       ============================================================ */
-
-    function addToPathway(course) {
-
-        const id =
-            courseIndex(course);
-
-        if (pathwayIds.includes(id)) {
-            return;
-        }
-
-        pathwayIds.push(id);
-
-        savePathway();
-
-        updatePathwayUI();
-        updateCoursePathwayStates();
-
-    }
-
-
-    function removeFromPathway(course) {
-
-        const id =
-            courseIndex(course);
-
-        pathwayIds =
-            pathwayIds.filter(
-                item => item !== id
-            );
-
+    pushHistory();
+    pathwayIds = pathwayIds.filter(id => !doomed.includes(id));
+    doomed.forEach(id => {
         delete pathwayLayout.positions[id];
+        delete pathwayLayout.notes[id];
+        delete pathwayLayout.stages[id];
+    });
+    pathwayLayout.connections = pathwayLayout.connections.filter(c => !doomed.includes(c.from) && !doomed.includes(c.to));
 
-        pathwayLayout.connections =
-            pathwayLayout.connections.filter(
-                connection =>
-                    connection.from !== id &&
-                    connection.to !== id
-            );
+    savePathway();
+    refreshPathwayViews();
 
-        savePathway();
+}
 
-        updatePathwayUI();
-        updateCoursePathwayStates();
 
+function removePathwayOccurrence(id) {
+    if (!pathwayIds.includes(id)) return;
+
+    pushHistory();
+
+    pathwayIds = pathwayIds.filter(item => item !== id);
+
+    delete pathwayLayout.positions[id];
+    delete pathwayLayout.notes[id];
+    delete pathwayLayout.stages[id];
+
+    pathwayLayout.connections = pathwayLayout.connections.filter(
+        c => c.from !== id && c.to !== id
+    );
+
+    savePathway();
+    refreshPathwayViews();
+}
+
+
+function toggleCourse(course) {
+    if (isCourseInPathway(course)) {
+        removeFromPathway(course);
+        toast("Removed from your pathway");
+    }
+    else {
+        addToPathway(course);
+        toast("Added to your pathway");
+    }
+}
+
+function clearPathway() {
+
+    if (!pathwayIds.length) { return; }
+    if (!window.confirm("Clear your whole learning pathway? You can still undo this.")) { return; }
+
+    pushHistory();
+    pathwayIds = [];
+    pathwayLayout = normaliseLayout(null);
+    savePathway();
+    refreshPathwayViews();
+
+}
+
+
+/* ============================================================
+   CURATED PATHWAYS
+   ============================================================ */
+
+function resolveStep(step) {
+    const url = typeof step === "string" ? step : (step && step.url);
+    const id  = slugify(url || "");
+    return { id: id, note: (step && step.note) || "", course: courseLookup[id] || null };
+}
+
+function resolveCurated(pathway) {
+
+    const raw = Array.isArray(pathway.courses) ? pathway.courses : [];
+    const stages = [];
+    let total = 0;
+
+    raw.forEach(step => {
+
+        const isObj = step && typeof step === "object";
+        const urls = isObj ? [].concat(step.urls || step.url || []) : [step];
+        const entries = urls.map(u => resolveStep({ url: u, note: isObj ? step.note : "" }));
+        total += entries.length;
+
+        const items = entries.filter(e => e.course);
+        if (!items.length) { return; }          // nothing available: skip the step and its spin-offs
+
+        stages.push({
+            topic: (isObj && step.topic) || "",
+            note: (isObj && step.note) || "",
+            kind: isObj && (step.kind === "optional" || step.kind === "final") ? step.kind : "required",
+            items: items,
+            spinoffs: (isObj && Array.isArray(step.spinoffs) ? step.spinoffs : []).map(resolveStep).filter(s => s.course)
+        });
+    });
+
+    return {
+        stages: stages,
+        total: total,
+        courseCount: stages.reduce((n, s) => n + s.items.length, 0),
+        stepCount: stages.filter(s => s.kind !== "optional").length,
+        optionalCount: stages.filter(s => s.kind === "optional").length + stages.reduce((n, s) => n + s.spinoffs.length, 0)
+    };
+
+}
+
+function loadCuratedPathway(pathway, replace) {
+
+    const r = resolveCurated(pathway);
+
+    if (!r.courseCount) {
+        toast("None of the courses in this pathway are currently available.");
+        return;
     }
 
+    pushHistory();
 
-    function clearPathway() {
-
-        if (!pathwayIds.length) {
-            return;
-        }
-
-        if (
-            !window.confirm(
-                "Are you sure you want to clear your learning pathway?"
-            )
-        ) {
-            return;
-        }
-
+    if (replace) {
         pathwayIds = [];
-
-        pathwayLayout = {
-            positions: {},
-            connections: []
-        };
-
-        savePathway();
-
-        updatePathwayUI();
-        updateCoursePathwayStates();
-
+        pathwayLayout = normaliseLayout(null);
     }
 
+    /* 1st use of a course = its normal id, 2nd = id::2, and so on (reused if already present) */
+    const seen = {};
+    const occId = slug => { seen[slug] = (seen[slug] || 0) + 1; return seen[slug] === 1 ? slug : slug + "::" + seen[slug]; };
 
-    /* ============================================================
-       PATHWAY VIEW SWITCHING
-       ============================================================ */
+    const link = (from, to, dashed) => {
+        if (from === to || pathwayLayout.connections.some(c => c.from === from && c.to === to)) { return; }
+        pathwayLayout.connections.push(dashed
+            ? { from: from, to: to, type: "spinoff", style: "dashed" }
+            : { from: from, to: to, style: "solid" });
+    };
 
-    function applyViewModeUI() {
+    const addId = (id, note) => {
+        if (!pathwayIds.includes(id)) { pathwayIds.push(id); }
+        if (note) { pathwayLayout.notes[id] = note; }
+    };
 
-        const isMap =
-            pathwayViewMode === "map";
+    let col = replace ? 0 : pathwayIds.length;
+    let spine = [];
+    let pending = [];
 
-        pathwayViewListBtn.classList.toggle(
-            "active",
-            !isMap
-        );
+    r.stages.forEach((stage, idx) => {
 
-        pathwayViewListBtn.setAttribute(
-            "aria-selected",
-            String(!isMap)
-        );
+        const items = stage.items.map(i => ({ oid: occId(i.id), note: i.note }));
+        const ids = items.map(i => i.oid);
+        const n = ids.length;
+        const optional = stage.kind === "optional";
+        let baseRow = 0;
 
-        pathwayViewMapBtn.classList.toggle(
-            "active",
-            isMap
-        );
-
-        pathwayViewMapBtn.setAttribute(
-            "aria-selected",
-            String(isMap)
-        );
-
-        pathwayCanvasControls.style.display =
-            isMap ? "flex" : "none";
-
-        pathwayMapHint.style.display =
-            isMap ? "block" : "none";
-
-        pathwaySummaryHint.textContent =
-            isMap
-                ? "Drag cards to arrange them, and drag from a card's dots to connect steps."
-                : "Drag a card, or use ↑ / ↓, to reorder.";
-
-        if (downloadPathwayButton) {
-
-            downloadPathwayButton.textContent =
-                isMap
-                    ? "↓ Download pathway map"
-                    : "↓ Download my learning pathway";
-
+        if (optional) {
+            const next = r.stages.slice(idx + 1).find(s => s.kind !== "optional");
+            baseRow = (Math.max(spine.length, next ? next.items.length : 1, 1) - 1) / 2 + 1;
         }
 
-    }
+        items.forEach((item, k) => {
+            addId(item.oid, item.note);
+            if (!pathwayLayout.stages[item.oid]) {
+                pathwayLayout.stages[item.oid] = { col: col, row: optional ? baseRow + k : k - (n - 1) / 2, topic: stage.topic, kind: stage.kind };
+            }
+        });
 
-
-    function switchPathwayView(view) {
-
-        if (
-            view !== "list" &&
-            view !== "map"
-        ) {
-            return;
-        }
-
-        if (pathwayViewMode === view) {
-            return;
-        }
-
-        pathwayViewMode = view;
-
-        try {
-
-            localStorage.setItem(
-                viewModeStorageKey,
-                view
-            );
-
-        }
-        catch (error) {}
-
-        applyViewModeUI();
-
-        renderActiveView();
-
-    }
-
-
-    function renderActiveView() {
-
-        if (pathwayViewMode === "map") {
-
-            renderPathway();
-
+        if (optional) {
+            spine.forEach(from => ids.forEach(to => link(from, to, true)));
+            pending = pending.concat(ids);
         }
         else {
-
-            renderPathwayListView();
-
+            spine.forEach(from => ids.forEach(to => link(from, to, false)));
+            pending.forEach(from => ids.forEach(to => link(from, to, true)));
+            pending = [];
+            spine = ids;
         }
 
-    }
+        const below = optional ? baseRow + n : (n - 1) / 2 + 1;
 
-
-    pathwayViewListBtn.addEventListener(
-        "click",
-        function () {
-            switchPathwayView("list");
-        }
-    );
-
-    pathwayViewMapBtn.addEventListener(
-        "click",
-        function () {
-            switchPathwayView("map");
-        }
-    );
-
-
-    /* ============================================================
-       PATHWAY LIST VIEW (default, roadmap-style)
-       ============================================================ */
-
-    function renderPathwayListView() {
-
-        if (!pathwayList) {
-            return;
-        }
-
-        pathwayList.className =
-            "pathway-list";
-
-        pathwayList.innerHTML =
-            "";
-
-        pathwayIds.forEach(
-            (id, index) => {
-
-                const course =
-                    courseLookup[id];
-
-                if (!course) {
-                    return;
-                }
-
-                pathwayList.appendChild(
-                    createPathwayListItem(
-                        course,
-                        id,
-                        index
-                    )
-                );
-
+        stage.spinoffs.forEach((sp, s) => {
+            const oid = occId(sp.id);
+            addId(oid, sp.note);
+            if (!pathwayLayout.stages[oid]) {
+                pathwayLayout.stages[oid] = { col: col, row: below + s, topic: "", kind: "optional" };
             }
-        );
+            link(ids[n - 1], oid, true);
+        });
 
-    }
+        col++;
 
+    });
 
-    function createPathwayListItem(course, id, index) {
+    savePathway();
+    refreshPathwayViews();
+    toast(replace ? "Curated pathway loaded" : "Curated pathway added");
 
-        const item =
-            document.createElement("div");
+    if (isMobile()) { setSide(true); }
 
-        item.className =
-            "pathway-item";
+}
 
-        item.draggable =
-            true;
+function createCuratedStage(stage, number) {
 
-        item.dataset.courseId =
-            id;
+    const optional = stage.kind === "optional", final = stage.kind === "final";
+    const parallel = stage.items.length > 1;
+    const parent = stage.items[stage.items.length - 1];
+    const metaOf = c => escapeHtml([c.organisation, plainMeta(c)].filter(Boolean).join(" · "));
 
-        const topic =
-            getPrimaryTopic(course);
+    const li = document.createElement("li");
+    li.className = "cur-step" + (optional ? " is-optional" : final ? " is-final" : "");
+    li.dataset.courseId = stage.items.map(i => i.id).join("|");
 
-        const metaParts = [
-            topic,
-            course.format
-                ? formatLabel(course.format)
-                : null
-        ].filter(Boolean);
+    const box = item => `
+        <div class="step-course">
+            ${titleHtml(item.course, "step-title")}
+            <div class="step-sub">${metaOf(item.course)}</div>
+            ${!stage.topic && item.note ? `<div class="step-note">${escapeHtml(item.note)}</div>` : ""}
+            <button type="button" class="mini-btn" data-course-id="${escapeHtml(item.id)}">+ Add</button>
+        </div>`;
 
-        item.innerHTML = `
+    li.innerHTML = `
+        <span class="step-dot">${optional ? "opt" : number}</span>
+        <div class="step-body">
+            ${stage.topic || optional || final ? `
+                <div class="step-head">
+                    ${stage.topic ? `<span class="step-topic">${escapeHtml(stage.topic)}</span>` : ""}
+                    ${optional ? `<span class="step-flag">Optional</span>` : final ? `<span class="step-flag">Final step</span>` : ""}
+                </div>` : ""}
+            ${stage.topic && stage.note ? `<div class="step-note step-note-top">${escapeHtml(stage.note)}</div>` : ""}
+            ${parallel ? `<div class="step-parallel-label">You can take these in parallel</div>` : ""}
+            <div class="step-group${parallel ? " is-parallel" : ""}">${stage.items.map(box).join("")}</div>
+        </div>
+    `;
 
-            <div class="pathway-number">
-                ${index + 1}
-            </div>
+    li.querySelectorAll(".step-group .mini-btn").forEach((btn, i) => {
+        btn.addEventListener("click", function () {
+            const item = stage.items[i];
+            if (isCourseInPathway(item.course)) { removeFromPathway(item.course); }
+            else { addToPathway(item.course, item.note); }
+        });
+    });
 
-            <div class="pathway-item-content">
+    stage.spinoffs.forEach(spinoff => {
 
-                <div class="pathway-item-title">
-                    ${escapeHtml(
-                        course.title ||
-                        "Untitled course"
-                    )}
-                </div>
+        const sb = document.createElement("div");
+        sb.className = "step-course step-optional";
 
-                ${
-                    course.organisation
-                        ? `
-                            <div class="pathway-item-organisation">
-                                ${escapeHtml(
-                                    course.organisation
-                                )}
-                            </div>
-                        `
-                        : ""
-                }
-
-                <div class="pathway-item-meta">
-                    ${escapeHtml(
-                        metaParts.join(" • ")
-                    )}
-                </div>
-
-                <div
-                    class="pathway-item-actions"
-                    draggable="false"
-                >
-
-                    <button
-                        type="button"
-                        class="pathway-move-button"
-                        data-dir="up"
-                        title="Move up"
-                        aria-label="Move up"
-                        ${index === 0 ? "disabled" : ""}
-                    >
-                        ↑
-                    </button>
-
-                    <button
-                        type="button"
-                        class="pathway-move-button"
-                        data-dir="down"
-                        title="Move down"
-                        aria-label="Move down"
-                        ${index === pathwayIds.length - 1 ? "disabled" : ""}
-                    >
-                        ↓
-                    </button>
-
-                    ${
-                        course.url
-                            ? `
-                                <a
-                                    class="pathway-view-button"
-                                    href="${escapeHtml(course.url)}"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    View →
-                                </a>
-                            `
-                            : ""
-                    }
-
-                    <button
-                        type="button"
-                        class="pathway-remove-button"
-                    >
-                        Remove
-                    </button>
-
-                </div>
-
-            </div>
-
+        sb.innerHTML = `
+            <div class="step-optional-label">Optional</div>
+            ${titleHtml(spinoff.course, "step-title")}
+            <div class="step-sub">${metaOf(spinoff.course)}</div>
+            ${spinoff.note ? `<div class="step-note">${escapeHtml(spinoff.note)}</div>` : ""}
+            <button type="button" class="mini-btn" data-course-id="${escapeHtml(spinoff.id)}">+ Add</button>
         `;
 
-
-        item.querySelectorAll(
-            ".pathway-move-button"
-        ).forEach(
-            button => {
-
-                button.addEventListener(
-                    "click",
-                    function () {
-
-                        movePathwayItem(
-                            id,
-                            this.dataset.dir
-                        );
-
-                    }
-                );
-
+        sb.querySelector("button").addEventListener("click", function () {
+            if (isCourseInPathway(spinoff.course)) { removeFromPathway(spinoff.course); }
+            else {
+                if (!isCourseInPathway(parent.course)) { addToPathway(parent.course, parent.note); }
+                addToPathway(spinoff.course, spinoff.note, parent.id);
             }
-        );
+        });
+
+        li.querySelector(".step-body").appendChild(sb);
+
+    });
+
+    return li;
+
+}
+
+function renderCuratedPathways() {
+
+    const valid = curatedPathways.filter(p => p && p.title);
+    if (!valid.length) { return; }
+
+    TABS.curated.tab.style.display = "";
+    $("empty-browse-curated").style.display = "";
+
+    valid.forEach(pathway => {
+
+        const resolved = resolveCurated(pathway);
+        const available = resolved.courseCount;
+
+        const card = document.createElement("article");
+        card.className = "cur-card";
+        card.dataset.ids = resolved.stages.flatMap(s => s.items.map(i => i.id)).join("|");
+
+        card.innerHTML = `
+            <div class="cur-head">
+                <div class="cur-icon">${escapeHtml(pathway.icon || "🧭")}</div>
+                <div>
+                    <h3 class="cur-title">${escapeHtml(pathway.title)}</h3>
+                    ${pathway.audience ? `<div class="cur-audience">For ${escapeHtml(pathway.audience.charAt(0).toLowerCase() + pathway.audience.slice(1))}</div>` : ""}
+                </div>
+            </div>
+            ${pathway.description ? `<p class="cur-desc">${escapeHtml(pathway.description)}</p>` : ""}
+            <p class="cur-stats">
+                ${resolved.stepCount} ${resolved.stepCount === 1 ? "step" : "steps"}${resolved.optionalCount ? `, ${resolved.optionalCount} optional` : ""}
+                ${available < resolved.total ? ` · <span class="partial">${available} of ${resolved.total} courses currently available</span>` : ""}
+                <span class="cur-loaded"> · ✓ In your pathway</span>
+            </p>
+            <div class="cur-actions">
+                <button type="button" class="cat-btn cat-btn-secondary cur-use" ${available ? "" : "disabled"}>Use pathway</button>
+                <button type="button" class="cat-btn cat-btn-third cur-add" ${available ? "" : "disabled"}>Add to mine</button>
+            </div>
+            <details class="cur-route">
+                <summary>View the route</summary>
+                <ol class="cur-steps"></ol>
+            </details>
+        `;
+
+        const list = card.querySelector(".cur-steps");
+        let n = 0;
+
+        if (available) {
+            resolved.stages.forEach(stage => {
+                if (stage.kind !== "optional") { n++; }
+                list.appendChild(createCuratedStage(stage, n));
+            });
+        }
+        else { list.innerHTML = `<li class="step-sub">No courses in this pathway are currently available.</li>`; }
+
+        card.querySelector(".cur-use").addEventListener("click", function () {
+            if (pathwayIds.length && !window.confirm("This replaces your current pathway (you can undo it). Continue?")) { return; }
+            loadCuratedPathway(pathway, true);
+        });
+
+        card.querySelector(".cur-add").addEventListener("click", () => loadCuratedPathway(pathway, false));
+
+        curatedGrid.appendChild(card);
+
+    });
+
+}
+    
 
 
-        item.querySelector(
-            ".pathway-remove-button"
-        ).addEventListener(
-            "click",
-            function () {
+/* ============================================================
+   CATALOGUE (search + filters + topic lists)
+   ============================================================ */
 
-                removeFromPathway(
-                    course
-                );
+const groups = [];
+const usedTopics = new Set();
 
-            }
-        );
+Object.entries(topicGroups).forEach(([name, data]) => {
 
+    const topics = data.topics
+        .filter(t => coursesByTopic[t] && coursesByTopic[t].length)
+        .map(t => ({ name: t, courses: coursesByTopic[t] }));
 
-        item.addEventListener(
-            "dragstart",
-            function (event) {
+    topics.forEach(t => usedTopics.add(t.name));
+    if (topics.length) { groups.push({ name: name, icon: data.icon, topics: topics }); }
 
-                draggedPathwayId = id;
+});
 
-                item.classList.add(
-                    "dragging"
-                );
+/* Safety net: tags missing from training-topics.yml still show up */
+const orphanTopics = Object.keys(coursesByTopic).filter(t => !usedTopics.has(t)).sort();
 
-                try {
+if (orphanTopics.length) {
+    groups.push({ name: "More training", icon: "📚", topics: orphanTopics.map(t => ({ name: t, courses: coursesByTopic[t] })) });
+}
 
-                    event.dataTransfer.effectAllowed =
-                        "move";
+groups.forEach(g => {
+    g.courseCount = new Set(g.topics.flatMap(t => t.courses.map(courseIndex))).size;
+});
 
-                    event.dataTransfer.setData(
-                        "text/plain",
-                        id
-                    );
+/* Hero stats */
+(function () {
+    const providers = new Set(courses.map(c => c.organisation).filter(Boolean)).size;
+    const topics = groups.reduce((n, g) => n + g.topics.length, 0);
+    $("hero-stats").innerHTML = [[courses.length, "courses"], [topics, "topics"]]
+        .map(s => `<li><strong>${s[0]}</strong><span>${s[1]}</span></li>`).join("");
+})();
 
-                }
-                catch (error) {}
+const filters = { q: "", group: "all", format: "all" };
+const expandedTopics = new Set();
+const COLLAPSED_COUNT = 5;
 
-            }
-        );
+const courseSearchText = c => [c.title, c.organisation, c.tags, c.location].join(" ").toLowerCase();
 
+function highlight(text, q) {
+    const safe = escapeHtml(text);
+    if (!q) { return safe; }
+    const i = String(text).toLowerCase().indexOf(q);
+    if (i === -1) { return safe; }
+    return escapeHtml(text.slice(0, i)) + "<mark>" + escapeHtml(text.slice(i, i + q.length)) + "</mark>" + escapeHtml(text.slice(i + q.length));
+}
 
-        item.addEventListener(
-            "dragend",
-            function () {
+function createCourseRow(course, q) {
 
-                draggedPathwayId = null;
+    const id = courseIndex(course);
+    const inPath = pathwayIds.includes(id);
 
-                item.classList.remove(
-                    "dragging"
-                );
+    const row = document.createElement("div");
+    row.className = "row" + (inPath ? " in-pathway" : "");
+    row.dataset.courseId = id;
 
-                pathwayList
-                    .querySelectorAll(
-                        ".pathway-item"
-                    )
-                    .forEach(
-                        element =>
-                            element.classList.remove(
-                                "drag-over"
-                            )
-                    );
+    const sub = [course.organisation ? highlight(course.organisation, q) : "", showLocation(course) ? escapeHtml(course.location) : ""].filter(Boolean).join(" · ");
 
-            }
-        );
+    row.innerHTML = `
+        <div class="row-main">
+            ${course.url
+                ? `<a class="row-title" href="${escapeHtml(course.url)}" target="_blank" rel="noopener noreferrer">${highlight(courseTitle(course), q)}</a>`
+                : `<span class="row-title">${highlight(courseTitle(course), q)}</span>`}
+            ${sub ? `<div class="row-sub">${sub}</div>` : ""}
+        </div>
+        <div class="row-when">
+            ${course.format ? `<span class="badge ${formatClass(course.format)}">${escapeHtml(formatLabel(course.format))}</span>` : ""}
+            ${showDates(course) ? `<span>${escapeHtml(course.dates)}</span>` : ""}
+        </div>
+        <button type="button" class="add-btn" data-add="${escapeHtml(id)}"
+            aria-pressed="${inPath}" aria-label="Add to my pathway: ${escapeHtml(courseTitle(course))}"
+            title="${inPath ? "Remove from my pathway" : "Add to my pathway"}">${inPath ? "✓" : "+"}</button>
+    `;
 
+    return row;
 
-        item.addEventListener(
-            "dragover",
-            function (event) {
+}
 
-                if (
-                    !draggedPathwayId ||
-                    draggedPathwayId === id
-                ) {
-                    return;
-                }
+function createTopic(group, topic, list, q, forceOpen) {
 
-                event.preventDefault();
+    const key = group.name + "::" + topic.name;
+    const collapsible = list.length > COLLAPSED_COUNT + 1;
+    const open = forceOpen || !collapsible || expandedTopics.has(key);
+    const visible = open ? list : list.slice(0, COLLAPSED_COUNT);
 
-                item.classList.add(
-                    "drag-over"
-                );
+    const wrap = document.createElement("div");
+    wrap.className = "topic";
 
-            }
-        );
+    const total = list.length === topic.courses.length ? `${list.length}` : `${list.length} of ${topic.courses.length}`;
 
+    wrap.innerHTML = `
+        <div class="topic-head"><h3>${highlight(topic.name, q)}</h3><span class="topic-count">${total} ${list.length === 1 ? "course" : "courses"}</span></div>
+        <div class="rows"></div>
+    `;
 
-        item.addEventListener(
-            "dragleave",
-            function () {
+    const rows = wrap.querySelector(".rows");
+    visible.forEach(course => rows.appendChild(createCourseRow(course, q)));
 
-                item.classList.remove(
-                    "drag-over"
-                );
-
-            }
-        );
-
-
-        item.addEventListener(
-            "drop",
-            function (event) {
-
-                event.preventDefault();
-
-                item.classList.remove(
-                    "drag-over"
-                );
-
-                if (
-                    !draggedPathwayId ||
-                    draggedPathwayId === id
-                ) {
-                    return;
-                }
-
-                const rect =
-                    item.getBoundingClientRect();
-
-                const insertBefore =
-                    (event.clientY - rect.top) <
-                    rect.height / 2;
-
-                reorderPathway(
-                    draggedPathwayId,
-                    id,
-                    insertBefore
-                );
-
-                draggedPathwayId = null;
-
-            }
-        );
-
-
-        return item;
-
+    if (collapsible && !forceOpen) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "more-btn";
+        if (open) { btn.dataset.collapse = key; btn.textContent = "Show fewer"; }
+        else { btn.dataset.expand = key; btn.textContent = `Show ${list.length - COLLAPSED_COUNT} more`; }
+        rows.appendChild(btn);
     }
 
+    return wrap;
 
-    function movePathwayItem(id, direction) {
+}
 
-        const index =
-            pathwayIds.indexOf(id);
+function renderBoard() {
 
-        if (index === -1) {
-            return;
-        }
+    const q = filters.q.trim().toLowerCase();
+    const filtering = Boolean(q) || filters.format !== "all";
+    const shown = new Set();
 
-        const targetIndex =
-            direction === "up"
-                ? index - 1
-                : index + 1;
+    board.innerHTML = "";
 
-        if (
-            targetIndex < 0 ||
-            targetIndex >= pathwayIds.length
-        ) {
-            return;
-        }
+    groups.forEach(group => {
 
-        const temp =
-            pathwayIds[index];
+        if (filters.group !== "all" && filters.group !== group.name) { return; }
 
-        pathwayIds[index] =
-            pathwayIds[targetIndex];
+        const groupMatch = q && group.name.toLowerCase().includes(q);
+        const topicEls = [];
 
-        pathwayIds[targetIndex] =
-            temp;
+        group.topics.forEach(topic => {
 
-        savePathway();
+            const topicMatch = groupMatch || (q && topic.name.toLowerCase().includes(q));
 
-        renderPathwayListView();
-
-    }
-
-
-    function reorderPathway(draggedId, targetId, insertBefore) {
-
-        const fromIndex =
-            pathwayIds.indexOf(draggedId);
-
-        if (fromIndex === -1) {
-            return;
-        }
-
-        pathwayIds.splice(
-            fromIndex,
-            1
-        );
-
-        let targetIndex =
-            pathwayIds.indexOf(targetId);
-
-        if (targetIndex === -1) {
-            targetIndex =
-                pathwayIds.length;
-        }
-
-        if (!insertBefore) {
-            targetIndex += 1;
-        }
-
-        pathwayIds.splice(
-            targetIndex,
-            0,
-            draggedId
-        );
-
-        savePathway();
-
-        renderPathwayListView();
-
-    }
-
-
-    /* ============================================================
-       PATHWAY CANVAS (optional map view)
-       ============================================================ */
-
-        let pathwayCanvas = null;
-        let pathwayViewport = null;
-        let pathwayWorld = null;
-        let pathwayNodes = null;
-        let pathwaySvg = null;
-
-        let pathwayZoom = 1;
-        let pathwayPanX = 0;
-        let pathwayPanY = 0;
-
-        const pathwayMinZoom = 0.35;
-        const pathwayMaxZoom = 2.5;
-        const pathwayZoomStep = 1.2;
-
-        let pathwayPanning = false;
-
-        let pathwayPanStartX = 0;
-        let pathwayPanStartY = 0;
-
-        let pathwayPanOriginX = 0;
-        let pathwayPanOriginY = 0;
-
-            function createPathwayCanvas() {
-
-            pathwayList.innerHTML = "";
-
-            pathwayList.className =
-                "pathway-interactive-canvas";
-
-
-            /* --------------------------------------------------------
-            VIEWPORT
-            -------------------------------------------------------- */
-
-            pathwayViewport =
-                document.createElement("div");
-
-            pathwayViewport.className =
-                "pathway-viewport";
-
-
-            /* --------------------------------------------------------
-            WORLD
-            Everything inside this gets zoomed and panned.
-            -------------------------------------------------------- */
-
-            pathwayWorld =
-                document.createElement("div");
-
-            pathwayWorld.className =
-                "pathway-world";
-
-
-            /* --------------------------------------------------------
-            SVG
-            -------------------------------------------------------- */
-
-            pathwaySvg =
-                document.createElementNS(
-                    "http://www.w3.org/2000/svg",
-                    "svg"
-                );
-
-            pathwaySvg.classList.add(
-                "pathway-svg"
+            const list = topic.courses.filter(c =>
+                (filters.format === "all" || c.format === filters.format) &&
+                (!q || topicMatch || courseSearchText(c).includes(q))
             );
 
+            if (list.length) {
+                list.forEach(c => shown.add(courseIndex(c)));
+                topicEls.push(createTopic(group, topic, list, q, filtering));
+            }
 
-            /* --------------------------------------------------------
-            NODES
-            -------------------------------------------------------- */
+        });
 
-            pathwayNodes =
-                document.createElement("div");
+        if (!topicEls.length) { return; }
 
-            pathwayNodes.className =
-                "pathway-nodes";
+        const section = document.createElement("section");
+        section.className = "group-section";
+        section.innerHTML = `
+            <div class="group-head">
+                <div class="group-icon">${escapeHtml(group.icon)}</div>
+                <div><h2>${escapeHtml(group.name)}</h2><small>${topicEls.length} ${topicEls.length === 1 ? "topic" : "topics"}</small></div>
+            </div>
+        `;
 
+        topicEls.forEach(el => section.appendChild(el));
+        board.appendChild(section);
 
-            pathwayWorld.appendChild(
-                pathwaySvg
-            );
+    });
 
-            pathwayWorld.appendChild(
-                pathwayNodes
-            );
+    const n = shown.size;
+    boardEmpty.style.display = n ? "none" : "block";
+    boardStatus.textContent = n ? `Showing ${n} ${n === 1 ? "course" : "courses"}` : "";
 
-            pathwayViewport.appendChild(
-                pathwayWorld
-            );
+}
 
-            pathwayList.appendChild(
-                pathwayViewport
-            );
+function renderChips() {
 
+    const chip = (label, count, active, attr, value) =>
+        `<button type="button" class="chip${active ? " active" : ""}" ${attr}="${escapeHtml(value)}" aria-pressed="${active}">${label}${count !== null ? ` <span class="chip-n">${count}</span>` : ""}</button>`;
 
-            pathwayCanvas =
-                pathwayList;
+    groupChips.innerHTML =
+        chip("All groups", courses.length, filters.group === "all", "data-group", "all") +
+        groups.map(g => chip(`${escapeHtml(g.icon)} ${escapeHtml(g.name)}`, g.courseCount, filters.group === g.name, "data-group", g.name)).join("");
 
+    const formats = [...new Set(courses.map(c => c.format).filter(Boolean))];
 
-            /* --------------------------------------------------------
-            PAN CANVAS
-            -------------------------------------------------------- */
+    formatChips.innerHTML = formats.length > 1
+        ? chip("Any format", null, filters.format === "all", "data-format", "all") +
+          formats.map(f => chip(escapeHtml(formatLabel(f)), null, filters.format === f, "data-format", f)).join("")
+        : "";
 
-            pathwayViewport.addEventListener(
-                "pointerdown",
-                startPathwayPan
-            );
+}
 
-            pathwayViewport.addEventListener(
-                "pointermove",
-                movePathwayPan
-            );
+function updateFilters() {
+    renderChips();
+    renderBoard();
+}
 
-            pathwayViewport.addEventListener(
-                "pointerup",
-                stopPathwayPan
-            );
+groupChips.addEventListener("click", function (event) {
+    const b = event.target.closest("[data-group]");
+    if (!b) { return; }
+    filters.group = b.dataset.group;
+    updateFilters();
+});
 
-            pathwayViewport.addEventListener(
-                "pointercancel",
-                stopPathwayPan
-            );
+formatChips.addEventListener("click", function (event) {
+    const b = event.target.closest("[data-format]");
+    if (!b) { return; }
+    filters.format = b.dataset.format;
+    updateFilters();
+});
 
+let searchTimer = null;
+searchInput.addEventListener("input", function () {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => { filters.q = searchInput.value; renderBoard(); }, 120);
+});
 
-            /* --------------------------------------------------------
-            WHEEL ZOOM
-            -------------------------------------------------------- */
+$("clear-filters").addEventListener("click", function () {
+    filters.q = ""; filters.group = "all"; filters.format = "all";
+    searchInput.value = "";
+    updateFilters();
+});
 
-            pathwayViewport.addEventListener(
-                "wheel",
-                handlePathwayWheel,
-                {
-                    passive: false
-                }
-            );
+/* One delegated listener for add buttons and show more/fewer */
+board.addEventListener("click", function (event) {
 
+    const add = event.target.closest("[data-add]");
 
-            updatePathwayTransform();
-
-        }
-
-
-        /* ============================================================
-   PATHWAY VIEW TRANSFORM
-============================================================ */
-
-function updatePathwayTransform() {
-
-    if (!pathwayWorld) {
+    if (add) {
+        const course = courseLookup[add.dataset.add];
+        if (course) { toggleCourse(course); }
         return;
     }
 
+    const more = event.target.closest("[data-expand], [data-collapse]");
 
-    pathwayWorld.style.transform =
-        `translate(
-            ${pathwayPanX}px,
-            ${pathwayPanY}px
-        )
-        scale(${pathwayZoom})`;
-
-
-    if (pathwayZoomIndicator) {
-
-        pathwayZoomIndicator.textContent =
-            `${Math.round(
-                pathwayZoom * 100
-            )}%`;
-
+    if (more) {
+        if (more.dataset.expand) { expandedTopics.add(more.dataset.expand); }
+        else { expandedTopics.delete(more.dataset.collapse); }
+        renderBoard();
     }
+
+});
+
+function updateCourseStates() {
+
+    const inSet = pathwayBaseIds();
+
+    board.querySelectorAll(".row").forEach(row => {
+
+        const inPath = inSet.has(row.dataset.courseId);
+        const btn = row.querySelector(".add-btn");
+
+        row.classList.toggle("in-pathway", inPath);
+        btn.textContent = inPath ? "✓" : "+";
+        btn.setAttribute("aria-pressed", String(inPath));
+        btn.title = inPath ? "Remove from my pathway" : "Add to my pathway";
+
+    });
+
+    curatedGrid.querySelectorAll(".cur-step").forEach(step => {
+        const ids = (step.dataset.courseId || "").split("|");
+        step.classList.toggle("in-pathway", ids.every(id => inSet.has(id)));
+    });
+
+    curatedGrid.querySelectorAll(".step-course .mini-btn, .step-body > .mini-btn").forEach(button => {
+        const added = inSet.has(button.dataset.courseId);
+        button.classList.toggle("added", added);
+        button.textContent = added ? "✓ In pathway" : "+ Add";
+    });
+
+    curatedGrid.querySelectorAll(".cur-card").forEach(card => {
+        const ids = card.dataset.ids ? card.dataset.ids.split("|") : [];
+        card.classList.toggle("is-loaded", ids.length > 0 && ids.every(id => inSet.has(id)));
+    });
+
+    if (calOpen) { renderCal(); }
 
 }
 
 
 /* ============================================================
-   PATHWAY PAN
-============================================================ */
+   SIDEBAR (docked on desktop, bottom sheet on mobile)
+   ============================================================ */
 
-function startPathwayPan(event) {
+let sideOpen = isMobile() ? false : readStorage(KEYS.side) !== "closed";
 
-    /*
-     * Do not pan when interacting with a course,
-     * connection handle or button.
-     */
+function applySideState() {
 
-    if (
-        event.target.closest(
-            ".pathway-node, button, a, .pathway-line-hit"
-        )
-    ) {
+    if (isMobile()) {
+        side.classList.toggle("open", sideOpen);
+        layout.classList.remove("side-hidden");
+    }
+    else {
+        side.classList.remove("open");
+        layout.classList.toggle("side-hidden", !sideOpen);
+    }
+
+    sideToggle.setAttribute("aria-expanded", String(sideOpen));
+    fab.classList.toggle("hide", isMobile() && sideOpen);
+
+}
+
+function setSide(open) {
+    sideOpen = open;
+    if (!isMobile()) { writeStorage(KEYS.side, open ? "open" : "closed"); }
+    applySideState();
+}
+
+sideToggle.addEventListener("click", () => setSide(!sideOpen));
+fab.addEventListener("click", () => setSide(true));
+$("close-side").addEventListener("click", () => setSide(false));
+$("empty-browse-curated").addEventListener("click", function () {
+    if (isMobile()) { setSide(false); }
+    setTab("curated");
+    $("cat").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+window.addEventListener("resize", applySideState);
+
+
+/* ============================================================
+   PATHWAY LIST (sidebar)
+   ============================================================ */
+
+function updatePathwayUI() {
+
+    const count = pathwayIds.length;
+
+    $("pathway-count").textContent = count;
+    $("pathway-fab-count").textContent = count;
+    const optCount = pathwayIds.filter(isOptional).length, reqCount = count - optCount;
+    $("pathway-summary-count").textContent = `${reqCount} ${reqCount === 1 ? "course" : "courses"}` + (optCount ? ` + ${optCount} optional` : "");
+
+    pathwayEmpty.hidden = count > 0;
+    pathwayContent.hidden = count === 0;
+
+    renderPathwayList();
+    if (currentTab === "map") { renderMap(); }
+
+}
+
+function renderPathwayList() {
+
+    pathwayList.innerHTML = "";
+
+    pathwayIds.forEach((id, index) => {
+        
+const course = courseForPathwayId(id);
+
+        if (course) { pathwayList.appendChild(createPathwayListItem(course, id, index)); }
+    });
+
+}
+
+function createPathwayListItem(course, id, index) {
+
+    const item = document.createElement("div");
+    item.className = "pathway-item";
+    const opt = isOptional(id);
+    const canToggle = opt || pathwayLayout.connections.some(c => c.to === id) || pathwayIds.slice(0, index).some(i => !isOptional(i));
+    const stageKey = i => pathwayLayout.stages[i] ? "c" + pathwayLayout.stages[i].col : "i" + i;
+    const number = opt ? null : new Set(pathwayIds.slice(0, index + 1).filter(i => !isOptional(i)).map(stageKey)).size;
+    if (opt) { item.classList.add("is-optional"); }
+    item.draggable = true;
+    item.dataset.courseId = id;
+
+    const note = pathwayLayout.notes[id];
+
+    item.innerHTML = `
+        <div class="pathway-number">${number === null ? "opt" : number}</div>
+        <div class="pathway-item-body">
+            ${titleHtml(course, "pathway-item-title")}
+            <div class="pathway-item-sub">${escapeHtml([opt ? "Optional" : "", course.organisation, plainMeta(course)].filter(Boolean).join(" · "))}</div>
+            ${note ? `<div class="pathway-item-note">${escapeHtml(note)}</div>` : ""}
+            <div class="pathway-item-actions">
+                <button type="button" class="mini-btn" data-dir="up" aria-label="Move up" ${index === 0 ? "disabled" : ""}>↑</button>
+                <button type="button" class="mini-btn" data-dir="down" aria-label="Move down" ${index === pathwayIds.length - 1 ? "disabled" : ""}>↓</button>
+                <button type="button" class="mini-btn" data-toggle-opt ${canToggle ? "" : "disabled"} title="${opt ? "Make this a required course" : "Make this an optional course"}">${opt ? "Make required" : "Make optional"}</button>
+                <button type="button" class="mini-btn remove">Remove</button>
+            </div>
+        </div>
+    `;
+
+    item.querySelectorAll("[data-dir]").forEach(b => b.addEventListener("click", () => movePathwayItem(id, b.dataset.dir)));
+    item.querySelector(".remove").addEventListener("click", () => removePathwayOccurrence(id));
+    item.querySelector("[data-toggle-opt]").addEventListener("click", () => setOptional(id, !opt));
+
+    item.addEventListener("dragstart", function (event) {
+        draggedPathwayId = id;
+        item.classList.add("dragging");
+        try { event.dataTransfer.effectAllowed = "move"; event.dataTransfer.setData("text/plain", id); } catch (e) { /* ignore */ }
+    });
+
+    item.addEventListener("dragend", function () {
+        draggedPathwayId = null;
+        item.classList.remove("dragging");
+        pathwayList.querySelectorAll(".drag-over").forEach(el => el.classList.remove("drag-over"));
+    });
+
+    item.addEventListener("dragover", function (event) {
+        if (!draggedPathwayId || draggedPathwayId === id) { return; }
+        event.preventDefault();
+        item.classList.add("drag-over");
+    });
+
+    item.addEventListener("dragleave", () => item.classList.remove("drag-over"));
+
+    item.addEventListener("drop", function (event) {
+        event.preventDefault();
+        item.classList.remove("drag-over");
+        if (!draggedPathwayId || draggedPathwayId === id) { return; }
+        const rect = item.getBoundingClientRect();
+        reorderPathway(draggedPathwayId, id, (event.clientY - rect.top) < rect.height / 2);
+        draggedPathwayId = null;
+    });
+
+    return item;
+
+}
+
+/* Optional = every connection leading into the course is dashed */
+function setOptional(id, optional) {
+
+    const incoming = pathwayLayout.connections.filter(c => c.to === id);
+    let parent = null;
+
+    if (optional && !incoming.length) {
+        const index = pathwayIds.indexOf(id);
+        for (let i = index - 1; i >= 0; i--) {
+            if (!isOptional(pathwayIds[i])) { parent = pathwayIds[i]; break; }
+        }
+        if (!parent) { toast("Add an earlier course to branch this one from"); return; }
+    }
+
+    pushHistory();
+
+    incoming.forEach(c => {
+        if (optional) { c.style = "dashed"; c.type = "spinoff"; }
+        else { c.style = "solid"; delete c.type; }
+    });
+
+    if (parent) { pathwayLayout.connections.push({ from: parent, to: id, type: "spinoff", style: "dashed" }); }
+
+    savePathway();
+    refreshPathwayViews();
+    toast(optional ? "Marked as optional" : "Marked as required");
+
+}
+
+function movePathwayItem(id, direction) {
+
+    const index = pathwayIds.indexOf(id);
+    const target = direction === "up" ? index - 1 : index + 1;
+    if (index === -1 || target < 0 || target >= pathwayIds.length) { return; }
+
+    pushHistory();
+    [pathwayIds[index], pathwayIds[target]] = [pathwayIds[target], pathwayIds[index]];
+    savePathway();
+    refreshPathwayViews();
+
+}
+
+function reorderPathway(draggedId, targetId, insertBefore) {
+
+    const from = pathwayIds.indexOf(draggedId);
+    if (from === -1) { return; }
+
+    pushHistory();
+    pathwayIds.splice(from, 1);
+
+    let to = pathwayIds.indexOf(targetId);
+    if (to === -1) { to = pathwayIds.length; }
+    else if (!insertBefore) { to += 1; }
+
+    pathwayIds.splice(to, 0, draggedId);
+    savePathway();
+    refreshPathwayViews();
+
+}
+
+$("clear-pathway").addEventListener("click", clearPathway);
+
+
+/* ============================================================
+   TABS  (Catalogue / Curated pathways / Pathway map)
+   ============================================================ */
+
+let currentTab = "catalogue";
+
+function setTab(name) {
+
+    if (!TABS[name] || (name === "curated" && !curatedGrid.children.length)) { name = "catalogue"; }
+
+    currentTab = name;
+    writeStorage(KEYS.tab, name);
+
+    Object.keys(TABS).forEach(key => {
+        const active = key === name;
+        TABS[key].tab.classList.toggle("active", active);
+        TABS[key].tab.setAttribute("aria-selected", String(active));
+        TABS[key].view.hidden = !active;
+    });
+
+    filterRows.hidden = name !== "catalogue";
+
+    if (name === "map") { mapNeedsFit = true; renderMap(); }
+
+}
+
+Object.keys(TABS).forEach(key => TABS[key].tab.addEventListener("click", () => setTab(key)));
+
+
+/* ============================================================
+   PATHWAY MAP (canvas)
+   ============================================================ */
+
+const SVG_NS = "http://www.w3.org/2000/svg";
+const SVG_EXTENT = 16000;
+const NODE_W = 230, NODE_H = 120, STAGE_GAP = 80, ROW_UNIT = 190;
+
+const ARROW_DEFS = `
+    <defs>
+        <marker id="pathway-arrow" viewBox="0 0 0 0" refX="9" refY="5" markerWidth="0" markerHeight="0" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#940594"></path>
+        </marker>
+    </defs>`;
+
+let pViewport = null, pWorld = null, pNodes = null, pSvg = null;
+let pZoom = 1, pPanX = 0, pPanY = 0;
+const P_MIN = 0.05, P_MAX = 2.5, P_STEP = 1.2;
+let panning = false, panSX = 0, panSY = 0, panOX = 0, panOY = 0;
+let mapNeedsFit = true;
+const selectedNodeIds = new Set();
+
+function clearNodeSelection() {
+    selectedNodeIds.clear();
+    if (pNodes) { pNodes.querySelectorAll(".pathway-text-box.selected").forEach(el => el.classList.remove("selected")); }
+
+    if (pNodes) {
+        pNodes.querySelectorAll(".pathway-node.selected").forEach(node => {
+            node.classList.remove("selected");
+        });
+    }
+}
+
+function selectNode(id, additive) {
+
+    if (!additive) {
+        clearNodeSelection();
+    }
+
+    if (selectedNodeIds.has(id)) {
+        selectedNodeIds.delete(id);
+    }
+    else {
+        selectedNodeIds.add(id);
+    }
+
+    updateNodeSelectionUI();
+}
+
+function updateNodeSelectionUI() {
+
+    if (!pNodes) { return; }
+
+    pNodes.querySelectorAll(".pathway-node").forEach(node => {
+        node.classList.toggle(
+            "selected",
+            selectedNodeIds.has(node.dataset.courseId)
+        );
+    });
+
+}
+
+function createCanvas() {
+
+    mapHost.innerHTML = "";
+
+    pViewport = document.createElement("div");
+    pViewport.className = "pathway-viewport";
+
+    pWorld = document.createElement("div");
+    pWorld.className = "pathway-world";
+
+    pSvg = document.createElementNS(SVG_NS, "svg");
+    pSvg.classList.add("pathway-svg");
+    pSvg.setAttribute("width", SVG_EXTENT);
+    pSvg.setAttribute("height", SVG_EXTENT);
+    pSvg.setAttribute("viewBox", `${-SVG_EXTENT / 2} ${-SVG_EXTENT / 2} ${SVG_EXTENT} ${SVG_EXTENT}`);
+    pSvg.innerHTML = ARROW_DEFS;
+
+    pNodes = document.createElement("div");
+    pNodes.className = "pathway-nodes";
+
+    pWorld.appendChild(pSvg);
+    pWorld.appendChild(pNodes);
+    pViewport.appendChild(pWorld);
+    mapHost.appendChild(pViewport);
+
+    pViewport.addEventListener("pointerdown", startPan);
+    pViewport.addEventListener("pointermove", movePan);
+    pViewport.addEventListener("pointerup", stopPan);
+    pViewport.addEventListener("pointercancel", stopPan);
+    pViewport.addEventListener("wheel", onWheel, { passive: false });
+
+    applyTransform();
+
+}
+
+function applyTransform() {
+    if (!pWorld) { return; }
+    pWorld.style.transform = `translate(${pPanX}px, ${pPanY}px) scale(${pZoom})`;
+    zoomIndicator.textContent = `${Math.round(pZoom * 100)}%`;
+}
+
+function toWorld(event) {
+    const rect = pViewport.getBoundingClientRect();
+    return { x: (event.clientX - rect.left - pPanX) / pZoom, y: (event.clientY - rect.top - pPanY) / pZoom };
+}
+
+function startPan(event) {
+
+    if (event.target.closest(".pathway-node, .pathway-text-box, button, a, .pathway-line-hit")) {
         return;
     }
 
+    clearNodeSelection();
 
     event.preventDefault();
 
+    panning = true;
+    panSX = event.clientX;
+    panSY = event.clientY;
+    panOX = pPanX;
+    panOY = pPanY;
 
-    pathwayPanning = true;
-
-    pathwayPanStartX =
-        event.clientX;
-
-    pathwayPanStartY =
-        event.clientY;
-
-    pathwayPanOriginX =
-        pathwayPanX;
-
-    pathwayPanOriginY =
-        pathwayPanY;
-
-
-    pathwayViewport.classList.add(
-        "is-panning"
-    );
-
-
-    pathwayViewport.setPointerCapture(
-        event.pointerId
-    );
-
+    pViewport.classList.add("is-panning");
+    pViewport.setPointerCapture(event.pointerId);
 }
 
 
-function movePathwayPan(event) {
+function movePan(event) {
+    if (!panning) { return; }
+    pPanX = panOX + event.clientX - panSX;
+    pPanY = panOY + event.clientY - panSY;
+    applyTransform();
+}
 
-    if (!pathwayPanning) {
-        return;
-    }
+function stopPan(event) {
+    if (!panning) { return; }
+    panning = false;
+    pViewport.classList.remove("is-panning");
+    try { pViewport.releasePointerCapture(event.pointerId); } catch (e) { /* released */ }
+}
 
+function zoomAt(factor, cx, cy) {
 
-    pathwayPanX =
-        pathwayPanOriginX +
-        event.clientX -
-        pathwayPanStartX;
+    if (!pViewport) { return; }
 
+    const rect = pViewport.getBoundingClientRect();
+    const px = (cx === undefined ? rect.left + rect.width / 2 : cx) - rect.left;
+    const py = (cy === undefined ? rect.top + rect.height / 2 : cy) - rect.top;
 
-    pathwayPanY =
-        pathwayPanOriginY +
-        event.clientY -
-        pathwayPanStartY;
+    const oldZ = pZoom;
+    const newZ = Math.max(P_MIN, Math.min(P_MAX, oldZ * factor));
+    if (newZ === oldZ) { return; }
 
-
-    updatePathwayTransform();
+    pPanX = px - (px - pPanX) * (newZ / oldZ);
+    pPanY = py - (py - pPanY) * (newZ / oldZ);
+    pZoom = newZ;
+    applyTransform();
 
 }
 
+function onWheel(event) {
+    event.preventDefault();
+    zoomAt(event.deltaY < 0 ? P_STEP : 1 / P_STEP, event.clientX, event.clientY);
+}
 
-function stopPathwayPan(event) {
+/* Fit all cards into view */
+function fitView() {
 
-    if (!pathwayPanning) {
-        return;
-    }
+    const ids = pathwayIds.filter(id => pathwayLayout.positions[id]);
 
+    if (!ids.length || !pViewport) { pZoom = 1; pPanX = 40; pPanY = 40; applyTransform(); return; }
 
-    pathwayPanning = false;
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
 
+    ids.forEach(id => {
+        const r = rectOf(id);
+        minX = Math.min(minX, r.x); minY = Math.min(minY, r.y);
+        maxX = Math.max(maxX, r.x + r.w); maxY = Math.max(maxY, r.y + r.h);
+    });
 
-    pathwayViewport.classList.remove(
-        "is-panning"
-    );
+    const box = pViewport.getBoundingClientRect();
+    const pad = 40;
+    const z = Math.max(P_MIN, Math.min(1, (box.width - pad * 2) / (maxX - minX), (box.height - pad * 2) / (maxY - minY)));
 
+    pZoom = z;
+    pPanX = pad + (box.width - pad * 2 - (maxX - minX) * z) / 2 - minX * z;
+    pPanY = pad + (box.height - pad * 2 - (maxY - minY) * z) / 2 - minY * z;
+    applyTransform();
 
-    if (
-        event.pointerId !== undefined
-    ) {
+}
 
-        try {
+$("pathway-zoom-in").addEventListener("click", () => zoomAt(P_STEP));
+$("pathway-zoom-out").addEventListener("click", () => zoomAt(1 / P_STEP));
+$("pathway-reset-view").addEventListener("click", fitView);
 
-            pathwayViewport.releasePointerCapture(
-                event.pointerId
-            );
+$("auto-arrange").addEventListener("click", function () {
+    if (!pathwayIds.length) { return; }
+    pushHistory();
+    pathwayLayout.positions = {};
+    savePathway();
+    mapNeedsFit = true;
+    renderMap();
+});
+
+function defaultPosition(index) {
+
+    const id = pathwayIds[index];
+    const gapX = 45, gapY = 45;
+
+    /* Curated pathways: column = step, rows stack the parallel courses */
+    const stage = pathwayLayout.stages[id];
+    if (stage) { return { x: stage.col * (NODE_W + STAGE_GAP), y: stage.row * ROW_UNIT }; }
+
+    const spin = pathwayLayout.connections.find(c => c.type === "spinoff" && c.to === id);
+
+    if (spin) {
+
+        const parentIndex = pathwayIds.indexOf(spin.from);
+
+        if (parentIndex !== -1 && parentIndex !== index) {
+
+            const parentPos = getPosition(spin.from, parentIndex);
+            const siblings = pathwayLayout.connections.filter(c => c.type === "spinoff" && c.from === spin.from && pathwayIds.includes(c.to));
+            const sIndex = Math.max(0, siblings.findIndex(c => c.to === id));
+            const side = sIndex % 2 === 0 ? 1 : -1;
+            const level = Math.floor(sIndex / 2) + 1;
+
+            return { x: parentPos.x, y: parentPos.y + side * level * (NODE_H + 30 + gapY) };
 
         }
-        catch (error) {}
 
     }
 
+    /* Hand-picked courses go in a row below any curated pathway */
+    const rows = Object.values(pathwayLayout.stages).map(s => s.row);
+    const y = rows.length ? (Math.max.apply(null, rows) + 1.5) * ROW_UNIT : 0;
+
+    return { x: index * (NODE_W + gapX), y: y };
+
 }
 
+function getPosition(id, index) {
+    if (!pathwayLayout.positions[id]) { pathwayLayout.positions[id] = defaultPosition(index); }
+    return pathwayLayout.positions[id];
+}
 
-/* ============================================================
-   PATHWAY ZOOM
-============================================================ */
+function nodeEl(id) {
+    return pNodes ? pNodes.querySelector(`[data-course-id="${CSS.escape(id)}"]`) : null;
+}
 
-function zoomPathway(factor) {
+/* Geometry works with or without the DOM (so downloads work from any tab) */
+function rectOf(id) {
+    const el = nodeEl(id);
+    const p = pathwayLayout.positions[id] || { x: 0, y: 0 };
+    return { x: p.x, y: p.y, w: el ? el.offsetWidth : NODE_W, h: el ? el.offsetHeight : NODE_H };
+}
 
-    const oldZoom =
-        pathwayZoom;
+function anchor(r, side) {
+    switch (side) {
+        case "top":    return { x: r.x + r.w / 2, y: r.y };
+        case "right":  return { x: r.x + r.w,     y: r.y + r.h / 2 };
+        case "bottom": return { x: r.x + r.w / 2, y: r.y + r.h };
+        default:       return { x: r.x,           y: r.y + r.h / 2 };
+    }
+}
 
+function connectionPoints(a, b) {
 
-    pathwayZoom =
-        Math.max(
-            pathwayMinZoom,
-            Math.min(
-                pathwayMaxZoom,
-                pathwayZoom * factor
-            )
-        );
+    const dx = (b.x + b.w / 2) - (a.x + a.w / 2);
+    const dy = (b.y + b.h / 2) - (a.y + a.h / 2);
+    let s, t;
 
+    if (Math.abs(dx) > Math.abs(dy)) { s = dx > 0 ? "right" : "left"; t = dx > 0 ? "left" : "right"; }
+    else { s = dy > 0 ? "bottom" : "top"; t = dy > 0 ? "top" : "bottom"; }
 
-    if (
-        pathwayZoom === oldZoom
-    ) {
+    return { start: anchor(a, s), end: anchor(b, t) };
+
+}
+
+function bezier(x1, y1, x2, y2) {
+
+    const dx = x2 - x1, dy = y2 - y1;
+
+    if (Math.abs(dy) > Math.abs(dx)) {
+        const d = Math.max(40, Math.abs(dy) * 0.5) * (dy >= 0 ? 1 : -1);
+        return `M ${x1} ${y1} C ${x1} ${y1 + d}, ${x2} ${y2 - d}, ${x2} ${y2}`;
+    }
+
+    const d = Math.max(50, Math.abs(dx) * 0.5) * (dx >= 0 ? 1 : -1);
+    return `M ${x1} ${y1} C ${x1 + d} ${y1}, ${x2 - d} ${y2}, ${x2} ${y2}`;
+
+}
+
+function renderMap() {
+
+    createCanvas();
+
+    if (!pathwayIds.length && !pathwayLayout.textBoxes.length) {
+        mapHost.insertAdjacentHTML("beforeend", `<div class="map-empty"><div><p class="empty-title">Your pathway is empty</p><p>Go to the catalogue and press + on the courses you want to add.</p></div></div>`);
         return;
     }
 
 
-    updatePathwayTransform();
+pathwayIds.forEach((id, index) => {
+    const course = courseForPathwayId(id);
+    if (course) {
+        createNode(course, index, id);
+    }
+});
+
+pathwayLayout.textBoxes.forEach(box => {
+    createTextBox(box);
+});
+
+savePathway();
+
+    requestAnimationFrame(function () {
+        drawConnections();
+        if (mapNeedsFit) { fitView(); mapNeedsFit = false; }
+    });
 
 }
 
+function createNode(course, index, occurrenceId) {
+    const id = occurrenceId || courseIndex(course);
+    const node = document.createElement("div");
 
-/* ============================================================
-   ZOOM AROUND MOUSE POSITION
-============================================================ */
+    node.className = "pathway-node";
+    node.dataset.courseId = id;
 
-function zoomPathwayAtPoint(
-    factor,
-    clientX,
-    clientY
-) {
+    const st = pathwayLayout.stages[id];
+    if (isOptional(id)) {
+        node.classList.add("is-optional");
+    }
 
-    if (!pathwayViewport) {
+    const pos = getPosition(id, index);
+    node.style.left = pos.x + "px";
+    node.style.top = pos.y + "px";
+
+    node.innerHTML = `
+        <button type="button" class="pathway-node-remove" title="Remove" aria-label="Remove from pathway">×</button>
+        <div class="pathway-handle top" data-side="top"></div>
+        <div class="pathway-handle right" data-side="right"></div>
+        <div class="pathway-handle bottom" data-side="bottom"></div>
+        <div class="pathway-handle left" data-side="left"></div>
+        <div class="pathway-node-title">${titleHtml(course, "node-link")}</div>
+        ${course.organisation ? `<div class="pathway-node-org">${escapeHtml(course.organisation)}</div>` : ""}
+               <div class="pathway-node-meta">${escapeHtml((st && st.topic) || getPrimaryTopic(course))}${course.format ? `<br>${escapeHtml(formatLabel(course.format))}` : ""}</div>
+        ${st && st.kind === "final" ? `<div class="pathway-node-tag">Final step</div>` : ""}
+    `;
+
+    pNodes.appendChild(node);
+
+        node.querySelector(".pathway-node-remove").addEventListener("click", function (event) {
+            event.stopPropagation();
+            removePathwayOccurrence(id);
+        });
+    node.querySelectorAll(".pathway-handle").forEach(handle => {
+        handle.addEventListener("pointerdown", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            startConnection(event, id, handle.dataset.side);
+        });
+    });
+
+node.addEventListener("pointerdown", function (event) {
+
+    if (event.target.closest(".pathway-handle, .pathway-node-remove, a")) {
         return;
     }
 
-
-    const rect =
-        pathwayViewport.getBoundingClientRect();
-
-
-    const mouseX =
-        clientX -
-        rect.left;
-
-
-    const mouseY =
-        clientY -
-        rect.top;
-
-
-    const oldZoom =
-        pathwayZoom;
-
-
-    const newZoom =
-        Math.max(
-            pathwayMinZoom,
-            Math.min(
-                pathwayMaxZoom,
-                oldZoom * factor
-            )
-        );
-
-
-    if (
-        newZoom === oldZoom
-    ) {
+    if (event.ctrlKey || event.metaKey) {
+        event.preventDefault();
+        event.stopPropagation();
+        selectNode(id, true);
         return;
     }
 
+    if (!selectedNodeIds.has(id)) {
+        clearNodeSelection();
+        selectNode(id, false);
+    }
 
-    /*
-     * Keep the point underneath the cursor
-     * in the same place while zooming.
-     */
-
-    pathwayPanX =
-        mouseX -
-        (
-            mouseX -
-            pathwayPanX
-        ) *
-        (
-            newZoom /
-            oldZoom
-        );
-
-
-    pathwayPanY =
-        mouseY -
-        (
-            mouseY -
-            pathwayPanY
-        ) *
-        (
-            newZoom /
-            oldZoom
-        );
-
-
-    pathwayZoom =
-        newZoom;
-
-
-    updatePathwayTransform();
+    startNodeDrag(event, node);
+});
 
 }
 
 
-/* ============================================================
-   MOUSE WHEEL
-============================================================ */
-
-function handlePathwayWheel(event) {
-
-    event.preventDefault();
 
 
-    const factor =
-        event.deltaY < 0
-            ? pathwayZoomStep
-            : 1 / pathwayZoomStep;
+const ANN_PALETTES = {
+    note:   ["#fff3a3", "#ffd6e7", "#cfeeff", "#d9f7be", "#e5d4ff", "#ffd9a8"],
+    text:   ["#243855", "#940594", "#d92d20", "#0b6b4d", "#1d4ed8", "#9a5b00"],
+    circle: ["#d92d20", "#940594", "#1d4ed8", "#0b6b4d", "#f59e0b", "#243855"]
+};
 
-
-    zoomPathwayAtPoint(
-        factor,
-        event.clientX,
-        event.clientY
-    );
-
+function annSize(b) {
+    const k = b.kind || "text";
+    return { w: b.w || (k === "circle" ? 220 : k === "note" ? 200 : 240), h: b.h || (k === "circle" ? 140 : k === "note" ? 190 : 70) };
 }
 
-
-/* ============================================================
-   RESET PATHWAY VIEW
-============================================================ */
-
-function resetPathwayView() {
-
-    pathwayZoom = 1;
-
-    pathwayPanX = 0;
-
-    pathwayPanY = 0;
-
-    updatePathwayTransform();
-
+function editAnnotation(el) {
+    el.contentEditable = "plaintext-only";
+    if (el.contentEditable !== "plaintext-only") { el.contentEditable = "true"; }
+    el.focus();
+    const range = document.createRange(), sel = window.getSelection();
+    range.selectNodeContents(el);
+    sel.removeAllRanges();
+    sel.addRange(range);
 }
 
+function createTextBox(data) {
 
-    /* ============================================================
-       NODE POSITION
-       ============================================================ */
+    const kind = data.kind || "text", size = annSize(data), palette = ANN_PALETTES[kind] || ANN_PALETTES.text;
+    const box = document.createElement("div");
 
-    function defaultPosition(index) {
+    box.className = "pathway-text-box is-" + kind;
+    box.dataset.textBoxId = data.id;
+    box.style.left = data.x + "px";
+    box.style.top = data.y + "px";
+    box.style.width = size.w + "px";
+    if (kind === "circle" || kind === "note" || data.h) { box.style.height = size.h + "px"; }
+    if (kind === "note") { box.style.setProperty("--rot", (data.rot || 0) + "deg"); }
 
-        const width =
-            pathwayCanvas.clientWidth || 900;
+    const swatches = palette.map(c => `<button type="button" class="ann-sw" data-colour="${c}" style="background:${c}" aria-label="Colour ${c}"></button>`).join("");
 
-        const nodeWidth = 230;
-        const nodeHeight = 145;
-        const gapX = 45;
-        const gapY = 45;
+    box.innerHTML = `
+        <button type="button" class="pathway-text-box-remove" title="Delete" aria-label="Delete">×</button>
+        <div class="ann-tools">${kind === "circle" ? '<span class="ann-grip" title="Drag to move">✥</span>' : ""}${swatches}</div>
+        ${kind === "circle" ? "" : '<div class="pathway-text-box-content" data-placeholder="Double-click to write"></div>'}
+        <div class="ann-resize" title="Drag to resize"></div>`;
 
-        const columns =
-            Math.max(
-                1,
-                Math.floor(
-                    width /
-                    (nodeWidth + gapX)
-                )
-            );
+    pNodes.appendChild(box);
 
+    const applyColour = function () {
+        const c = data.colour || palette[0];
+        box.style.setProperty("--ann", c);
+        box.querySelectorAll(".ann-sw").forEach(b => b.classList.toggle("on", b.dataset.colour === c));
+    };
+    applyColour();
 
-        return {
+    box.querySelector(".ann-tools").addEventListener("click", function (event) {
+        const sw = event.target.closest(".ann-sw");
+        if (!sw) { return; }
+        const before = snapshotState();
+        data.colour = sw.dataset.colour;
+        pushHistory(before);
+        savePathway();
+        applyColour();
+    });
 
-            x:
-                25 +
-                (index % columns) *
-                (nodeWidth + gapX),
+    const content = box.querySelector(".pathway-text-box-content");
 
-            y:
-                25 +
-                Math.floor(index / columns) *
-                (nodeHeight + gapY)
+    if (content) {
+        content.textContent = data.text || "";
+        content.addEventListener("dblclick", () => editAnnotation(content));
+        content.addEventListener("keydown", function (e) { if (e.key === "Escape") { content.blur(); } });
+        content.addEventListener("blur", function () {
+            content.contentEditable = "false";
+            const t = content.innerText.trim();
+            if (t === (data.text || "")) { return; }
+            const before = snapshotState();
+            data.text = t;
+            pushHistory(before);
+            savePathway();
+        });
+    }
 
+    box.querySelector(".pathway-text-box-remove").addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        const before = snapshotState();
+        pathwayLayout.textBoxes = pathwayLayout.textBoxes.filter(item => item.id !== data.id);
+        pushHistory(before);
+        savePathway();
+        renderMap();
+    });
+
+    box.addEventListener("pointerdown", function (event) {
+        if (event.target.closest(".pathway-text-box-remove, .ann-resize, .ann-sw")) { return; }
+        if (content && content.isContentEditable) { return; }
+        if (kind === "circle" && !event.target.closest(".ann-grip")) { return; }
+        pNodes.querySelectorAll(".pathway-text-box.selected").forEach(el => el.classList.remove("selected"));
+        box.classList.add("selected");
+        startTextBoxDrag(event, box, data.id);
+    });
+
+    box.querySelector(".ann-resize").addEventListener("pointerdown", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        const start = toWorld(event), s = annSize(data), before = snapshotState();
+        let moved = false;
+        const move = function (e) {
+            const p = toWorld(e);
+            moved = true;
+            data.w = Math.max(100, s.w + p.x - start.x);
+            data.h = Math.max(60, s.h + p.y - start.y);
+            box.style.width = data.w + "px";
+            box.style.height = data.h + "px";
         };
-
-    }
-
-
-    function getPosition(id, index) {
-
-        if (
-            pathwayLayout.positions[id]
-        ) {
-            return pathwayLayout.positions[id];
-        }
-
-        const position =
-            defaultPosition(index);
-
-        pathwayLayout.positions[id] =
-            position;
-
-        return position;
-
-    }
-
-
-    /* ============================================================
-       RENDER PATHWAY
-       ============================================================ */
-
-    function renderPathway() {
-
-        if (!pathwayList) {
-            return;
-        }
-
-
-        createPathwayCanvas();
-
-
-        if (!pathwayIds.length) {
-            return;
-        }
-
-
-        pathwayIds.forEach(
-            (id, index) => {
-
-                const course =
-                    courseLookup[id];
-
-                if (!course) {
-                    return;
-                }
-
-                createNode(
-                    course,
-                    index
-                );
-
-            }
-        );
-
-
-        requestAnimationFrame(
-            drawConnections
-        );
-
-    }
-
-
-    /* ============================================================
-       CREATE NODE
-       ============================================================ */
-
-    function createNode(course, index) {
-
-        const id =
-            courseIndex(course);
-
-        const node =
-            document.createElement("div");
-
-        node.className =
-            "pathway-node";
-
-        node.dataset.courseId =
-            id;
-
-
-        const position =
-            getPosition(
-                id,
-                index
-            );
-
-
-        node.style.left =
-            position.x + "px";
-
-        node.style.top =
-            position.y + "px";
-
-
-        const topic =
-            getPrimaryTopic(course);
-
-
-        node.innerHTML = `
-
-            <button
-                type="button"
-                class="pathway-node-remove"
-                title="Remove"
-            >
-                ×
-            </button>
-
-
-            <div
-                class="pathway-handle top"
-                data-side="top"
-            ></div>
-
-            <div
-                class="pathway-handle right"
-                data-side="right"
-            ></div>
-
-            <div
-                class="pathway-handle bottom"
-                data-side="bottom"
-            ></div>
-
-            <div
-                class="pathway-handle left"
-                data-side="left"
-            ></div>
-
-
-            <div class="pathway-node-title">
-
-                ${
-                    course.url
-                        ? `
-                            <a
-                                href="${escapeHtml(course.url)}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                ${escapeHtml(
-                                    course.title ||
-                                    "Untitled course"
-                                )}
-                            </a>
-                        `
-                        :
-                        escapeHtml(
-                            course.title ||
-                            "Untitled course"
-                        )
-                }
-
-            </div>
-
-
-            ${
-                course.organisation
-                    ? `
-                        <div class="pathway-node-org">
-                            ${escapeHtml(
-                                course.organisation
-                            )}
-                        </div>
-                    `
-                    : ""
-            }
-
-
-            <div class="pathway-node-meta">
-
-                ${
-                    topic
-                        ? escapeHtml(topic)
-                        : ""
-                }
-
-                ${
-                    course.format
-                        ? `
-                            <br>
-                            ${escapeHtml(
-                                formatLabel(
-                                    course.format
-                                )
-                            )}
-                        `
-                        : ""
-                }
-
-            </div>
-
-        `;
-
-
-        pathwayNodes.appendChild(
-            node
-        );
-
-
-        /* --------------------------------------------------------
-           REMOVE
-           -------------------------------------------------------- */
-
-        node.querySelector(
-            ".pathway-node-remove"
-        ).addEventListener(
-            "click",
-            function (event) {
-
-                event.stopPropagation();
-
-                removeFromPathway(
-                    course
-                );
-
-            }
-        );
-
-
-        /* --------------------------------------------------------
-           CONNECTION HANDLES
-           -------------------------------------------------------- */
-
-        node.querySelectorAll(
-            ".pathway-handle"
-        ).forEach(
-            handle => {
-
-                handle.addEventListener(
-                    "pointerdown",
-                    function (event) {
-
-                        event.preventDefault();
-
-                        event.stopPropagation();
-
-                        startConnection(
-                            event,
-                            node,
-                            handle
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-        /* --------------------------------------------------------
-           NODE DRAGGING
-           -------------------------------------------------------- */
-
-        node.addEventListener(
-            "pointerdown",
-            function (event) {
-
-                if (
-                    event.target.closest(
-                        ".pathway-handle"
-                    )
-                ) {
-                    return;
-                }
-
-                if (
-                    event.target.closest(
-                        ".pathway-node-remove"
-                    )
-                ) {
-                    return;
-                }
-
-                startNodeDrag(
-                    event,
-                    node
-                );
-
-            }
-        );
-
-    }
-
-
-    /* ============================================================
-       MOVE NODE
-       ============================================================ */
-
-    function startNodeDrag(event, node) {
+        const stop = function () {
+            document.removeEventListener("pointermove", move);
+            document.removeEventListener("pointerup", stop);
+            if (moved) { pushHistory(before); savePathway(); }
+        };
+        document.addEventListener("pointermove", move);
+        document.addEventListener("pointerup", stop);
+    });
+
+}
+
+function addAnnotation(kind) {
+
+    if (!pViewport) { return; }
+
+    const r = pViewport.getBoundingClientRect();
+    const cx = (r.width / 2 - pPanX) / pZoom, cy = (r.height / 2 - pPanY) / pZoom;
+    const palette = ANN_PALETTES[kind];
+    const same = pathwayLayout.textBoxes.filter(b => (b.kind || "text") === kind).length;
+
+    const item = {
+        id: "a" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5),
+        kind: kind, x: cx - 100, y: cy - 90,
+        text: kind === "text" ? "Text" : "",
+        colour: palette[same % palette.length]
+    };
+    if (kind === "note") { item.rot = Math.round((Math.random() * 5 - 2.5) * 10) / 10; }
+    if (kind === "circle") { item.colour = palette[0]; }
+
+    pushHistory();
+    pathwayLayout.textBoxes.push(item);
+    savePathway();
+    renderMap();
+
+    const el = pNodes.querySelector(`[data-text-box-id="${item.id}"] .pathway-text-box-content`);
+    if (el) { editAnnotation(el); }
+
+}
+
+function annHtmlFor(b, ox, oy) {
+    const k = b.kind || "text", s = annSize(b), c = b.colour || (ANN_PALETTES[k] || ANN_PALETTES.text)[0];
+    const extra = k === "note" ? `background:${c};transform:rotate(${b.rot || 0}deg);` : k === "text" ? `color:${c};` : `border-color:${c};`;
+    return `<div class="ann ${k}" style="left:${b.x + ox}px;top:${b.y + oy}px;width:${s.w}px;height:${s.h}px;${extra}">${k === "circle" ? "" : escapeHtml(b.text || "")}</div>`;
+}
+
+$("add-text").addEventListener("click", () => addAnnotation("text"));
+$("add-note").addEventListener("click", () => addAnnotation("note"));
+$("add-circle").addEventListener("click", () => addAnnotation("circle"));
+$("undo-map").addEventListener("click", undoLastChange);
+
+
+function startTextBoxDrag(event, box, id) {
 
     event.preventDefault();
-
     event.stopPropagation();
 
+    const data = pathwayLayout.textBoxes.find(item => item.id === id);
 
-    const id =
-        node.dataset.courseId;
+    if (!data) { return; }
 
+    const startWorld = toWorld(event);
 
-    const viewportRect =
-        pathwayViewport.getBoundingClientRect();
+    const startX = data.x;
+    const startY = data.y;
 
+    const sx = event.clientX;
+    const sy = event.clientY;
 
-    const position =
-        pathwayLayout.positions[id] ||
-        {
-            x: 0,
-            y: 0
-        };
+    const before = snapshotState();
 
+    let moved = false;
 
-    /*
-     * Convert the mouse position from screen
-     * coordinates into pathway-world coordinates.
-     */
+    box.classList.add("dragging");
 
-    const mouseWorldX =
-        (
-            event.clientX -
-            viewportRect.left -
-            pathwayPanX
-        ) /
-        pathwayZoom;
+    function move(e) {
 
+        if (!moved && Math.hypot(e.clientX - sx, e.clientY - sy) < 4) {
+            return;
+        }
 
-    const mouseWorldY =
-        (
-            event.clientY -
-            viewportRect.top -
-            pathwayPanY
-        ) /
-        pathwayZoom;
+        moved = true;
 
+        const currentWorld = toWorld(e);
 
-    const offsetX =
-        mouseWorldX -
-        position.x;
+        const dx = currentWorld.x - startWorld.x;
+        const dy = currentWorld.y - startWorld.y;
 
+        data.x = startX + dx;
+        data.y = startY + dy;
 
-    const offsetY =
-        mouseWorldY -
-        position.y;
-
-
-    node.classList.add(
-        "dragging"
-    );
-
-
-    function move(moveEvent) {
-
-        const currentWorldX =
-            (
-                moveEvent.clientX -
-                viewportRect.left -
-                pathwayPanX
-            ) /
-            pathwayZoom;
-
-
-        const currentWorldY =
-            (
-                moveEvent.clientY -
-                viewportRect.top -
-                pathwayPanY
-            ) /
-            pathwayZoom;
-
-
-        const x =
-            Math.max(
-                0,
-                currentWorldX -
-                offsetX
-            );
-
-
-        const y =
-            Math.max(
-                0,
-                currentWorldY -
-                offsetY
-            );
-
-
-        node.style.left =
-            x + "px";
-
-        node.style.top =
-            y + "px";
-
-
-        pathwayLayout.positions[id] = {
-
-            x: x,
-            y: y
-
-        };
-
-
-        drawConnections();
+        box.style.left = `${data.x}px`;
+        box.style.top = `${data.y}px`;
 
     }
-
 
     function stop() {
 
-        node.classList.remove(
-            "dragging"
-        );
+        box.classList.remove("dragging");
 
+        document.removeEventListener("pointermove", move);
+        document.removeEventListener("pointerup", stop);
+        document.removeEventListener("pointercancel", stop);
 
-        document.removeEventListener(
-            "pointermove",
-            move
-        );
-
-
-        document.removeEventListener(
-            "pointerup",
-            stop
-        );
-
+        if (moved) {
+            pushHistory(before);
+        }
 
         savePathway();
 
     }
 
-
-    document.addEventListener(
-        "pointermove",
-        move
-    );
-
-
-    document.addEventListener(
-        "pointerup",
-        stop,
-        {
-            once: true
-        }
-    );
+    document.addEventListener("pointermove", move);
+    document.addEventListener("pointerup", stop);
+    document.addEventListener("pointercancel", stop);
 
 }
 
+function startNodeDrag(event, node) {
 
-    /* ============================================================
-       CONNECTIONS
-       ============================================================ */
+    event.preventDefault();
+    event.stopPropagation();
 
-    let connection = null;
+    const id = node.dataset.courseId;
 
+    if (!selectedNodeIds.has(id)) {
+        clearNodeSelection();
+        selectNode(id, false);
+    }
 
-    function startConnection(
-    event,
-    sourceNode,
-    sourceHandle
-) {
+    const movingIds = [...selectedNodeIds];
 
-    const start =
-        handlePoint(
-            sourceHandle
-        );
+    const startWorld = toWorld(event);
 
+    const startPositions = {};
 
-    const temp =
-        document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "path"
-        );
+    movingIds.forEach(selectedId => {
+        const pos = pathwayLayout.positions[selectedId] || { x: 0, y: 0 };
 
+        startPositions[selectedId] = {
+            x: pos.x,
+            y: pos.y
+        };
+    });
 
-    temp.classList.add(
-        "pathway-temp-line"
-    );
+    const sx = event.clientX;
+    const sy = event.clientY;
 
+    const before = snapshotState();
+    let moved = false;
 
-    pathwaySvg.appendChild(
-        temp
-    );
-
-
-    connection = {
-
-        source:
-            sourceNode.dataset.courseId,
-
-        start:
-            start,
-
-        temp:
-            temp
-
-    };
-
-
-    document.addEventListener(
-        "pointermove",
-        moveConnection
-    );
-
-
-    document.addEventListener(
-        "pointerup",
-        finishConnection,
-        {
-            once: true
+    movingIds.forEach(selectedId => {
+        const selectedNode = nodeEl(selectedId);
+        if (selectedNode) {
+            selectedNode.classList.add("dragging");
         }
-    );
+    });
 
+    function move(e) {
+
+        if (!moved && Math.hypot(e.clientX - sx, e.clientY - sy) < 4) {
+            return;
+        }
+
+        moved = true;
+
+        const currentWorld = toWorld(e);
+
+        const dx = currentWorld.x - startWorld.x;
+        const dy = currentWorld.y - startWorld.y;
+
+        movingIds.forEach(selectedId => {
+
+            const start = startPositions[selectedId];
+
+            const x = start.x + dx;
+            const y = start.y + dy;
+
+            pathwayLayout.positions[selectedId] = {
+                x: x,
+                y: y
+            };
+
+            const selectedNode = nodeEl(selectedId);
+
+            if (selectedNode) {
+                selectedNode.style.left = x + "px";
+                selectedNode.style.top = y + "px";
+            }
+
+        });
+
+        drawConnections();
+    }
+
+    function stop() {
+
+        movingIds.forEach(selectedId => {
+            const selectedNode = nodeEl(selectedId);
+
+            if (selectedNode) {
+                selectedNode.classList.remove("dragging");
+            }
+        });
+
+        document.removeEventListener("pointermove", move);
+        document.removeEventListener("pointerup", stop);
+        document.removeEventListener("pointercancel", stop);
+
+        if (moved) {
+            pushHistory(before);
+
+            const suppress = e => {
+                e.preventDefault();
+                e.stopPropagation();
+            };
+
+            node.addEventListener("click", suppress, true);
+
+            setTimeout(() => {
+                node.removeEventListener("click", suppress, true);
+            }, 0);
+        }
+
+        savePathway();
+        updateNodeSelectionUI();
+    }
+
+    document.addEventListener("pointermove", move);
+    document.addEventListener("pointerup", stop);
+    document.addEventListener("pointercancel", stop);
+}
+
+let activeConnection = null;
+
+function startConnection(event, sourceId, side) {
+
+    const temp = document.createElementNS(SVG_NS, "path");
+    temp.classList.add("pathway-temp-line");
+    pSvg.appendChild(temp);
+
+    activeConnection = { source: sourceId, start: anchor(rectOf(sourceId), side), temp: temp };
+
+    document.addEventListener("pointermove", moveConnection);
+    document.addEventListener("pointerup", finishConnection, { once: true });
+    document.addEventListener("pointercancel", finishConnection, { once: true });
 
     moveConnection(event);
 
 }
 
+function moveConnection(event) {
+    if (!activeConnection) { return; }
+    const p = toWorld(event);
+    activeConnection.temp.setAttribute("d", bezier(activeConnection.start.x, activeConnection.start.y, p.x, p.y));
+}
 
-   function moveConnection(event) {
+function finishConnection(event) {
 
-    if (!connection) {
+    document.removeEventListener("pointermove", moveConnection);
+    if (!activeConnection) { return; }
+
+    const el = event.type === "pointerup" ? document.elementFromPoint(event.clientX, event.clientY) : null;
+    const target = el ? el.closest(".pathway-node") : null;
+
+    if (target && target.dataset.courseId && target.dataset.courseId !== activeConnection.source) {
+
+        const from = activeConnection.source, to = target.dataset.courseId;
+
+        if (!pathwayLayout.connections.some(c => c.from === from && c.to === to)) {
+            pushHistory();
+            pathwayLayout.connections.push({ from: from, to: to, style: "solid" });
+        }
+
+    }
+
+    activeConnection.temp.remove();
+    renderPathwayList();
+    activeConnection = null;
+    savePathway();
+    drawConnections();
+
+}
+
+/* Click a connector: solid -> dashed -> removed */
+function cycleConnection(conn) {
+
+    pushHistory();
+
+    if (connectionStyle(conn) === "solid") { conn.style = "dashed"; }
+    else { pathwayLayout.connections = pathwayLayout.connections.filter(c => c !== conn); }
+    renderPathwayList();
+
+    savePathway();
+    drawConnections();
+
+}
+
+function drawConnections() {
+
+    if (!pSvg) { return; }
+
+    pSvg.innerHTML = ARROW_DEFS;
+
+    pathwayLayout.connections = pathwayLayout.connections.filter(c => pathwayIds.includes(c.from) && pathwayIds.includes(c.to));
+
+    pathwayLayout.connections.forEach(conn => {
+
+        if (!nodeEl(conn.from) || !nodeEl(conn.to)) { return; }
+
+        const p = connectionPoints(rectOf(conn.from), rectOf(conn.to));
+        const d = bezier(p.start.x, p.start.y, p.end.x, p.end.y);
+        const dashed = connectionStyle(conn) === "dashed";
+
+        const hit = document.createElementNS(SVG_NS, "path");
+        hit.classList.add("pathway-line-hit");
+        hit.setAttribute("d", d);
+        hit.innerHTML = dashed
+            ? "<title>Optional (dashed). Click to remove this connection</title>"
+            : "<title>Required (solid). Click to make it optional (dashed)</title>";
+
+        hit.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            cycleConnection(conn);
+        });
+
+        const line = document.createElementNS(SVG_NS, "path");
+        line.classList.add("pathway-line");
+        if (dashed) { line.classList.add("pathway-line-dashed"); }
+        line.setAttribute("d", d);
+        line.setAttribute("marker-end", "url(#pathway-arrow)");
+
+        pSvg.appendChild(hit);
+        pSvg.appendChild(line);
+        
+
+    });
+        pNodes.querySelectorAll(".pathway-node").forEach(n => n.classList.toggle("is-optional", isOptional(n.dataset.courseId)));
+
+}
+
+
+
+/* ============================================================
+   KEYBOARD
+   ============================================================ */
+
+document.addEventListener("keydown", function (event) {
+
+    if (event.key === "Escape" && isMobile() && sideOpen) {
+        setSide(false);
         return;
     }
 
-
-    const rect =
-        pathwayViewport.getBoundingClientRect();
-
-
-    /*
-     * Convert screen coordinates
-     * into pathway-world coordinates.
-     */
-
-    const x =
-        (
-            event.clientX -
-            rect.left -
-            pathwayPanX
-        ) /
-        pathwayZoom;
-
-
-    const y =
-        (
-            event.clientY -
-            rect.top -
-            pathwayPanY
-        ) /
-        pathwayZoom;
-
-
-    connection.temp.setAttribute(
-        "d",
-        bezier(
-            connection.start.x,
-            connection.start.y,
-            x,
-            y
-        )
-    );
-
-}
-
-
-    function finishConnection(event) {
-
-        document.removeEventListener(
-            "pointermove",
-            moveConnection
-        );
-
-
-        if (!connection) {
-            return;
+    if ((event.ctrlKey || event.metaKey) && !event.shiftKey && event.key.toLowerCase() === "z") {
+        const tag = (event.target && event.target.tagName) || "";
+        if (!/^(INPUT|TEXTAREA)$/.test(tag) && history.length) {
+            event.preventDefault();
+            undoLastChange();
         }
-
-
-        const target =
-            document
-                .elementFromPoint(
-                    event.clientX,
-                    event.clientY
-                )
-                ?.closest(
-                    ".pathway-node"
-                );
-
-
-        if (
-            target &&
-            target.dataset.courseId &&
-            target.dataset.courseId !==
-                connection.source
-        ) {
-
-            const targetId =
-                target.dataset.courseId;
-
-
-            const exists =
-                pathwayLayout.connections.some(
-                    item =>
-                        item.from ===
-                            connection.source &&
-                        item.to ===
-                            targetId
-                );
-
-
-            if (!exists) {
-
-                pathwayLayout.connections.push({
-
-                    from:
-                        connection.source,
-
-                    to:
-                        targetId
-
-                });
-
-            }
-
-        }
-
-
-        connection.temp.remove();
-
-        connection = null;
-
-        savePathway();
-
-        drawConnections();
-
     }
-
-
-    /* ============================================================
-       DRAW CONNECTIONS
-       ============================================================ */
-
-function handlePoint(handle) {
-
-    const node =
-        handle.closest(".pathway-node");
-
-    if (!node) {
-        return {
-            x: 0,
-            y: 0
-        };
-    }
-
-    const nodeX =
-        parseFloat(node.style.left) || 0;
-
-    const nodeY =
-        parseFloat(node.style.top) || 0;
-
-    const nodeWidth =
-        node.offsetWidth;
-
-    const nodeHeight =
-        node.offsetHeight;
-
-    const side =
-        handle.dataset.side;
-
-    switch (side) {
-
-        case "top":
-            return {
-                x: nodeX + nodeWidth / 2,
-                y: nodeY
-            };
-
-        case "right":
-            return {
-                x: nodeX + nodeWidth,
-                y: nodeY + nodeHeight / 2
-            };
-
-        case "bottom":
-            return {
-                x: nodeX + nodeWidth / 2,
-                y: nodeY + nodeHeight
-            };
-
-        case "left":
-            return {
-                x: nodeX,
-                y: nodeY + nodeHeight / 2
-            };
-
-        default:
-            return {
-                x: nodeX + nodeWidth / 2,
-                y: nodeY + nodeHeight / 2
-            };
-
-    }
-
-}
-
-
-function getConnectionPoints(
-    source,
-    target
-) {
-
-    const sourceX =
-        parseFloat(source.style.left) || 0;
-
-    const sourceY =
-        parseFloat(source.style.top) || 0;
-
-    const targetX =
-        parseFloat(target.style.left) || 0;
-
-    const targetY =
-        parseFloat(target.style.top) || 0;
-
-
-    const sourceWidth =
-        source.offsetWidth;
-
-    const sourceHeight =
-        source.offsetHeight;
-
-    const targetWidth =
-        target.offsetWidth;
-
-    const targetHeight =
-        target.offsetHeight;
-
-
-    const sx =
-        sourceX +
-        sourceWidth / 2;
-
-    const sy =
-        sourceY +
-        sourceHeight / 2;
-
-    const tx =
-        targetX +
-        targetWidth / 2;
-
-    const ty =
-        targetY +
-        targetHeight / 2;
-
-
-    const dx =
-        tx - sx;
-
-    const dy =
-        ty - sy;
-
-
-    let sourceSide;
-    let targetSide;
-
-
-    if (
-        Math.abs(dx) >
-        Math.abs(dy)
-    ) {
-
-        if (dx > 0) {
-
-            sourceSide = "right";
-            targetSide = "left";
-
-        }
-        else {
-
-            sourceSide = "left";
-            targetSide = "right";
-
-        }
-
-    }
-    else {
-
-        if (dy > 0) {
-
-            sourceSide = "bottom";
-            targetSide = "top";
-
-        }
-        else {
-
-            sourceSide = "top";
-            targetSide = "bottom";
-
-        }
-
-    }
-
-
-    return {
-
-        start:
-            handlePoint(
-                source.querySelector(
-                    `.pathway-handle.${sourceSide}`
-                )
-            ),
-
-        end:
-            handlePoint(
-                target.querySelector(
-                    `.pathway-handle.${targetSide}`
-                )
-            )
-
-    };
-
-}
-
-
-    function bezier(
-        x1,
-        y1,
-        x2,
-        y2
-    ) {
-
-        const distance =
-            Math.max(
-                50,
-                Math.abs(x2 - x1) * 0.5
-            );
-
-
-        const direction =
-            x2 >= x1 ? 1 : -1;
-
-
-        return `
-            M ${x1} ${y1}
-            C
-            ${x1 + distance * direction} ${y1},
-            ${x2 - distance * direction} ${y2},
-            ${x2} ${y2}
-        `;
-
-    }
-
-
-    function drawConnections() {
-
-    if (!pathwaySvg) {
-        return;
-    }
-
-    pathwaySvg.innerHTML = "";
-
-    pathwayLayout.connections =
-        pathwayLayout.connections.filter(
-            connection =>
-                pathwayIds.includes(connection.from) &&
-                pathwayIds.includes(connection.to)
-        );
-
-    pathwayLayout.connections.forEach(
-        (connection, index) => {
-
-            const source =
-                pathwayNodes.querySelector(
-                    `[data-course-id="${CSS.escape(connection.from)}"]`
-                );
-
-            const target =
-                pathwayNodes.querySelector(
-                    `[data-course-id="${CSS.escape(connection.to)}"]`
-                );
-
-            if (!source || !target) {
-                return;
-            }
-
-            const points =
-                getConnectionPoints(
-                    source,
-                    target
-                );
-
-            const pathData =
-                bezier(
-                    points.start.x,
-                    points.start.y,
-                    points.end.x,
-                    points.end.y
-                );
-
-
-            /* ========================================================
-               CLICKABLE HIT AREA
-               ======================================================== */
-
-           const hitArea =
-    document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "path"
-    );
-
-hitArea.classList.add(
-    "pathway-line-hit"
-);
-
-hitArea.setAttribute(
-    "d",
-    pathData
-);
-
-hitArea.setAttribute(
-    "fill",
-    "none"
-);
-
-hitArea.setAttribute(
-    "stroke",
-    "transparent"
-);
-
-hitArea.setAttribute(
-    "stroke-width",
-    "24"
-);
-
-hitArea.setAttribute(
-    "pointer-events",
-    "all"
-);
-
-hitArea.addEventListener(
-    "click",
-    function (event) {
-
-        event.preventDefault();
-        event.stopPropagation();
-
-        pathwayLayout.connections =
-            pathwayLayout.connections.filter(
-                (_, connectionIndex) =>
-                    connectionIndex !== index
-            );
-
-        savePathway();
-        drawConnections();
-    }
-);
-
-
-            /* ========================================================
-               VISIBLE LINE
-               ======================================================== */
-
-            const line =
-                document.createElementNS(
-                    "http://www.w3.org/2000/svg",
-                    "path"
-                );
-
-            line.classList.add(
-                "pathway-line"
-            );
-
-            line.setAttribute(
-                "d",
-                pathData
-            );
-
-            line.setAttribute(
-                "fill",
-                "none"
-            );
-
-            /*
-             * The visible line must NEVER capture clicks.
-             */
-            line.setAttribute(
-                "pointer-events",
-                "none"
-            );
-
-
-            /*
-             * IMPORTANT:
-             * Put the clickable hit area underneath the visible
-             * line in the SVG, but because the visible line has
-             * pointer-events:none, the hit area remains clickable.
-             */
-            pathwaySvg.appendChild(
-                hitArea
-            );
-
-            pathwaySvg.appendChild(
-                line
-            );
-        }
-    );
-}
-
-
-    /* ============================================================
-       PATHWAY UI
-       ============================================================ */
-
-    function updatePathwayUI() {
-
-        const count =
-            pathwayIds.length;
-
-
-        pathwayCount.textContent =
-            count;
-
-
-        pathwaySummaryCount.textContent =
-            `${count} ${
-                count === 1
-                    ? "course"
-                    : "courses"
-            }`;
-
-
-        if (!count) {
-
-            pathwayEmpty.style.display =
-                "block";
-
-            pathwayContent.style.display =
-                "none";
-
-        }
-        else {
-
-            pathwayEmpty.style.display =
-                "none";
-
-            pathwayContent.style.display =
-                "block";
-
-            applyViewModeUI();
-
-            renderActiveView();
-
-        }
-
-    }
-
-
-    function updateCoursePathwayStates() {
-
-        board
-            .querySelectorAll(
-                ".training-course-card"
-            )
-            .forEach(
-                card => {
-
-                    card.classList.toggle(
-                        "in-pathway",
-                        pathwayIds.includes(
-                            card.dataset.courseId
-                        )
-                    );
-
-                }
-            );
-
-    }
-
-
-    /* ============================================================
-       INFORMATION PANEL
-       ============================================================ */
-
-    function closeInfoPanel() {
-
-        infoPanel.classList.remove(
-            "open"
-        );
-
-        infoPanel.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
-    }
-
-
-    function openInfoPanel(html) {
-
-        closePathwayPanel();
-
-        infoContent.innerHTML =
-            html;
-
-        infoPanel.classList.add(
-            "open"
-        );
-
-        infoPanel.setAttribute(
-            "aria-hidden",
-            "false"
-        );
-
-
-        infoContent
-            .querySelectorAll(
-                ".small-pathway-button"
-            )
-            .forEach(
-                button => {
-
-                    button.addEventListener(
-                        "click",
-                        function () {
-
-                            const course =
-                                courseLookup[
-                                    this.dataset.courseId
-                                ];
-
-                            if (!course) {
-                                return;
-                            }
-
-
-                            if (
-                                isCourseInPathway(
-                                    course
-                                )
-                            ) {
-
-                                removeFromPathway(
-                                    course
-                                );
-
-                                this.classList.remove(
-                                    "added"
-                                );
-
-                                this.textContent =
-                                    "+ Add";
-
-                            }
-                            else {
-
-                                addToPathway(
-                                    course
-                                );
-
-                                this.classList.add(
-                                    "added"
-                                );
-
-                                this.textContent =
-                                    "✓ In pathway";
-
-                            }
-
-                        }
-                    );
-
-                }
-            );
-
-    }
-
-
-    function showCourseInfo(
-        course,
-        topicName
-    ) {
-
-        const added =
-            isCourseInPathway(
-                course
-            );
-
-
-        openInfoPanel(`
-
-            <div class="info-type">
-                Training course
-            </div>
-
-            <h2>
-                ${escapeHtml(
-                    course.title ||
-                    "Untitled course"
-                )}
-            </h2>
-
-            ${
-                course.organisation
-                    ? `
-                        <div class="map-course-organisation">
-                            ${escapeHtml(
-                                course.organisation
-                            )}
-                        </div>
-                    `
-                    : ""
-            }
-
-            ${
-                course.format
-                    ? `
-                        <div class="info-meta">
-                            ${formatIcon(course.format)}
-                            ${escapeHtml(
-                                formatLabel(
-                                    course.format
-                                )
-                            )}
-                        </div>
-                    `
-                    : ""
-            }
-
-            ${
-                course.dates &&
-                course.format !==
-                    "Online (self-service)"
-                    ? `
-                        <div class="info-meta">
-                            📅
-                            ${escapeHtml(
-                                course.dates
-                            )}
-                        </div>
-                    `
-                    : ""
-            }
-
-            <div class="info-section">
-
-                <h3>Topic</h3>
-
-                <span class="course-topic-tag">
-                    ${escapeHtml(topicName)}
-                </span>
-
-            </div>
-
-            <div class="course-pathway-action">
-
-                <button
-                    type="button"
-                    id="course-pathway-button"
-                    class="
-                        pathway-course-button
-                        ${added ? "added" : ""}
-                    "
-                >
-                    ${
-                        added
-                            ? "✓ Added to my pathway"
-                            : "+ Add to my pathway"
-                    }
-                </button>
-
-            </div>
-
-            ${
-                course.url
-                    ? `
-                        <a
-                            href="${escapeHtml(course.url)}"
-                            target="_blank"
-                            rel="noopener"
-                            class="primary-course-button"
-                        >
-                            View course →
-                        </a>
-                    `
-                    : ""
-            }
-
-        `);
-
-
-        const button =
-            document.getElementById(
-                "course-pathway-button"
-            );
-
-
-        if (button) {
-
-            button.addEventListener(
-                "click",
-                function () {
-
-                    if (
-                        isCourseInPathway(
-                            course
-                        )
-                    ) {
-
-                        removeFromPathway(
-                            course
-                        );
-
-                        this.classList.remove(
-                            "added"
-                        );
-
-                        this.textContent =
-                            "+ Add to my pathway";
-
-                    }
-                    else {
-
-                        addToPathway(
-                            course
-                        );
-
-                        this.classList.add(
-                            "added"
-                        );
-
-                        this.textContent =
-                            "✓ Added to my pathway";
-
-                    }
-
-                }
-            );
-
-        }
-
-    }
-
-
-    /* ============================================================
-       TOPIC INFO
-       ============================================================ */
-
-    function showTopicInfo(
-        topicName,
-        topicCourses,
-        groupName
-    ) {
-
-        openInfoPanel(`
-
-            <div class="info-type">
-                Training topic
-            </div>
-
-            <h2>
-                ${escapeHtml(topicName)}
-            </h2>
-
-            <div class="info-breadcrumb">
-                ${escapeHtml(groupName)}
-            </div>
-
-            <div class="info-stat">
-
-                <strong>
-                    ${topicCourses.length}
-                </strong>
-
-                <span>
-                    ${
-                        topicCourses.length === 1
-                            ? "course"
-                            : "courses"
-                    }
-                </span>
-
-            </div>
-
-            <div class="info-section">
-
-                <h3>
-                    Available training
-                </h3>
-
-                <div class="course-list">
-
-                    ${
-                        topicCourses
-                            .map(
-                                course =>
-                                    createInfoCourseCard(
-                                        course
-                                    )
-                            )
-                            .join("")
-                    }
-
-                </div>
-
-            </div>
-
-        `);
-
-    }
-
-
-    function createInfoCourseCard(course) {
-
-        const added =
-            isCourseInPathway(
-                course
-            );
-
-
-        return `
-
-            <article class="map-course-card">
-
-                ${
-                    course.organisation
-                        ? `
-                            <div class="map-course-organisation">
-                                ${escapeHtml(
-                                    course.organisation
-                                )}
-                            </div>
-                        `
-                        : ""
-                }
-
-                <h4>
-                    ${escapeHtml(
-                        course.title ||
-                        "Untitled course"
-                    )}
-                </h4>
-
-                ${
-                    course.format
-                        ? `
-                            <div class="map-course-meta">
-                                ${formatIcon(
-                                    course.format
-                                )}
-                                ${escapeHtml(
-                                    formatLabel(
-                                        course.format
-                                    )
-                                )}
-                            </div>
-                        `
-                        : ""
-                }
-
-                <div class="info-card-actions">
-
-                    ${
-                        course.url
-                            ? `
-                                <a
-                                    href="${escapeHtml(
-                                        course.url
-                                    )}"
-                                    target="_blank"
-                                    rel="noopener"
-                                    class="map-course-link"
-                                >
-                                    View course →
-                                </a>
-                            `
-                            : ""
-                    }
-
-                    <button
-                        type="button"
-                        class="small-pathway-button ${
-                            added ? "added" : ""
-                        }"
-                        data-course-id="${escapeHtml(
-                            courseIndex(course)
-                        )}"
-                    >
-                        ${
-                            added
-                                ? "✓ In pathway"
-                                : "+ Add"
-                        }
-                    </button>
-
-                </div>
-
-            </article>
-
-        `;
-
-    }
-
-
-    /* ============================================================
-       OPEN / CLOSE PATHWAY
-       ============================================================ */
-
-    function openPathwayPanel() {
-
-        closeInfoPanel();
-
-        pathwayPanel.classList.add(
-            "open"
-        );
-
-        pathwayPanel.setAttribute(
-            "aria-hidden",
-            "false"
-        );
-
-        pathwayBackdrop.classList.add(
-            "open"
-        );
-
-        pathwayBackdrop.setAttribute(
-            "aria-hidden",
-            "false"
-        );
-
-        document.body.classList.add(
-            "pathway-scroll-lock"
-        );
-
-        updatePathwayUI();
-
-    }
-
-
-    function closePathwayPanel() {
-
-        pathwayPanel.classList.remove(
-            "open"
-        );
-
-        pathwayPanel.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
-        pathwayBackdrop.classList.remove(
-            "open"
-        );
-
-        pathwayBackdrop.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
-        document.body.classList.remove(
-            "pathway-scroll-lock"
-        );
-
-    }
-
-
-    pathwayBackdrop.addEventListener(
-        "click",
-        closePathwayPanel
-    );
-
-
-    openPathwayButton.addEventListener(
-        "click",
-        openPathwayPanel
-    );
-
-    pathwayZoomInButton.addEventListener(
-    "click",
-    function () {
-
-        zoomPathway(
-            pathwayZoomStep
-        );
-
-    }
-);
-
-
-pathwayZoomOutButton.addEventListener(
-    "click",
-    function () {
-
-        zoomPathway(
-            1 / pathwayZoomStep
-        );
-
-    }
-);
-
-
-pathwayResetButton.addEventListener(
-    "click",
-    function () {
-
-        resetPathwayView();
-
-    }
-);
-
-
-    closePathwayButton.addEventListener(
-        "click",
-        closePathwayPanel
-    );
-
-
-    clearPathwayButton.addEventListener(
-        "click",
-        clearPathway
-    );
-
-
-    exploreTrainingButton.addEventListener(
-        "click",
-        closePathwayPanel
-    );
-
-
-    /* ============================================================
-       BUILD MAIN TRAINING BOARD
-       ============================================================ */
-
-    const groups = [];
-
-
-    Object.entries(topicGroups).forEach(
-        ([groupName, groupData]) => {
-
-            const topics =
-                groupData.topics
-                    .filter(
-                        topic =>
-                            coursesByTopic[topic] &&
-                            coursesByTopic[topic].length
-                    )
-                    .map(
-                        topic => ({
-                            name: topic,
-                            courses:
-                                coursesByTopic[topic]
-                        })
-                    );
-
-
-            if (topics.length) {
-
-                groups.push({
-
-                    name: groupName,
-                    icon: groupData.icon,
-                    topics: topics,
-
-                    courseCount:
-                        topics.reduce(
-                            (total, topic) =>
-                                total +
-                                topic.courses.length,
-                            0
-                        )
-
-                });
-
-            }
-
-        }
-    );
-
-
-    loadingMessage.style.display =
-        "none";
-
-
-    /* ============================================================
-       CREATE BOARD
-       ============================================================ */
-
-    groups.forEach(
-        group => {
-
-            const groupCard =
-                document.createElement(
-                    "section"
-                );
-
-            groupCard.className =
-                "training-group-card";
-
-            groupCard.dataset.group =
-                group.name;
-
-            groupCard.id =
-                `group-${slugify(
-                    group.name
-                )}`;
-
-
-            groupCard.innerHTML = `
-
-                <div class="training-group-header">
-
-                    <div class="group-title-row">
-
-                        <div class="group-icon">
-                            ${group.icon}
-                        </div>
-
-                        <div>
-
-                            <h2>
-                                ${escapeHtml(
-                                    group.name
-                                )}
-                            </h2>
-
-                            <div class="group-summary">
-                                ${group.topics.length}
-                                ${
-                                    group.topics.length === 1
-                                        ? "topic"
-                                        : "topics"
-                                }
-
-                                <span class="summary-dot">
-                                    •
-                                </span>
-
-                                ${group.courseCount}
-                                ${
-                                    group.courseCount === 1
-                                        ? "course"
-                                        : "courses"
-                                }
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            `;
-
-
-            const topicGrid =
-                document.createElement(
-                    "div"
-                );
-
-            topicGrid.className =
-                "topic-grid";
-
-
-            group.topics.forEach(
-                topic => {
-
-                    const topicCard =
-                        document.createElement(
-                            "article"
-                        );
-
-                    topicCard.className =
-                        "training-topic-card";
-
-
-                    topicCard.id =
-                        `topic-${slugify(
-                            group.name
-                        )}-${slugify(
-                            topic.name
-                        )}`;
-
-
-                    const header =
-                        document.createElement(
-                            "div"
-                        );
-
-                    header.className =
-                        "topic-card-header";
-
-
-                    header.innerHTML = `
-
-                        <div class="topic-title">
-
-                            <span class="topic-marker"></span>
-
-                            <h3>
-                                ${escapeHtml(
-                                    topic.name
-                                )}
-                            </h3>
-
-                        </div>
-
-                        <span class="topic-count">
-                            ${topic.courses.length}
-                        </span>
-
-                    `;
-
-
-                    topicCard.appendChild(
-                        header
-                    );
-
-
-                    const courseList =
-                        document.createElement(
-                            "div"
-                        );
-
-                    courseList.className =
-                        "topic-course-list";
-
-
-                    topic.courses.forEach(
-                        course => {
-
-                            const card =
-                                document.createElement(
-                                    "button"
-                                );
-
-                            card.type =
-                                "button";
-
-                            card.className =
-                                "training-course-card";
-
-                            card.dataset.courseId =
-                                courseIndex(course);
-
-
-                            card.innerHTML = `
-
-                                <span class="course-card-title-row">
-
-                                    <span class="course-card-title">
-                                        ${escapeHtml(
-                                            course.title ||
-                                            "Untitled course"
-                                        )}
-                                    </span>
-
-                                    <span class="course-pathway-status">
-                                        ✓
-                                    </span>
-
-                                </span>
-
-                                ${
-                                    course.organisation
-                                        ? `
-                                            <span class="course-card-organisation">
-                                                ${escapeHtml(
-                                                    course.organisation
-                                                )}
-                                            </span>
-                                        `
-                                        : ""
-                                }
-
-                                <span class="course-card-meta">
-
-                                    ${
-                                        course.format
-                                            ? `
-                                                <span>
-                                                    ${formatIcon(
-                                                        course.format
-                                                    )}
-                                                    ${escapeHtml(
-                                                        formatLabel(
-                                                            course.format
-                                                        )
-                                                    )}
-                                                </span>
-                                            `
-                                            : ""
-                                    }
-
-                                    ${
-                                        course.dates &&
-                                        course.format !==
-                                            "Online (self-service)"
-                                            ? `
-                                                <span>
-                                                    📅
-                                                    ${escapeHtml(
-                                                        course.dates
-                                                    )}
-                                                </span>
-                                            `
-                                            : ""
-                                    }
-
-                                </span>
-
-                            `;
-
-
-                            if (
-                                isCourseInPathway(
-                                    course
-                                )
-                            ) {
-                                card.classList.add(
-                                    "in-pathway"
-                                );
-                            }
-
-
-                            card.addEventListener(
-                                "click",
-                                function () {
-
-                                    showCourseInfo(
-                                        course,
-                                        topic.name
-                                    );
-
-                                }
-                            );
-
-
-                            courseList.appendChild(
-                                card
-                            );
-
-                        }
-                    );
-
-
-                    topicCard.appendChild(
-                        courseList
-                    );
-
-
-                    header.addEventListener(
-                        "click",
-                        function () {
-
-                            showTopicInfo(
-                                topic.name,
-                                topic.courses,
-                                group.name
-                            );
-
-                        }
-                    );
-
-
-                    topicGrid.appendChild(
-                        topicCard
-                    );
-
-                }
-            );
-
-
-            groupCard.appendChild(
-                topicGrid
-            );
-
-            board.appendChild(
-                groupCard
-            );
-
-        }
-    );
-
-
-    /* ============================================================
-       BOARD ZOOM / PAN
-       ============================================================ */
-
-    let zoom =
-        config.initialZoom;
-
-    let panX = 0;
-    let panY = 0;
-
-    let boardDragging = false;
-
-    let dragStartX = 0;
-    let dragStartY = 0;
-
-    let startPanX = 0;
-    let startPanY = 0;
-
-
-    function updateBoardTransform() {
-
-        board.style.transform =
-            `translate(
-                ${panX}px,
-                ${panY}px
-            )
-            scale(${zoom})`;
-
-
-        zoomIndicator.textContent =
-            `${Math.round(
-                zoom * 100
-            )}%`;
-
-    }
-
-
-    boardWrapper.addEventListener(
-        "pointerdown",
-        function (event) {
-
-            if (
-                event.target.closest(
-                    "button, a, input"
-                )
-            ) {
-                return;
-            }
-
-
-            boardDragging = true;
-
-            dragStartX =
-                event.clientX;
-
-            dragStartY =
-                event.clientY;
-
-            startPanX =
-                panX;
-
-            startPanY =
-                panY;
-
-            boardWrapper.classList.add(
-                "is-panning"
-            );
-
-        }
-    );
-
-
-    boardWrapper.addEventListener(
-        "pointermove",
-        function (event) {
-
-            if (!boardDragging) {
-                return;
-            }
-
-            panX =
-                startPanX +
-                event.clientX -
-                dragStartX;
-
-            panY =
-                startPanY +
-                event.clientY -
-                dragStartY;
-
-            updateBoardTransform();
-
-        }
-    );
-
-
-    boardWrapper.addEventListener(
-        "pointerup",
-        function () {
-
-            boardDragging = false;
-
-            boardWrapper.classList.remove(
-                "is-panning"
-            );
-
-        }
-    );
-
-
-    boardWrapper.addEventListener(
-        "pointercancel",
-        function () {
-
-            boardDragging = false;
-
-            boardWrapper.classList.remove(
-                "is-panning"
-            );
-
-        }
-    );
-
-
-    function zoomAroundCentre(
-        factor
-    ) {
-
-        zoom =
-            Math.max(
-                config.minZoom,
-                Math.min(
-                    config.maxZoom,
-                    zoom * factor
-                )
-            );
-
-        updateBoardTransform();
-
-    }
-
-
-    zoomInButton.addEventListener(
-        "click",
-        function () {
-            zoomAroundCentre(
-                config.zoomStep
-            );
-        }
-    );
-
-
-    zoomOutButton.addEventListener(
-        "click",
-        function () {
-            zoomAroundCentre(
-                1 / config.zoomStep
-            );
-        }
-    );
-
-
-    resetButton.addEventListener(
-        "click",
-        function () {
-
-            searchInput.value = "";
-
-            zoom =
-                config.initialZoom;
-
-            panX = 0;
-            panY = 0;
-
-            updateBoardTransform();
-
-            closeInfoPanel();
-
-        }
-    );
-
-
-    /* ============================================================
-       SEARCH
-       ============================================================ */
-
-    searchInput.addEventListener(
-        "input",
-        function () {
-
-            const query =
-                this.value
-                    .trim()
-                    .toLowerCase();
-
-
-            board
-                .querySelectorAll(
-                    ".search-match"
-                )
-                .forEach(
-                    element =>
-                        element.classList.remove(
-                            "search-match"
-                        )
-                );
-
-
-            if (!query) {
-                return;
-            }
-
-
-            groups.forEach(
-                group => {
-
-                    const groupMatch =
-                        group.name
-                            .toLowerCase()
-                            .includes(
-                                query
-                            );
-
-
-                    const matchingTopics =
-                        group.topics.filter(
-                            topic => {
-
-                                return (
-                                    topic.name
-                                        .toLowerCase()
-                                        .includes(
-                                            query
-                                        ) ||
-
-                                    topic.courses.some(
-                                        course =>
-                                            (
-                                                course.title ||
-                                                ""
-                                            )
-                                            .toLowerCase()
-                                            .includes(
-                                                query
-                                            )
-                                    )
-                                );
-
-                            }
-                        );
-
-
-                    if (
-                        groupMatch ||
-                        matchingTopics.length
-                    ) {
-
-                        const element =
-                            document.getElementById(
-                                `group-${slugify(
-                                    group.name
-                                )}`
-                            );
-
-                        if (element) {
-
-                            element.classList.add(
-                                "search-match"
-                            );
-
-                        }
-
-                    }
-
-
-                    matchingTopics.forEach(
-                        topic => {
-
-                            const element =
-                                document.getElementById(
-                                    `topic-${slugify(
-                                        group.name
-                                    )}-${slugify(
-                                        topic.name
-                                    )}`
-                                );
-
-                            if (element) {
-
-                                element.classList.add(
-                                    "search-match"
-                                );
-
-                            }
-
-                        }
-                    );
-
-                }
-            );
-
-        }
-    );
-
-
-    /* ============================================================
-       INFO PANEL
-       ============================================================ */
-
-    closeInfoButton.addEventListener(
-        "click",
-        closeInfoPanel
-    );
-
-
-    /* ============================================================
-       KEYBOARD
-       ============================================================ */
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
-
-            if (
-                event.key === "Escape"
-            ) {
-
-                closeInfoPanel();
-                closePathwayPanel();
-
-            }
-
-        }
-    );
-
-
-    /* ============================================================
-       DOWNLOAD
-       ============================================================ */
-
-    if (downloadPathwayButton) {
-
-        downloadPathwayButton.addEventListener(
-            "click",
-            downloadPathway
-        );
-
-    }
-
-
-    function downloadPathway() {
-
-        if (!pathwayIds.length) {
-
-            alert(
-                "Your learning pathway is empty."
-            );
-
-            return;
-
-        }
-
-
-        let html = null;
-
-        let filename =
-            "my-shareing-learning-pathway.html";
-
-
-        if (pathwayViewMode === "map") {
-
-            html =
-                buildMapDownloadHtml();
-
-            filename =
-                "my-shareing-learning-pathway-map.html";
-
-        }
-
-
-        /*
-         * Fall back to the list export if the map export
-         * could not be built (e.g. the canvas was not
-         * rendered for some reason).
-         */
-
-        if (!html) {
-
-            html =
-                buildListDownloadHtml();
-
-            filename =
-                "my-shareing-learning-pathway.html";
-
-        }
-
-
-        triggerHtmlDownload(
-            html,
-            filename
-        );
-
-    }
-
-
-    function triggerHtmlDownload(html, filename) {
-
-        const blob =
-            new Blob(
-                [html],
-                {
-                    type:
-                        "text/html;charset=utf-8"
-                }
-            );
-
-
-        const url =
-            URL.createObjectURL(
-                blob
-            );
-
-
-        const link =
-            document.createElement(
-                "a"
-            );
-
-
-        link.href =
-            url;
-
-        link.download =
-            filename;
-
-
-        document.body.appendChild(
-            link
-        );
-
-        link.click();
-
-        link.remove();
-
-        URL.revokeObjectURL(
-            url
-        );
-
-    }
-
-
-    /* ------------------------------------------------------------
-       LIST EXPORT
-       ------------------------------------------------------------ */
-
-    function buildListDownloadHtml() {
-
-        const rows =
-            pathwayIds
-                .map(
-                    id =>
-                        courseLookup[id]
-                )
-                .filter(Boolean)
-                .map(
-                    (course, index) => `
-
-                        <article class="course">
-
-                            <div class="number">
-                                ${index + 1}
-                            </div>
-
-                            <div>
-
-                                <h2>
-                                    ${
-                                        course.url
-                                            ? `
-                                                <a href="${escapeHtml(
-                                                    course.url
-                                                )}">
-                                                    ${escapeHtml(
-                                                        course.title ||
-                                                        "Untitled course"
-                                                    )}
-                                                </a>
-                                              `
-                                            :
-                                            escapeHtml(
-                                                course.title ||
-                                                "Untitled course"
-                                            )
-                                    }
-                                </h2>
-
-                                ${
-                                    course.organisation
-                                        ? `
-                                            <p>
-                                                ${escapeHtml(
-                                                    course.organisation
-                                                )}
-                                            </p>
-                                          `
-                                        : ""
-                                }
-
-                                <small>
-                                    ${escapeHtml(
-                                        getPrimaryTopic(
-                                            course
-                                        )
-                                    )}
-                                </small>
-
-                            </div>
-
-                        </article>
-
-                    `
-                )
-                .join("");
-
-
-        return `
-
-            <!DOCTYPE html>
-
-            <html lang="en">
-
-            <head>
-
-                <meta charset="UTF-8">
-
-                <title>
-                    My SHAREing Learning Pathway
-                </title>
-
-                <style>
-
-                    body {
-                        font-family:
-                            Arial,
-                            sans-serif;
-
-                        max-width: 900px;
-
-                        margin: 40px auto;
-
-                        padding: 20px;
-
-                        color: #334155;
-                    }
-
-                    h1 {
-                        color: #002a41;
-                    }
-
-                    .course {
-                        display: flex;
-
-                        gap: 20px;
-
-                        margin-bottom: 15px;
-
-                        padding: 20px;
-
-                        border:
-                            1px solid #e2e8f0;
-
-                        border-radius: 10px;
-                    }
-
-                    .number {
-                        font-weight: bold;
-
-                        color: #940594;
-                    }
-
-                    h2 {
-                        margin: 0 0 5px;
-
-                        font-size: 1.1rem;
-                    }
-
-                    a {
-                        color: #002a41;
-
-                        text-decoration: none;
-                    }
-
-                    p {
-                        color: #940594;
-
-                        font-size: .8rem;
-                    }
-
-                    small {
-                        color: #64748b;
-                    }
-
-                </style>
-
-            </head>
-
-            <body>
-
-                <h1>
-                    My Learning Pathway
-                </h1>
-
-                ${rows}
-
-            </body>
-
-            </html>
-
-        `;
-
-    }
-
-
-    /* ------------------------------------------------------------
-       MAP EXPORT
-       Snapshots the cards at their current dragged positions and
-       the connector lines exactly as drawn on screen, by reading
-       the live map DOM (same geometry helpers the on-screen map
-       already uses: handlePoint / getConnectionPoints / bezier).
-       ------------------------------------------------------------ */
-
-    function buildMapDownloadHtml() {
-
-        if (!pathwayNodes) {
-            return null;
-        }
-
-        const nodeElements =
-            Array.from(
-                pathwayNodes.querySelectorAll(
-                    ".pathway-node"
-                )
-            );
-
-        if (!nodeElements.length) {
-            return null;
-        }
-
-
-        let minX = Infinity;
-        let minY = Infinity;
-        let maxX = -Infinity;
-        let maxY = -Infinity;
-
-        const nodeData =
-            nodeElements.map(
-                element => {
-
-                    const x =
-                        parseFloat(element.style.left) || 0;
-
-                    const y =
-                        parseFloat(element.style.top) || 0;
-
-                    const w =
-                        element.offsetWidth;
-
-                    const h =
-                        element.offsetHeight;
-
-                    minX = Math.min(minX, x);
-                    minY = Math.min(minY, y);
-                    maxX = Math.max(maxX, x + w);
-                    maxY = Math.max(maxY, y + h);
-
-                    return {
-                        id: element.dataset.courseId,
-                        x: x,
-                        y: y,
-                        w: w,
-                        h: h
-                    };
-
-                }
-            );
-
-
-        const padding = 40;
-
-        const offsetX =
-            padding - minX;
-
-        const offsetY =
-            padding - minY;
-
-        const canvasWidth =
-            (maxX - minX) + padding * 2;
-
-        const canvasHeight =
-            (maxY - minY) + padding * 2;
-
-
-        const validConnections =
-            pathwayLayout.connections.filter(
-                connection =>
-                    pathwayIds.includes(connection.from) &&
-                    pathwayIds.includes(connection.to)
-            );
-
-        const pathsSvg =
-            validConnections
-                .map(
-                    connection => {
-
-                        const source =
-                            pathwayNodes.querySelector(
-                                `[data-course-id="${CSS.escape(connection.from)}"]`
-                            );
-
-                        const target =
-                            pathwayNodes.querySelector(
-                                `[data-course-id="${CSS.escape(connection.to)}"]`
-                            );
-
-                        if (!source || !target) {
-                            return "";
-                        }
-
-                        const points =
-                            getConnectionPoints(
-                                source,
-                                target
-                            );
-
-                        const d =
-                            bezier(
-                                points.start.x + offsetX,
-                                points.start.y + offsetY,
-                                points.end.x + offsetX,
-                                points.end.y + offsetY
-                            );
-
-                        return `<path d="${d}" fill="none" stroke="#940594" stroke-width="2.5" opacity="0.75" />`;
-
-                    }
-                )
-                .join("");
-
-
-        const cardsHtml =
-            nodeData
-                .map(
-                    data => {
-
-                        const course =
-                            courseLookup[data.id];
-
-                        if (!course) {
-                            return "";
-                        }
-
-                        const topic =
-                            getPrimaryTopic(course);
-
-                        const metaParts = [
-                            topic,
-                            course.format
-                                ? formatLabel(course.format)
-                                : null
-                        ].filter(Boolean);
-
-                        return `
-
-                            <div
-                                class="map-card"
-                                style="left:${data.x + offsetX}px; top:${data.y + offsetY}px; width:${data.w}px;"
-                            >
-
-                                <div class="map-card-title">
-                                    ${
-                                        course.url
-                                            ? `
-                                                <a href="${escapeHtml(course.url)}">
-                                                    ${escapeHtml(
-                                                        course.title ||
-                                                        "Untitled course"
-                                                    )}
-                                                </a>
-                                              `
-                                            :
-                                            escapeHtml(
-                                                course.title ||
-                                                "Untitled course"
-                                            )
-                                    }
-                                </div>
-
-                                ${
-                                    course.organisation
-                                        ? `
-                                            <div class="map-card-org">
-                                                ${escapeHtml(
-                                                    course.organisation
-                                                )}
-                                            </div>
-                                          `
-                                        : ""
-                                }
-
-                                <div class="map-card-meta">
-                                    ${escapeHtml(
-                                        metaParts.join(" • ")
-                                    )}
-                                </div>
-
-                            </div>
-
-                        `;
-
-                    }
-                )
-                .join("");
-
-
-        return `
-
-            <!DOCTYPE html>
-
-            <html lang="en">
-
-            <head>
-
-                <meta charset="UTF-8">
-
-                <title>
-                    My SHAREing Learning Pathway – Map
-                </title>
-
-                <style>
-
-                    body {
-                        font-family:
-                            Arial,
-                            sans-serif;
-
-                        margin: 40px;
-
-                        color: #334155;
-
-                        background: #f8fafc;
-                    }
-
-                    h1 {
-                        color: #002a41;
-                    }
-
-                    .map-wrap {
-                        position: relative;
-
-                        width: ${canvasWidth}px;
-                        height: ${canvasHeight}px;
-
-                        margin-top: 20px;
-
-                        overflow: auto;
-                    }
-
-                    .map-wrap svg {
-                        position: absolute;
-
-                        left: 0;
-                        top: 0;
-
-                        overflow: visible;
-
-                        pointer-events: none;
-                    }
-
-                    .map-card {
-                        position: absolute;
-
-                        box-sizing: border-box;
-
-                        padding: 14px 16px;
-
-                        border:
-                            1px solid #d8dee6;
-
-                        border-radius: 12px;
-
-                        background: #ffffff;
-
-                        box-shadow:
-                            0 4px 12px rgba(15, 23, 42, .08);
-                    }
-
-                    .map-card-title {
-                        font-weight: 700;
-
-                        font-size: .85rem;
-
-                        color: #002a41;
-
-                        line-height: 1.35;
-                    }
-
-                    .map-card-title a {
-                        color: inherit;
-
-                        text-decoration: none;
-                    }
-
-                    .map-card-title a:hover {
-                        text-decoration: underline;
-                    }
-
-                    .map-card-org {
-                        margin-top: 6px;
-
-                        font-size: .65rem;
-
-                        font-weight: 700;
-
-                        text-transform: uppercase;
-
-                        color: #940594;
-                    }
-
-                    .map-card-meta {
-                        margin-top: 6px;
-
-                        font-size: .68rem;
-
-                        color: #64748b;
-                    }
-
-                </style>
-
-            </head>
-
-            <body>
-
-                <h1>
-                    My Learning Pathway – Map
-                </h1>
-
-                <div class="map-wrap">
-
-                    <svg
-                        width="${canvasWidth}"
-                        height="${canvasHeight}"
-                    >
-                        ${pathsSvg}
-                    </svg>
-
-                    ${cardsHtml}
-
-                </div>
-
-            </body>
-
-            </html>
-
-        `;
-
-    }
-
-
-    /* ============================================================
-       INITIALISE
-       ============================================================ */
-
-    updatePathwayUI();
-
-    updateBoardTransform();
 
 });
 
 
-window.addEventListener(
-    "scroll",
-    function () {
+/* ============================================================
+   DOWNLOAD
+   ============================================================ */
 
-        if (window.scrollY > 10) {
+function triggerHtmlDownload(html, filename) {
 
-            document.body.classList.add(
-                "scrolled"
-            );
+    const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
 
-        }
-        else {
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
 
-            document.body.classList.remove(
-                "scrolled"
-            );
+}
 
-        }
+function buildListDownloadHtml() {
 
-    }
-);
+    let optN = 0;
+    const rows = pathwayIds
+        .filter(id => courseForPathwayId(id))
+        .map((id, index) => {
 
-</script>
+            const course = courseForPathwayId(id);
+            const note = pathwayLayout.notes[id];
 
+            return `
+                <article class="course">
+                    <div class="number">${isOptional(id) ? "opt." : ++optN}</div>
+                    <div>
+                        <h2>${course.url ? `<a href="${escapeHtml(course.url)}">${escapeHtml(courseTitle(course))}</a>` : escapeHtml(courseTitle(course))}</h2>
+                        ${course.organisation ? `<p>${escapeHtml(course.organisation)}</p>` : ""}
+                        <small>${escapeHtml(plainMeta(course))}</small>
+                        ${showLocation(course) ? `<br><small>${escapeHtml(course.location)}</small>` : ""}
+                        ${note ? `<div class="note">${escapeHtml(note)}</div>` : ""}
+                    </div>
+                </article>`;
 
-<!-- ============================================================
-     STYLES
-============================================================ -->
+        })
+        .join("");
 
+    return `<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My SHAREing Learning Pathway</title>
 <style>
-
-/* =========================================================
-   PAGE INTRO
-========================================================= */
-
-.page-intro {
-    margin: 0.8rem 0;
-    padding: 0.8rem;
-    background: #f8fafc;
-    border-left: 5px solid #421456;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.05);
-}
-
-.page-intro h1 {
-    margin: 0 0 .5rem;
-    color: #0f2a3a;
-    font-size: 0.8rem;
-}
-
-.page-intro p {
-    margin: .1rem 0;
-    color: #475569;
-    font-size: .6rem;
-}
-
-.page-intro .disclaimer {
-    margin-top: 0.2rem;
-    font-size: .6rem;
-    color: #334155;
-}
-
-/* ==============================================================
-   MAP CANVAS
-============================================================== */
-
-.training-board-wrapper {
-
-    position: relative;
-
-    width: 100%;
-
-    height: 78vh;
-
-    min-height: 650px;
-
-    max-height: 1000px;
-
-    overflow: hidden;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 14px;
-
-    background-color: #f8fafc;
-
-    background-image:
-        radial-gradient(
-            #cbd5e1 0.8px,
-            transparent 0.8px
-        );
-
-    background-size: 24px 24px;
-
-    cursor: grab;
-
-    user-select: none;
-
-    -webkit-user-select: none;
-
-    touch-action: none;
-
-}
-
-
-.training-board-wrapper.is-panning {
-
-    cursor: grabbing;
-
-}
-
-
-.training-board,
-.training-board * {
-
-    user-select: none;
-
-    -webkit-user-select: none;
-
-}
-
-
-.training-board img,
-.training-board svg {
-
-    -webkit-user-drag: none;
-
-}
-
-
-.training-board {
-
-    cursor: grab;
-    backface-visibility: hidden;
-
-}
-
-
-.training-board-wrapper.is-panning .training-board {
-
-    cursor: grabbing;
-
-}
-
-
-/* ==============================================================
-   PAGE INTRO
-============================================================== */
-
-.training-map-intro {
-
-    max-width: 950px;
-
-    margin-bottom: 1.5rem;
-
-}
-
-
-.pathway-intro {
-
-    margin-top: 1rem;
-
-    padding: 0.9rem 1rem;
-
-    border-left: 4px solid #940594;
-
-    border-radius: 6px;
-
-    background: #faf5fa;
-
-    color: #475569;
-
-    font-size: 0.6rem !important;
-
-}
-
-
-/* ==============================================================
-   TOOLBAR
-============================================================== */
-
-.map-toolbar {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 1rem;
-
-    margin: 1rem 0;
-
-    flex-wrap: wrap;
-
-}
-
-
-.map-search-wrapper {
-
-    flex: 1;
-
-    min-width: 240px;
-
-}
-
-
-.map-search {
-
-    width: 100%;
-
-    box-sizing: border-box;
-
-    padding: 0.75rem 1rem;
-
-    border: 1px solid #cbd5e1;
-
-    border-radius: 8px;
-
-    background: #ffffff;
-
-    font-size: 0.95rem;
-
-}
-
-
-.map-search:focus {
-
-    outline: none;
-
-    border-color: #940594;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(
-            148,
-            5,
-            148,
-            0.12
-        );
-
-}
-
-
-.map-controls {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 0.5rem;
-
-    flex-wrap: wrap;
-
-}
-
-
-.map-control-button {
-
-    border: 1px solid #cbd5e1;
-
-    background: #ffffff;
-
-    color: #334155;
-
-    padding: 0.65rem 0.85rem;
-
-    border-radius: 7px;
-
-    cursor: pointer;
-
-    font-size: 0.9rem;
-
-    transition:
-        background 0.15s ease,
-        border-color 0.15s ease,
-        transform 0.15s ease;
-
-}
-
-
-.map-control-button:hover {
-
-    background: #f8fafc;
-
-    border-color: #940594;
-
-}
-
-
-.map-control-button:active {
-
-    transform: translateY(1px);
-
-}
-
-
-/* ==============================================================
-   PATHWAY BUTTON
-============================================================== */
-
-.pathway-button {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 0.45rem;
-
-    border: 1px solid #940594;
-
-    background: #940594;
-
-    color: #ffffff;
-
-    padding: 0.65rem 0.9rem;
-
-    border-radius: 7px;
-
-    cursor: pointer;
-
-    font-size: 0.9rem;
-
-    font-weight: 700;
-
-    transition:
-        background 0.15s ease,
-        transform 0.15s ease;
-
-}
-
-
-.pathway-button:hover {
-
-    background: #740574;
-
-}
-
-
-.pathway-count {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    min-width: 20px;
-
-    height: 20px;
-
-    padding: 0 0.25rem;
-
-    box-sizing: border-box;
-
-    border-radius: 999px;
-
-    background: #ffffff;
-
-    color: #940594;
-
-    font-size: 0.7rem;
-
-}
-
-
-/* ==============================================================
-   BOARD
-============================================================== */
-
-.training-board {
-
-    position: absolute;
-
-    left: 0;
-
-    top: 0;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            3,
-            minmax(
-                390px,
-                1fr
-            )
-        );
-
-    gap: 28px;
-
-    width: max-content;
-
-    min-width: 1280px;
-
-    padding: 50px;
-
-    box-sizing: border-box;
-
-    transform-origin: 0 0;
-
-   
-
-}
-
-
-/* ==============================================================
-   GROUP CARDS
-============================================================== */
-
-.training-group-card {
-
-    position: relative;
-
-    box-sizing: border-box;
-
-    width: 100%;
-
-    min-width: 390px;
-
-    height: auto;
-
-    align-self: start;
-
-    padding: 1.2rem;
-
-    border:
-        1px solid
-        #d8b8d8;
-
-    border-radius: 16px;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.97
-        );
-
-    box-shadow:
-        0 5px 18px
-        rgba(
-            15,
-            23,
-            42,
-            0.07
-        );
-
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-
-}
-
-
-.training-group-card.search-match {
-
-    border-color: #940594;
-
-    box-shadow:
-        0 0 0 4px
-        rgba(
-            148,
-            5,
-            148,
-            0.13
-        ),
-        0 8px 25px
-        rgba(
-            148,
-            5,
-            148,
-            0.12
-        );
-
-}
-
-
-/* ==============================================================
-   GROUP HEADER
-============================================================== */
-
-.training-group-header {
-
-    margin-bottom: 1rem;
-
-    padding-bottom: 1rem;
-
-    border-bottom:
-        1px solid
-        #f1e5f1;
-
-}
-
-
-.group-title-row {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 0.8rem;
-
-}
-
-
-.group-icon {
-
-    flex:
-        0 0
-        46px;
-
-    width: 46px;
-
-    height: 46px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #940594,
-            #740574
-        );
-
-    color: #ffffff;
-
-    font-size: 1.4rem;
-
-    box-shadow:
-        0 4px 10px
-        rgba(
-            148,
-            5,
-            148,
-            0.18
-        );
-
-}
-
-
-.training-group-header h2 {
-
-    margin: 0;
-
-    color: #002a41;
-
-    font-size: 1.25rem;
-
-    line-height: 1.2;
-
-}
-
-
-.group-summary {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 0.35rem;
-
-    margin-top: 0.3rem;
-
-    color: #64748b;
-
-    font-size: 0.75rem;
-
-}
-
-
-.summary-dot {
-
-    color: #c084c0;
-
-}
-
-
-/* ==============================================================
-   TOPIC GRID
-============================================================== */
-
-.topic-grid {
-
-    display: grid;
-
-    gap: 16px;
-
-    align-items: start;
-
-}
-
-
-.topic-grid.one-topic {
-
-    grid-template-columns:
-        minmax(
-            0,
-            1fr
-        );
-
-}
-
-
-.topic-grid.two-topics {
-
-    grid-template-columns:
-        repeat(
-            2,
-            minmax(
-                0,
-                1fr
-            )
-        );
-
-}
-
-
-.topic-grid.many-topics {
-
-    grid-template-columns:
-        repeat(
-            2,
-            minmax(
-                0,
-                1fr
-            )
-        );
-
-}
-
-
-/* ==============================================================
-   TOPIC CARD
-============================================================== */
-
-.training-topic-card {
-
-    position: relative;
-
-    min-width: 0;
-
-    box-sizing: border-box;
-
-    padding: 0.85rem;
-
-    border:
-        1px solid
-        #e2e8f0;
-
-    border-radius: 11px;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 2px 7px
-        rgba(
-            15,
-            23,
-            42,
-            0.04
-        );
-
-}
-
-
-.training-topic-card.search-match {
-
-    border-color: #940594;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(
-            148,
-            5,
-            148,
-            0.13
-        );
-
-}
-
-
-/* ==============================================================
-   TOPIC HEADER
-============================================================== */
-
-.topic-card-header {
-
-    display: flex;
-
-    align-items: flex-start;
-
-    justify-content: space-between;
-
-    gap: 0.5rem;
-
-    margin-bottom: 0.7rem;
-
-    cursor: pointer;
-
-}
-
-
-.topic-title {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 0.5rem;
-
-    min-width: 0;
-
-}
-
-
-.topic-marker {
-
-    flex:
-        0 0
-        9px;
-
-    width: 9px;
-
-    height: 9px;
-
-    border-radius: 50%;
-
-    background: #940594;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(
-            148,
-            5,
-            148,
-            0.1
-        );
-
-}
-
-
-.topic-card-header h3 {
-
-    margin: 0;
-
-    color: #334155;
-
-    font-size: 0.92rem;
-
-    line-height: 1.25;
-
-}
-
-
-.topic-count {
-
-    flex:
-        0 0
-        auto;
-
-    padding:
-        0.2rem
-        0.45rem;
-
-    border-radius: 999px;
-
-    background: #f3e8f3;
-
-    color: #740574;
-
-    font-size: 0.65rem;
-
-    font-weight: 700;
-
-    white-space: nowrap;
-
-}
-
-
-/* ==============================================================
-   COURSE LIST
-============================================================== */
-
-.topic-course-list {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 6px;
-
-}
-
-
-/* ==============================================================
-   COURSE CARD
-============================================================== */
-
-.training-course-card {
-
-    display: flex;
-
-    flex-direction: column;
-
-    width: 100%;
-
-    min-width: 0;
-
-    box-sizing: border-box;
-
-    padding: 0.65rem 0.7rem;
-
-    border:
-        1px solid
-        #edf0f3;
-
-    border-radius: 7px;
-
-    background: #f8fafc;
-
-    text-align: left;
-
-    cursor: pointer;
-
-    transition:
-        border-color 0.15s ease,
-        background 0.15s ease,
-        transform 0.15s ease;
-
-}
-
-
-.training-course-card:hover {
-
-    border-color: #c084c0;
-
-    background: #ffffff;
-
-    transform:
-        translateY(-1px);
-
-}
-
-
-.training-course-card.in-pathway {
-
-    border-color: #940594;
-
-    background: #faf5fa;
-
-}
-
-
-.course-card-title-row {
-
-    display: flex;
-
-    align-items: flex-start;
-
-    justify-content: space-between;
-
-    gap: 0.4rem;
-
-}
-
-
-.course-card-title {
-
-    color: #334155;
-
-    font-size: 0.75rem;
-
-    font-weight: 600;
-
-    line-height: 1.3;
-
-}
-
-
-.course-pathway-status {
-
-    display: none;
-
-    flex:
-        0 0
-        auto;
-
-    width: 18px;
-
-    height: 18px;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: #940594;
-
-    color: #ffffff;
-
-    font-size: 0.65rem;
-
-    font-weight: 700;
-
-}
-
-
-.training-course-card.in-pathway
-.course-pathway-status {
-
-    display: inline-flex;
-
-}
-
-
-.course-card-organisation {
-
-    margin-top: 0.25rem;
-
-    color: #940594;
-
-    font-size: 0.62rem;
-
-    font-weight: 700;
-
-    line-height: 1.25;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.025em;
-
-}
-
-
-.course-card-meta {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 0.4rem;
-
-    margin-top: 0.35rem;
-
-    color: #64748b;
-
-    font-size: 0.62rem;
-
-    line-height: 1.3;
-
-}
-
-
-/* ==============================================================
-   BOARD MESSAGE
-============================================================== */
-
-.board-message {
-
-    position: absolute;
-
-    inset: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: #64748b;
-
-    pointer-events: none;
-
-}
-
-
-/* ==============================================================
-   ZOOM INDICATOR
-============================================================== */
-
-.zoom-indicator {
-
-    position: absolute;
-
-    right: 14px;
-
-    bottom: 14px;
-
-    z-index: 20;
-
-    padding:
-        0.35rem
-        0.55rem;
-
-    border:
-        1px solid
-        #e2e8f0;
-
-    border-radius: 6px;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.92
-        );
-
-    color: #64748b;
-
-    font-size: 0.7rem;
-
-    pointer-events: none;
-
-    box-shadow:
-        0 2px 6px
-        rgba(
-            15,
-            23,
-            42,
-            0.05
-        );
-
-}
-
-
-/* ==============================================================
-   LEGEND
-============================================================== */
-
-.map-legend {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 1.5rem;
-
-    margin: 1rem 0 2rem;
-
-    flex-wrap: wrap;
-
-}
-
-
-.legend-item {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 0.4rem;
-
-    color: #64748b;
-
-    font-size: 0.8rem;
-
-}
-
-
-.legend-node {
-
-    width: 12px;
-
-    height: 12px;
-
-    display: inline-block;
-
-    border-radius: 50%;
-
-}
-
-
-.legend-node.group-node {
-
-    background: #940594;
-
-}
-
-
-.legend-node.topic-node {
-
-    background: #ffffff;
-
-    border:
-        2px solid
-        #940594;
-
-    box-sizing: border-box;
-
-}
-
-
-.legend-node.course-node {
-
-    background: #e2e8f0;
-
-    border:
-        1px solid
-        #94a3b8;
-
-}
-
-
-.pathway-legend-icon {
-
-    font-size: 0.95rem;
-
-}
-
-
-/* ==============================================================
-   INFORMATION PANEL
-============================================================== */
-
-.map-info-panel {
-    position: fixed;
-    z-index: 99999;
-
-    top: 3rem;
-    right: 0;
-
-    height: calc(100vh - 2rem);
-
-    box-sizing: border-box;
-
-    padding: 2rem;
-
-    overflow-y: auto;
-
-    background: #ffffff;
-
-    border-left: 1px solid #e2e8f0;
-
-    box-shadow:
-        -8px 0 30px
-        rgba(15, 23, 42, 0.12);
-
-    transform: translateX(105%);
-    transition: transform 0.3s ease;
-}
-
-body.scrolled .map-info-panel {
-    top: 0;
-    height: 100vh;
-}
-
-.map-info-panel.open {
-
-    transform:
-        translateX(0);
-
-}
-
-
-.close-info-panel {
-
-     position: absolute;
-    z-index: 100000;
-    top: 1rem;
-    right: 1rem;
-
-
-    width: 34px;
-
-    height: 34px;
-
-    border: 0;
-
-    border-radius: 50%;
-
-    background: #f1f5f9;
-
-    color: #475569;
-
-    font-size: 1.5rem;
-
-    line-height: 1;
-
-    cursor: pointer;
-
-}
-
-
-.close-info-panel:hover {
-
-    background: #e2e8f0;
-
-}
-
-
-#map-info-content {
-
-    padding-top: 1rem;
-
-}
-
-
-.info-type {
-
-    margin-bottom: 0.5rem;
-
-    color: #940594;
-
-    font-size: 0.75rem;
-
-    font-weight: 700;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.06em;
-
-}
-
-
-#map-info-content h2 {
-
-    margin-top: 0;
-
-    margin-bottom: 0.6rem;
-
-    padding-right: 1.5rem;
-
-    color: #002a41;
-
-    line-height: 1.25;
-
-}
-
-
-#map-info-content h3 {
-
-    margin-top: 1.5rem;
-
-    margin-bottom: 0.75rem;
-
-    color: #334155;
-
-    font-size: 1rem;
-
-}
-
-
-.info-breadcrumb {
-
-    color: #64748b;
-
-    font-size: 0.8rem;
-
-}
-
-
-/* ==============================================================
-   INFO STATS
-============================================================== */
-
-.info-stat {
-
-    display: flex;
-
-    align-items: baseline;
-
-    gap: 0.5rem;
-
-    margin: 1rem 0;
-
-    padding: 0.9rem 1rem;
-
-    border-radius: 8px;
-
-    background: #f8fafc;
-
-}
-
-
-.info-stat strong {
-
-    color: #940594;
-
-    font-size: 1.5rem;
-
-}
-
-
-.info-stat span {
-
-    color: #64748b;
-
-    font-size: 0.85rem;
-
-}
-
-
-/* ==============================================================
-   INFO COURSE CARDS
-============================================================== */
-
-.course-list {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 0.8rem;
-
-}
-
-
-.map-course-card {
-
-    padding: 1rem;
-
-    border:
-        1px solid
-        #e2e8f0;
-
-    border-radius: 8px;
-
-    background: #ffffff;
-
-}
-
-
-.map-course-card:hover {
-
-    border-color: #c084c0;
-
-}
-
-
-.map-course-organisation {
-
-    margin-bottom: 0.3rem;
-
-    color: #940594;
-
-    font-size: 0.7rem;
-
-    font-weight: 700;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.04em;
-
-}
-
-
-.map-course-card h4 {
-
-    margin:
-        0 0 0.7rem;
-
-    color: #334155;
-
-    font-size: 0.95rem;
-
-    line-height: 1.35;
-
-}
-
-
-.map-course-meta {
-
-    margin-top: 0.35rem;
-
-    color: #64748b;
-
-    font-size: 0.78rem;
-
-}
-
-
-.info-card-actions {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 0.75rem;
-
-    margin-top: 0.75rem;
-
-}
-
-
-.map-course-link {
-
-    color: #940594;
-
-    font-size: 0.8rem;
-
-    font-weight: 700;
-
-    text-decoration: none;
-
-}
-
-
-.map-course-link:hover {
-
-    text-decoration: underline;
-
-}
-
-
-.small-pathway-button {
-
-    flex:
-        0 0
-        auto;
-
-    padding:
-        0.4rem
-        0.6rem;
-
-    border:
-        1px solid
-        #940594;
-
-    border-radius: 6px;
-
-    background: #ffffff;
-
-    color: #940594;
-
-    font-size: 0.7rem;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-}
-
-
-.small-pathway-button:hover {
-
-    background: #faf5fa;
-
-}
-
-
-.small-pathway-button.added {
-
-    background: #940594;
-
-    color: #ffffff;
-
-}
-
-
-/* ==============================================================
-   COURSE INFO
-============================================================== */
-
-.info-meta {
-
-    margin: 0.5rem 0;
-
-    color: #64748b;
-
-    font-size: 0.85rem;
-
-}
-
-
-.course-topic-tag {
-
-    display: inline-block;
-
-    padding:
-        0.35rem
-        0.65rem;
-
-    border-radius: 999px;
-
-    background: #f3e8f3;
-
-    color: #740574;
-
-    font-size: 0.75rem;
-
-}
-
-
-.course-pathway-action {
-
-    margin-top: 1.5rem;
-
-}
-
-
-
-.pathway-course-button {
-
-    width: 100%;
-
-    padding:
-        0.8rem
-        1rem;
-
-    border:
-        1px solid
-        #940594;
-
-    border-radius: 7px;
-
-    background: #ffffff;
-
-    color: #940594;
-
-    font-size: 0.85rem;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        background 0.15s ease,
-        color 0.15s ease;
-
-}
-
-
-.pathway-course-button:hover {
-
-    background: #faf5fa;
-
-}
-
-
-.pathway-course-button.added {
-
-    background: #940594;
-
-    color: #ffffff;
-
-}
-
-
-.primary-course-button {
-
-    display: inline-block;
-
-    margin-top: 0.8rem;
-
-    padding:
-        0.7rem
-        1rem;
-
-    border-radius: 7px;
-
-    background: #940594;
-
-    color: #ffffff;
-
-    font-size: 0.85rem;
-
-    font-weight: 700;
-
-    text-decoration: none;
-
-}
-
-
-.primary-course-button:hover {
-
-    background: #740574;
-
-}
-
-
-/* ==============================================================
-   SCROLL LOCK (while the pathway panel is open)
-============================================================== */
-
-body.pathway-scroll-lock {
-
-    overflow: hidden;
-
-}
-
-
-/* ==============================================================
-   PATHWAY BACKDROP
-   Sits above the site's own header/nav (whatever z-index the
-   theme uses) so the panel never mixes visually with it, and
-   dims + blocks the rest of the page while the panel is open.
-============================================================== */
-
-.pathway-backdrop {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 999998;
-
-    background:
-        rgba(15, 23, 42, 0.55);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition:
-        opacity 0.2s ease,
-        visibility 0.2s ease;
-
-}
-
-
-.pathway-backdrop.open {
-
-    opacity: 1;
-    visibility: visible;
-
-}
-
-
-/* ==============================================================
-   LEARNING PATHWAY PANEL
-============================================================== */
-.pathway-panel {
-    position: fixed;
-    z-index: 999999;
-
-    /*
-     * inset + margin:auto centers the panel inside a box
-     * that is always 1rem smaller than the viewport on every
-     * side, so the panel can never be pushed off-screen or
-     * clipped, regardless of window height or page scroll.
-     */
-    inset: 1rem;
-    margin: auto;
-
-    width: min(1000px, 90vw);
-    height: min(750px, calc(100vh - 2rem));
-    max-height: calc(100vh - 2rem);
-
-    box-sizing: border-box;
-    padding: 2rem;
-
-    overflow-y: auto;
-
-    background: #ffffff;
-
-    border: 1px solid #e2e8f0;
-    border-radius: 20px;
-
-    box-shadow:
-        0 20px 60px rgba(15, 23, 42, 0.25);
-
-    transform:
-        scale(0.95);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition:
-        opacity 0.2s ease,
-        transform 0.2s ease,
-        visibility 0.2s ease;
-}
-
-.pathway-panel.open {
-    transform:
-        scale(1);
-
-    opacity: 1;
-    visibility: visible;
-}
-
-
-
-.close-pathway-panel {
-
-       position: absolute;
-    z-index: 100001;
-
-    top: 1rem;
-
-    right: 1rem;
-
-    width: 34px;
-
-    height: 34px;
-
-    border: 0;
-
-    border-radius: 50%;
-
-    background: #f1f5f9;
-
-    color: #475569;
-
-    font-size: 1.5rem;
-
-    line-height: 1;
-
-    cursor: pointer;
-
-}
-
-
-.close-pathway-panel:hover {
-
-    background: #e2e8f0;
-
-}
-
-
-.pathway-panel-header {
-
-    padding-right: 2rem;
-
-}
-
-
-.pathway-panel-header h2 {
-
-    margin:
-        0 0 0.7rem;
-
-    color: #002a41;
-
-    line-height: 1.25;
-
-}
-
-
-.pathway-panel-header p {
-
-    margin: 0;
-
-    color: #64748b;
-
-    font-size: 0.85rem;
-
-    line-height: 1.5;
-
-}
-
-
-/* ==============================================================
-   PATHWAY EMPTY STATE
-============================================================== */
-
-.pathway-empty {
-
-    margin-top: 2rem;
-
-    padding: 2rem 1.2rem;
-
-    border:
-        1px dashed
-        #cbd5e1;
-
-    border-radius: 12px;
-
-    background: #f8fafc;
-
-    text-align: center;
-
-}
-
-
-.pathway-empty-icon {
-
-    margin-bottom: 0.7rem;
-
-    font-size: 2rem;
-
-}
-
-
-.pathway-empty h3 {
-
-    margin:
-        0 0 0.5rem;
-
-    color: #334155;
-
-    font-size: 1rem;
-
-}
-
-
-.pathway-empty p {
-
-    margin:
-        0 0 1.2rem;
-
-    color: #64748b;
-
-    font-size: 0.8rem;
-
-    line-height: 1.5;
-
-}
-
-
-.primary-pathway-button {
-
-    padding:
-        0.65rem
-        0.9rem;
-
-    border: 0;
-
-    border-radius: 7px;
-
-    background: #940594;
-
-    color: #ffffff;
-
-    font-size: 0.8rem;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-}
-
-
-.primary-pathway-button:hover {
-
-    background: #740574;
-
-}
-
-
-/* ==============================================================
-   PATHWAY SUMMARY
-============================================================== */
-
-.pathway-summary {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 0.2rem;
-
-    margin:
-        1.5rem 0
-        0.8rem;
-
-    padding:
-        0.8rem
-        0.9rem;
-
-    border-radius: 8px;
-
-    background: #faf5fa;
-
-}
-
-
-.pathway-summary strong {
-
-    color: #940594;
-
-    font-size: 0.9rem;
-
-}
-
-
-.pathway-summary span {
-
-    color: #64748b;
-
-    font-size: 0.7rem;
-
-}
-
-
-/* ==============================================================
-   PATHWAY VIEW TOGGLE
-============================================================== */
-
-.pathway-view-toggle {
-
-    display: flex;
-
-    gap: 0.4rem;
-
-    margin-bottom: 0.8rem;
-
-}
-
-
-.pathway-view-btn {
-
-    flex: 1;
-
-    padding: 0.55rem 0.7rem;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 7px;
-
-    background: #ffffff;
-
-    color: #64748b;
-
-    font-size: 0.78rem;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        border-color 0.15s ease,
-        background 0.15s ease,
-        color 0.15s ease;
-
-}
-
-
-.pathway-view-btn:hover {
-
-    border-color: #c084c0;
-
-    color: #940594;
-
-}
-
-
-.pathway-view-btn.active {
-
-    border-color: #940594;
-
-    background: #940594;
-
-    color: #ffffff;
-
-}
-
-
-.pathway-map-hint {
-
-    margin: 0 0 0.8rem;
-    padding: 0.6rem 0.8rem;
-    border-radius: 7px;
-    background: #faf5fa;
-    color: #740574;
-    font-size: 0.6rem !important;
-    line-height: 1.4;
-
-}
-
-
-.pathway-map-hint p {
-
-    font-size: 0.6rem !important;
- 
-}
-
-
-
-/* ==============================================================
-   PATHWAY LIST
-============================================================== */
-
-.pathway-list {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 0.65rem;
-
-}
-
-
-.pathway-item {
-
-    display: flex;
-
-    gap: 0.7rem;
-
-    padding: 0.75rem;
-
-    border:
-        1px solid
-        #e2e8f0;
-
-    border-radius: 9px;
-
-    background: #ffffff;
-
-    cursor: grab;
-
-    transition:
-        border-color 0.15s ease,
-        box-shadow 0.15s ease,
-        opacity 0.15s ease;
-
-}
-
-
-.pathway-item:hover {
-
-    border-color: #c084c0;
-
-}
-
-
-.pathway-item.dragging {
-
-    opacity: 0.45;
-
-}
-
-
-.pathway-item.drag-over {
-
-    border-color: #940594;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(
-            148,
-            5,
-            148,
-            0.1
-        );
-
-}
-
-
-.pathway-number {
-
-    flex:
-        0 0
-        28px;
-
-    width: 28px;
-
-    height: 28px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: #f3e8f3;
-
-    color: #940594;
-
-    font-size: 0.72rem;
-
-    font-weight: 700;
-
-}
-
-
-.pathway-item-content {
-
-    flex: 1;
-
-    min-width: 0;
-
-}
-
-
-.pathway-item-title {
-
-    color: #334155;
-
-    font-size: 0.82rem;
-
-    font-weight: 700;
-
-    line-height: 1.35;
-
-}
-
-
-.pathway-item-organisation {
-
-    margin-top: 0.25rem;
-
-    color: #940594;
-
-    font-size: 0.62rem;
-
-    font-weight: 700;
-
-    text-transform: uppercase;
-
-}
-
-
-.pathway-item-meta {
-
-    margin-top: 0.3rem;
-
-    color: #64748b;
-
-    font-size: 0.65rem;
-
-}
-
-
-.pathway-item-actions {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 0.3rem;
-
-    margin-top: 0.6rem;
-
-    flex-wrap: wrap;
-
-}
-
-
-.pathway-move-button,
-.pathway-view-button,
-.pathway-remove-button {
-
-    padding:
-        0.3rem
-        0.5rem;
-
-    border:
-        1px solid
-        #e2e8f0;
-
-    border-radius: 5px;
-
-    background: #ffffff;
-
-    color: #475569;
-
-    font-size: 0.65rem;
-
-    cursor: pointer;
-
-}
-
-
-.pathway-move-button:hover,
-.pathway-view-button:hover {
-
-    border-color: #940594;
-
-    color: #940594;
-
-}
-
-
-.pathway-move-button:disabled {
-
-    opacity: 0.3;
-
-    cursor: default;
-
-}
-
-
-.pathway-remove-button {
-
-    margin-left: auto;
-
-    color: #b91c1c;
-
-}
-
-
-.pathway-remove-button:hover {
-
-    border-color: #fecaca;
-
-    background: #fef2f2;
-
-}
-
-
-.pathway-actions {
-
-    margin-top: 1.2rem;
-
-    padding-top: 1rem;
-
-    border-top:
-        1px solid
-        #e2e8f0;
-
-}
-
-
-.clear-pathway-button {
-
-    width: 100%;
-
-    padding: 0.65rem;
-
-    border:
-        1px solid
-        #cbd5e1;
-
-    border-radius: 7px;
-
-    background: #ffffff;
-
-    color: #64748b;
-
-    font-size: 0.75rem;
-
-    cursor: pointer;
-
-}
-
-
-.clear-pathway-button:hover {
-
-    border-color: #ef4444;
-
-    color: #b91c1c;
-
-    background: #fef2f2;
-
-}
-
-.download-pathway-button {
-
-    width: 100%;
-
-    margin-bottom: 0.6rem;
-
-    padding: 0.7rem 0.8rem;
-
-    border: 1px solid #940594;
-
-    border-radius: 7px;
-
-    background: #940594;
-
-    color: #ffffff;
-
-    font-size: 0.75rem;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        background 0.15s ease,
-        transform 0.15s ease;
-
-}
-
-
-.download-pathway-button:hover {
-
-    background: #740574;
-
-}
-
-
-.download-pathway-button:active {
-
-    transform: translateY(1px);
-
-}
-
-
-/* ==============================================================
-   MOBILE
-============================================================== */
-
-@media (max-width: 1200px) {
-
-    .training-board {
-
-        grid-template-columns:
-            repeat(
-                2,
-                minmax(
-                    390px,
-                    1fr
-                )
-            );
-
-    }
-
-}
-
-
-@media (max-width: 850px) {
-
-    .training-board {
-
-        grid-template-columns:
-            minmax(
-                360px,
-                1fr
-            );
-
-        min-width: 360px;
-
-        padding: 30px;
-
-    }
-
-
-    .training-group-card {
-
-        min-width: 360px;
-
-    }
-
-
-    .topic-grid.two-topics,
-    .topic-grid.many-topics {
-
-        grid-template-columns:
-            minmax(
-                0,
-                1fr
-            );
-
-    }
-
-}
-
-
-@media (max-width: 700px) {
-
-    .map-toolbar {
-
-        align-items: stretch;
-
-    }
-
-
-    .map-controls {
-
-        width: 100%;
-
-        justify-content: flex-end;
-
-    }
-
-
-    .training-board-wrapper {
-
-        height: 70vh;
-
-        min-height: 550px;
-
-    }
-
-
-    .training-board {
-
-        padding: 20px;
-
-    }
-
-
-    .training-group-card {
-
-        min-width: 320px;
-
-    }
-
-
-    .map-info-panel,
-    .pathway-panel {
-
-        width: 100%;
-
-        padding: 1.5rem;
-
-    }
-
-
-    .pathway-button {
-
-        flex: 1;
-
-        justify-content: center;
-
-    }
-
-}
+body{font-family:Arial,sans-serif;max-width:900px;margin:40px auto;padding:20px;color:#1f2937}
+h1{color:#421456}.course{display:flex;gap:20px;margin-bottom:15px;padding:20px;border:1px solid #e5e7eb;border-radius:10px}
+.number{font-weight:bold;color:#940594}h2{margin:0 0 5px;font-size:1.1rem}a{color:#1f2937;text-decoration:none}
+p{margin:0 0 4px;color:#940594;font-size:.85rem}small{color:#5b6472}.note{margin-top:6px;font-size:.85rem;font-style:italic;color:#475569}
+</style></head><body><h1>My Learning Pathway</h1>${rows}</body></html>`;
+
+}
+
+function buildMapDownloadHtml() {
+
+        const ids = pathwayIds.filter(id => courseForPathwayId(id));
+    ids.forEach(id => getPosition(id, pathwayIds.indexOf(id)));
+
+    const rects = ids.map(id => Object.assign({ id: id }, rectOf(id)));
+    const anns = pathwayLayout.textBoxes.map(b => Object.assign({}, b, annSize(b)));
+    const all = rects.concat(anns);
+
+    const minX = Math.min(...all.map(r => r.x)), minY = Math.min(...all.map(r => r.y));
+    const maxX = Math.max(...all.map(r => r.x + r.w)), maxY = Math.max(...all.map(r => r.y + r.h));
+
+    const pad = 40, ox = pad - minX, oy = pad - minY;
+    const W = (maxX - minX) + pad * 2, H = (maxY - minY) + pad * 2;
+    const byId = {};
+    rects.forEach(r => { byId[r.id] = r; });
+
+    const paths = pathwayLayout.connections
+        .filter(c => byId[c.from] && byId[c.to])
+        .map(c => {
+            const p = connectionPoints(byId[c.from], byId[c.to]);
+            const d = bezier(p.start.x + ox, p.start.y + oy, p.end.x + ox, p.end.y + oy);
+            const dash = connectionStyle(c) === "dashed" ? `stroke-dasharray="8 6"` : "";
+            return `<path d="${d}" fill="none" stroke="#940594" stroke-width="2.5" opacity="0.75" ${dash} marker-end="url(#pathway-arrow)"/>`;
+        }).join("");
+
+    const cards = rects.map(r => {
+        const course = courseForPathwayId(r.id);
+        return `<div class="card" style="left:${r.x + ox}px;top:${r.y + oy}px;width:${r.w}px">
+            <div class="t">${course.url ? `<a href="${escapeHtml(course.url)}">${escapeHtml(courseTitle(course))}</a>` : escapeHtml(courseTitle(course))}</div>
+            ${course.organisation ? `<div class="o">${escapeHtml(course.organisation)}</div>` : ""}
+            <div class="m">${escapeHtml(plainMeta(course))}</div>
+        </div>`;
+    }).join("");
+
+    return `<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My SHAREing Learning Pathway – Map</title>
+<style>
+body{font-family:Arial,sans-serif;margin:40px;color:#1f2937;background:#f8f9fb}h1{color:#421456}
+.legend{display:flex;gap:24px;align-items:center;font-size:.85rem;color:#475569}.legend span{display:inline-flex;align-items:center;gap:8px}
+.wrap{position:relative;width:${W}px;height:${H}px;margin-top:20px}.wrap svg{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+.card{position:absolute;box-sizing:border-box;padding:14px 16px;border:1px solid #d8dee6;border-radius:12px;background:#fff;box-shadow:0 4px 12px rgba(31,41,55,.08)}
+.t{font-weight:700;font-size:.9rem;color:#1f2937;line-height:1.35}.t a{color:inherit;text-decoration:none}.t a:hover{text-decoration:underline}
+.o{margin-top:6px;font-size:.75rem;font-weight:700;color:#940594}.m{margin-top:6px;font-size:.75rem;color:#5b6472}
+.ann{position:absolute;box-sizing:border-box;padding:12px;white-space:pre-wrap;font-size:14px}.ann.text{padding:0;font-weight:600;font-size:16px}.ann.note{box-shadow:0 8px 16px -6px rgba(0,0,0,.4);font-family:"Segoe Print","Comic Sans MS",cursive;padding-top:24px;border-radius:2px 2px 14px 2px}.ann.circle{border:3px solid #d92d20;border-radius:50%}
+</style></head><body>
+<h1>My Learning Pathway – Map</h1>
+<div class="legend">
+<span><svg width="40" height="10"><line x1="1" y1="5" x2="39" y2="5" stroke="#940594" stroke-width="2.5" stroke-linecap="round"/></svg> Required</span>
+<span><svg width="40" height="10"><line x1="1" y1="5" x2="39" y2="5" stroke="#940594" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 5"/></svg> Optional</span>
+</div>
+<div class="wrap"><svg width="${W}" height="${H}">${ARROW_DEFS}${paths}</svg>${cards}${anns.map(b => annHtmlFor(b, ox, oy)).join("")}</div>
+</body></html>`;
+
+}
+
+$("download-list").addEventListener("click", function () {
+    if (!pathwayIds.length) { return; }
+    triggerHtmlDownload(buildListDownloadHtml(), "my-shareing-learning-pathway.html");
+});
+
+$("download-map").addEventListener("click", function () {
+    if (!pathwayIds.length) { return; }
+    savePathway();
+    triggerHtmlDownload(buildMapDownloadHtml(), "my-shareing-learning-pathway-map.html");
+});
 
 /* ============================================================
-   INTERACTIVE LEARNING PATHWAY
+   CALENDAR
    ============================================================ */
 
-.pathway-interactive-canvas {
-    position: relative !important;
+const DAY_MS = 86400000;
+const CAL_LANES = 3;
+const CAL_FORMATS = [
+    { key: "online",   label: "Scheduled (online)" },
+    { key: "hybrid",   label: "Scheduled (hybrid)" },
+    { key: "inperson", label: "Scheduled (in-person)" },
+    { key: "other",    label: "Upcoming / other" }
+];
 
-    width: 100%;
+const calFmtKey = f =>
+    f === "Scheduled (online)" ? "online" :
+    f === "Scheduled (hybrid)" ? "hybrid" :
+    f === "Scheduled (in-person)" ? "inperson" : "other";
 
-    height: 560px;
+/* Start + end of a free-text date ("12-14 March 2026", "28 Feb - 2 March 2026") */
+function parseDateRange(text) {
 
-    overflow: hidden;
+    const dates = String(text || "").trim();
+    if (!dates || /self[- ]?paced|rolling|on[- ]?demand/i.test(dates)) { return null; }
 
-    margin-top: 1rem;
+    const end = parseEndDate(dates);
+    if (!end) { return null; }
 
-    border:
-        1px solid #e2e8f0;
+    const years = dates.match(/\b20\d{2}\b/g);
+    const re = new RegExp(MONTH_RE.source, "gi");
+    const first = re.exec(dates);
+    if (!first || !years) { return null; }
 
-    border-radius: 12px;
+    const month  = MONTHS.indexOf(first[1].slice(0, 3).toLowerCase());
+    const before = dates.slice(0, first.index);
+    const after  = dates.slice(first.index + first[0].length);
 
-    background-color: #f8fafc;
+    let year = parseInt(years[0], 10);
+    if (years.length === 1 && month > end.getMonth()) { year -= 1; }   // "28 Dec - 3 Jan 2026"
 
-    background-image:
-        radial-gradient(
-            #cbd5e1 0.8px,
-            transparent 0.8px
-        );
+    let day = null;
+    const b = before.match(/\b(\d{1,2})(?:st|nd|rd|th)?(?:\s*(?:-|–|—|to|&|,|and)\s*\d{1,2}(?:st|nd|rd|th)?)*\s*(?:of\s+)?$/i);
+    if (b) { day = parseInt(b[1], 10); }
+    else {
+        const a = after.match(/^\s*(\d{1,2})(?!\d)/);
+        if (a) { day = parseInt(a[1], 10); }
+    }
 
-    background-size: 22px 22px;
+    let start = new Date(year, month, day || 1);
+    if (start > end) { start = new Date(end.getFullYear(), end.getMonth(), end.getDate()); }
 
-    display: block !important;
+    return { start: start, end: end };
 
-    cursor: default;
 }
 
+const calEvents = courses
+    .filter(c => c.format !== "Online (self-service)")
+    .map(c => {
+        const r = parseDateRange(c.dates);
+        return r ? { id: courseIndex(c), course: c, title: courseTitle(c), start: r.start, end: r.end, fmt: calFmtKey(c.format) } : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.start - b.start || b.end - a.end || a.title.localeCompare(b.title));
 
+const calById = {};
+calEvents.forEach(e => { calById[e.id] = e; });
 
+const startOfDay  = d => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+const addDays     = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+const daysBetween = (a, b) => Math.round((startOfDay(b) - startOfDay(a)) / DAY_MS);
+const dayKey      = d => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+const keyToDate   = k => { const p = k.split("-").map(Number); return new Date(p[0], p[1] - 1, p[2]); };
+const fmtDay      = (d, opts) => d.toLocaleDateString("en-GB", opts);
 
-.pathway-nodes {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
+function rangeLabel(e) {
+    const full = { day: "numeric", month: "short", year: "numeric" };
+    if (daysBetween(e.start, e.end) === 0) { return fmtDay(e.start, full); }
+    return fmtDay(e.start, { day: "numeric", month: "short" }) + " – " + fmtDay(e.end, full);
 }
 
+const calModal  = $("cal-modal");
+const calMain   = $("cal-main");
+const calDetail = $("cal-detail");
+const calLegend = $("cal-legend");
+const portal = document.createElement("div");
+portal.className = "cat cat-portal";
+document.body.appendChild(portal);
+portal.appendChild(calModal);
+portal.appendChild(toastEl);
+
+let calOpen = false;
+let calMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+let calView = window.matchMedia("(max-width: 720px)").matches ? "list" : "month";
+let calSel = null;
+let calLastFocus = null;
+const calHidden = new Set();
+
+function calCard(e) {
+
+    const c = e.course, inPath = pathwayBaseIds().has(e.id);
+    const meta = [c.organisation, showLocation(c) ? c.location : ""].filter(Boolean).join(" · ");
+
+    return `
+        <article class="cal-card fmt-${e.fmt}">
+            <span class="cal-card-fmt">${escapeHtml(formatLabel(c.format) || "Other")}</span>
+            ${titleHtml(c, "cal-card-title")}
+            ${meta ? `<div class="cal-card-meta">${escapeHtml(meta)}</div>` : ""}
+            <div class="cal-card-meta">📅 ${escapeHtml(rangeLabel(e))}</div>
+            <button type="button" class="cat-btn cat-btn-small${inPath ? " cat-btn-secondary" : ""}" data-cal-add="${escapeHtml(e.id)}">${inPath ? "✓ In my pathway" : "+ Add to my pathway"}</button>
+        </article>`;
+
+}
+
+function renderCalLegend(mStart, mEnd) {
+
+    const counts = {}, present = new Set();
+    calEvents.forEach(e => {
+        present.add(e.fmt);
+        if (e.start <= mEnd && e.end >= mStart) { counts[e.fmt] = (counts[e.fmt] || 0) + 1; }
+    });
+
+    calLegend.innerHTML = CAL_FORMATS.filter(f => present.has(f.key)).map(f => `
+        <button type="button" class="cal-chip fmt-${f.key}${calHidden.has(f.key) ? " off" : ""}" data-cal-fmt="${f.key}" aria-pressed="${!calHidden.has(f.key)}">
+            <i class="cal-dot"></i>${f.label} <span class="chip-n">${counts[f.key] || 0}</span>
+        </button>`).join("") + `<span class="cal-legend-hint">Click a colour to show / hide it</span>`;
+
+}
+
+function buildMonthGrid(mStart, mEnd, visible) {
+
+    const lead = (mStart.getDay() + 6) % 7;              // Monday first
+    const gridStart = addDays(mStart, -lead);
+    const weeks = Math.ceil((lead + mEnd.getDate()) / 7);
+    const names = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+    let html = `<div class="cal-dow" aria-hidden="true">${names.map(n => `<span>${n}</span>`).join("")}</div><div class="cal-grid">`;
+
+    for (let w = 0; w < weeks; w++) {
+
+        const ws = addDays(gridStart, w * 7), we = addDays(ws, 6);
+
+        const segs = visible
+            .filter(e => e.start <= we && e.end >= ws)
+            .map(e => ({ e: e, s: Math.max(0, daysBetween(ws, e.start)), t: Math.min(6, daysBetween(ws, e.end)), cl: e.start < ws, cr: e.end > we }))
+            .sort((a, b) => a.s - b.s || (b.t - b.s) - (a.t - a.s) || a.e.title.localeCompare(b.e.title));
+
+        const lanes = [];
+        segs.forEach(sg => {
+            let i = lanes.findIndex(last => last < sg.s);
+            if (i === -1) { i = lanes.length; }
+            lanes[i] = sg.t;
+            sg.lane = i;
+        });
+
+        const hiddenN = [0, 0, 0, 0, 0, 0, 0];
+        segs.forEach(sg => { if (sg.lane >= CAL_LANES) { for (let d = sg.s; d <= sg.t; d++) { hiddenN[d]++; } } });
+
+        html += `<div class="cal-week">`;
+
+        for (let d = 0; d < 7; d++) {
+
+            const day = addDays(ws, d), key = dayKey(day);
+            const n = segs.filter(sg => sg.s <= d && sg.t >= d).length;
+            const cls = [
+                day.getMonth() !== mStart.getMonth() ? "other" : "",
+                daysBetween(today, day) === 0 ? "today" : "",
+                calSel && calSel.type === "day" && calSel.key === key ? "selected" : ""
+            ].filter(Boolean).join(" ");
+
+            html += `<button type="button" class="cal-day ${cls}" style="grid-column:${d + 1}" data-cal-day="${key}"
+                        aria-label="${escapeHtml(fmtDay(day, { weekday: "long", day: "numeric", month: "long" }))}, ${n} ${n === 1 ? "event" : "events"}">
+                        <span class="cal-daynum">${day.getDate()}</span></button>`;
+
+        }
+
+        segs.forEach(sg => {
+            if (sg.lane >= CAL_LANES) { return; }
+            const active = calSel && calSel.type === "event" && calSel.id === sg.e.id ? " active" : "";
+            const org = sg.e.course.organisation ? " — " + sg.e.course.organisation : "";
+            html += `<button type="button" class="cal-ev fmt-${sg.e.fmt}${sg.cl ? " cont-l" : ""}${sg.cr ? " cont-r" : ""}${active}"
+                        style="grid-column:${sg.s + 1} / span ${sg.t - sg.s + 1};grid-row:${sg.lane + 2}"
+                        data-cal-ev="${escapeHtml(sg.e.id)}" title="${escapeHtml(sg.e.title + org + " (" + rangeLabel(sg.e) + ")")}">${escapeHtml(sg.e.title)}</button>`;
+        });
+
+        for (let d = 0; d < 7; d++) {
+            if (hiddenN[d] > 0) {
+                html += `<button type="button" class="cal-more" style="grid-column:${d + 1};grid-row:${CAL_LANES + 2}" data-cal-day="${dayKey(addDays(ws, d))}">+${hiddenN[d]} more</button>`;
+            }
+        }
+
+        html += `</div>`;
+
+    }
+
+    return html + `</div>`;
+
+}
+
+function renderCalDetail() {
+
+    if (calView === "list") { calDetail.innerHTML = ""; return; }
+
+    if (!calSel) {
+        calDetail.innerHTML = `<div class="cal-hint"><strong>Select a day or an event</strong><p>Click any event bar or day to see the details and add it to your pathway.</p></div>`;
+        return;
+    }
+
+    let evs, heading;
+
+    if (calSel.type === "event") {
+        const e = calById[calSel.id];
+        evs = e ? [e] : [];
+        heading = "Event details";
+    }
+    else {
+        const day = keyToDate(calSel.key);
+        evs = calEvents.filter(e => !calHidden.has(e.fmt) && e.start <= day && e.end >= day);
+        heading = fmtDay(day, { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+    }
+
+    calDetail.innerHTML = `<h3>${escapeHtml(heading)}</h3>` +
+        (calSel.type === "day" ? `<p class="cal-detail-sub">${evs.length} ${evs.length === 1 ? "event" : "events"}</p>` : "") +
+        (evs.length ? evs.map(calCard).join("") : `<p class="cal-detail-sub" style="margin-top:10px">No events on this day.</p>`);
+
+}
+
+function renderCal() {
+
+    const mStart = calMonth, mEnd = new Date(mStart.getFullYear(), mStart.getMonth() + 1, 0);
+
+    $("cal-title").textContent = fmtDay(mStart, { month: "long", year: "numeric" });
+
+    document.querySelectorAll("[data-cal-view]").forEach(b => {
+        const on = b.dataset.calView === calView;
+        b.classList.toggle("active", on);
+        b.setAttribute("aria-pressed", String(on));
+    });
+
+    $("cal-body").classList.toggle("is-list", calView === "list");
+    renderCalLegend(mStart, mEnd);
+
+    const visible = calEvents.filter(e => !calHidden.has(e.fmt) && e.start <= mEnd && e.end >= mStart);
+    const next = visible.length ? null : calEvents.find(e => !calHidden.has(e.fmt) && e.start > mEnd);
+
+    const banner = visible.length ? "" : `
+        <div class="cal-banner"><span>No events this month.</span>
+        ${next ? `<button type="button" class="cat-btn cat-btn-small" data-cal-jump="${dayKey(next.start)}">Jump to next event →</button>` : ""}</div>`;
+
+    calMain.innerHTML = banner + (calView === "month"
+        ? buildMonthGrid(mStart, mEnd, visible)
+        : (visible.length ? `<div class="cal-list">${visible.map(calCard).join("")}</div>` : ""));
+
+    renderCalDetail();
+
+}
+
+function calRefocus(selector) {
+    const el = calModal.querySelector(selector);
+    if (el) { el.focus(); }
+}
+
+function openCal() {
+    calLastFocus = document.activeElement;
+    calOpen = true;
+    calModal.hidden = false;
+    document.body.style.overflow = "hidden";
+    renderCal();
+    $("cal-close").focus();
+}
+
+function closeCal() {
+    calOpen = false;
+    calModal.hidden = true;
+    document.body.style.overflow = "";
+    if (calLastFocus && calLastFocus.focus) { calLastFocus.focus(); }
+}
+
+function shiftMonth(n) {
+    calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() + n, 1);
+    renderCal();
+}
+
+$("calendar-open").addEventListener("click", openCal);
+$("cal-close").addEventListener("click", closeCal);
+$("cal-backdrop").addEventListener("click", closeCal);
+$("cal-prev").addEventListener("click", () => shiftMonth(-1));
+$("cal-next").addEventListener("click", () => shiftMonth(1));
+$("cal-today").addEventListener("click", function () {
+    calMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    renderCal();
+});
+
+calModal.addEventListener("click", function (event) {
+
+    const t = event.target;
+    let el;
+
+    if ((el = t.closest("[data-cal-view]"))) { calView = el.dataset.calView; renderCal(); return; }
+
+    if ((el = t.closest("[data-cal-fmt]"))) {
+        const k = el.dataset.calFmt;
+        if (calHidden.has(k)) { calHidden.delete(k); } else { calHidden.add(k); }
+        renderCal();
+        calRefocus(`[data-cal-fmt="${k}"]`);
+        return;
+    }
+
+    if ((el = t.closest("[data-cal-ev]"))) {
+        const id = el.dataset.calEv;
+        calSel = { type: "event", id: id };
+        renderCal();
+        calRefocus(`[data-cal-ev="${CSS.escape(id)}"]`);
+        if (isMobile()) { calDetail.scrollIntoView({ behavior: "smooth", block: "nearest" }); }
+        return;
+    }
+
+    if ((el = t.closest("[data-cal-day]"))) {
+        const k = el.dataset.calDay;
+        calSel = { type: "day", key: k };
+        renderCal();
+        calRefocus(`[data-cal-day="${k}"]`);
+        if (isMobile()) { calDetail.scrollIntoView({ behavior: "smooth", block: "nearest" }); }
+        return;
+    }
+
+    if ((el = t.closest("[data-cal-jump]"))) {
+        const d = keyToDate(el.dataset.calJump);
+        calMonth = new Date(d.getFullYear(), d.getMonth(), 1);
+        renderCal();
+        return;
+    }
+
+    if ((el = t.closest("[data-cal-add]"))) {
+        const id = el.dataset.calAdd, course = courseLookup[id];
+        if (course) { toggleCourse(course); }
+        calRefocus(`[data-cal-add="${CSS.escape(id)}"]`);
+    }
+
+});
+
+/* Esc closes, Tab stays inside the dialog */
+calModal.addEventListener("keydown", function (event) {
+
+    if (event.key === "Escape") { event.stopPropagation(); closeCal(); return; }
+
+    if (event.key === "Tab") {
+        const f = [...calModal.querySelectorAll("button, a[href]")].filter(el => el.offsetParent !== null);
+        if (!f.length) { return; }
+        const first = f[0], last = f[f.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
+
+});
+
+$("cal-count").textContent = calEvents.length;
+if (!calEvents.length) { $("calendar-open").style.display = "none"; }
 
 /* ============================================================
-   NODE
+   INITIALISE
    ============================================================ */
 
-.pathway-node {
-    position: absolute;
-
-    width: 230px;
-
-    min-height: 125px;
-
-    box-sizing: border-box;
-
-    padding: 16px;
-
-    border:
-        1px solid #d8dee6;
-
-    border-radius: 12px;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 4px 12px
-        rgba(15, 23, 42, .08);
-
-        cursor: grab;
-    user-select: none;
-    touch-action: none;
-    pointer-events: auto;
-
-    transition:
-        box-shadow .15s ease,
-        border-color .15s ease;
-}
-
-
-.pathway-node:hover {
-    border-color: #940594;
-
-    box-shadow:
-        0 7px 18px
-        rgba(15, 23, 42, .13);
-}
-
-
-.pathway-node.dragging {
-    cursor: grabbing;
-
-    z-index: 100;
-
-    box-shadow:
-        0 12px 25px
-        rgba(15, 23, 42, .18);
-}
-
-
-/* ============================================================
-   NODE CONTENT
-   ============================================================ */
-
-.pathway-node-title {
-    margin-right: 25px;
-
-    color: #002a41;
-
-    font-size: .85rem;
-
-    font-weight: 700;
-
-    line-height: 1.35;
-}
-
-
-.pathway-node-title a {
-    color: inherit;
-
-    text-decoration: none;
-}
-
-
-.pathway-node-title a:hover {
-    color: #940594;
-
-    text-decoration: underline;
-}
-
-
-.pathway-node-org {
-    margin-top: 7px;
-
-    color: #940594;
-
-    font-size: .65rem;
-
-    font-weight: 700;
-
-    text-transform: uppercase;
-}
-
-
-.pathway-node-meta {
-    margin-top: 8px;
-
-    color: #64748b;
-
-    font-size: .68rem;
-
-    line-height: 1.5;
-}
-
-
-/* ============================================================
-   REMOVE BUTTON
-   ============================================================ */
-
-.pathway-node-remove {
-    position: absolute;
-
-    top: 7px;
-    right: 7px;
-
-    width: 24px;
-    height: 24px;
-
-    padding: 0;
-
-    border: 0;
-
-    border-radius: 50%;
-
-    background: #f1f5f9;
-
-    color: #64748b;
-
-    font-size: 16px;
-
-    cursor: pointer;
-}
-
-
-.pathway-node-remove:hover {
-    background: #fee2e2;
-
-    color: #b91c1c;
-}
-
-
-/* ============================================================
-   CONNECTION HANDLES
-   ============================================================ */
-
-.pathway-handle {
-    position: absolute;
-
-    width: 11px;
-    height: 11px;
-
-    box-sizing: border-box;
-
-    border:
-        2px solid #940594;
-
-    border-radius: 50%;
-
-    background: #ffffff;
-
-    cursor: crosshair;
-
-    z-index: 10;
-}
-
-
-.pathway-handle:hover {
-    background: #940594;
-
-    transform: scale(1.3);
-}
-
-
-.pathway-handle.top {
-    top: -6px;
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-}
-
-
-.pathway-handle.right {
-    top: 50%;
-    right: -6px;
-
-    transform:
-        translateY(-50%);
-}
-
-
-.pathway-handle.bottom {
-    bottom: -6px;
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-}
-
-
-.pathway-handle.left {
-    top: 50%;
-    left: -6px;
-
-    transform:
-        translateY(-50%);
-}
-
-
-/* ============================================================
-   CONNECTIONS
-   ============================================================ */
-
-
-
-
-
-.pathway-line-hit:hover + .pathway-line {
-    stroke-width: 4;
-
-    opacity: 1;
-}
-
-
-.pathway-line-hit {
-    fill: none;
-    stroke: transparent;
-    stroke-width: 24px;
-    pointer-events: stroke;
-    cursor: pointer;
-}
-
-.pathway-temp-line {
-    fill: none;
-
-    stroke: #940594;
-
-    stroke-width: 2;
-
-    stroke-dasharray: 6 5;
-
-    opacity: .55;
-
-    pointer-events: none;
-}
-
-.pathway-line:hover {
-    stroke-width: 4;
-
-    opacity: 1;
-}
-
-
-.pathway-temp-line {
-    fill: none;
-
-    stroke: #940594;
-
-    stroke-width: 2;
-
-    stroke-dasharray: 6 5;
-
-    opacity: .55;
-
-    pointer-events: none;
-}
-
-
-/* ============================================================
-   PATHWAY CANVAS
-============================================================ */
-
-.pathway-interactive-canvas {
-
-    position: relative !important;
-
-    width: 100%;
-
-    height: 560px;
-
-    overflow: hidden;
-
-    margin-top: 1rem;
-
-    border:
-        1px solid #e2e8f0;
-
-    border-radius: 12px;
-
-    background-color: #f8fafc;
-
-    background-image:
-        radial-gradient(
-            #cbd5e1 0.8px,
-            transparent 0.8px
-        );
-
-    background-size: 22px 22px;
-
-    display: block !important;
-
-}
-
-
-/* ============================================================
-   VIEWPORT
-============================================================ */
-
-.pathway-viewport {
-
-    position: absolute;
-
-    inset: 0;
-
-    overflow: hidden;
-
-    cursor: grab;
-
-    touch-action: none;
-
-    user-select: none;
-
-    -webkit-user-select: none;
-
-}
-
-
-.pathway-viewport.is-panning {
-
-    cursor: grabbing;
-
-}
-
-
-/* ============================================================
-   WORLD
-============================================================ */
-
-.pathway-world {
-
-    position: absolute;
-
-    left: 0;
-
-    top: 0;
-
-    width: 3000px;
-
-    height: 2000px;
-
-    transform-origin: 0 0;
-
-    will-change: transform;
-
-}
-
-
-/* ============================================================
-   SVG
-============================================================ */
-
-
-
-
-/* ============================================================
-   NODES
-============================================================ */
-
-.pathway-nodes {
-
-    position: absolute;
-
-    left: 0;
-
-    top: 0;
-
-    width: 3000px;
-
-    height: 2000px;
-
-    z-index: 2;
-
-}
-
-
-/* ============================================================
-   PATHWAY CANVAS CONTROLS
-============================================================ */
-
-.pathway-canvas-controls {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 0.3rem;
-
-    margin-bottom: 0.7rem;
-
-}
-
-
-.pathway-canvas-controls button {
-
-    width: 32px;
-
-    height: 32px;
-
-    padding: 0;
-
-    border:
-        1px solid #cbd5e1;
-
-    border-radius: 6px;
-
-    background: #ffffff;
-
-    color: #475569;
-
-    font-size: 1rem;
-
-    cursor: pointer;
-
-}
-
-
-.pathway-canvas-controls button:hover {
-
-    border-color: #940594;
-
-    color: #940594;
-
-    background: #faf5fa;
-
-}
-
-
-#pathway-zoom-indicator {
-
-    min-width: 48px;
-
-    text-align: center;
-
-    color: #64748b;
-
-    font-size: 0.7rem;
-
-    font-weight: 600;
-
-}
-
-.pathway-world {
-    position: relative;
-}
-
-.pathway-svg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-
-    /*
-     * SVG itself can receive pointer events.
-     * Individual visible lines disable them below.
-     */
-    pointer-events: auto;
-
-    z-index: 1;
-}
-
-.pathway-line {
-    fill: none;
-    stroke: #940594;
-    stroke-width: 2.5;
-    opacity: .7;
-    pointer-events: none;
-}
-
-.pathway-line-hit {
-    fill: none;
-    stroke: transparent;
-    stroke-width: 24px;
-
-    pointer-events: stroke;
-
-    cursor: pointer;
-}
-
-
-.pathway-nodes {
-    position: absolute;
-    inset: 0;
-}
-
-
-
-</style>
+renderCuratedPathways();
+renderChips();
+renderBoard();
+applySideState();
+updatePathwayUI();
+updateCourseStates();
+updateUndoUI();
+setTab(readStorage(KEYS.tab) || "catalogue");
+
+});
+</script>

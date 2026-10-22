@@ -5,7 +5,7 @@ layout: champions
 image: https://images.pexels.com/photos/5124874/pexels-photo-5124874.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 summary: 
 workpackage: "wp4.1"
-status: progress
+status: completed
 person:
   name: Alastair Basden
   role: Director of COSMA

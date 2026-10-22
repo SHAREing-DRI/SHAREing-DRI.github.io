@@ -64,6 +64,8 @@ main:
   - title: "Training & Resources"
     url: /training/
     sublinks:
+      - title: "Learning Pathway Builder"
+        url: /training/external-training-board
       - title: "External Training Catalogue"
         url: /training/external-training-menu
       - title: "Training"
@@ -71,9 +73,11 @@ main:
       - title: "Resources"
         url: /resources/
 
-  - title: "Network"
+  - title: "Community"
     url: /network/
     sublinks:
+      - title: "HPC Champions"
+        url: /champions/hpc-champions
       - title: "Supporters"
         url: /network/supporters
       - title: "Industry"
