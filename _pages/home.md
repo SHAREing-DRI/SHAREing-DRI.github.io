@@ -3,7 +3,6 @@ layout: splash
 permalink: /
 hidden: true
 header:
-  overlay_color: "#5e616c"
   overlay_image: /assets/images/banner-big.png
 ---
 <style>
@@ -198,7 +197,7 @@ header:
 }
 .tl-resource:hover, .tl-resource:focus-within { border-color: var(--purple); }
 .tl-resource-media {
-  height: 160px;               /* adjust to taste */
+  height: 160px;              
   padding: 0;
   overflow: hidden;
   border-bottom: 1px solid var(--tl-border);
