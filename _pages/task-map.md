@@ -927,7 +927,7 @@ body.filter-completed .progress-col {
 
     <div class="column-title green">
       <div class="icon-circle">💡</div>
-      SUGGEST A NEW TASK – Call currently open
+      SUGGEST A NEW TASK – This call closed on 22 September.
     </div>
 
     <div class="flow-card green-card">
@@ -936,7 +936,7 @@ body.filter-completed .progress-col {
         <a href="https://shareing-dri.github.io/about/suggest-a-task">
           Submit your idea for a new task
         </a>
-        that matches one of the Work Package themes <strong> by 22 September </strong>
+        that matches one of the Work Package themes <strong> by 22 September 2026 (now closed) </strong>
       </p>
     </div>
 
@@ -979,7 +979,7 @@ body.filter-completed .progress-col {
 
     <div class="column-title blue">
       <div class="icon-circle">📋</div>
-      PROPOSE A SOLUTION TO AN EXISTING OPEN TASK – Will open on 2 October
+      PROPOSE A SOLUTION TO AN EXISTING OPEN TASK – open until 20 November 2026 at 23:59 (UK time).
     </div>
 
     <div class="flow-card blue-card">
@@ -1003,12 +1003,12 @@ body.filter-completed .progress-col {
       </p>
     </div>
 
-    <div class="deadline-card">
-      <h3>Proposal deadline</h3>
-      <p>
-        This call will open on 2 October and close on 20 November 2026.
-      </p>
-    </div>
+<div class="deadline-card">
+  <h3>Proposal deadline</h3>
+  <p>
+    The call is <strong> open </strong> until 20 November 2026 at 23:59 (UK time).
+  </p>
+</div>
 
   </div>
 

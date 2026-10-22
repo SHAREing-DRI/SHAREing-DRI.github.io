@@ -3,7 +3,7 @@ title: "Definition of Professional Skills for Career Progression - Task 015"
 layout: tasks
 image: assets/images/logo.png
 workpackage: "wp3.3"
-status: open
+status: blocked
 date: 2025-11-01
 ---
 ## Fit to programme

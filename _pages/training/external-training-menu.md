@@ -1,8 +1,9 @@
 ---
 layout: splash
-permalink: /training/external-training-test
+permalink: /training/external-training-menu
 classes: wide
 ---
+
 
 <section class="page-intro">
     <h1>External Training Catalogue</h1>
@@ -15,6 +16,27 @@ classes: wide
         <strong>Disclaimer:</strong> This page is a signposting resource created by the SHAREing project. SHAREing support has been used to curate, organise, and present publicly available training opportunities in a searchable format. The courses listed here are provided by third-party organisations and are not funded, delivered, or maintained by SHAREing unless explicitly stated. Course content, availability, schedules, and registration are the responsibility of the individual providers.
     </div>
 </section>
+
+
+<div class="submit-course-box">
+    <div class="submit-course-content">
+        <span class="submit-course-icon">＋</span>
+
+        <div>
+            <strong>Add your Own Course</strong>
+            <p>Know of a useful training opportunity? Add it to the catalogue.</p>
+   </div>
+ </div>
+
+<button
+    type="button"
+    class="submit-course-button"
+    onclick="window.location.href='https://shareing-dri.github.io/training/suggest-training'"
+>
+    Add your course →
+</button>
+
+</div>
 
 
 <!-- =========================================================
@@ -118,8 +140,216 @@ classes: wide
 
 
 
+<div class="pilot-notice">
+    <span class="pilot-icon">🛠️</span>
+    <div>
+        <strong>We’re still working on it!</strong>
+        <p>
+            This catalogue is currently a pilot, so the user experience and workflow
+            are still being developed. If you come across any problems or have
+            suggestions for how we could improve it, please get in touch - we’d love
+            your feedback.
+        </p>
+    </div>
+</div>
+
 
 <style>
+
+
+
+/* =========================================================
+   PILOT NOTICE
+========================================================= */
+
+.pilot-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    margin-top: 0.8rem;
+    padding: 0.8rem 1rem;
+
+    background: #eef4f8;
+    border: 1px solid #cbdde8;
+    border-left: 4px solid #245f80;
+    border-radius: 10px;
+
+    color: #334155;
+}
+
+.pilot-icon {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+    background: #dcebf3;
+
+    font-size: 0.85rem;
+}
+
+.pilot-notice strong {
+    display: block;
+
+    margin-bottom: 0.2rem;
+
+    color: #0f2a3a;
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+.pilot-notice p {
+    margin: 0;
+
+    color: #475569;
+    font-size: 0.58rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .pilot-notice {
+        padding: 0.75rem;
+    }
+}
+
+
+
+/* =========================================================
+   SUGGEST A COURSE
+========================================================= */
+
+.submit-course-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    margin: 1rem 0 1.5rem;
+    padding: 1rem 1.25rem;
+
+    background: #f3e8f5;
+    border: 1px solid #e5cce8;
+    border-radius: 14px;
+}
+
+.submit-course-content {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+.submit-course-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    background: #421456;
+    color: white;
+
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.submit-course-content strong {
+    display: block;
+    margin-bottom: .15rem;
+
+    color: #421456;
+    font-size: .8rem;
+}
+
+.submit-course-content p {
+    margin: 0;
+
+    color: #475569;
+    font-size: .65rem;
+}
+
+.submit-course-button {
+    flex-shrink: 0;
+
+    padding: .6rem 1rem;
+
+    border: none;
+    border-radius: 999px;
+
+    background: #421456;
+    color: white;
+
+    font-size: .65rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.submit-course-button:hover {
+    background: #68246d;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.submit-course-button:focus-visible {
+    outline: 2px solid #421456;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+
+    .submit-course-box {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: .75rem;
+    }
+
+    .submit-course-button {
+        width: 100%;
+    }
+
+}
+
+
+/* Prevent the page behind the modal from scrolling */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+
+@media (max-width: 600px) {
+
+    .suggest-course-modal {
+        padding: 0;
+    }
+
+    .suggest-course-dialog {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+
+        border-radius: 0;
+    }
+
+    .suggest-course-header {
+        padding: .7rem 1rem;
+    }
+
+}
 
 /* =========================================================
    CALENDAR LEGEND
@@ -489,7 +719,7 @@ classes: wide
 .sidebar-header h3 {
     margin: 0 0 .75rem;
     color: #0f2a3a;
-    font-size:0.6rem;
+    font-size:0.8rem;
 }
 
 .sidebar-action {
@@ -689,7 +919,7 @@ classes: wide
     background: #fff;
     border: 1px solid #e5e7eb;
     border-radius: 18px;
-    padding: 1.25rem;
+    padding: 1rem;
     margin-top: 1rem;
     box-shadow: 0 4px 12px rgba(0,0,0,.05);
 }
@@ -764,16 +994,17 @@ classes: wide
 
 
 #topic-sidebar details {
-    margin-bottom: .4rem;
+    margin-bottom: .2rem;
 }
 
 #topic-sidebar summary {
     cursor: pointer;
     font-weight: 700;
     color: #0f2a3a;
-    padding: 0.1rem;
+    padding: 0.05rem;
     list-style: none;
-    font-size: 0.8rem;
+    font-size: 0.65rem;
+    margin-bottom: 0rem !important;
 }
 
 #topic-sidebar summary::-webkit-details-marker {
@@ -799,20 +1030,20 @@ classes: wide
 
 .topic-sublist {
     list-style: none;
-    margin: .3rem 0 0;
+    margin: .1rem 0 0;
     padding-left: 1rem;
 }
 
 .topic-sublist li {
-    margin: .2rem 0;
+    margin: 0;
 }
 
 .topic-link {
     display: inline-block;
-    padding: .15rem 0;
+    padding: .08rem 0;
     color: #4b5563;
     text-decoration: none;
-    font-size: .8rem;
+    font-size: .6rem;
     font-weight: 500;
     transition: color .2s ease;
 }
@@ -1191,9 +1422,41 @@ classes: wide
 
 
 <script>
-
 const courses = {{ site.data["external-training"] | jsonify }};
+const topicGroups = {{ site.data["training-topics"] | jsonify }};
 
+
+
+const startOfToday = new Date();
+startOfToday.setHours(0, 0, 0, 0);
+
+function isPastCourse(course) {
+
+    if (
+        !course.dates ||
+        ![
+            "Scheduled (online)",
+            "Scheduled (hybrid)",
+            "Scheduled (in-person)"
+        ].includes(course.format)
+    ) {
+        return false;
+    }
+
+    const parsed = parseCourseDate(course.dates);
+
+    // If the date can't be parsed, keep the course visible
+    if (!parsed) {
+        return false;
+    }
+
+    // A course ending today still counts as current
+    return parsed.end < startOfToday;
+
+}
+
+
+const upcomingCourses = courses.filter(course => !isPastCourse(course));
 
 // =============================================================================
 // CONFIGURATION
@@ -1238,42 +1501,6 @@ const formatInfo = {
 };
 
 
-const topicGroups = {
-    "Languages 💬": [
-        "Fortran",
-        "C++",
-        "Julia",
-        "Python"
-    ],
-
-    "Parallelism 🔀": [
-        "OpenMP",
-        "MPI"
-    ],
-
-    "GPU 🎮": [
-        "OpenMP offload",
-        "OpenACC",
-        "CUDA",
-        "HIP"
-    ],
-
-    "Performance 📊": [
-        "Performance Engineering",
-        "Performance Analysis",
-        "Tools"
-    ],
-
-    "Other 📦": [
-        "Containers",
-        "Professional Skills"
-    ],
-
-    "Community 🎉": [
-        "Seminar",
-        "Community"
-    ]
-};
 
 
 // =============================================================================
@@ -1322,12 +1549,11 @@ const knownTopics = new Set(
 // Find tags that are not currently assigned to a group.
 const extraTopics = new Set();
 
-courses.forEach(course => {
+upcomingCourses.forEach(course => {
 
     if (!course.tags) {
         return;
     }
-
     course.tags
         .split(",")
         .map(tag => tag.trim())
@@ -1350,12 +1576,99 @@ topicGroups["Other 📦"].push(
 
 
 // =============================================================================
+// SUGGEST COURSE MODAL
+// =============================================================================
+
+const suggestCourseModal =
+    document.getElementById("suggest-course-modal");
+
+const openSuggestCourseButton =
+    document.getElementById("open-suggest-course");
+
+const closeSuggestCourseButton =
+    document.getElementById("close-suggest-course");
+
+const suggestCourseOverlay =
+    document.getElementById("suggest-course-overlay");
+
+const suggestCourseFrame =
+    document.getElementById("suggest-course-frame");
+
+
+function openSuggestCourseModal() {
+
+    suggestCourseFrame.src = suggestCourseUrl;
+
+    suggestCourseModal.classList.add("show");
+    suggestCourseModal.setAttribute("aria-hidden", "false");
+
+    document.body.classList.add("modal-open");
+
+    closeSuggestCourseButton.focus();
+}
+
+
+function closeSuggestCourseModal() {
+
+    suggestCourseModal.classList.remove("show");
+    suggestCourseModal.setAttribute("aria-hidden", "true");
+
+    document.body.classList.remove("modal-open");
+
+    // Remove the iframe when closed so the form starts cleanly
+    // next time, while localStorage still preserves the draft.
+    suggestCourseFrame.src = "";
+}
+
+
+if (openSuggestCourseButton) {
+
+    openSuggestCourseButton.addEventListener(
+        "click",
+        openSuggestCourseModal
+    );
+
+}
+
+
+if (closeSuggestCourseButton) {
+
+    closeSuggestCourseButton.addEventListener(
+        "click",
+        closeSuggestCourseModal
+    );
+
+}
+
+
+if (suggestCourseOverlay) {
+
+    suggestCourseOverlay.addEventListener(
+        "click",
+        closeSuggestCourseModal
+    );
+
+}
+
+
+document.addEventListener("keydown", event => {
+
+    if (
+        event.key === "Escape" &&
+        suggestCourseModal.classList.contains("show")
+    ) {
+        closeSuggestCourseModal();
+    }
+
+});
+
+// =============================================================================
 // GROUP COURSES BY TOPIC
 // =============================================================================
 
 const groupedCourses = {};
 
-courses.forEach(course => {
+upcomingCourses.forEach(course => {
 
     const topics = course.tags
         ? course.tags

@@ -14,6 +14,43 @@ layout: splash
   --brand-blue: #002A41;
 }
 
+
+.funding-banner {
+  background: linear-gradient(90deg, #68246d, #940594);
+  color: white;
+  text-align: center;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.funding-banner a {
+  color: white;
+  font-weight: 700;
+  margin-left: 10px;
+  text-decoration: underline;
+  font-size: 0.7rem;
+}
+
+.funding-banner a:hover {
+  opacity: 0.85;
+}
+
+.parallax-hero-funding {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .parallax-hero {
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -258,6 +295,13 @@ layout: splash
   </div>
 </section>
 
+<section class="parallax-hero-funding">
+<div class="funding-banner">
+  ⏰ This call closed on <strong>22 September 2026</strong>. The approved tasks are now available on the<a href="https://shareing-dri.github.io/task-map/">Task Map →</a> A new call for task suggestions is planned for early 2027.
+</div>
+</section>
+
+
 <br>
 
 <section class="section">
@@ -285,10 +329,7 @@ layout: splash
 </div>
 
 <div class="notice-box">
-  <strong>📅 Submit your task suggestion by 22 September 2026</strong>
-  <br>
-  Have an idea for a new task that fits within one of the SHAREing Work Package themes?
-  Submit your suggestion by <strong>22 September</strong> for consideration in this funding round.
+  <strong>📅 Submit your task suggestion by 22 September 2026</strong> (now closed)
 </div>
 
 <div class="notice-box">
@@ -371,6 +412,12 @@ layout: splash
       <h4>WP3 <br> Professional Skills Training</h4>
       <a href="/workpackages/workpackage-3/">WP3.3 - Develop e-learning content</a>
       <a href="/workpackages/workpackage-3/">WP3.4 - Organise training events</a>
+    </div>
+
+    <div class="wp-card">
+      <h4>WP4 <br> Outreach, stakeholder engagement and capacity building</h4>
+      <a href="/workpackages/workpackage-4/">WP4.1 - Liase with compute centres, RTP communities, and lobby groups.</a>
+      <a href="/workpackages/workpackage-4/">WP4.3 - Marketing and brand-building in collaboration with the knowledge exchange DRI grant. Presence at international and UK conferences</a>
     </div>
     
     
