@@ -487,6 +487,27 @@ background: linear-gradient(to top, #68246D, rgba(104, 36, 109, 0.45));
     <p>Register for our upcoming training sessions and workshops.</p>
   </div>
 
+
+  <article class="tl-event">
+    <time class="tl-date" datetime="2026-12-15/2026-12-17">
+      <span class="tl-date-days">7-8</span>
+      <span class="tl-date-month">Dec 2026</span>
+    </time>
+
+    <div class="tl-event-content">
+      <h3>Building a RAG AI Assistant for Your Research</h3>
+      <p>
+        The Institute for Data Science (IDAS) at Durham University is hosting a two-day, hands-on workshop designed to help researchers from any discipline understand how large language models (LLMs) work and learn how to build local LLM-powered tools using their own research data.
+      </p>
+      <a href="https://www.durham.ac.uk/research/institutes-and-centres/data-science/events/upcoming-events/workshop--building-a-rag-ai-assistant-for-your-research/"
+         class="tl-button">
+        Register to attend
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </article>
+
+
   <article class="tl-event">
     <time class="tl-date" datetime="2026-12-15/2026-12-17">
       <span class="tl-date-days">15-17</span>
