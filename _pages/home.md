@@ -267,6 +267,23 @@ header:
 <section class="section-wide">
 <h2 class="home-title">Latest news</h2>
 <div class="news-grid news-grid--wrap">
+
+
+<div class="news-card">
+  <span class="news-date">October 2026</span>
+  <h3>New round of Open Meetings</h3>
+  <p>
+    A new round of Open Meetings is coming up to discuss suggested tasks and gather feedback from the SHAREing community. Join the discussions for:<br>
+    - <a href="https://shareing-dri.github.io/events/202611-WP1-webinar/">WP1: Performance Assessment</a> on 24 November, 3 - 4pm <br>
+    - <a href="https://shareing-dri.github.io/events/202612-WP2-webinar/">WP2: Technical Training</a> on 17 December, 3 - 4pm; <br>
+    - <a href="https://shareing-dri.github.io/events/202612-WP3-webinar/">WP3: Professional Skills Training</a> on 10 December, 3 - 4pm.<br>
+    Have an idea for a new task? Submit your suggestion <a href="https://shareing-dri.github.io/about/suggest-a-task">here</a> ahead of the relevant meeting.
+  </p>
+</div>
+
+
+
+
 <div class="news-card">
 <span class="news-date">October 2026</span>
 <h3>Next round of SHAREing's Flexible Funds is now open</h3>
@@ -277,20 +294,27 @@ header:
 <h3>Our latest technical blog: getting started with benchmarking</h3>
 <p>Following his experiences as one of the RSEs setting up SHAREing's performance assessment service, Thomas Flynn has written a blog to help developers get started with effective code benchmarking. See Thomas' blog in full <a href="/blogpost/benchmarking-practice/">here</a>.</p>
 </div>
+
+</div>
+
+
+<details class="past-news">
+<summary>Past news</summary>
+<div class="news-grid news-grid--wrap">
+
 <div class="news-card">
 <span class="news-date">September 2026</span>
 <h3>SHAREing receives a poster prize at RSECon26!</h3>
 <p>We are delighted to share that SHAREing has won one of the poster prizes at RSECon26. Congratulations to the whole SHAREing team on this fantastic achievement, and a big thank you to the RSECon26 organising team for putting together such a great conference. <a href="https://zenodo.org/records/22129792">See the poster here</a>.</p>
 </div>
-</div>
-<details class="past-news">
-<summary>Past news</summary>
-<div class="news-grid news-grid--wrap">
+
+
 <div class="news-card">
 <span class="news-date">September 2026</span>
 <h3>Suggest a new SHAREing task</h3>
 <p>The next SHAREing Flexible Fund round is now open for new task suggestions. Have an idea that fits one of our Work Package themes? <strong>Submit your suggestion by 22 September 2026</strong> to have it considered for the next funding call, which will open on <strong>2 October</strong> and close on <strong>20 November 2026</strong>. Find out more and <a href="/about/suggest-a-task">suggest a new task here</a>.</p>
 </div>
+
 <div class="news-card">
 <span class="news-date">September 2026</span>
 <h3>New SHAREing tasks funded</h3>
