@@ -57,7 +57,7 @@ layout: splash
   margin-right: calc(50% - 50vw);
   height: 40vh;
   background-image: url('/assets/images/ciuk2025.JPEG');
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -195,10 +195,12 @@ layout: splash
 
 .notice-box {
   background: #fff;
+  border: 1px solid var(--brand-purple);
   border-left: 6px solid var(--brand-purple);
   padding: 1.5rem;
   border-radius: 10px;
   margin-top: 1.5rem;
+  
 }
 
 
@@ -295,12 +297,13 @@ layout: splash
   </div>
 </section>
 
+<!--
 <section class="parallax-hero-funding">
 <div class="funding-banner">
   ⏰ This call closed on <strong>22 September 2026</strong>. The approved tasks are now available on the<a href="https://shareing-dri.github.io/task-map/">Task Map →</a> A new call for task suggestions is planned for early 2027.
 </div>
 </section>
-
+-->
 
 <br>
 
@@ -328,9 +331,11 @@ layout: splash
   </a>.
 </div>
 
+<!--
 <div class="notice-box">
   <strong>📅 Submit your task suggestion by 22 September 2026</strong> (now closed)
 </div>
+-->
 
 <div class="notice-box">
   <strong>💬 What happens next?</strong>
@@ -340,16 +345,16 @@ layout: splash
   
   <div class="meeting-boxes">
 
-    <a class="wp-btn" href="https://shareing-dri.github.io/events/202609-WP1-webinar/">
-      <strong>WP1</strong> 3pm, 24 Sept 2026 <br>
+    <a class="wp-btn" href="https://shareing-dri.github.io/events/202611-WP1-webinar/">
+      <strong>WP1</strong> 3pm - 4pm, 24 Nov 2026 <br>
     </a>
 
-    <a class="wp-btn" href="https://shareing-dri.github.io/events/202609-WP2-webinar/">
-      <strong>WP2</strong> 3pm, 25 Sept 2026 <br>
+    <a class="wp-btn" href="https://shareing-dri.github.io/events/202612-WP2-webinar/">
+      <strong>WP2</strong> 3pm - 4pm, 17 Dec 2026 <br>
     </a>
 
-    <a class="wp-btn" href="https://shareing-dri.github.io/events/202609-WP3-webinar/">
-      <strong>WP3</strong> 3pm, 23 Sept 2026 <br>
+    <a class="wp-btn" href="https://shareing-dri.github.io/events/202612-WP3-webinar/">
+      <strong>WP3</strong> 3pm - 4pm, 10 Dec 2026 <br>
     </a>
 
   </div>
@@ -359,8 +364,7 @@ layout: splash
   <strong>✅ If your task is approved</strong>
   <br>
   The task will become an <strong>open, funded task</strong> and will be added to the
-  SHAREing Task Map. From <strong>2 October 2026</strong>, contributors will be able
-  to submit proposals to carry out the approved tasks.
+  SHAREing Task Map.
 </div>
 
 <div class="notice-box">
