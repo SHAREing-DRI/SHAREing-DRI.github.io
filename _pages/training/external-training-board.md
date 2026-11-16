@@ -147,7 +147,21 @@ classes: wide
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-
+<div id="mobile-notice" class="mobile-notice" role="dialog" aria-modal="true" aria-labelledby="mobile-notice-title" hidden>
+    <div class="mobile-notice-backdrop"></div>
+    <div class="mobile-notice-panel">
+        <div class="mobile-notice-icon" aria-hidden="true">💻</div>
+        <h2 id="mobile-notice-title">Best viewed on a larger screen</h2>
+        <p>
+            The Learning Pathway Builder includes an interactive pathway map, drag-and-drop
+            and a calendar, which work best on a laptop or desktop computer.
+            You can still browse the catalogue on your phone, but some features
+            may be hard to use on a small screen.
+        </p>
+        <p class="mobile-notice-tip">Tip: open this page on a laptop or desktop for the full experience.</p>
+        <button type="button" id="mobile-notice-close" class="cat-btn cat-btn-primary">Continue on my phone</button>
+    </div>
+</div>
 </div>
 
 <style>
@@ -733,6 +747,24 @@ classes: wide
     .cat .row-when { grid-column: 1; grid-row: 2; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
     .cat .row .add-btn { grid-column: 2; grid-row: 1 / span 2; align-self: start; }
 }
+
+/* ---------- Mobile notice ---------- */
+.cat .mobile-notice { position: fixed; inset: 0; z-index: 1000001; display: flex; align-items: center; justify-content: center; padding: 20px; margin-top:2rem !important; }
+.cat .mobile-notice-backdrop { position: absolute; inset: 0; background: rgba(36,56,85,.6); }
+.cat .mobile-notice-panel {
+    position: relative; width: 100%; max-width: 420px; padding: 26px 22px 22px;
+    border-radius: 14px; background: #fff; text-align: center;
+    box-shadow: 0 24px 60px rgba(0,0,0,.35);
+}
+.cat .mobile-notice-icon {
+    display: flex; align-items: center; justify-content: center;
+    width: 56px; height: 56px; margin: 0 auto 12px;
+    border-radius: 50%; background: var(--tint); font-size: 28px;
+}
+.cat .mobile-notice-panel h2 { margin-bottom: 10px; font-size: 20px; line-height: 1.3; font-weight: 700; color: var(--deep); }
+.cat .mobile-notice-panel p { margin-bottom: 10px; color: var(--ink); font-size: 14px; line-height: 1.55; }
+.cat .mobile-notice-panel .mobile-notice-tip { color: var(--brand-dark); font-weight: 600; }
+.cat .mobile-notice-panel .cat-btn { width: 100%; margin-top: 8px; height: 42px; }
 </style>
 
 <script>
@@ -3245,6 +3277,37 @@ calModal.addEventListener("keydown", function (event) {
 
 $("cal-count").textContent = calEvents.length;
 if (!calEvents.length) { $("calendar-open").style.display = "none"; }
+
+/* ============================================================
+   MOBILE NOTICE
+   ============================================================ */
+
+(function () {
+
+    const notice = $("mobile-notice");
+    const closeBtn = $("mobile-notice-close");
+    const KEY = "shareing-training-mobile-notice";
+
+    const isPhone = () => window.matchMedia("(max-width: 720px)").matches;
+    const seen = () => { try { return sessionStorage.getItem(KEY) === "1"; } catch (e) { return false; } };
+
+    function closeNotice() {
+        notice.hidden = true;
+        document.body.style.overflow = "";
+        try { sessionStorage.setItem(KEY, "1"); } catch (e) { /* ignore */ }
+    }
+
+    if (isPhone() && !seen()) {
+        notice.hidden = false;
+        document.body.style.overflow = "hidden";
+        closeBtn.focus();
+    }
+
+    closeBtn.addEventListener("click", closeNotice);
+    notice.querySelector(".mobile-notice-backdrop").addEventListener("click", closeNotice);
+    notice.addEventListener("keydown", function (e) { if (e.key === "Escape") { closeNotice(); } });
+
+})();
 
 /* ============================================================
    INITIALISE
