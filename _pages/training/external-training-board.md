@@ -749,7 +749,7 @@ classes: wide
 }
 
 /* ---------- Mobile notice ---------- */
-.cat .mobile-notice { position: fixed; inset: 0; z-index: 1000001; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.cat .mobile-notice { position: fixed; inset: 0; z-index: 1000001; display: flex; align-items: center; justify-content: center; padding: 20px; margin-top:2rem !important; }
 .cat .mobile-notice-backdrop { position: absolute; inset: 0; background: rgba(36,56,85,.6); }
 .cat .mobile-notice-panel {
     position: relative; width: 100%; max-width: 420px; padding: 26px 22px 22px;
