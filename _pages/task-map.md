@@ -6,6 +6,10 @@ sidebar: false
 ---
 
 <style>
+  .deadline-card.closed {
+  background: linear-gradient(135deg, #475569, #64748b);
+}
+
 .shareing-diagram {
   font-family: system-ui, sans-serif;
   background: #f8fafc;
@@ -915,10 +919,10 @@ body.filter-completed .progress-col {
 <div class="collapsible-content">
   <div class="shareing-diagram">
 
-  <p class="intro">
-    SHAREing funds people to carry out solutions to important challenges.
-    You can get involved in two ways: <strong> propose a solution </strong> to an existing open task or <strong> suggest a new task</strong>. <br>
-  </p>
+<p class="intro">
+  SHAREing funds people to carry out solutions to important challenges.
+  There were two ways to get involved: <strong>suggest a new task</strong> or <strong>propose a solution</strong> to an existing open task. Both calls are now closed for this round. Details of future calls will be posted here.
+</p>
 
 <div class="diagram-grid">
 
@@ -978,8 +982,8 @@ body.filter-completed .progress-col {
   <div class="diagram-column">
 
     <div class="column-title blue">
-      <div class="icon-circle">📋</div>
-      PROPOSE A SOLUTION TO AN EXISTING OPEN TASK – open until 20 November 2026 at 23:59 (UK time).
+<div class="icon-circle">📋</div>
+PROPOSE A SOLUTION TO AN EXISTING OPEN TASK – This call closed on 20 November 2026 at 23:59 (UK time).
     </div>
 
     <div class="flow-card blue-card">
@@ -996,17 +1000,17 @@ body.filter-completed .progress-col {
 
     </div>
 
-    <div class="flow-card blue-card">
-      <h4>Submit your proposal</h4>
-      <p>
-        Propose your solution to an existing open task.
-      </p>
-    </div>
+<div class="flow-card blue-card">
+  <h4>Submit your proposal</h4>
+  <p>
+    Proposals for this round are no longer being accepted.
+  </p>
+</div>
 
-<div class="deadline-card">
+<div class="deadline-card closed">
   <h3>Proposal deadline</h3>
   <p>
-    The call is <strong> open </strong> until 20 November 2026 at 23:59 (UK time).
+    The call <strong>closed</strong> on 20 November 2026 at 23:59 (UK time).
   </p>
 </div>
 

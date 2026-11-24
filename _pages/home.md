@@ -247,7 +247,7 @@ header:
 <div class="home">
 <section class="banner banner--champions">
 <div class="banner-text">
-<span class="banner-label">Applications now open</span>
+<span class="banner-label">Applications closed</span>
 <h2>Become a SHAREing HPC Champion</h2>
 <p>We are launching the HPC Champions programme, and applications are now open until <strong>23 November 2026</strong>. Find out more about the programme, explore the learning journey and apply.</p>
 </div>
