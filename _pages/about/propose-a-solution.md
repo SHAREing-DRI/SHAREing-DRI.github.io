@@ -266,11 +266,9 @@ layout: splash
 
 <section class="notice-box">
 
+<strong>📅 Call closed</strong><br>
 
-<strong>📅 Application deadline</strong><br>
-
-   The latest call for proposals to address open tasks opened on 2 October 2026 and <strong> closes on 20 November 2026 at 23:59 (UK time)</strong>.
-   This call features approved tasks that were suggested before 22 September 2026.
+   The latest call for proposals to address open tasks opened on 2 October 2026 and <strong>closed on 20 November 2026 at 23:59 (UK time)</strong>.
 
 </section>
 
@@ -306,7 +304,8 @@ layout: splash
 
 
     <strong>📅 Application Deadlines</strong><br>
-   The latest call for proposals to address open tasks opened on 2 October 2026 and <strong> closes on 20 November 2026 at 23:59 (UK time)</strong>.
+  
+   The latest call for proposals to address open tasks opened on 2 October 2026 and <strong>closed on 20 November 2026 at 23:59 (UK time)</strong>.
   
      </div>
 
@@ -396,7 +395,7 @@ layout: splash
   <div class="cta-buttons">
     <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUMU1RS1hPWjFKVU44UUk1VVZKNTA2MVE2Sy4u"
        class="cta-primary">
-       Apply to Deliver an Open Task (Online Form)
+       Applications closed
     </a>
     </div>
 <div class="cta-buttons">

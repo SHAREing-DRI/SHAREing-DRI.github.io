@@ -42,13 +42,23 @@ champions_pathway:
 <!-- ================= HERO ================= -->
 <header class="hc-hero">
   <div class="hero-main">
-    <span class="hero-kicker">Call for applications</span>
+ <!--    <span class="hero-kicker">Call for applications</span>
     <h1>HPC Champions: Performance Analysis</h1>
     <p>Join the first cohort of dRTPs building expertise in performance analysis. Travel and accommodation are funded for the VI-HPS workshop in Durham.</p>
     <div class="hero-actions">
       <a class="hc-btn hc-btn-light" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUNzlGU1lFNVRGV0JDMjBNTzkyTzg4T1dLUy4u">Apply now</a>
       <a class="hc-btn hc-btn-ghost" href="#journey">See the learning journey</a>
-    </div>
+    </div> -->
+
+<span class="hero-kicker">Applications closed</span>
+<h1>HPC Champions: Performance Analysis</h1>
+<p>The call for the first cohort of dRTPs closed on 23 November 2026. Thank you to everyone who applied. Applicants will hear from us by 14 December. You can still follow the learning journey below at your own pace.</p>
+<div class="hero-actions">
+  <a class="hc-btn hc-btn-light" href="#journey">See the learning journey</a>
+</div>
+
+
+
   </div>
   <dl class="hero-facts">
     <div><dt>Apply by</dt><dd>23 Nov 2026</dd></div>
@@ -194,33 +204,35 @@ champions_pathway:
 
 <!-- ================= APPLY ================= -->
 <section class="hc-section" id="apply">
-  <h2>Apply</h2>
-  <div class="hc-split hc-split-even-apply">
+  <h2>Applications</h2>
+  <p class="hc-key">The call for applications closed on Monday 23 November 2026 at 23:59 UK time. We are no longer accepting applications for this cohort.</p>
+
+  <div class="hc-split hc-split-even-apply" style="margin-top: 24px;">
     <div>
-      <h3 class="hc-h3">Who should apply?</h3>
-      <p class="hc-sub">You do not need to be an expert. The learning journey is designed to bring you up to speed.</p>
+      <h3 class="hc-h3">Who the call was for</h3>
+      <p class="hc-sub">You did not need to be an expert. The learning journey is designed to bring you up to speed.</p>
       <ul class="hc-checks">
-        <li>You are a dRTP interested in performance analysis of research software.</li>
-        <li>You work with, or are preparing to work with, HPC systems.</li>
-        <li>You can attend the VI-HPS workshop in Durham, 17-20 May 2027.</li>
-        <li>You want to engage with, and contribute to, a cohort of peers.</li>
+        <li>dRTPs interested in performance analysis of research software.</li>
+        <li>People who work with, or are preparing to work with, HPC systems.</li>
+        <li>People able to attend the VI-HPS workshop in Durham, 17-20 May 2027.</li>
+        <li>People keen to engage with, and contribute to, a cohort of peers.</li>
       </ul>
     </div>
     <div>
       <h3 class="hc-h3">Key dates</h3>
       <ol class="hc-timeline">
-        <li><span>Tue 20 Oct 2026</span><strong>Applications open</strong></li>
-        <li><span>Mon 23 Nov 2026, 23:59 UK</span><strong>Applications close</strong></li>
-        <li><span>By Mon 14 Dec 2026</span><strong>You hear from us</strong><em>Then join the online kickoff and begin the learning journey.</em></li>
+        <li><span>Tue 20 Oct 2026</span><strong>Applications opened</strong></li>
+        <li><span>Mon 23 Nov 2026, 23:59 UK</span><strong>Applications closed</strong></li>
+        <li><span>By Mon 14 Dec 2026</span><strong>Applicants hear from us</strong><em>Successful applicants then join the online kickoff and begin the learning journey.</em></li>
       </ol>
     </div>
   </div>
+
   <div class="hc-cta">
     <div>
-      <h3>Ready to become a Champion?</h3>
-      <p>Know a colleague who would benefit? Please share this call. Questions? Visit our <a href="{{ site.baseurl }}/contact/">Contact</a> page.</p>
+      <h3>Thank you for your interest</h3>
+      <p>Questions about the programme or future calls? Visit our <a href="{{ site.baseurl }}/contact/">Contact</a> page.</p>
     </div>
-    <a class="hc-btn hc-btn-light" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlBhRpzyeDrFBkd8HIFx_xpdUNzlGU1lFNVRGV0JDMjBNTzkyTzg4T1dLUy4u">Apply now</a>
   </div>
 </section>
 
