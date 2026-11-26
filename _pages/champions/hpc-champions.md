@@ -8,33 +8,31 @@ champions_pathway:
     note: "Command-line and shell essentials."
     urls:
       - "https://librarycarpentry.org/lc-shell/"
-  - topic: "Introduction to HPC"
-    note: "What HPC systems are and how to use them."
+  - topic: "Introduction to SLURM"
     urls:
-      - "https://www.archer2.ac.uk/training/courses/240000-intro-hpc-self-service/"
+      - "https://training-academy.dirac.ac.uk/course/view.php?id=13"
   - topic: "Fundamentals of HPC"
-    note: "The core concepts that underpin performance."
     urls:
-      - "https://shareing-dri.github.io/hpc-concepts-course/"
+      - "https://shareing-dri.github.io/hpc-foundations/"
   - topic: "Scientific Programming in C/C++"
-    note: "Later topics apply equally to Fortran users."
     urls:
       - "https://training-academy.dirac.ac.uk/enrol/index.php?id=23"
-  - topic: "Parallelism: MPI and OpenMP"
-    note: "Distributed- and shared-memory programming."
+  - topic: "Introduction to MPI and Introduction to OpenMP"
     urls:
-      - "https://www.archer2.ac.uk/training/courses/210000-mpi-self-service/"
-      - "https://www.archer2.ac.uk/training/courses/210000-openmp-self-service/"
+      - "https://training-academy.dirac.ac.uk/course/view.php?id=14"
+      - "https://training-academy.dirac.ac.uk/course/view.php?id=15"
   - topic: "Refresher: Fundamentals of HPC"
     kind: optional
     note: "Consolidate your knowledge before the workshop."
     urls:
-      - "https://shareing-dri.github.io/hpc-concepts-course/"
+      - "https://shareing-dri.github.io/hpc-foundations/"
   - topic: "VI-HPS Workshop, Durham"
     kind: final
     note: "Put it all into practice with leading performance analysis tools."
     urls:
       - "https://www.vi-hps.org/training/tws/tuning-workshop-series.html"
+
+
 ---
 
 <div class="hc" id="hc" markdown="0">

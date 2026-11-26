@@ -38,17 +38,17 @@
     - urls:
         - "https://librarycarpentry.org/lc-shell/"
     - urls:
-        - "https://www.archer2.ac.uk/training/courses/240000-intro-hpc-self-service/"
+        - "https://training-academy.dirac.ac.uk/course/view.php?id=13"
     - urls:
-        - "https://shareing-dri.github.io/hpc-concepts-course/"
+        - "https://shareing-dri.github.io/hpc-foundations/"
     - urls:
         - "https://training-academy.dirac.ac.uk/enrol/index.php?id=23"
     - urls:
-        - "https://www.archer2.ac.uk/training/courses/210000-mpi-self-service/"
-        - "https://www.archer2.ac.uk/training/courses/210000-openmp-self-service/"
+        - "https://training-academy.dirac.ac.uk/course/view.php?id=14"
+        - "https://training-academy.dirac.ac.uk/course/view.php?id=15"
     - kind: optional
       urls:
-        - "https://shareing-dri.github.io/hpc-concepts-course/"
+        - "https://shareing-dri.github.io/hpc-foundations/"
     - kind: final
       urls:
         - "https://www.vi-hps.org/training/tws/tuning-workshop-series.html"

@@ -1,0 +1,12 @@
+title,organisation,format,tags,dates,location,url
+Message Passing programming with MPI,EPCC/ARCHER2,Scheduled (in-person),MPI,9-10 September 2026,Durham,https://www.archer2.ac.uk/training/courses/260909-mpi/
+Running GeoChemFoam on HPC: From Micro-CT Images to Remote Visualisation,EPCC/ARCHER2,Scheduled (online),Other,16 September 2026,Online,https://www.archer2.ac.uk/training/courses/260916-geochemfoam-vt/
+Message-Passing with MPI,EPCC/ARCHER2,Online (self-service),MPI,Self-paced,Online,https://www.archer2.ac.uk/training/courses/210000-mpi-self-service/
+# Hands-on Introduction to HPC,EPCC/ARCHER2,Online (self-service),Intro to HPC,Self-paced,Online,https://www.archer2.ac.uk/training/courses/240000-intro-hpc-self-service/
+Shared Memory Programming with OpenMP,EPCC/ARCHER2,Online (self-service),OpenMP,Self-paced,Online,https://www.archer2.ac.uk/training/courses/210000-openmp-self-service/
+Green software use on HPC,EPCC,Scheduled (in-person),Other,2 October 2026,University of Cambridge,https://www.archer2.ac.uk/training/courses/261002-green-computing/
+Data Analysis and Visualisation in Python,ARCHER2,Scheduled (online),Python,28 - 29 September 2026 09:30 - 16:30,Online,https://www.archer2.ac.uk/training/courses/260928-analysis-visualisation-python/
+GPU programming using OpenMP,ARCHER2,Scheduled (online),OpenMP offload,"6, 8, 13, 15 and 20 October 2026 10:00 - 12:00",Online,https://www.archer2.ac.uk/training/courses/261006-gpu-openmp/
+Transferring data from ARCHER2,ARCHER2,Scheduled (online),Other,Wednesday 7th October 2026 15:00 - 16:00,Online,https://www.archer2.ac.uk/training/courses/261007-archer2-data-transfer-vt/
+Containers for Reproducible Research: Introduction to Podman and Apptainer,ARCHER2,Scheduled (in person),Containers,7 October 2026 09:30 - 16:00,"SALC 10, Level 5, Sherfield Building, Imperial College London",https://www.archer2.ac.uk/training/courses/261007-containers/
+Modern C++ for Computational Scientists,ARCHER2,Scheduled (online),C/C++,14 - 16 October 2026 09:30 - 16:30,Online,https://www.archer2.ac.uk/training/courses/261014-modern-c/
