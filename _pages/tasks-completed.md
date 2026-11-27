@@ -167,8 +167,9 @@ If you are interested in contributing similar work, please explore our current <
 <section class="section-wide">
   <div class="tasks-grid">
 
-    {% for task in site.tasks %}
-      {% if task.status == "completed" %}
+    {% assign completed_tasks = site.tasks | where: "status", "completed" | sort: "date" | reverse %}
+
+    {% for task in completed_tasks %}
 
       <a href="{{ task.url }}" class="task-card">
 
@@ -181,9 +182,6 @@ If you are interested in contributing similar work, please explore our current <
         {% endif %}
 
         <div class="task-content">
-        
-
-
 
           <p class="wp">{{ task.workpackage }}</p>
 
@@ -221,7 +219,6 @@ If you are interested in contributing similar work, please explore our current <
 
       </a>
 
-      {% endif %}
     {% endfor %}
 
   </div>
